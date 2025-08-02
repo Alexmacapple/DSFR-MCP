@@ -5,6 +5,25 @@ Tous les changements notables de ce projet seront documentés dans ce fichier.
 Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/),
 et ce projet adhère au [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2024-08-03
+
+### 🐛 Corrections
+
+#### Corrigé
+- **Compatibilité MCP** : Suppression de tous les console.log/error qui corrompaient le protocole JSON-RPC
+- **Caractères spéciaux** : Nettoyage des caractères problématiques (®, ™, ©) dans 37 fichiers markdown
+- **Emojis** : Remplacement de tous les emojis par du texte simple dans les services
+- **Parser silencieux** : Création d'une version silencieuse du parser sans logs
+- **Tests** : Installation de jest-junit manquante pour les tests
+
+#### Ajouté
+- Script `clean-special-chars.js` pour nettoyer automatiquement les caractères spéciaux
+- Version silencieuse du parser DSFR (`dsfr-source-parser-silent.js`)
+
+#### Technique
+- Le serveur renvoie maintenant uniquement du JSON valide sans pollution stdout/stderr
+- Compatibilité totale avec le protocole MCP de Claude Desktop
+
 ## [1.0.0] - 2024-08-02
 
 ### 🎉 Version initiale
