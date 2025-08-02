@@ -25,4 +25,4 @@ DSFR v1.14.0
 ###
 [Télécharger le document lorem ipsum sit dolores amet
 
-JPG – 61,88 ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
+JPG - 61,88 ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)

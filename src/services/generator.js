@@ -1,5 +1,5 @@
 // Service de génération de composants et thèmes DSFR
-const DSFRSourceParser = require('./dsfr-source-parser');
+const DSFRSourceParser = require('./dsfr-source-parser-silent');
 const config = require('../config');
 
 class GeneratorService {
@@ -24,7 +24,7 @@ class GeneratorService {
       return {
         content: [{
           type: 'text',
-          text: `❌ Composant "${component_type}" non trouvé. Utilisez "search_dsfr_components" pour voir les composants disponibles.`
+          text: `Composant "${component_type}" non trouvé. Utilisez "search_dsfr_components" pour voir les composants disponibles.`
         }]
       };
     }
@@ -48,7 +48,7 @@ class GeneratorService {
         return {
           content: [{
             type: 'text',
-            text: `❌ Framework "${framework}" non supporté.`
+            text: `Framework "${framework}" non supporté.`
           }]
         };
     }
@@ -289,7 +289,7 @@ class GeneratorService {
         return {
           content: [{
             type: 'text',
-            text: `❌ Framework cible "${target_framework}" non supporté.`
+            text: `Framework cible "${target_framework}" non supporté.`
           }]
         };
     }

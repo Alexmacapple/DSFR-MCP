@@ -25,7 +25,7 @@ Le package core est utilisé comme fondation du Design System, il contient plusi
 ### Typographie
 
 
-Les typographies Marianne® et Spectral sont les typographies officielles de la charte de l'État. Leur usage crée une cohérence entre les interfaces et offre une expérience positive à l’utilisateur. Leur respect renforce également la reconnaissance de la parole de l’État.
+Les typographies Marianne(R) et Spectral sont les typographies officielles de la charte de l'État. Leur usage crée une cohérence entre les interfaces et offre une expérience positive à l’utilisateur. Leur respect renforce également la reconnaissance de la parole de l’État.
 
 
 ### Icônes
@@ -180,7 +180,7 @@ const linkClass = 'fr-raw-link';
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 maxZoom: 19,
 attribution:
-'© <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>',
+'(C) <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>',
 }).addTo(map);
 
 L.popup({ closeButton: false })

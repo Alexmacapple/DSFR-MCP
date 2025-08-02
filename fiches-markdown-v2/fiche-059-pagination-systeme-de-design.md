@@ -106,7 +106,7 @@ Page précédente
 
 -
 
-…
+...
 
 
 -
@@ -157,7 +157,7 @@ Page précédente
 </li>
 <li>
 <span class="fr-pagination__link fr-hidden fr-unhidden-lg" id="pagination-6218">
-…
+...
 </span>
 </li>
 <li>
@@ -209,7 +209,7 @@ Dernière page
 
 -
 
-…
+...
 
 
 -
@@ -260,7 +260,7 @@ Page précédente
 </li>
 <li>
 <span class="fr-pagination__link fr-hidden fr-unhidden-lg" id="pagination-6241">
-…
+...
 </span>
 </li>
 <li>
@@ -312,7 +312,7 @@ Dernière page
 
 -
 
-…
+...
 
 
 -
@@ -363,7 +363,7 @@ Page précédente
 </li>
 <li>
 <span class="fr-pagination__link fr-hidden fr-unhidden-lg" id="pagination-6264">
-…
+...
 </span>
 </li>
 <li>

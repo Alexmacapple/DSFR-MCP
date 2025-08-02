@@ -37,7 +37,7 @@ Pour support des versions précédentes
 ####
 
 
-Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore…
+Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...
 
 
 Détail
@@ -54,7 +54,7 @@ Extrait de code
 <h4 class="fr-card__title">
 <a href="#" class="fr-card__link">Qu’est-ce que le Pass Culture et comment l’obtenir ?</a>
 </h4>
-<p class="fr-card__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore…</p>
+<p class="fr-card__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
 <p class="fr-card__detail">Détail</p>
 </div>
 </div>
@@ -68,7 +68,7 @@ Extrait de code
 ####
 
 
-Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore…
+Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...
 
 
 Détail
@@ -88,7 +88,7 @@ Extrait de code
 <h4 class="fr-card__title">
 <a href="#" class="fr-card__link">Qu’est-ce que le Pass Culture et comment l’obtenir ?</a>
 </h4>
-<p class="fr-card__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore…</p>
+<p class="fr-card__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
 <p class="fr-card__detail">Détail</p>
 </div>
 <div class="fr-card__img">
@@ -106,7 +106,7 @@ Extrait de code
 ####
 
 
-Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore…
+Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...
 
 
 ![no alt text](../../../../example/img/placeholder.16x9.png)
@@ -123,7 +123,7 @@ Extrait de code
 <h4 class="fr-card__title">
 <a href="#" class="fr-card__link">Qu’est-ce que le Pass Culture et comment l’obtenir ?</a>
 </h4>
-<p class="fr-card__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore…</p>
+<p class="fr-card__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
 </div>
 <div class="fr-card__img">
 <img class="fr-responsive-img" src="../../../../example/img/placeholder.16x9.png" alt="" />
@@ -140,7 +140,7 @@ Extrait de code
 ####
 
 
-Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore…
+Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...
 
 
 Détail
@@ -160,7 +160,7 @@ Extrait de code
 <h4 class="fr-card__title">
 <a href="#" class="fr-card__link">Qu’est-ce que le Pass Culture et comment l’obtenir ?</a>
 </h4>
-<p class="fr-card__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore…</p>
+<p class="fr-card__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
 <p class="fr-card__detail">Détail</p>
 </div>
 <div class="fr-card__img">
@@ -178,7 +178,7 @@ Extrait de code
 ####
 
 
-Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore…
+Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...
 
 
 Détail
@@ -198,7 +198,7 @@ Extrait de code
 <h4 class="fr-card__title">
 <a href="#" class="fr-card__link">Qu’est-ce que le Pass Culture et comment l’obtenir ?</a>
 </h4>
-<p class="fr-card__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore…</p>
+<p class="fr-card__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
 <p class="fr-card__detail">Détail</p>
 </div>
 <div class="fr-card__img">
@@ -216,7 +216,7 @@ Extrait de code
 ####
 
 
-Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore…
+Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...
 
 
 ![no alt text](../../../../example/img/placeholder.16x9.png)
@@ -233,7 +233,7 @@ Extrait de code
 <h4 class="fr-card__title">
 <a href="#" class="fr-card__link">Qu’est-ce que le Pass Culture et comment l’obtenir ?</a>
 </h4>
-<p class="fr-card__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore…</p>
+<p class="fr-card__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
 </div>
 <div class="fr-card__img">
 <img class="fr-responsive-img" src="../../../../example/img/placeholder.16x9.png" alt="" />
@@ -250,7 +250,7 @@ Extrait de code
 ####
 
 
-Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore…
+Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...
 
 
 ![no alt text](../../../../example/img/placeholder.16x9.png)
@@ -267,7 +267,7 @@ Extrait de code
 <h4 class="fr-card__title">
 <a href="#" class="fr-card__link">Qu’est-ce que le Pass Culture et comment l’obtenir ?</a>
 </h4>
-<p class="fr-card__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore…</p>
+<p class="fr-card__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
 </div>
 <div class="fr-card__img">
 <img class="fr-responsive-img" src="../../../../example/img/placeholder.16x9.png" alt="" />

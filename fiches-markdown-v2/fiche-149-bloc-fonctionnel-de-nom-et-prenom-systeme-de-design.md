@@ -151,7 +151,7 @@ Nom
 
 
 Nom d'usage
-Indication : ancien nom…
+Indication : ancien nom...
 
 
 Prénom
@@ -179,7 +179,7 @@ Nom
 <div class="fr-input-group" id="input-group-7538">
 <label class="fr-label" for="married-7534">
 Nom d'usage
-<span class="fr-hint-text">Indication : ancien nom…</span>
+<span class="fr-hint-text">Indication : ancien nom...</span>
 </label>
 <input class="fr-input" aria-describedby="married-7534-messages" name="married-name" autocomplete="family-name" id="married-7534" spellcheck="false" type="text">
 <div class="fr-messages-group" id="married-7534-messages" aria-live="polite">
@@ -211,7 +211,7 @@ Nom
 
 
 Nom d'usage
-Indication : ancien nom…
+Indication : ancien nom...
 
 
 Prénom
@@ -245,7 +245,7 @@ Nom
 <div class="fr-input-group" id="input-group-7565">
 <label class="fr-label" for="married-7559">
 Nom d'usage
-<span class="fr-hint-text">Indication : ancien nom…</span>
+<span class="fr-hint-text">Indication : ancien nom...</span>
 </label>
 <input class="fr-input" aria-describedby="married-7559-messages" name="married-name" autocomplete="family-name" id="married-7559" spellcheck="false" type="text">
 <div class="fr-messages-group" id="married-7559-messages" aria-live="polite">

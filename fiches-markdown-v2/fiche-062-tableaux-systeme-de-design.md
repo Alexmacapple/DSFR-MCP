@@ -2256,7 +2256,7 @@ Lorem [...] elit ut.
 ### Tableau complexe (comportant des cellules fusionnées)
 
 
-Lorsqu’un tableau de données contient des en-têtes qui ne sont pas répartis uniquement sur la première ligne et/ou la première colonne de la grille ou dont la portée n’est pas valable pour l’ensemble de la colonne ou de la ligne, on parle de tableau de données complexe. Il est alors nécessaire de fournir un « résumé » permettant d’en expliquer sa nature et sa structure afin d’en faciliter la consultation pour des utilisateurs de technologies d’assistance par exemple.
+Lorsqu’un tableau de données contient des en-têtes qui ne sont pas répartis uniquement sur la première ligne et/ou la première colonne de la grille ou dont la portée n’est pas valable pour l’ensemble de la colonne ou de la ligne, on parle de tableau de données complexe. Il est alors nécessaire de fournir un " résumé " permettant d’en expliquer sa nature et sa structure afin d’en faciliter la consultation pour des utilisateurs de technologies d’assistance par exemple.
 
 
 Titre du tableau (caption)
@@ -2637,7 +2637,7 @@ Texte par défaut
 Texte par défaut
 
 
-30,00 €
+30,00 EUR
 
 
 Libellé par défaut
@@ -2646,7 +2646,7 @@ Libellé par défaut
 Libellé bouton
 
 
-[Lien de Téléchargement JPG – 61,88 Ko](/example/img/image.jpg)
+[Lien de Téléchargement JPG - 61,88 Ko](/example/img/image.jpg)
 
 
 Sélectionner la ligne 2 : Titre par défaut
@@ -2674,7 +2674,7 @@ Texte par défaut
 Texte par défaut
 
 
-30,00 €
+30,00 EUR
 
 
 Libellé par défaut
@@ -2683,7 +2683,7 @@ Libellé par défaut
 Libellé bouton
 
 
-[Lien de Téléchargement JPG – 61,88 Ko](/example/img/image.jpg)
+[Lien de Téléchargement JPG - 61,88 Ko](/example/img/image.jpg)
 
 
 Sélectionner la ligne 3 : Titre par défaut
@@ -2711,7 +2711,7 @@ Texte par défaut
 Texte par défaut
 
 
-30,00 €
+30,00 EUR
 
 
 Libellé par défaut
@@ -2720,7 +2720,7 @@ Libellé par défaut
 Libellé bouton
 
 
-[Lien de Téléchargement JPG – 61,88 Ko](/example/img/image.jpg)
+[Lien de Téléchargement JPG - 61,88 Ko](/example/img/image.jpg)
 
 
 Sélectionner la ligne 4 : Titre par défaut
@@ -2748,7 +2748,7 @@ Texte par défaut
 Texte par défaut
 
 
-30,00 €
+30,00 EUR
 
 
 Libellé par défaut
@@ -2757,7 +2757,7 @@ Libellé par défaut
 Libellé bouton
 
 
-[Lien de Téléchargement JPG – 61,88 Ko](/example/img/image.jpg)
+[Lien de Téléchargement JPG - 61,88 Ko](/example/img/image.jpg)
 
 
 Sélectionner la ligne 5 : Titre par défaut
@@ -2785,7 +2785,7 @@ Texte par défaut
 Texte par défaut
 
 
-30,00 €
+30,00 EUR
 
 
 Libellé par défaut
@@ -2794,7 +2794,7 @@ Libellé par défaut
 Libellé bouton
 
 
-[Lien de Téléchargement JPG – 61,88 Ko](/example/img/image.jpg)
+[Lien de Téléchargement JPG - 61,88 Ko](/example/img/image.jpg)
 
 
 Sélectionner la ligne 6 : Titre par défaut
@@ -2822,7 +2822,7 @@ Texte par défaut
 Texte par défaut
 
 
-30,00 €
+30,00 EUR
 
 
 Libellé par défaut
@@ -2831,7 +2831,7 @@ Libellé par défaut
 Libellé bouton
 
 
-[Lien de Téléchargement JPG – 61,88 Ko](/example/img/image.jpg)
+[Lien de Téléchargement JPG - 61,88 Ko](/example/img/image.jpg)
 
 
 215 lignes
@@ -3001,7 +3001,7 @@ Texte par défaut
 </div>
 </td>
 <td>
-30,00 €
+30,00 EUR
 </td>
 <td>
 <p class="fr-badge fr-badge--info">Libellé par défaut</p>
@@ -3013,7 +3013,7 @@ Texte par défaut
 <a class="fr-tag" href="#">Libellé par défaut</a>
 </td>
 <td>
-<a id="link-6961" download="true" href="/example/img/image.jpg" class="fr-link fr-link--download">Lien de Téléchargement <span class="fr-link__detail">JPG – 61,88 Ko</span>
+<a id="link-6961" download="true" href="/example/img/image.jpg" class="fr-link fr-link--download">Lien de Téléchargement <span class="fr-link__detail">JPG - 61,88 Ko</span>
 </a>
 </td>
 <td>
@@ -3059,7 +3059,7 @@ Texte par défaut
 </div>
 </td>
 <td>
-30,00 €
+30,00 EUR
 </td>
 <td>
 <p class="fr-badge fr-badge--info">Libellé par défaut</p>
@@ -3071,7 +3071,7 @@ Texte par défaut
 <a class="fr-tag" href="#">Libellé par défaut</a>
 </td>
 <td>
-<a id="link-6965" download="true" href="/example/img/image.jpg" class="fr-link fr-link--download">Lien de Téléchargement <span class="fr-link__detail">JPG – 61,88 Ko</span>
+<a id="link-6965" download="true" href="/example/img/image.jpg" class="fr-link fr-link--download">Lien de Téléchargement <span class="fr-link__detail">JPG - 61,88 Ko</span>
 </a>
 </td>
 <td>
@@ -3117,7 +3117,7 @@ Texte par défaut
 </div>
 </td>
 <td>
-30,00 €
+30,00 EUR
 </td>
 <td>
 <p class="fr-badge fr-badge--info">Libellé par défaut</p>
@@ -3129,7 +3129,7 @@ Texte par défaut
 <a class="fr-tag" href="#">Libellé par défaut</a>
 </td>
 <td>
-<a id="link-6969" download="true" href="/example/img/image.jpg" class="fr-link fr-link--download">Lien de Téléchargement <span class="fr-link__detail">JPG – 61,88 Ko</span>
+<a id="link-6969" download="true" href="/example/img/image.jpg" class="fr-link fr-link--download">Lien de Téléchargement <span class="fr-link__detail">JPG - 61,88 Ko</span>
 </a>
 </td>
 <td>
@@ -3175,7 +3175,7 @@ Texte par défaut
 </div>
 </td>
 <td>
-30,00 €
+30,00 EUR
 </td>
 <td>
 <p class="fr-badge fr-badge--info">Libellé par défaut</p>
@@ -3187,7 +3187,7 @@ Texte par défaut
 <a class="fr-tag" href="#">Libellé par défaut</a>
 </td>
 <td>
-<a id="link-6973" download="true" href="/example/img/image.jpg" class="fr-link fr-link--download">Lien de Téléchargement <span class="fr-link__detail">JPG – 61,88 Ko</span>
+<a id="link-6973" download="true" href="/example/img/image.jpg" class="fr-link fr-link--download">Lien de Téléchargement <span class="fr-link__detail">JPG - 61,88 Ko</span>
 </a>
 </td>
 <td>
@@ -3233,7 +3233,7 @@ Texte par défaut
 </div>
 </td>
 <td>
-30,00 €
+30,00 EUR
 </td>
 <td>
 <p class="fr-badge fr-badge--info">Libellé par défaut</p>
@@ -3245,7 +3245,7 @@ Texte par défaut
 <a class="fr-tag" href="#">Libellé par défaut</a>
 </td>
 <td>
-<a id="link-6977" download="true" href="/example/img/image.jpg" class="fr-link fr-link--download">Lien de Téléchargement <span class="fr-link__detail">JPG – 61,88 Ko</span>
+<a id="link-6977" download="true" href="/example/img/image.jpg" class="fr-link fr-link--download">Lien de Téléchargement <span class="fr-link__detail">JPG - 61,88 Ko</span>
 </a>
 </td>
 <td>
@@ -3291,7 +3291,7 @@ Texte par défaut
 </div>
 </td>
 <td>
-30,00 €
+30,00 EUR
 </td>
 <td>
 <p class="fr-badge fr-badge--info">Libellé par défaut</p>
@@ -3303,7 +3303,7 @@ Texte par défaut
 <a class="fr-tag" href="#">Libellé par défaut</a>
 </td>
 <td>
-<a id="link-6981" download="true" href="/example/img/image.jpg" class="fr-link fr-link--download">Lien de Téléchargement <span class="fr-link__detail">JPG – 61,88 Ko</span>
+<a id="link-6981" download="true" href="/example/img/image.jpg" class="fr-link fr-link--download">Lien de Téléchargement <span class="fr-link__detail">JPG - 61,88 Ko</span>
 </a>
 </td>
 <td>

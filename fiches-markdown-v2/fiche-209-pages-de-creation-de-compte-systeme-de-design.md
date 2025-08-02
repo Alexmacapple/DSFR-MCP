@@ -502,7 +502,7 @@ Voir le fil d’Ariane
 # Création de compte sur [Nom de service-site]
 
 
-Chapô — Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.
+Chapô - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.
 
 
 ##
@@ -535,7 +535,7 @@ ou
 ### Se créer un compte en choisissant un identifiant
 
 
-Description — Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Description - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
 
 Sauf mention contraire, tous les champs sont obligatoires.
@@ -563,10 +563,10 @@ Votre mot de passe doit contenir :
 Afficher
 
 
-Mention CNIL — Lorem ipsum dolor sit amet, consectetur adipicing est
+Mention CNIL - Lorem ipsum dolor sit amet, consectetur adipicing est
 
 
-Mention CNIL — Lorem ipsum dolor sit amet, consectetur adipicing est
+Mention CNIL - Lorem ipsum dolor sit amet, consectetur adipicing est
 
 
 -
@@ -628,7 +628,7 @@ Extrait de code
 <div class="fr-grid-row fr-grid-row--gutters fr-grid-row--center">
 <div class="fr-col-12 fr-col-md-10 fr-col-lg-8">
 <h1 class="fr-h2">Création de compte sur [Nom de service-site]</h1>
-<p class="fr-text--lead">Chapô — Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.</p>
+<p class="fr-text--lead">Chapô - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.</p>
 </div>
 </div>
 </div>
@@ -670,7 +670,7 @@ Choisir un identifiant
 <h3 class="fr-h5">Se créer un compte en choisissant un identifiant</h3>
 </legend>
 <div class="fr-fieldset__element">
-<p class="fr-text--sm">Description — Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+<p class="fr-text--sm">Description - Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 </div>
 <div class="fr-fieldset__element">
 <p class="fr-hint-text">Sauf mention contraire, tous les champs sont obligatoires.</p>
@@ -712,7 +712,7 @@ Afficher
 <div class="fr-checkbox-group fr-checkbox-group--sm">
 <input name="checkbox-cnil" id="checkbox-cnil-8650" type="checkbox" aria-describedby="checkbox-cnil-8650-messages">
 <label class="fr-label" for="checkbox-cnil-8650">
-Mention CNIL — Lorem ipsum dolor sit amet, consectetur adipicing est
+Mention CNIL - Lorem ipsum dolor sit amet, consectetur adipicing est
 </label>
 <div class="fr-messages-group" id="checkbox-cnil-8650-messages" aria-live="polite">
 </div>
@@ -722,7 +722,7 @@ Mention CNIL — Lorem ipsum dolor sit amet, consectetur adipicing est
 <div class="fr-checkbox-group fr-checkbox-group--sm">
 <input name="checkbox-cnil" id="checkbox-cnil-8651" type="checkbox" aria-describedby="checkbox-cnil-8651-messages">
 <label class="fr-label" for="checkbox-cnil-8651">
-Mention CNIL — Lorem ipsum dolor sit amet, consectetur adipicing est
+Mention CNIL - Lorem ipsum dolor sit amet, consectetur adipicing est
 </label>
 <div class="fr-messages-group" id="checkbox-cnil-8651-messages" aria-live="polite">
 </div>

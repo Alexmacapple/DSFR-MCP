@@ -33,7 +33,7 @@ DSFR v1.14.0
 
 
 ###
-[Télécharger le/la [Typologie de document] « [Nom du document] »](/example/img/placeholder.3x4.pdf) [Typologie de document][Nom du document]
+[Télécharger le/la [Typologie de document] " [Nom du document] "](/example/img/placeholder.3x4.pdf) [Typologie de document][Nom du document]
 
 
 Texte de description (facultatif)

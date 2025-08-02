@@ -502,7 +502,7 @@ Voir le fil d’Ariane
 # Création de compte sur [Nom de service-site]
 
 
-Chapô — Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.
+Chapô - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.
 
 
 ##
@@ -601,7 +601,7 @@ Extrait de code
 <div class="fr-grid-row fr-grid-row--gutters fr-grid-row--center">
 <div class="fr-col-12 fr-col-md-10 fr-col-lg-8">
 <h1 class="fr-h2">Création de compte sur [Nom de service-site]</h1>
-<p class="fr-text--lead">Chapô — Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.</p>
+<p class="fr-text--lead">Chapô - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.</p>
 </div>
 </div>
 </div>

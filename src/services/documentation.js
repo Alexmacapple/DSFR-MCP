@@ -63,8 +63,7 @@ class DocumentationService {
       
       // Pas de console.log - MCP nécessite du JSON pur sur stdout
     } catch (error) {
-      // Utiliser stderr pour les erreurs, sans emojis qui peuvent causer des problèmes
-      console.error('Erreur lors de l\'indexation:', error);
+      // Ne pas écrire sur stderr/stdout pour éviter de corrompre le protocole JSON-RPC
       throw error;
     }
   }

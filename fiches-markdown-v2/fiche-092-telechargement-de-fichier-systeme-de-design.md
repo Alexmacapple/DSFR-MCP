@@ -57,7 +57,7 @@ L’attribut "download" permettant de télécharger directement le document, san
 ###
 [Télécharger le document lorem ipsum sit dolores amet
 
-JPG – 61,88 ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
+JPG - 61,88 ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
 
 
 ###
@@ -68,7 +68,7 @@ Extrait de code
 <h3>
 <a href="[À MODIFIER - ../../../../example/img/image.jpg]" id="fr-download-link-7056" download class="fr-download__link">Télécharger le document lorem ipsum sit dolores amet
 <span class="fr-download__detail">
-JPG – 61,88 ko
+JPG - 61,88 ko
 </span>
 </a>
 </h3>
@@ -88,7 +88,7 @@ Groupe de liens
 ###
 [Télécharger le document lorem ipsum sit dolores amet
 
-PDF – 61,88 Ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
+PDF - 61,88 Ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
 
 
 -
@@ -97,7 +97,7 @@ PDF – 61,88 Ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5
 ###
 [Télécharger le document lorem ipsum sit dolores amet
 
-PDF – 61,88 Ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
+PDF - 61,88 Ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
 
 
 -
@@ -106,7 +106,7 @@ PDF – 61,88 Ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5
 ###
 [Télécharger le document lorem ipsum sit dolores amet
 
-PDF – 61,88 Ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
+PDF - 61,88 Ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
 
 
 ###
@@ -120,7 +120,7 @@ Extrait de code
 <h3>
 <a href="[À MODIFIER - ../../../../example/img/image.jpg]" id="fr-download-link-7062" download class="fr-download__link">Télécharger le document lorem ipsum sit dolores amet
 <span class="fr-download__detail">
-PDF – 61,88 Ko
+PDF - 61,88 Ko
 </span>
 </a>
 </h3>
@@ -131,7 +131,7 @@ PDF – 61,88 Ko
 <h3>
 <a href="[À MODIFIER - ../../../../example/img/image.jpg]" id="fr-download-link-7063" download class="fr-download__link">Télécharger le document lorem ipsum sit dolores amet
 <span class="fr-download__detail">
-PDF – 61,88 Ko
+PDF - 61,88 Ko
 </span>
 </a>
 </h3>
@@ -142,7 +142,7 @@ PDF – 61,88 Ko
 <h3>
 <a href="[À MODIFIER - ../../../../example/img/image.jpg]" id="fr-download-link-7064" download class="fr-download__link">Télécharger le document lorem ipsum sit dolores amet
 <span class="fr-download__detail">
-PDF – 61,88 Ko
+PDF - 61,88 Ko
 </span>
 </a>
 </h3>
@@ -166,7 +166,7 @@ Titre facultatif
 ###
 [Télécharger le document lorem ipsum sit dolores amet
 
-PDF – 61,88 Ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
+PDF - 61,88 Ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
 
 
 -
@@ -175,7 +175,7 @@ PDF – 61,88 Ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5
 ###
 [Télécharger le document lorem ipsum sit dolores amet
 
-PDF – 61,88 Ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
+PDF - 61,88 Ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
 
 
 -
@@ -184,7 +184,7 @@ PDF – 61,88 Ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5
 ###
 [Télécharger le document lorem ipsum sit dolores amet
 
-PDF – 61,88 Ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
+PDF - 61,88 Ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
 
 
 ###
@@ -199,7 +199,7 @@ Extrait de code
 <h3>
 <a href="[À MODIFIER - ../../../../example/img/image.jpg]" id="fr-download-link-7069" download class="fr-download__link">Télécharger le document lorem ipsum sit dolores amet
 <span class="fr-download__detail">
-PDF – 61,88 Ko
+PDF - 61,88 Ko
 </span>
 </a>
 </h3>
@@ -210,7 +210,7 @@ PDF – 61,88 Ko
 <h3>
 <a href="[À MODIFIER - ../../../../example/img/image.jpg]" id="fr-download-link-7070" download class="fr-download__link">Télécharger le document lorem ipsum sit dolores amet
 <span class="fr-download__detail">
-PDF – 61,88 Ko
+PDF - 61,88 Ko
 </span>
 </a>
 </h3>
@@ -221,7 +221,7 @@ PDF – 61,88 Ko
 <h3>
 <a href="[À MODIFIER - ../../../../example/img/image.jpg]" id="fr-download-link-7071" download class="fr-download__link">Télécharger le document lorem ipsum sit dolores amet
 <span class="fr-download__detail">
-PDF – 61,88 Ko
+PDF - 61,88 Ko
 </span>
 </a>
 </h3>
@@ -250,10 +250,10 @@ dans une grille de 6 colonnes en version desktop
 ###
 [Télécharger le document lorem ipsum sit dolores amet
 
-JPG – 61,88 ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
+JPG - 61,88 ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
 
 
-Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore…
+Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...
 
 
 ###
@@ -264,11 +264,11 @@ Extrait de code
 <h3>
 <a href="[À MODIFIER - ../../../../example/img/image.jpg]" id="fr-download-link-7075" download class="fr-download__link">Télécharger le document lorem ipsum sit dolores amet
 <span class="fr-download__detail">
-JPG – 61,88 ko
+JPG - 61,88 ko
 </span>
 </a>
 </h3>
-<p class="fr-download__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore…</p>
+<p class="fr-download__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
 </div>
 
 
@@ -282,37 +282,37 @@ Groupe de cartes
 ###
 [Télécharger le document lorem ipsum sit dolores amet
 
-JPG – 61,88 ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
+JPG - 61,88 ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
 
 
-Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore…
-
-
-###
-[Télécharger le document lorem ipsum sit dolores amet
-
-JPG – 61,88 ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
-
-
-Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore…
+Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...
 
 
 ###
 [Télécharger le document lorem ipsum sit dolores amet
 
-JPG – 61,88 ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
+JPG - 61,88 ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
 
 
-Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore…
+Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...
 
 
 ###
 [Télécharger le document lorem ipsum sit dolores amet
 
-JPG – 61,88 ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
+JPG - 61,88 ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
 
 
-Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore…
+Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...
+
+
+###
+[Télécharger le document lorem ipsum sit dolores amet
+
+JPG - 61,88 ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
+
+
+Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...
 
 
 ###
@@ -325,11 +325,11 @@ Extrait de code
 <h3>
 <a href="[À MODIFIER - ../../../../example/img/image.jpg]" id="fr-download-link-7082" download class="fr-download__link">Télécharger le document lorem ipsum sit dolores amet
 <span class="fr-download__detail">
-JPG – 61,88 ko
+JPG - 61,88 ko
 </span>
 </a>
 </h3>
-<p class="fr-download__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore…</p>
+<p class="fr-download__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
 </div>
 </div>
 <div class="fr-col-12 fr-col-md-4">
@@ -337,11 +337,11 @@ JPG – 61,88 ko
 <h3>
 <a href="[À MODIFIER - ../../../../example/img/image.jpg]" id="fr-download-link-7083" download class="fr-download__link">Télécharger le document lorem ipsum sit dolores amet
 <span class="fr-download__detail">
-JPG – 61,88 ko
+JPG - 61,88 ko
 </span>
 </a>
 </h3>
-<p class="fr-download__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore…</p>
+<p class="fr-download__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
 </div>
 </div>
 <div class="fr-col-12 fr-col-md-4">
@@ -349,11 +349,11 @@ JPG – 61,88 ko
 <h3>
 <a href="[À MODIFIER - ../../../../example/img/image.jpg]" id="fr-download-link-7084" download class="fr-download__link">Télécharger le document lorem ipsum sit dolores amet
 <span class="fr-download__detail">
-JPG – 61,88 ko
+JPG - 61,88 ko
 </span>
 </a>
 </h3>
-<p class="fr-download__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore…</p>
+<p class="fr-download__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
 </div>
 </div>
 <div class="fr-col-12 fr-col-md-4">
@@ -361,11 +361,11 @@ JPG – 61,88 ko
 <h3>
 <a href="[À MODIFIER - ../../../../example/img/image.jpg]" id="fr-download-link-7085" download class="fr-download__link">Télécharger le document lorem ipsum sit dolores amet
 <span class="fr-download__detail">
-JPG – 61,88 ko
+JPG - 61,88 ko
 </span>
 </a>
 </h3>
-<p class="fr-download__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore…</p>
+<p class="fr-download__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
 </div>
 </div>
 </div>
@@ -387,7 +387,7 @@ Si la langue du fichier à télécharger est différente de celle de la page cou
 ###
 [Télécharger le document lorem ipsum sit dolores amet
 
-JPG – 61,88 ko – Anglais](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
+JPG - 61,88 ko - Anglais](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
 
 
 ###
@@ -398,7 +398,7 @@ Extrait de code
 <h3>
 <a href="[À MODIFIER - ../../../../example/img/image.jpg]" id="fr-download-link-7089" download hreflang="en" class="fr-download__link">Télécharger le document lorem ipsum sit dolores amet
 <span class="fr-download__detail">
-JPG – 61,88 ko – Anglais
+JPG - 61,88 ko - Anglais
 </span>
 </a>
 </h3>
@@ -411,10 +411,10 @@ JPG – 61,88 ko – Anglais
 ###
 [Télécharger le document lorem ipsum sit dolores amet
 
-JPG – 61,88 ko – Anglais](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
+JPG - 61,88 ko - Anglais](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
 
 
-Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore…
+Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...
 
 
 ###
@@ -425,11 +425,11 @@ Extrait de code
 <h3>
 <a href="[À MODIFIER - ../../../../example/img/image.jpg]" id="fr-download-link-7092" download hreflang="en" class="fr-download__link">Télécharger le document lorem ipsum sit dolores amet
 <span class="fr-download__detail">
-JPG – 61,88 ko – Anglais
+JPG - 61,88 ko - Anglais
 </span>
 </a>
 </h3>
-<p class="fr-download__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore…</p>
+<p class="fr-download__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
 </div>
 
 
@@ -477,7 +477,7 @@ Extrait de code
 [Télécharger le document lorem ipsum sit dolores amet](../../../../dist/favicon/favicon.ico)
 
 
-Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore…
+Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...
 
 
 ###
@@ -491,7 +491,7 @@ Extrait de code
 </span>
 </a>
 </h3>
-<p class="fr-download__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore…</p>
+<p class="fr-download__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
 </div>
 
 

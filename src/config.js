@@ -116,10 +116,10 @@ module.exports = {
 
   // Messages et textes
   messages: {
-    serverReady: '🚀 Serveur MCP DSFR prêt',
-    indexingStart: '📚 Indexation de la documentation...',
-    indexingComplete: '✅ Indexation terminée',
-    validationSuccess: '✅ Validation réussie',
-    validationError: '❌ Erreur de validation'
+    serverReady: 'Serveur MCP DSFR prêt',
+    indexingStart: 'Indexation de la documentation...',
+    indexingComplete: 'Indexation terminée',
+    validationSuccess: 'Validation réussie',
+    validationError: 'Erreur de validation'
   }
 };

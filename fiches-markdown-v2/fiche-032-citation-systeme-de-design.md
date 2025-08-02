@@ -29,7 +29,7 @@ La citation permet de citer un texte dans une page éditoriale. La citation peut
 ------------------------------
 
 
-« Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dolore magna aliqua. Vitae sapien pellentesque habitant morbi tristique senectus et. Diam maecenas sed enim ut. Accumsan lacus vel facilisis volutpat est. Ut aliquam purus sit amet luctus. Lorem ipsum dolor sit amet consectetur adipiscing elit ut. »
+" Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dolore magna aliqua. Vitae sapien pellentesque habitant morbi tristique senectus et. Diam maecenas sed enim ut. Accumsan lacus vel facilisis volutpat est. Ut aliquam purus sit amet luctus. Lorem ipsum dolor sit amet consectetur adipiscing elit ut. "
 
 ------------------------------
 
@@ -56,7 +56,7 @@ Extrait de code
 
 <figure class="fr-quote">
 <blockquote cite="[À MODIFIER - https://lien-vers-la-source.fr]">
-<p>« Lorem [...] elit ut. »</p>
+<p>" Lorem [...] elit ut. "</p>
 </blockquote>
 <figcaption>
 <p class="fr-quote__author">Auteur</p>
@@ -81,7 +81,7 @@ Extrait de code
 ------------------------------
 
 
-« Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dolore magna aliqua. Vitae sapien pellentesque habitant morbi tristique senectus et. Diam maecenas sed enim ut. Accumsan lacus vel facilisis volutpat est. Ut aliquam purus sit amet luctus. Lorem ipsum dolor sit amet consectetur adipiscing elit ut. »
+" Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dolore magna aliqua. Vitae sapien pellentesque habitant morbi tristique senectus et. Diam maecenas sed enim ut. Accumsan lacus vel facilisis volutpat est. Ut aliquam purus sit amet luctus. Lorem ipsum dolor sit amet consectetur adipiscing elit ut. "
 
 ------------------------------
 
@@ -98,7 +98,7 @@ Extrait de code
 
 <figure class="fr-quote">
 <blockquote cite="[À MODIFIER - https://lien-vers-la-source.fr]">
-<p class="fr-text--lg">« Lorem [...] elit ut. »</p>
+<p class="fr-text--lg">" Lorem [...] elit ut. "</p>
 </blockquote>
 <figcaption>
 <p class="fr-quote__author">Auteur</p>
@@ -115,7 +115,7 @@ Extrait de code
 ------------------------------
 
 
-« Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dolore magna aliqua. Vitae sapien pellentesque habitant morbi tristique senectus et. Diam maecenas sed enim ut. Accumsan lacus vel facilisis volutpat est. Ut aliquam purus sit amet luctus. Lorem ipsum dolor sit amet consectetur adipiscing elit ut. »
+" Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dolore magna aliqua. Vitae sapien pellentesque habitant morbi tristique senectus et. Diam maecenas sed enim ut. Accumsan lacus vel facilisis volutpat est. Ut aliquam purus sit amet luctus. Lorem ipsum dolor sit amet consectetur adipiscing elit ut. "
 
 ------------------------------
 
@@ -144,7 +144,7 @@ Extrait de code
 
 <figure class="fr-quote fr-quote--column">
 <blockquote cite="[À MODIFIER - https://lien-vers-la-source.fr]">
-<p>« Lorem [...] elit ut. »</p>
+<p>" Lorem [...] elit ut. "</p>
 </blockquote>
 <figcaption>
 <p class="fr-quote__author">Auteur</p>
@@ -173,7 +173,7 @@ Extrait de code
 ------------------------------
 
 
-« Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dolore magna aliqua. Vitae sapien pellentesque habitant morbi tristique senectus et. Diam maecenas sed enim ut. Accumsan lacus vel facilisis volutpat est. Ut aliquam purus sit amet luctus. Lorem ipsum dolor sit amet consectetur adipiscing elit ut. »
+" Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dolore magna aliqua. Vitae sapien pellentesque habitant morbi tristique senectus et. Diam maecenas sed enim ut. Accumsan lacus vel facilisis volutpat est. Ut aliquam purus sit amet luctus. Lorem ipsum dolor sit amet consectetur adipiscing elit ut. "
 
 ------------------------------
 
@@ -200,7 +200,7 @@ Extrait de code
 
 <figure class="fr-quote fr-quote--green-emeraude">
 <blockquote cite="[À MODIFIER - https://lien-vers-la-source.fr]">
-<p>« Lorem [...] elit ut. »</p>
+<p>" Lorem [...] elit ut. "</p>
 </blockquote>
 <figcaption>
 <p class="fr-quote__author">Auteur</p>

@@ -26,28 +26,28 @@ Le lien permet la navigation entre une page et un autre contenu au sein de la m�
 ### Lien de téléchargement
 
 
-[Télécharger le document lorem ipsum sit dolores amet JPG – 61,88 ko](/example/img/image.jpg)
+[Télécharger le document lorem ipsum sit dolores amet JPG - 61,88 ko](/example/img/image.jpg)
 
 
 ###
 Extrait de code
 
 
-<a id="link-4320" download="true" href="/example/img/image.jpg" class="fr-link fr-link--download">Télécharger le document lorem ipsum sit dolores amet <span class="fr-link__detail">JPG – 61,88 ko</span>
+<a id="link-4320" download="true" href="/example/img/image.jpg" class="fr-link fr-link--download">Télécharger le document lorem ipsum sit dolores amet <span class="fr-link__detail">JPG - 61,88 ko</span>
 </a>
 
 
 ### Lien de téléchargement avec bouton
 
 
-Télécharger le document lorem ipsum sit dolores amet JPG – 61,88 ko
+Télécharger le document lorem ipsum sit dolores amet JPG - 61,88 ko
 
 
 ###
 Extrait de code
 
 
-<button id="link-4323" download="true" class="fr-link fr-link--download">Télécharger le document lorem ipsum sit dolores amet <span class="fr-link__detail">JPG – 61,88 ko</span>
+<button id="link-4323" download="true" class="fr-link fr-link--download">Télécharger le document lorem ipsum sit dolores amet <span class="fr-link__detail">JPG - 61,88 ko</span>
 </button>
 
 
@@ -55,15 +55,15 @@ Extrait de code
 
 
 -
-[Télécharger le document lorem ipsum sit dolores amet JPG – 61,88 ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
+[Télécharger le document lorem ipsum sit dolores amet JPG - 61,88 ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
 
 
 -
-[Télécharger le document lorem ipsum sit dolores amet JPG – 61,88 ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
+[Télécharger le document lorem ipsum sit dolores amet JPG - 61,88 ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
 
 
 -
-[Télécharger le document lorem ipsum sit dolores amet JPG – 61,88 ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
+[Télécharger le document lorem ipsum sit dolores amet JPG - 61,88 ko](%5B%C3%80%20MODIFIER%20-%20../../../../example/img/image.jpg%5D)
 
 
 ###
@@ -72,15 +72,15 @@ Extrait de code
 
 <ul class="fr-links-group">
 <li>
-<a id="link-4328" download="true" href="[À MODIFIER - ../../../../example/img/image.jpg]" class="fr-link fr-link--download">Télécharger le document lorem ipsum sit dolores amet <span class="fr-link__detail">JPG – 61,88 ko</span>
+<a id="link-4328" download="true" href="[À MODIFIER - ../../../../example/img/image.jpg]" class="fr-link fr-link--download">Télécharger le document lorem ipsum sit dolores amet <span class="fr-link__detail">JPG - 61,88 ko</span>
 </a>
 </li>
 <li>
-<a id="link-4329" download="true" href="[À MODIFIER - ../../../../example/img/image.jpg]" class="fr-link fr-link--download">Télécharger le document lorem ipsum sit dolores amet <span class="fr-link__detail">JPG – 61,88 ko</span>
+<a id="link-4329" download="true" href="[À MODIFIER - ../../../../example/img/image.jpg]" class="fr-link fr-link--download">Télécharger le document lorem ipsum sit dolores amet <span class="fr-link__detail">JPG - 61,88 ko</span>
 </a>
 </li>
 <li>
-<a id="link-4330" download="true" href="[À MODIFIER - ../../../../example/img/image.jpg]" class="fr-link fr-link--download">Télécharger le document lorem ipsum sit dolores amet <span class="fr-link__detail">JPG – 61,88 ko</span>
+<a id="link-4330" download="true" href="[À MODIFIER - ../../../../example/img/image.jpg]" class="fr-link fr-link--download">Télécharger le document lorem ipsum sit dolores amet <span class="fr-link__detail">JPG - 61,88 ko</span>
 </a>
 </li>
 </ul>
@@ -92,14 +92,14 @@ Extrait de code
 Indiquer le code langue (ISO 639‑1) du fichier dans l'attribut "hreflang" et la langue en toute lettre dans le détail
 
 
-[Télécharger le document lorem ipsum sit dolores amet PDF – 1,81 Mo - Anglais](lang=%22en%22)
+[Télécharger le document lorem ipsum sit dolores amet PDF - 1,81 Mo - Anglais](lang=%22en%22)
 
 
 ###
 Extrait de code
 
 
-<a id="link-4333" hreflang="en" download="true" href="exemple.pdf" class="fr-link fr-link--download">Télécharger le document lorem ipsum sit dolores amet <span class="fr-link__detail">PDF – 1,81 Mo - Anglais</span>
+<a id="link-4333" hreflang="en" download="true" href="exemple.pdf" class="fr-link fr-link--download">Télécharger le document lorem ipsum sit dolores amet <span class="fr-link__detail">PDF - 1,81 Mo - Anglais</span>
 </a>
 
 

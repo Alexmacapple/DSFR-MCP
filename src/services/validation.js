@@ -420,10 +420,10 @@ class ValidationService {
   formatValidationResults(results) {
     let output = `# Résultats de validation DSFR\n\n`;
     output += `**Score global : ${results.score}/100**\n`;
-    output += `**Statut : ${results.valid ? '✅ Valide' : '❌ Non valide'}**\n\n`;
+    output += `**Statut : ${results.valid ? 'Valide' : 'Non valide'}**\n\n`;
 
     if (results.errors.length > 0) {
-      output += `## ❌ Erreurs (${results.errors.length})\n\n`;
+      output += `## Erreurs (${results.errors.length})\n\n`;
       results.errors.forEach((error, index) => {
         output += `${index + 1}. **[${error.type}]** ${error.message}\n`;
       });
@@ -431,7 +431,7 @@ class ValidationService {
     }
 
     if (results.warnings.length > 0) {
-      output += `## ⚠️ Avertissements (${results.warnings.length})\n\n`;
+      output += `## Avertissements (${results.warnings.length})\n\n`;
       results.warnings.forEach((warning, index) => {
         output += `${index + 1}. **[${warning.type}]** ${warning.message}\n`;
       });
@@ -439,7 +439,7 @@ class ValidationService {
     }
 
     if (results.suggestions.length > 0) {
-      output += `## 💡 Suggestions (${results.suggestions.length})\n\n`;
+      output += `## Suggestions (${results.suggestions.length})\n\n`;
       results.suggestions.forEach((suggestion, index) => {
         output += `${index + 1}. **[${suggestion.type}]** ${suggestion.message}\n`;
       });
@@ -447,13 +447,13 @@ class ValidationService {
     }
 
     // Recommandations
-    output += `## 📋 Recommandations\n\n`;
+    output += `## Recommandations\n\n`;
     if (!results.valid) {
       output += `1. Corrigez d'abord toutes les erreurs critiques\n`;
       output += `2. Traitez ensuite les avertissements\n`;
       output += `3. Appliquez les suggestions pour améliorer la qualité\n`;
     } else {
-      output += `✅ Votre code respecte les standards DSFR de base.\n`;
+      output += `Votre code respecte les standards DSFR de base.\n`;
       output += `Continuez à suivre les bonnes pratiques d'accessibilité et de sémantique HTML.\n`;
     }
 

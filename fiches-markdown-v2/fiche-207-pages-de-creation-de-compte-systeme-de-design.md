@@ -502,13 +502,13 @@ Voir le fil d’Ariane
 # Création de compte sur [Nom de service-site]
 
 
-Chapô — Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.
+Chapô - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.
 
 
 Votre compte a bien été activé. Vous pouvez dès maintenant commencer à l’utiliser.
 
 
-Détail — Si vous n’avez pas reçu de courriel (n’hésitez pas à vérifier dans les indérisables), vous pouvez re saisir votre adresse électronique.
+Détail - Si vous n’avez pas reçu de courriel (n’hésitez pas à vérifier dans les indérisables), vous pouvez re saisir votre adresse électronique.
 
 
 [Intitulé
@@ -566,7 +566,7 @@ Extrait de code
 <div class="fr-grid-row fr-grid-row--gutters fr-grid-row--center">
 <div class="fr-col-12 fr-col-md-10 fr-col-lg-8">
 <h1 class="fr-h2">Création de compte sur [Nom de service-site]</h1>
-<p class="fr-text--lead">Chapô — Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.</p>
+<p class="fr-text--lead">Chapô - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.</p>
 </div>
 </div>
 </div>
@@ -580,7 +580,7 @@ Extrait de code
 <div id="alert-9363" class="fr-mb-6v fr-alert fr-alert--success fr-alert--sm">
 <p>Votre compte a bien été activé. Vous pouvez dès maintenant commencer à l’utiliser.</p>
 </div>
-<p class="fr-hint-text">Détail — Si vous n’avez pas reçu de courriel (n’hésitez pas à vérifier dans les indérisables), vous pouvez re saisir votre adresse électronique.</p>
+<p class="fr-hint-text">Détail - Si vous n’avez pas reçu de courriel (n’hésitez pas à vérifier dans les indérisables), vous pouvez re saisir votre adresse électronique.</p>
 </div>
 </div>
 </div>

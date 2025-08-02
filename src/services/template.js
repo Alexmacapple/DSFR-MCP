@@ -58,7 +58,7 @@ class TemplateService {
       return {
         content: [{
           type: 'text',
-          text: `❌ Template "${template_name}" non trouvé. Templates disponibles : ${Object.keys(this.templates).join(', ')}`
+          text: `Template "${template_name}" non trouvé. Templates disponibles : ${Object.keys(this.templates).join(', ')}`
         }]
       };
     }

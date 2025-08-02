@@ -554,7 +554,7 @@ Description / Source
 ![Planche 1 de la BD Simone Veil : la loi sur l’avortement. Épisode 2 - voir transcription ci-dessous](../../../example/img/placeholder-transcription.jpg)
 
 
-© DILA 2020
+(C) DILA 2020
 
 
 Transcription
@@ -618,7 +618,7 @@ Mon père a fondu en larmes juste après.
 
 MÈRE :
 
-Il faut se rappeler les réactions suite à ce discours ! Simone Veil a souvent évoqué le « climat de passions » qui régnait. Pendant les trois jours de débats qui ont suivi, tout a été dit, même le pire.
+Il faut se rappeler les réactions suite à ce discours ! Simone Veil a souvent évoqué le " climat de passions " qui régnait. Pendant les trois jours de débats qui ont suivi, tout a été dit, même le pire.
 
 
 - Case 5
@@ -634,7 +634,7 @@ Encart texte
 
 JEAN FOYER :
 
-Déjà des capitaux sont impatients de s’investir dans l’industrie de la mort, et le temps n’est pas loin où nous connaîtrons en France « ces avortoirs », ces abattoirs, où s’entassent des cadavres de petits hommes et que certains de mes collègues ont eu l’occasion de visiter à l’étranger.
+Déjà des capitaux sont impatients de s’investir dans l’industrie de la mort, et le temps n’est pas loin où nous connaîtrons en France " ces avortoirs ", ces abattoirs, où s’entassent des cadavres de petits hommes et que certains de mes collègues ont eu l’occasion de visiter à l’étranger.
 
 
 - Case 6
@@ -650,7 +650,7 @@ Lucien Neuwirth, député de la majorité qui avait défendu en 1967 le projet d
 
 LUCIEN NEUWIRTH :
 
-… or chacun le sait, l’avortement n’est pas autre chose que l’issue extrême, l’alternative détestable d’une grossesse non désirée.
+... or chacun le sait, l’avortement n’est pas autre chose que l’issue extrême, l’alternative détestable d’une grossesse non désirée.
 
 Il convient donc de s’attaquer à l’effet et non à la cause.
 
@@ -659,13 +659,13 @@ Il convient donc de s’attaquer à l’effet et non à la cause.
 Extrait de code
 
 
-<figure role="group" class="fr-content-media" id="media-1639" aria-label="© DILA 2020">
+<figure role="group" class="fr-content-media" id="media-1639" aria-label="(C) DILA 2020">
 <div class="fr-content-media__img">
 <img class="fr-responsive-img fr-ratio-2x3" src="../../../example/img/placeholder-transcription.jpg" alt="Planche 1 de la BD Simone Veil : la loi sur l’avortement. Épisode 2 - voir transcription ci-dessous" />
 <!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 <figcaption class="fr-content-media__caption">
-© DILA 2020
+(C) DILA 2020
 <a id="link-1641" href="#" class="fr-link">vie-publique.fr</a>
 </figcaption>
 </figure>
@@ -726,7 +726,7 @@ Simone Veil : la loi sur l’avortement
 <p>
 <em>Intérieur jour café, Louise et sa mère.</em>
 <br>MÈRE :
-<br>Il faut se rappeler les réactions suite à ce discours ! Simone Veil a souvent évoqué le « climat de passions » qui régnait. Pendant les trois jours de débats qui ont suivi, tout a été dit, même le pire.
+<br>Il faut se rappeler les réactions suite à ce discours ! Simone Veil a souvent évoqué le " climat de passions " qui régnait. Pendant les trois jours de débats qui ont suivi, tout a été dit, même le pire.
 </p>
 <ul>
 <li>Case 5</li>
@@ -738,7 +738,7 @@ Simone Veil : la loi sur l’avortement
 <br>26 novembre 1974. Les débats commencent à l’Assemblée nationale. Jean Foyer, député de la majorité de droite, est le premier opposant au projet à monter à la tribune.
 </p>
 <p>JEAN FOYER :
-<br>Déjà des capitaux sont impatients de s’investir dans l’industrie de la mort, et le temps n’est pas loin où nous connaîtrons en France « ces avortoirs », ces abattoirs, où s’entassent des cadavres de petits hommes et que certains de mes collègues ont eu l’occasion de visiter à l’étranger.
+<br>Déjà des capitaux sont impatients de s’investir dans l’industrie de la mort, et le temps n’est pas loin où nous connaîtrons en France " ces avortoirs ", ces abattoirs, où s’entassent des cadavres de petits hommes et que certains de mes collègues ont eu l’occasion de visiter à l’étranger.
 </p>
 <ul>
 <li>Case 6</li>
@@ -750,7 +750,7 @@ Simone Veil : la loi sur l’avortement
 <br>Lucien Neuwirth, député de la majorité qui avait défendu en 1967 le projet de loi sur la contraception, s’exprime.
 </p>
 <p>LUCIEN NEUWIRTH :
-<br>… or chacun le sait, l’avortement n’est pas autre chose que l’issue extrême, l’alternative détestable d’une grossesse non désirée.
+<br>... or chacun le sait, l’avortement n’est pas autre chose que l’issue extrême, l’alternative détestable d’une grossesse non désirée.
 <br>Il convient donc de s’attaquer à l’effet et non à la cause.
 </p>
 </div>
@@ -1376,7 +1376,7 @@ Pour support des versions précédentes
 ### Média video edito, ratio d’aspect 16/9 par défaut
 
 
-© Légende de la vidéo
+(C) Légende de la vidéo
 
 
 [Libellé du bouton de la transcription](%5Burl%20-%20%C3%A0%20modifier%5D)
@@ -1388,7 +1388,7 @@ Extrait de code
 
 <div class="fr-content-media">
 <iframe title="Titre de l'iframe" class="fr-responsive-vid" src="https://www.youtube.com/embed/HyirpmPL43I" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<div class="fr-content-media__caption">© Légende de la vidéo</div>
+<div class="fr-content-media__caption">(C) Légende de la vidéo</div>
 <div class="fr-content-media__transcription">
 <a id="link-1745" href="[url - à modifier]" class="fr-link">Libellé du bouton de la transcription</a>
 </div>
@@ -1398,7 +1398,7 @@ Extrait de code
 ### Média video edito, ratio d’aspect 4/3
 
 
-© Légende de la vidéo
+(C) Légende de la vidéo
 
 
 [Libellé du bouton de la transcription](%5Burl%20-%20%C3%A0%20modifier%5D)
@@ -1410,7 +1410,7 @@ Extrait de code
 
 <div class="fr-content-media">
 <iframe title="Titre de l'iframe" class="fr-responsive-vid fr-responsive-vid--4x3" src="https://www.youtube.com/embed/HyirpmPL43I" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<div class="fr-content-media__caption">© Légende de la vidéo</div>
+<div class="fr-content-media__caption">(C) Légende de la vidéo</div>
 <div class="fr-content-media__transcription">
 <a id="link-1748" href="[url - à modifier]" class="fr-link">Libellé du bouton de la transcription</a>
 </div>
@@ -1423,19 +1423,19 @@ Extrait de code
 ![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
 
 
-© Légende de l‘image
+(C) Légende de l‘image
 
 
 ###
 Extrait de code
 
 
-<figure class="fr-content-media" role="group" aria-label="© Légende de l‘image">
+<figure class="fr-content-media" role="group" aria-label="(C) Légende de l‘image">
 <div class="fr-content-media__img">
 <img class="fr-responsive-img fr-responsive-img--4x3" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
 <!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
-<figcaption class="fr-content-media__caption">© Légende de l‘image</figcaption>
+<figcaption class="fr-content-media__caption">(C) Légende de l‘image</figcaption>
 </figure>
 
 

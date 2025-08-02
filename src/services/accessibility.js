@@ -395,7 +395,7 @@ class AccessibilityService {
     output += `**Score global** : ${results.score}/100\n\n`;
     
     if (results.failed.length > 0) {
-      output += `## ❌ Erreurs critiques (${results.failed.length})\n\n`;
+      output += `## Erreurs critiques (${results.failed.length})\n\n`;
       results.failed.forEach(item => {
         output += `### ${item.rule}\n`;
         output += `- **Niveau RGAA** : ${item.level}\n`;
@@ -408,7 +408,7 @@ class AccessibilityService {
     }
     
     if (results.warnings.length > 0) {
-      output += `## ⚠️ Avertissements (${results.warnings.length})\n\n`;
+      output += `## Avertissements (${results.warnings.length})\n\n`;
       results.warnings.forEach(item => {
         output += `- **${item.rule}** : ${item.message}`;
         if (item.level) output += ` (Niveau ${item.level})`;
@@ -418,7 +418,7 @@ class AccessibilityService {
     }
     
     if (results.passed.length > 0) {
-      output += `## ✅ Tests réussis (${results.passed.length})\n\n`;
+      output += `## Tests réussis (${results.passed.length})\n\n`;
       results.passed.forEach(item => {
         output += `- ${item.message}\n`;
       });
@@ -426,7 +426,7 @@ class AccessibilityService {
     }
     
     if (results.suggestions.length > 0) {
-      output += `## 💡 Suggestions d'amélioration\n\n`;
+      output += `## Suggestions d'amélioration\n\n`;
       results.suggestions.forEach(suggestion => {
         output += `- **${suggestion.category}** : ${suggestion.message}\n`;
       });
@@ -434,9 +434,9 @@ class AccessibilityService {
     }
     
     // Recommandations finales
-    output += `## 📋 Recommandations\n\n`;
+    output += `## Recommandations\n\n`;
     if (results.score < 50) {
-      output += `⚠️ **Attention** : Le score d'accessibilité est faible. Des améliorations importantes sont nécessaires.\n\n`;
+      output += `**Attention** : Le score d'accessibilité est faible. Des améliorations importantes sont nécessaires.\n\n`;
     }
     
     output += `1. Corriger toutes les erreurs critiques (niveau A)\n`;

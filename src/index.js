@@ -298,13 +298,13 @@ async function main() {
 
 // Gestion des erreurs
 process.on('uncaughtException', (error) => {
-  console.error('Erreur non gérée:', error);
+  // Ne pas écrire sur stderr/stdout pour éviter de corrompre le protocole JSON-RPC
   process.exit(1);
 });
 
 // Lancement
 main().catch((error) => {
-  console.error('Erreur fatale:', error);
+  // Ne pas écrire sur stderr/stdout pour éviter de corrompre le protocole JSON-RPC
   process.exit(1);
 });
 

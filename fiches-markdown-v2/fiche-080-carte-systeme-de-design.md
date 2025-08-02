@@ -34,7 +34,7 @@ dans une grille sur 4 à 6 colonnes en version desktop
 
 
 ###
-[Télécharger le/la [Typologie de document] « [Nom du document] »](/example/img/placeholder.3x4.pdf) [Typologie de document][Nom du document]
+[Télécharger le/la [Typologie de document] " [Nom du document] "](/example/img/placeholder.3x4.pdf) [Typologie de document][Nom du document]
 
 
 Texte de description (facultatif)
@@ -54,7 +54,7 @@ Extrait de code
 <div class="fr-card__body">
 <div class="fr-card__content">
 <h3 class="fr-card__title">
-<a download href="/example/img/placeholder.3x4.pdf">Télécharger le/la [Typologie de document] « [Nom du document] »</a>
+<a download href="/example/img/placeholder.3x4.pdf">Télécharger le/la [Typologie de document] " [Nom du document] "</a>
 </h3>
 <p class="fr-card__desc">Texte de description (facultatif)</p>
 <div class="fr-card__end">
@@ -78,7 +78,7 @@ dans une grille sur 6 à 8 colonnes en version desktop
 
 
 ###
-[Télécharger le/la [Typologie de document] « [Nom du document] »](/example/img/placeholder.3x4.pdf) [Typologie de document][Nom du document]
+[Télécharger le/la [Typologie de document] " [Nom du document] "](/example/img/placeholder.3x4.pdf) [Typologie de document][Nom du document]
 
 
 Texte de description (facultatif)
@@ -98,7 +98,7 @@ Extrait de code
 <div class="fr-card__body">
 <div class="fr-card__content">
 <h3 class="fr-card__title">
-<a download href="/example/img/placeholder.3x4.pdf">Télécharger le/la [Typologie de document] « [Nom du document] »</a>
+<a download href="/example/img/placeholder.3x4.pdf">Télécharger le/la [Typologie de document] " [Nom du document] "</a>
 </h3>
 <p class="fr-card__desc">Texte de description (facultatif)</p>
 <div class="fr-card__end">
@@ -122,7 +122,7 @@ dans une grille sur 8 à 12 colonnes en version desktop
 
 
 ###
-[Télécharger le/la [Typologie de document] « [Nom du document] »](/example/img/placeholder.3x4.pdf) [Typologie de document][Nom du document]
+[Télécharger le/la [Typologie de document] " [Nom du document] "](/example/img/placeholder.3x4.pdf) [Typologie de document][Nom du document]
 
 
 Texte de description (facultatif)
@@ -142,7 +142,7 @@ Extrait de code
 <div class="fr-card__body">
 <div class="fr-card__content">
 <h3 class="fr-card__title">
-<a download href="/example/img/placeholder.3x4.pdf">Télécharger le/la [Typologie de document] « [Nom du document] »</a>
+<a download href="/example/img/placeholder.3x4.pdf">Télécharger le/la [Typologie de document] " [Nom du document] "</a>
 </h3>
 <p class="fr-card__desc">Texte de description (facultatif)</p>
 <div class="fr-card__end">
@@ -167,7 +167,7 @@ Sans image
 
 
 ###
-[Télécharger le/la [Typologie de document] « [Nom du document] »](/example/img/placeholder.3x4.pdf) [Typologie de document][Nom du document]
+[Télécharger le/la [Typologie de document] " [Nom du document] "](/example/img/placeholder.3x4.pdf) [Typologie de document][Nom du document]
 
 
 Texte de description (facultatif)
@@ -184,7 +184,7 @@ Extrait de code
 <div class="fr-card__body">
 <div class="fr-card__content">
 <h3 class="fr-card__title">
-<a download href="/example/img/placeholder.3x4.pdf">Télécharger le/la [Typologie de document] « [Nom du document] »</a>
+<a download href="/example/img/placeholder.3x4.pdf">Télécharger le/la [Typologie de document] " [Nom du document] "</a>
 </h3>
 <p class="fr-card__desc">Texte de description (facultatif)</p>
 <div class="fr-card__end">
@@ -199,7 +199,7 @@ Extrait de code
 
 
 ###
-[Télécharger le/la [Typologie de document] « [Nom du document] »](/example/img/placeholder.3x4.pdf) [Typologie de document][Nom du document]
+[Télécharger le/la [Typologie de document] " [Nom du document] "](/example/img/placeholder.3x4.pdf) [Typologie de document][Nom du document]
 
 
 Texte de description (facultatif)
@@ -216,7 +216,7 @@ Extrait de code
 <div class="fr-card__body">
 <div class="fr-card__content">
 <h3 class="fr-card__title">
-<a download href="/example/img/placeholder.3x4.pdf">Télécharger le/la [Typologie de document] « [Nom du document] »</a>
+<a download href="/example/img/placeholder.3x4.pdf">Télécharger le/la [Typologie de document] " [Nom du document] "</a>
 </h3>
 <p class="fr-card__desc">Texte de description (facultatif)</p>
 <div class="fr-card__end">
@@ -235,7 +235,7 @@ Tailles d'images
 
 
 ###
-[Télécharger le/la [Typologie de document] « [Nom du document] »](/example/img/placeholder.3x4.pdf) [Typologie de document][Nom du document]
+[Télécharger le/la [Typologie de document] " [Nom du document] "](/example/img/placeholder.3x4.pdf) [Typologie de document][Nom du document]
 
 
 Texte de description (facultatif)
@@ -255,7 +255,7 @@ Extrait de code
 <div class="fr-card__body">
 <div class="fr-card__content">
 <h3 class="fr-card__title">
-<a download href="/example/img/placeholder.3x4.pdf">Télécharger le/la [Typologie de document] « [Nom du document] »</a>
+<a download href="/example/img/placeholder.3x4.pdf">Télécharger le/la [Typologie de document] " [Nom du document] "</a>
 </h3>
 <p class="fr-card__desc">Texte de description (facultatif)</p>
 <div class="fr-card__end">
@@ -276,7 +276,7 @@ Extrait de code
 
 
 ###
-[Télécharger le/la [Typologie de document] « [Nom du document] »](/example/img/placeholder.3x4.pdf) [Typologie de document][Nom du document]
+[Télécharger le/la [Typologie de document] " [Nom du document] "](/example/img/placeholder.3x4.pdf) [Typologie de document][Nom du document]
 
 
 Texte de description (facultatif)
@@ -296,7 +296,7 @@ Extrait de code
 <div class="fr-card__body">
 <div class="fr-card__content">
 <h3 class="fr-card__title">
-<a download href="/example/img/placeholder.3x4.pdf">Télécharger le/la [Typologie de document] « [Nom du document] »</a>
+<a download href="/example/img/placeholder.3x4.pdf">Télécharger le/la [Typologie de document] " [Nom du document] "</a>
 </h3>
 <p class="fr-card__desc">Texte de description (facultatif)</p>
 <div class="fr-card__end">
@@ -317,7 +317,7 @@ Extrait de code
 
 
 ###
-[Télécharger le/la [Typologie de document] « [Nom du document] »](/example/img/placeholder.3x4.pdf) [Typologie de document][Nom du document]
+[Télécharger le/la [Typologie de document] " [Nom du document] "](/example/img/placeholder.3x4.pdf) [Typologie de document][Nom du document]
 
 
 Texte de description (facultatif)
@@ -337,7 +337,7 @@ Extrait de code
 <div class="fr-card__body">
 <div class="fr-card__content">
 <h3 class="fr-card__title">
-<a download href="/example/img/placeholder.3x4.pdf">Télécharger le/la [Typologie de document] « [Nom du document] »</a>
+<a download href="/example/img/placeholder.3x4.pdf">Télécharger le/la [Typologie de document] " [Nom du document] "</a>
 </h3>
 <p class="fr-card__desc">Texte de description (facultatif)</p>
 <div class="fr-card__end">
@@ -362,7 +362,7 @@ Contenu
 
 
 ###
-[Télécharger le/la [Typologie de document] « [Nom du document] »](/example/img/placeholder.3x4.pdf) [Typologie de document][Nom du document]
+[Télécharger le/la [Typologie de document] " [Nom du document] "](/example/img/placeholder.3x4.pdf) [Typologie de document][Nom du document]
 
 
 Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dolore magna aliqua. Vitae sapien pellentesque habitant morbi tristique senectus et
@@ -397,7 +397,7 @@ Extrait de code
 <div class="fr-card__body">
 <div class="fr-card__content">
 <h3 class="fr-card__title">
-<a download href="/example/img/placeholder.3x4.pdf">Télécharger le/la [Typologie de document] « [Nom du document] »</a>
+<a download href="/example/img/placeholder.3x4.pdf">Télécharger le/la [Typologie de document] " [Nom du document] "</a>
 </h3>
 <p class="fr-card__desc">Lorem [...] elit ut.</p>
 <div class="fr-card__start">
@@ -429,7 +429,7 @@ Extrait de code
 
 
 ###
-[Télécharger le/la [Typologie de document] « [Nom du document] »](/example/img/placeholder.3x4.pdf) [Typologie de document][Nom du document]
+[Télécharger le/la [Typologie de document] " [Nom du document] "](/example/img/placeholder.3x4.pdf) [Typologie de document][Nom du document]
 
 
 PDF - 48 ko
@@ -443,7 +443,7 @@ Extrait de code
 <div class="fr-card__body">
 <div class="fr-card__content">
 <h3 class="fr-card__title">
-<a download href="/example/img/placeholder.3x4.pdf">Télécharger le/la [Typologie de document] « [Nom du document] »</a>
+<a download href="/example/img/placeholder.3x4.pdf">Télécharger le/la [Typologie de document] " [Nom du document] "</a>
 </h3>
 <div class="fr-card__end">
 <p class="fr-card__detail">PDF - 48 ko</p>
@@ -457,7 +457,7 @@ Extrait de code
 
 
 ###
-[Télécharger le/la [Typologie de document] « [Nom du document] »](/example/img/placeholder.3x4.pdf) [Typologie de document][Nom du document]
+[Télécharger le/la [Typologie de document] " [Nom du document] "](/example/img/placeholder.3x4.pdf) [Typologie de document][Nom du document]
 
 
 Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dolore magna aliqua. Vitae sapien pellentesque habitant morbi tristique senectus et
@@ -489,7 +489,7 @@ Extrait de code
 <div class="fr-card__body">
 <div class="fr-card__content">
 <h3 class="fr-card__title">
-<a download href="/example/img/placeholder.3x4.pdf">Télécharger le/la [Typologie de document] « [Nom du document] »</a>
+<a download href="/example/img/placeholder.3x4.pdf">Télécharger le/la [Typologie de document] " [Nom du document] "</a>
 </h3>
 <p class="fr-card__desc">Lorem [...] elit ut.</p>
 <div class="fr-card__start">
@@ -527,7 +527,7 @@ L'attribut data-fr-assess-file permet de remplir automatiquement le detail depui
 
 
 ###
-[Télécharger le/la [Typologie de document] « [Nom du document] »](/example/img/placeholder.3x4.pdf) [Typologie de document][Nom du document]
+[Télécharger le/la [Typologie de document] " [Nom du document] "](/example/img/placeholder.3x4.pdf) [Typologie de document][Nom du document]
 
 
 Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dolore magna aliqua. Vitae sapien pellentesque habitant morbi tristique senectus et
@@ -547,7 +547,7 @@ Extrait de code
 <div class="fr-card__body">
 <div class="fr-card__content">
 <h3 class="fr-card__title">
-<a data-fr-assess-file download href="/example/img/placeholder.3x4.pdf">Télécharger le/la [Typologie de document] « [Nom du document] »</a>
+<a data-fr-assess-file download href="/example/img/placeholder.3x4.pdf">Télécharger le/la [Typologie de document] " [Nom du document] "</a>
 </h3>
 <p class="fr-card__desc">Lorem [...] elit ut.</p>
 <div class="fr-card__end">
@@ -616,7 +616,7 @@ Si la langue du fichier à télécharger est différente de celle de la page cou
 
 
 ###
-[Télécharger le/la [Typologie de document] « [Nom du document] »](lang=%22en%22) [Typologie de document][Nom du document]
+[Télécharger le/la [Typologie de document] " [Nom du document] "](lang=%22en%22) [Typologie de document][Nom du document]
 
 
 Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dolore magna aliqua. Vitae sapien pellentesque habitant morbi tristique senectus et
@@ -636,7 +636,7 @@ Extrait de code
 <div class="fr-card__body">
 <div class="fr-card__content">
 <h3 class="fr-card__title">
-<a hreflang="en" download href="/example/img/placeholder.3x4.pdf">Télécharger le/la [Typologie de document] « [Nom du document] »</a>
+<a hreflang="en" download href="/example/img/placeholder.3x4.pdf">Télécharger le/la [Typologie de document] " [Nom du document] "</a>
 </h3>
 <p class="fr-card__desc">Lorem [...] elit ut.</p>
 <div class="fr-card__end">
@@ -664,7 +664,7 @@ dans une grille sur 4 à 6 colonnes en version desktop
 
 
 ###
-Télécharger le/la [Typologie de document] « [Nom du document] »
+Télécharger le/la [Typologie de document] " [Nom du document] "
 
 
 PDF - 48 ko
@@ -681,7 +681,7 @@ Extrait de code
 <div class="fr-card__body">
 <div class="fr-card__content">
 <h3 class="fr-card__title">
-<button type="button">Télécharger le/la [Typologie de document] « [Nom du document] »</button>
+<button type="button">Télécharger le/la [Typologie de document] " [Nom du document] "</button>
 </h3>
 <div class="fr-card__end">
 <p class="fr-card__detail">PDF - 48 ko</p>
@@ -704,7 +704,7 @@ dans une grille sur 6 à 8 colonnes en version desktop
 
 
 ###
-Télécharger le/la [Typologie de document] « [Nom du document] »
+Télécharger le/la [Typologie de document] " [Nom du document] "
 
 
 PDF - 48 ko
@@ -721,7 +721,7 @@ Extrait de code
 <div class="fr-card__body">
 <div class="fr-card__content">
 <h3 class="fr-card__title">
-<button type="button">Télécharger le/la [Typologie de document] « [Nom du document] »</button>
+<button type="button">Télécharger le/la [Typologie de document] " [Nom du document] "</button>
 </h3>
 <div class="fr-card__end">
 <p class="fr-card__detail">PDF - 48 ko</p>
@@ -744,7 +744,7 @@ dans une grille sur 8 à 12 colonnes en version desktop
 
 
 ###
-Télécharger le/la [Typologie de document] « [Nom du document] »
+Télécharger le/la [Typologie de document] " [Nom du document] "
 
 
 PDF - 48 ko
@@ -761,7 +761,7 @@ Extrait de code
 <div class="fr-card__body">
 <div class="fr-card__content">
 <h3 class="fr-card__title">
-<button type="button">Télécharger le/la [Typologie de document] « [Nom du document] »</button>
+<button type="button">Télécharger le/la [Typologie de document] " [Nom du document] "</button>
 </h3>
 <div class="fr-card__end">
 <p class="fr-card__detail">PDF - 48 ko</p>

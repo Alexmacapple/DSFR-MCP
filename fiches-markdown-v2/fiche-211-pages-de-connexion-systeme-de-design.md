@@ -502,13 +502,13 @@ Voir le fil d’Ariane
 # Récupération de mot de passe sur [Nom du service-site]
 
 
-Chapô — Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.
+Chapô - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.
 
 
 ## Récupérer le mot de passe de votre compte
 
 
-Description — Veuillez saisir l’adresse électronique associée à votre compte. Nous vous enverrons plus d’informations sur pour réinitialiser votre mot de passe
+Description - Veuillez saisir l’adresse électronique associée à votre compte. Nous vous enverrons plus d’informations sur pour réinitialiser votre mot de passe
 
 
 Identifiant
@@ -574,7 +574,7 @@ Extrait de code
 <div class="fr-grid-row fr-grid-row--gutters fr-grid-row--center">
 <div class="fr-col-12 fr-col-md-10 fr-col-lg-8">
 <h1 class="fr-h2">Récupération de mot de passe sur [Nom du service-site]</h1>
-<p class="fr-text--lead">Chapô — Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.</p>
+<p class="fr-text--lead">Chapô - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.</p>
 </div>
 </div>
 </div>
@@ -591,7 +591,7 @@ Extrait de code
 <h2 class="fr-h5">Récupérer le mot de passe de votre compte</h2>
 </legend>
 <div class="fr-fieldset__element">
-<p class="fr-text--sm">Description — Veuillez saisir l’adresse électronique associée à votre compte. Nous vous enverrons plus d’informations sur pour réinitialiser votre mot de passe</p>
+<p class="fr-text--sm">Description - Veuillez saisir l’adresse électronique associée à votre compte. Nous vous enverrons plus d’informations sur pour réinitialiser votre mot de passe</p>
 </div>
 <div class="fr-fieldset__element">
 <div class="fr-input-group" id="input-group-8128">
