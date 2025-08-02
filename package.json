@@ -1,0 +1,47 @@
+{
+  "name": "dsfr-mcp",
+  "version": "1.0.0",
+  "description": "MCP Server complet pour le Système de Design de l'État Français (DSFR)",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "test": "jest",
+    "test:unit": "jest --testPathPattern=test/unit",
+    "test:integration": "jest --testPathPattern=test/integration",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:mcp": "node test-mcp.js",
+    "build:index": "node scripts/build-index.js",
+    "validate": "node scripts/validate-html.js",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix"
+  },
+  "keywords": ["mcp", "dsfr", "design-system", "france", "accessibilité", "rgaa"],
+  "author": "Alex",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.6.0",
+    "ajv": "^8.12.0",
+    "cheerio": "^1.0.0-rc.12",
+    "gray-matter": "^4.0.3",
+    "marked": "^9.1.0",
+    "fuse.js": "^7.0.0",
+    "jsdom": "^23.0.0",
+    "dotenv": "^16.3.1",
+    "chalk": "^4.1.2",
+    "ora": "^5.4.1",
+    "prettier": "^3.2.5"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "jest": "^29.7.0",
+    "@types/jest": "^29.5.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
