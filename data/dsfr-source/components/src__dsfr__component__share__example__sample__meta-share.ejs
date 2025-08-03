@@ -1,0 +1,8 @@
+<%
+let metaTag = [];
+metaTag = JSON.parse(include('../data/meta.json.ejs'));
+%>
+
+<%- include('../../template/ejs/share-meta', { meta: metaTag }); %>
+
+

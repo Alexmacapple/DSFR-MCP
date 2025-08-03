@@ -1,0 +1,9 @@
+$value: null;
+
+@mixin set($v) {
+  @if $value == null {
+    $value: $v !global;
+  }
+}
+
+

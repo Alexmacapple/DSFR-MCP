@@ -1,0 +1,12 @@
+<%
+let tag = locals.tag || {};
+let data = {
+  ...tag,
+  size: 'sm'
+}
+
+%>
+
+<%- include('./tag-default', {tag:data}); %>
+
+

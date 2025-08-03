@@ -1,0 +1,11 @@
+////
+/// Breadcrumb Print
+/// @group breadcrumb
+////
+
+@media print {
+  @import 'index';
+  @import 'style/print';
+}
+
+

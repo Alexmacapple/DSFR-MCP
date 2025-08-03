@@ -1,0 +1,10 @@
+////
+/// Button Module - Display
+/// @group button
+////
+
+#{ns(btn--display)} {
+  @include nest-btn(md, left, theme-fill, null, false);
+}
+
+

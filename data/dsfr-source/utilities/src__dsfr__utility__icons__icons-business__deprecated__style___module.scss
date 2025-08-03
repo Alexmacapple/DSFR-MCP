@@ -1,0 +1,8 @@
+////
+/// Icon Business Module
+/// @group icon-business
+////
+
+@include generate-deprecated-icons($deprecated-icons, filter-icons('business'));
+
+

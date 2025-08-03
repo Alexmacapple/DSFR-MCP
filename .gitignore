@@ -66,9 +66,6 @@ diagnostic-*.sh
 gouvernementfr-dsfr-*.txt
 *.zip
 
-# Data source files (too many files)
-data/dsfr-source/
-
 # Backup files
 *.bak
 *.backup
