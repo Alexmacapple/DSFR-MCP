@@ -1,6 +1,6 @@
 # 🇫🇷 DSFR-MCP - Model Context Protocol pour le Système de Design de l'État Français
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/DSFR-MCP)
+[![Version](https://img.shields.io/badge/version-1.0.2-blue.svg)](https://github.com/DSFR-MCP)
 [![Node](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
@@ -8,12 +8,12 @@ Serveur MCP (Model Context Protocol) complet pour le Système de Design de l'Ét
 
 ## 🚀 Fonctionnalités principales
 
-- **📚 Documentation complète** : Accès aux 213 fiches de documentation DSFR
+- **📚 Documentation complète** : Accès aux 213 fiches de documentation DSFR organisées dans une structure v2 optimisée
 - **🔍 Recherche intelligente** : Recherche fuzzy dans tous les composants et patterns
 - **🛠️ Génération de code** : Création automatique de composants pour différents frameworks
 - **✅ Validation** : Vérification de la conformité DSFR et de l'accessibilité RGAA
 - **🎨 Personnalisation** : Création de thèmes et adaptation des composants
-- **📦 Code source analysé** : Parsing complet du code source DSFR officiel
+- **📦 Code source analysé** : Parsing complet du code source DSFR officiel avec versioning et métadonnées
 
 ## 📋 Table des matières
 

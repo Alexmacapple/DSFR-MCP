@@ -5,6 +5,19 @@ Tous les changements notables de ce projet seront documentés dans ce fichier.
 Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/),
 et ce projet adhère au [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2] - 2025-08-03
+
+### ✨ Améliorations
+
+#### Ajouté
+- **Versioning complet** : Ajout de métadonnées de version à tous les fichiers dsfr-source pour une meilleure traçabilité
+- **Structure fiches v2** : Nouvelle organisation des fiches markdown dans le dossier `fiches-markdown-v2/`
+- **Expérience développeur** : Amélioration de l'organisation des données pour une utilisation plus fluide
+
+#### Modifié
+- Réorganisation des fiches markdown avec une nouvelle structure plus cohérente
+- Mise à jour de la documentation pour refléter les changements structurels
+
 ## [1.0.1] - 2024-08-03
 
 ### 🐛 Corrections

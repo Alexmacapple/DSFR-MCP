@@ -1,6 +1,6 @@
 {
   "name": "dsfr-mcp",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "MCP Server complet pour le Système de Design de l'État Français (DSFR)",
   "main": "src/index.js",
   "scripts": {
