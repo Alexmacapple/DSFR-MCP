@@ -6,7 +6,6 @@ Mise en avant - Système de design
 
 Markdown:
 
-
 Mise en avant - Système de design
 
 
@@ -19,7 +18,7 @@ DSFR v1.14.0
 # Mise en avant (callout)
 
 
-La mise en avant permet à l’utilisateur de distinguer rapidement une information qui vient compléter le contenu consulté.
+La mise en avant permet à l'utilisateur de distinguer rapidement une information qui vient compléter le contenu consulté.
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mise-en-avant)
 
 
@@ -125,10 +124,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

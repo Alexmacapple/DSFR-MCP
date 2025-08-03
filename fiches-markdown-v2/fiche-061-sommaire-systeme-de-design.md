@@ -6,7 +6,6 @@ Sommaire - Système de design
 
 Markdown:
 
-
 Sommaire - Système de design
 
 
@@ -19,7 +18,7 @@ DSFR v1.14.0
 # Sommaire (summary)
 
 
-Le sommaire permet aux utilisateurs d’avoir un aperçu du contenu et de naviguer entre les différentes sections d’une page.
+Le sommaire permet aux utilisateurs d'avoir un aperçu du contenu et de naviguer entre les différentes sections d'une page.
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/sommaire)
 
 
@@ -584,10 +583,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

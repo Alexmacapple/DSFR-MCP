@@ -6,7 +6,6 @@ Case à cocher - Système de design
 
 Markdown:
 
-
 Case à cocher - Système de design
 
 
@@ -19,7 +18,7 @@ DSFR v1.14.0
 # Case à cocher (checkbox)
 
 
-La case à cocher permet à l’utilisateur de sélectionner une ou plusieurs options dans une liste. Elle est utilisée pour effectuer des sélections multiples (de 0 à N éléments), ou bien pour permettre un choix binaire, lorsque l’utilisateur peut sélectionner ou désélectionner une seule option.
+La case à cocher permet à l'utilisateur de sélectionner une ou plusieurs options dans une liste. Elle est utilisée pour effectuer des sélections multiples (de 0 à N éléments), ou bien pour permettre un choix binaire, lorsque l'utilisateur peut sélectionner ou désélectionner une seule option.
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/case-a-cocher)
 
 
@@ -64,7 +63,7 @@ Extrait de code
 </div>
 
 
-### Case à cocher avec texte d‘aide
+### Case à cocher avec texte d'aide
 
 
 Libellé checkbox
@@ -116,7 +115,7 @@ Libellé checkbox
 Libellé checkbox
 
 
-Texte d’erreur obligatoire
+Texte d'erreur obligatoire
 
 
 ###
@@ -129,7 +128,7 @@ Extrait de code
 Libellé checkbox
 </label>
 <div class="fr-messages-group" id="checkbox-error-messages" aria-live="polite">
-<p class="fr-message fr-message--error" id="checkbox-error-message-error">Texte d’erreur obligatoire</p>
+<p class="fr-message fr-message--error" id="checkbox-error-message-error">Texte d'erreur obligatoire</p>
 </div>
 </div>
 
@@ -137,7 +136,7 @@ Libellé checkbox
 ### Ensemble de cases à cocher
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé case à cocher
@@ -155,7 +154,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="checkboxes" aria-labelledby="checkboxes-legend checkboxes-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="checkboxes-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <div class="fr-checkbox-group">
@@ -195,7 +194,7 @@ Libellé case à cocher
 ### Ensemble de cases à cocher, petite taille
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé case à cocher
@@ -213,7 +212,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="checkboxes-small" aria-labelledby="checkboxes-small-legend checkboxes-small-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="checkboxes-small-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <div class="fr-checkbox-group fr-checkbox-group--sm">
@@ -253,7 +252,7 @@ Libellé case à cocher
 ### Ensemble de cases à cocher désactivées
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé case à cocher
@@ -271,7 +270,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="checkboxes-disabled" aria-labelledby="checkboxes-disabled-legend checkboxes-disabled-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="checkboxes-disabled-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <div class="fr-checkbox-group">
@@ -311,7 +310,7 @@ Libellé case à cocher
 ### Ensemble de cases à cocher en ligne
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé case à cocher
@@ -329,7 +328,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="checkboxes-inline" aria-labelledby="checkboxes-inline-legend checkboxes-inline-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="checkboxes-inline-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element fr-fieldset__element--inline">
 <div class="fr-checkbox-group">
@@ -366,10 +365,10 @@ Libellé case à cocher
 </fieldset>
 
 
-### Ensemble de cases à cocher avec texte d‘aide
+### Ensemble de cases à cocher avec texte d'aide
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé case à cocher
@@ -390,7 +389,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="checkboxes-hint" aria-labelledby="checkboxes-hint-legend checkboxes-hint-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="checkboxes-hint-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <div class="fr-checkbox-group">
@@ -433,7 +432,7 @@ Libellé case à cocher
 ### Ensemble de cases à cocher avec erreur
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé case à cocher
@@ -445,7 +444,7 @@ Libellé case à cocher
 Libellé case à cocher
 
 
-Texte d’erreur obligatoire
+Texte d'erreur obligatoire
 
 
 ###
@@ -454,7 +453,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset fr-fieldset--error" id="checkboxes-error" role="group" aria-labelledby="checkboxes-error-legend checkboxes-error-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="checkboxes-error-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <div class="fr-checkbox-group">
@@ -487,7 +486,7 @@ Libellé case à cocher
 </div>
 </div>
 <div class="fr-messages-group" id="checkboxes-error-messages" aria-live="polite">
-<p class="fr-message fr-message--error" id="checkboxes-error-message-error">Texte d’erreur obligatoire</p>
+<p class="fr-message fr-message--error" id="checkboxes-error-message-error">Texte d'erreur obligatoire</p>
 </div>
 </fieldset>
 
@@ -495,7 +494,7 @@ Libellé case à cocher
 ### Ensemble de cases à cocher validées
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé case à cocher
@@ -516,7 +515,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset fr-fieldset--valid" id="checkboxes-valid" role="group" aria-labelledby="checkboxes-valid-legend checkboxes-valid-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="checkboxes-valid-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <div class="fr-checkbox-group">
@@ -557,7 +556,7 @@ Libellé case à cocher
 ### Ensemble de cases à cocher avec erreur, en ligne
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé case à cocher
@@ -569,7 +568,7 @@ Libellé case à cocher
 Libellé case à cocher
 
 
-Texte d’erreur obligatoire
+Texte d'erreur obligatoire
 
 
 ###
@@ -578,7 +577,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset fr-fieldset--error" id="checkboxes-error-inline" role="group" aria-labelledby="checkboxes-error-inline-legend checkboxes-error-inline-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="checkboxes-error-inline-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element fr-fieldset__element--inline">
 <div class="fr-checkbox-group">
@@ -611,7 +610,7 @@ Libellé case à cocher
 </div>
 </div>
 <div class="fr-messages-group" id="checkboxes-error-inline-messages" aria-live="polite">
-<p class="fr-message fr-message--error" id="checkboxes-error-inline-message-error">Texte d’erreur obligatoire</p>
+<p class="fr-message fr-message--error" id="checkboxes-error-inline-message-error">Texte d'erreur obligatoire</p>
 </div>
 </fieldset>
 
@@ -619,7 +618,7 @@ Libellé case à cocher
 ### Ensemble de cases à cocher validées, en ligne
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé case à cocher
@@ -640,7 +639,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset fr-fieldset--valid" id="checkboxes-valid-inline" role="group" aria-labelledby="checkboxes-valid-inline-legend checkboxes-valid-inline-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="checkboxes-valid-inline-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element fr-fieldset__element--inline">
 <div class="fr-checkbox-group">
@@ -678,10 +677,10 @@ Libellé case à cocher
 </fieldset>
 
 
-### Ensemble de cases à cocher avec texte d‘aide spécifique
+### Ensemble de cases à cocher avec texte d'aide spécifique
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé case à cocher
@@ -702,7 +701,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="checkboxes-hint-element" aria-labelledby="checkboxes-hint-element-legend checkboxes-hint-element-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="checkboxes-hint-element-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <div class="fr-checkbox-group">
@@ -742,10 +741,10 @@ Libellé case à cocher
 </fieldset>
 
 
-### Ensemble de cases à cocher avec texte d‘aide spécifique, petite taille
+### Ensemble de cases à cocher avec texte d'aide spécifique, petite taille
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé case à cocher
@@ -766,7 +765,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="checkboxes-hint-el-sm" aria-labelledby="checkboxes-hint-el-sm-legend checkboxes-hint-el-sm-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="checkboxes-hint-el-sm-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <div class="fr-checkbox-group fr-checkbox-group--sm">
@@ -820,10 +819,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

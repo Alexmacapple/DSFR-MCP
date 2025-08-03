@@ -6,7 +6,6 @@ Modale - Système de design
 
 Markdown:
 
-
 Modale - Système de design
 
 
@@ -19,7 +18,7 @@ DSFR v1.14.0
 # Modale (modal)
 
 
-La modale permet de concentrer l’attention de l’utilisateur exclusivement sur une tâche ou un élément d’information, sans perdre le contexte de la page en cours. Ce composant nécessite une action de l’utilisateur afin d'être clôturé ou ouverte.
+La modale permet de concentrer l'attention de l'utilisateur exclusivement sur une tâche ou un élément d'information, sans perdre le contexte de la page en cours. Ce composant nécessite une action de l'utilisateur afin d'être clôturé ou ouverte.
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/modale)
 
 
@@ -169,7 +168,7 @@ Fermer
 Titre de la modale
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé champ de saisie
@@ -205,7 +204,7 @@ Titre de la modale
 <form action="">
 <fieldset class="fr-fieldset" id="input-sample" aria-labelledby="input-sample-legend input-sample-messages">
 <legend class="fr-fieldset__legend" id="input-sample-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <div class="fr-input-group" id="input-group-5736">
@@ -885,10 +884,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

@@ -6,7 +6,6 @@ Tag - Système de design
 
 Markdown:
 
-
 Tag - Système de design
 
 
@@ -207,7 +206,7 @@ Extrait de code
 
 Le tag supprimable n'autorise ni accentuation ni icône personnalisée.
 
-Le javascript présent dans l’attribut onclick est donné à titre d’exemple, à vous de l’implémenter dans votre contexte technique.
+Le javascript présent dans l'attribut onclick est donné à titre d'exemple, à vous de l'implémenter dans votre contexte technique.
 
 
 ### Tag supprimable
@@ -892,10 +891,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

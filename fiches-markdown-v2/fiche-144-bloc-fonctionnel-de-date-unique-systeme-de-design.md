@@ -6,7 +6,6 @@ Bloc fonctionnel de date unique - Système de design
 
 Markdown:
 
-
 Bloc fonctionnel de date unique - Système de design
 
 
@@ -108,7 +107,7 @@ Le jour est invalide
 Le mois est invalide
 
 
-L’année est invalide
+L'année est invalide
 
 
 ###
@@ -150,7 +149,7 @@ Année
 <div class="fr-messages-group" id="date-error-7430-messages" aria-live="polite">
 <p class="fr-message fr-message--error" id="date-error-7430-message-error-1">Le jour est invalide</p>
 <p class="fr-message fr-message--error" id="date-error-7430-message-error-2">Le mois est invalide</p>
-<p class="fr-message fr-message--error" id="date-error-7430-message-error-3">L’année est invalide</p>
+<p class="fr-message fr-message--error" id="date-error-7430-message-error-3">L'année est invalide</p>
 </div>
 </fieldset>
 
@@ -174,7 +173,7 @@ Année
 Exemple : 1984
 
 
-La date est postérieure à aujourd’hui
+La date est postérieure à aujourd'hui
 
 
 ###
@@ -214,7 +213,7 @@ Année
 </div>
 </div>
 <div class="fr-messages-group" id="date-error-7439-messages" aria-live="polite">
-<p class="fr-message fr-message--error" id="date-error-7439-message-error">La date est postérieure à aujourd’hui</p>
+<p class="fr-message fr-message--error" id="date-error-7439-message-error">La date est postérieure à aujourd'hui</p>
 </div>
 </fieldset>
 
@@ -226,10 +225,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

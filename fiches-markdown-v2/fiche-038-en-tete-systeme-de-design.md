@@ -6,7 +6,6 @@ En-tête - Système de design
 
 Markdown:
 
-
 En-tête - Système de design
 
 
@@ -19,7 +18,7 @@ DSFR v1.14.0
 # En-tête (header)
 
 
-L’en-tête permet aux utilisateurs d’identifier sur quel site ils se trouvent. Il peut donner accès à la recherche et à certaines pages ou fonctionnalités clés.
+L'en-tête permet aux utilisateurs d'identifier sur quel site ils se trouvent. Il peut donner accès à la recherche et à certaines pages ou fonctionnalités clés.
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/en-tete)
 
 
@@ -60,7 +59,7 @@ Extrait de code
 <div class="fr-header__brand fr-enlarge-link">
 <div class="fr-header__brand-top">
 <div class="fr-header__logo">
-<a href="/" title="Accueil - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)">
+<a href="/" title="Accueil - Nom de l'entité (ministère, secrétariat d'état, gouvernement)">
 <p class="fr-logo">
 Intitulé
 <br>officiel
@@ -112,7 +111,7 @@ officiel
 [Nom du site / service](/)
 
 
-baseline - précisions sur l‘organisation
+baseline - précisions sur l'organisation
 
 
 ###
@@ -133,12 +132,12 @@ Intitulé
 </div>
 </div>
 <div class="fr-header__service">
-<a href="/" title="Accueil - [À MODIFIER - Nom du site / service] - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)">
+<a href="/" title="Accueil - [À MODIFIER - Nom du site / service] - Nom de l'entité (ministère, secrétariat d'état, gouvernement)">
 <p class="fr-header__service-title">
 Nom du site / service
 </p>
 </a>
-<p class="fr-header__service-tagline">baseline - précisions sur l‘organisation</p>
+<p class="fr-header__service-tagline">baseline - précisions sur l'organisation</p>
 </div>
 </div>
 </div>
@@ -161,7 +160,7 @@ Menu
 [Nom du site / service](/)
 
 
-baseline - précisions sur l‘organisation
+baseline - précisions sur l'organisation
 
 
 [Espace particulier](%5Burl%20-%20%C3%A0%20modifier%5D)
@@ -191,12 +190,12 @@ Intitulé
 </div>
 </div>
 <div class="fr-header__service">
-<a href="/" title="Accueil - [À MODIFIER - Nom du site / service] - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)">
+<a href="/" title="Accueil - [À MODIFIER - Nom du site / service] - Nom de l'entité (ministère, secrétariat d'état, gouvernement)">
 <p class="fr-header__service-title">
 Nom du site / service
 </p>
 </a>
-<p class="fr-header__service-tagline">baseline - précisions sur l‘organisation</p>
+<p class="fr-header__service-tagline">baseline - précisions sur l'organisation</p>
 </div>
 </div>
 <div class="fr-header__tools">
@@ -231,7 +230,7 @@ Menu
 [Nom du site / service](/)
 
 
-baseline - précisions sur l‘organisation
+baseline - précisions sur l'organisation
 
 
 -
@@ -270,12 +269,12 @@ Intitulé
 </div>
 </div>
 <div class="fr-header__service">
-<a href="/" title="Accueil - [À MODIFIER - Nom du site / service] - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)">
+<a href="/" title="Accueil - [À MODIFIER - Nom du site / service] - Nom de l'entité (ministère, secrétariat d'état, gouvernement)">
 <p class="fr-header__service-title">
 Nom du site / service
 </p>
 </a>
-<p class="fr-header__service-tagline">baseline - précisions sur l‘organisation</p>
+<p class="fr-header__service-tagline">baseline - précisions sur l'organisation</p>
 </div>
 </div>
 <div class="fr-header__tools">
@@ -321,7 +320,7 @@ Menu
 [Nom du site / service](/)
 
 
-baseline - précisions sur l‘organisation
+baseline - précisions sur l'organisation
 
 
 -
@@ -812,12 +811,12 @@ Intitulé
 </div>
 </div>
 <div class="fr-header__service">
-<a href="/" title="Accueil - [À MODIFIER - Nom du site / service] - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)">
+<a href="/" title="Accueil - [À MODIFIER - Nom du site / service] - Nom de l'entité (ministère, secrétariat d'état, gouvernement)">
 <p class="fr-header__service-title">
 Nom du site / service
 </p>
 </a>
-<p class="fr-header__service-tagline">baseline - précisions sur l‘organisation</p>
+<p class="fr-header__service-tagline">baseline - précisions sur l'organisation</p>
 </div>
 </div>
 <div class="fr-header__tools">
@@ -1394,7 +1393,7 @@ Menu
 [Nom du site / service](/)
 
 
-baseline - précisions sur l‘organisation
+baseline - précisions sur l'organisation
 
 
 FR - Français
@@ -1890,12 +1889,12 @@ Intitulé
 </div>
 </div>
 <div class="fr-header__service">
-<a href="/" title="Accueil - [À MODIFIER - Nom du site / service] - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)">
+<a href="/" title="Accueil - [À MODIFIER - Nom du site / service] - Nom de l'entité (ministère, secrétariat d'état, gouvernement)">
 <p class="fr-header__service-title">
 Nom du site / service
 </p>
 </a>
-<p class="fr-header__service-tagline">baseline - précisions sur l‘organisation</p>
+<p class="fr-header__service-tagline">baseline - précisions sur l'organisation</p>
 </div>
 </div>
 <div class="fr-header__tools">
@@ -2475,7 +2474,7 @@ Menu
 [Nom du site / service](/)
 
 
-baseline - précisions sur l‘organisation
+baseline - précisions sur l'organisation
 
 
 -
@@ -2979,12 +2978,12 @@ Intitulé
 </div>
 </div>
 <div class="fr-header__service">
-<a href="/" title="Accueil - [À MODIFIER - Nom du site / service] - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)">
+<a href="/" title="Accueil - [À MODIFIER - Nom du site / service] - Nom de l'entité (ministère, secrétariat d'état, gouvernement)">
 <p class="fr-header__service-title">
 Nom du site / service
 </p>
 </a>
-<p class="fr-header__service-tagline">baseline - précisions sur l‘organisation</p>
+<p class="fr-header__service-tagline">baseline - précisions sur l'organisation</p>
 </div>
 </div>
 <div class="fr-header__tools">
@@ -3572,7 +3571,7 @@ Menu
 [Nom du site / service](/)
 
 
-baseline - précisions sur l‘organisation
+baseline - précisions sur l'organisation
 
 
 Paramètres d'affichage
@@ -4071,12 +4070,12 @@ Intitulé
 </div>
 </div>
 <div class="fr-header__service">
-<a href="/" title="Accueil - [À MODIFIER - Nom du site / service] - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)">
+<a href="/" title="Accueil - [À MODIFIER - Nom du site / service] - Nom de l'entité (ministère, secrétariat d'état, gouvernement)">
 <p class="fr-header__service-title">
 Nom du site / service
 </p>
 </a>
-<p class="fr-header__service-tagline">baseline - précisions sur l‘organisation</p>
+<p class="fr-header__service-tagline">baseline - précisions sur l'organisation</p>
 </div>
 </div>
 <div class="fr-header__tools">
@@ -4643,7 +4642,7 @@ Nom du site / service
 </header>
 
 
-#### Header avec nom de service, lien d’accès
+#### Header avec nom de service, lien d'accès
 
 
 Intitulé
@@ -4657,7 +4656,7 @@ Menu
 [Nom du site / service](/)
 
 
-baseline - précisions sur l‘organisation
+baseline - précisions sur l'organisation
 
 
 -
@@ -4708,12 +4707,12 @@ Intitulé
 </div>
 </div>
 <div class="fr-header__service">
-<a href="/" title="Accueil - [À MODIFIER - Nom du site / service] - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)">
+<a href="/" title="Accueil - [À MODIFIER - Nom du site / service] - Nom de l'entité (ministère, secrétariat d'état, gouvernement)">
 <p class="fr-header__service-title">
 Nom du site / service
 </p>
 </a>
-<p class="fr-header__service-tagline">baseline - précisions sur l‘organisation</p>
+<p class="fr-header__service-tagline">baseline - précisions sur l'organisation</p>
 </div>
 </div>
 <div class="fr-header__tools">
@@ -4821,7 +4820,7 @@ Intitulé
 </div>
 </div>
 <div class="fr-header__service">
-<a href="/" title="Accueil - [À MODIFIER - Nom du site / service] - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)">
+<a href="/" title="Accueil - [À MODIFIER - Nom du site / service] - Nom de l'entité (ministère, secrétariat d'état, gouvernement)">
 <p class="fr-header__service-title">
 Nom du site / service
 </p>
@@ -4881,7 +4880,7 @@ République
 Française
 
 
-[[À MODIFIER - texte alternatif de l’image]](/) [[À MODIFIER - texte alternatif de l’image](../../../example/img/placeholder.3x4.png)
+[[À MODIFIER - texte alternatif de l'image]](/) [[À MODIFIER - texte alternatif de l'image](../../../example/img/placeholder.3x4.png)
 
 
 Rechercher
@@ -4929,9 +4928,9 @@ République
 </p>
 </div>
 <div class="fr-header__operator">
-<a href="/" title="Accueil - [À MODIFIER - texte alternatif de l’image : nom de l'opérateur ou du site serviciel] - République Française">
-<img class="fr-responsive-img" style="max-width:3.5rem;" src="../../../example/img/placeholder.3x4.png" alt="[À MODIFIER - texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l’image -->
+<a href="/" title="Accueil - [À MODIFIER - texte alternatif de l'image : nom de l'opérateur ou du site serviciel] - République Française">
+<img class="fr-responsive-img" style="max-width:3.5rem;" src="../../../example/img/placeholder.3x4.png" alt="[À MODIFIER - texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l'image -->
 </a>
 </div>
 <div class="fr-header__navbar">
@@ -4985,7 +4984,7 @@ Rechercher
 </header>
 
 
-#### Header avec logo opérateur horizontal, nom de service, lien d’accès, recherche
+#### Header avec logo opérateur horizontal, nom de service, lien d'accès, recherche
 
 
 République
@@ -4993,7 +4992,7 @@ République
 Française
 
 
-![[À MODIFIER - texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 Rechercher
@@ -5003,7 +5002,7 @@ Menu
 [Nom du site / service](/)
 
 
-baseline - précisions sur l‘organisation
+baseline - précisions sur l'organisation
 
 
 -
@@ -5059,8 +5058,8 @@ République
 </p>
 </div>
 <div class="fr-header__operator">
-<img class="fr-responsive-img" style="max-width:8rem;" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l’image -->
+<img class="fr-responsive-img" style="max-width:8rem;" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l'image -->
 </div>
 <div class="fr-header__navbar">
 <button data-fr-opened="false" aria-controls="modal-3263" title="Rechercher" type="button" id="button-3264" class="fr-btn--search fr-btn">Rechercher</button>
@@ -5068,12 +5067,12 @@ République
 </div>
 </div>
 <div class="fr-header__service">
-<a href="/" title="Accueil - [À MODIFIER - Nom du site / service] - [À MODIFIER - texte alternatif de l’image : nom de l'opérateur ou du site serviciel] - République Française">
+<a href="/" title="Accueil - [À MODIFIER - Nom du site / service] - [À MODIFIER - texte alternatif de l'image : nom de l'opérateur ou du site serviciel] - République Française">
 <p class="fr-header__service-title">
 Nom du site / service
 </p>
 </a>
-<p class="fr-header__service-tagline">baseline - précisions sur l‘organisation</p>
+<p class="fr-header__service-tagline">baseline - précisions sur l'organisation</p>
 </div>
 </div>
 <div class="fr-header__tools">
@@ -5183,7 +5182,7 @@ Extrait de code
 <div class="fr-header__brand fr-enlarge-link">
 <div class="fr-header__brand-top">
 <div class="fr-header__logo">
-<a href="/" title="Accueil - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)">
+<a href="/" title="Accueil - Nom de l'entité (ministère, secrétariat d'état, gouvernement)">
 <p class="fr-logo">
 Intitulé
 <br>officiel
@@ -5250,7 +5249,7 @@ Menu
 BETA](/)
 
 
-baseline - précisions sur l‘organisation
+baseline - précisions sur l'organisation
 
 
 -
@@ -5311,13 +5310,13 @@ Intitulé
 </div>
 </div>
 <div class="fr-header__service">
-<a href="/" title="Accueil - [À MODIFIER - Nom du site / service] - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)">
+<a href="/" title="Accueil - [À MODIFIER - Nom du site / service] - Nom de l'entité (ministère, secrétariat d'état, gouvernement)">
 <p class="fr-header__service-title">
 Nom du site / service
 <span class="fr-badge fr-badge--sm fr-badge--green-emeraude">BETA</span>
 </p>
 </a>
-<p class="fr-header__service-tagline">baseline - précisions sur l‘organisation</p>
+<p class="fr-header__service-tagline">baseline - précisions sur l'organisation</p>
 </div>
 </div>
 <div class="fr-header__tools">
@@ -5386,7 +5385,7 @@ République
 Française
 
 
-![[À MODIFIER - texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 Rechercher
@@ -5397,7 +5396,7 @@ Menu
 BETA](/)
 
 
-baseline - précisions sur l‘organisation
+baseline - précisions sur l'organisation
 
 
 -
@@ -5453,8 +5452,8 @@ République
 </p>
 </div>
 <div class="fr-header__operator">
-<img class="fr-responsive-img" style="max-width:8rem;" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l’image -->
+<img class="fr-responsive-img" style="max-width:8rem;" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l'image -->
 </div>
 <div class="fr-header__navbar">
 <button data-fr-opened="false" aria-controls="modal-3332" title="Rechercher" type="button" id="button-3333" class="fr-btn--search fr-btn">Rechercher</button>
@@ -5462,13 +5461,13 @@ République
 </div>
 </div>
 <div class="fr-header__service">
-<a href="/" title="Accueil - [À MODIFIER - Nom du site / service] - [À MODIFIER - texte alternatif de l’image : nom de l'opérateur ou du site serviciel] - République Française">
+<a href="/" title="Accueil - [À MODIFIER - Nom du site / service] - [À MODIFIER - texte alternatif de l'image : nom de l'opérateur ou du site serviciel] - République Française">
 <p class="fr-header__service-title">
 Nom du site / service
 <span class="fr-badge fr-badge--sm fr-badge--green-emeraude">BETA</span>
 </p>
 </a>
-<p class="fr-header__service-tagline">baseline - précisions sur l‘organisation</p>
+<p class="fr-header__service-tagline">baseline - précisions sur l'organisation</p>
 </div>
 </div>
 <div class="fr-header__tools">
@@ -5569,7 +5568,7 @@ Extrait de code
 <div class="fr-header__brand fr-enlarge-link">
 <div class="fr-header__brand-top">
 <div class="fr-header__logo">
-<a href="/" title="Accueil - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)">
+<a href="/" title="Accueil - Nom de l'entité (ministère, secrétariat d'état, gouvernement)">
 <p class="fr-logo">
 Intitulé
 <br>officiel
@@ -5638,7 +5637,7 @@ Menu
 [Nom du site / service](/)
 
 
-baseline - précisions sur l‘organisation
+baseline - précisions sur l'organisation
 
 
 -
@@ -5650,7 +5649,7 @@ baseline - précisions sur l‘organisation
 
 
 -
-[S’enregistrer](%5Burl%20-%20%C3%A0%20modifier%5D)
+[S'enregistrer](%5Burl%20-%20%C3%A0%20modifier%5D)
 
 
 Fermer
@@ -6129,10 +6128,10 @@ Intitulé
 </div>
 </div>
 <div class="fr-header__service">
-<a href="/" title="Accueil - [À MODIFIER - Nom du site / service] - [À MODIFIER - nom de l’entité (ministère, secrétariat d‘état, gouvernement)]">
+<a href="/" title="Accueil - [À MODIFIER - Nom du site / service] - [À MODIFIER - nom de l'entité (ministère, secrétariat d'état, gouvernement)]">
 <p class="fr-header__service-title">Nom du site / service</p>
 </a>
-<p class="fr-header__service-tagline">baseline - précisions sur l‘organisation</p>
+<p class="fr-header__service-tagline">baseline - précisions sur l'organisation</p>
 </div>
 </div>
 <div class="fr-header__tools">
@@ -6145,7 +6144,7 @@ Intitulé
 <a id="link-3534" href="[url - à modifier]" class="fr-link fr-icon-lock-line">Se connecter</a>
 </li>
 <li>
-<a id="link-3535" href="[url - à modifier]" class="fr-link fr-icon-account-line">S’enregistrer</a>
+<a id="link-3535" href="[url - à modifier]" class="fr-link fr-icon-account-line">S'enregistrer</a>
 </li>
 </ul>
 </div>
@@ -6702,10 +6701,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

@@ -6,7 +6,6 @@ Champ de saisie - Système de design
 
 Markdown:
 
-
 Champ de saisie - Système de design
 
 
@@ -337,7 +336,7 @@ Libellé champ de saisie
 Libellé champ de saisie
 
 
-Texte d’erreur obligatoire
+Texte d'erreur obligatoire
 
 
 ###
@@ -350,7 +349,7 @@ Libellé champ de saisie
 </label>
 <input class="fr-input" aria-describedby="text-input-error-messages" id="text-input-error" type="text">
 <div class="fr-messages-group" id="text-input-error-messages" aria-live="polite">
-<p class="fr-message fr-message--error" id="text-input-error-message-error">Texte d’erreur obligatoire</p>
+<p class="fr-message fr-message--error" id="text-input-error-message-error">Texte d'erreur obligatoire</p>
 </div>
 </div>
 
@@ -369,10 +368,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

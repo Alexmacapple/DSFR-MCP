@@ -6,7 +6,6 @@ Badge - Système de design
 
 Markdown:
 
-
 Badge - Système de design
 
 
@@ -19,7 +18,7 @@ DSFR v1.14.0
 # Badge (badge)
 
 
-Le composant badge permet de mettre en avant une information de type “statut” ou “état” sur un élément du site.
+Le composant badge permet de mettre en avant une information de type "statut" ou "état" sur un élément du site.
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/badge)
 
 
@@ -512,10 +511,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

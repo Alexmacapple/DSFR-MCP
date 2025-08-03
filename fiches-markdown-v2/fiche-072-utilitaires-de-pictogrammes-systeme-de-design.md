@@ -6,7 +6,6 @@ Utilitaires de pictogrammes - Système de design
 
 Markdown:
 
-
 Utilitaires de pictogrammes - Système de design
 
 
@@ -66,10 +65,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

@@ -6,7 +6,6 @@ Lien - Système de design
 
 Markdown:
 
-
 Lien - Système de design
 
 
@@ -19,16 +18,16 @@ DSFR v1.14.0
 # Lien (link)
 
 
-Le lien permet la navigation entre une page et un autre contenu au sein de la même page, du même site ou externe. Pour les actions d’un autre type - comme la soumission d’un formulaire - il faut utiliser le composant bouton.
+Le lien permet la navigation entre une page et un autre contenu au sein de la même page, du même site ou externe. Pour les actions d'un autre type - comme la soumission d'un formulaire - il faut utiliser le composant bouton.
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/lien)
 
 
 ## Retour en haut de page
 
 
-Le lien de “retour en haut de page” est une ancre vers un élément dont l’id est "top".
+Le lien de "retour en haut de page" est une ancre vers un élément dont l'id est "top".
 
-Afin de le faire fonctionner correctement, il est nécessaire d’ajouter l’attribut id (id="top") sur l’élement le plus haut de la page comme le body (<body id="top" ...>) ou les liens d’évitement (<div class="fr-skiplinks" id="top">), afin que le focus de navigation soit lui aussi replacé en haut de page.
+Afin de le faire fonctionner correctement, il est nécessaire d'ajouter l'attribut id (id="top") sur l'élement le plus haut de la page comme le body (<body id="top" ...>) ou les liens d'évitement (<div class="fr-skiplinks" id="top">), afin que le focus de navigation soit lui aussi replacé en haut de page.
 
 Le lien haut de page est un lien classique fr-link composé de l'icone arrow-up-fill , alignée à gauche, et du libellé "Haut de page".
 
@@ -59,10 +58,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

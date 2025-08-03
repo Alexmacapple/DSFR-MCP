@@ -6,7 +6,6 @@ Onglets - Système de design
 
 Markdown:
 
-
 Onglets - Système de design
 
 
@@ -19,7 +18,7 @@ DSFR v1.14.0
 # Onglets (tab)
 
 
-Le composant onglet permet aux utilisateurs de naviguer dans différentes sections de contenu au sein d’une même page.
+Le composant onglet permet aux utilisateurs de naviguer dans différentes sections de contenu au sein d'une même page.
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/onglet)
 
 
@@ -702,10 +701,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

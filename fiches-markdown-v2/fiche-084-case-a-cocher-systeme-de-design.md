@@ -6,7 +6,6 @@ Case à cocher - Système de design
 
 Markdown:
 
-
 Case à cocher - Système de design
 
 
@@ -19,7 +18,7 @@ DSFR v1.14.0
 # Case à cocher (checkbox)
 
 
-La case à cocher permet à l’utilisateur de sélectionner une ou plusieurs options dans une liste. Elle est utilisée pour effectuer des sélections multiples (de 0 à N éléments), ou bien pour permettre un choix binaire, lorsque l’utilisateur peut sélectionner ou désélectionner une seule option.
+La case à cocher permet à l'utilisateur de sélectionner une ou plusieurs options dans une liste. Elle est utilisée pour effectuer des sélections multiples (de 0 à N éléments), ou bien pour permettre un choix binaire, lorsque l'utilisateur peut sélectionner ou désélectionner une seule option.
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/case-a-cocher)
 
 
@@ -34,7 +33,7 @@ Pour support des versions précédentes
 ### Ensemble de cases à cocher
 
 
-Légende pour l’ensemble de champs
+Légende pour l'ensemble de champs
 
 
 Libellé checkbox
@@ -53,7 +52,7 @@ Extrait de code
 <div class="fr-form-group">
 <fieldset class="fr-fieldset">
 <legend class="fr-fieldset__legend fr-text--regular" id='checkboxes-legend'>
-Légende pour l’ensemble de champs
+Légende pour l'ensemble de champs
 </legend>
 <div class="fr-fieldset__content">
 <div class="fr-checkbox-group">
@@ -88,7 +87,7 @@ Libellé checkbox
 ### Ensemble de cases à cocher, petite taille
 
 
-Légende pour l’ensemble de champs
+Légende pour l'ensemble de champs
 
 
 Libellé checkbox
@@ -107,7 +106,7 @@ Extrait de code
 <div class="fr-form-group">
 <fieldset class="fr-fieldset">
 <legend class="fr-fieldset__legend fr-text--regular" id='checkboxes-small-legend'>
-Légende pour l’ensemble de champs
+Légende pour l'ensemble de champs
 </legend>
 <div class="fr-fieldset__content">
 <div class="fr-checkbox-group fr-checkbox-group--sm">
@@ -142,7 +141,7 @@ Libellé checkbox
 ### Ensemble de cases à cocher désactivées
 
 
-Légende pour l’ensemble de champs
+Légende pour l'ensemble de champs
 
 
 Libellé checkbox
@@ -161,7 +160,7 @@ Extrait de code
 <div class="fr-form-group">
 <fieldset class="fr-fieldset">
 <legend class="fr-fieldset__legend fr-text--regular" id='checkboxes-disabled-legend'>
-Légende pour l’ensemble de champs
+Légende pour l'ensemble de champs
 </legend>
 <div class="fr-fieldset__content">
 <div class="fr-checkbox-group">
@@ -196,7 +195,7 @@ Libellé checkbox
 ### Ensemble de cases à cocher en ligne
 
 
-Légende pour l’ensemble de champs
+Légende pour l'ensemble de champs
 
 
 Libellé checkbox
@@ -215,7 +214,7 @@ Extrait de code
 <div class="fr-form-group">
 <fieldset class="fr-fieldset fr-fieldset--inline">
 <legend class="fr-fieldset__legend fr-text--regular" id='checkboxes-inline-legend'>
-Légende pour l’ensemble de champs
+Légende pour l'ensemble de champs
 </legend>
 <div class="fr-fieldset__content">
 <div class="fr-checkbox-group">
@@ -247,10 +246,10 @@ Libellé checkbox
 </div>
 
 
-### Ensemble de cases à cocher avec texte d‘aide
+### Ensemble de cases à cocher avec texte d'aide
 
 
-Légende pour l’ensemble de champs
+Légende pour l'ensemble de champs
 
 
 Libellé checkbox
@@ -272,7 +271,7 @@ Extrait de code
 <div class="fr-form-group">
 <fieldset class="fr-fieldset">
 <legend class="fr-fieldset__legend fr-text--regular" id='checkboxes-hint-legend'>
-Légende pour l’ensemble de champs
+Légende pour l'ensemble de champs
 </legend>
 <div class="fr-fieldset__content">
 <div class="fr-checkbox-group">
@@ -310,7 +309,7 @@ Libellé checkbox
 ### Ensemble de cases à cocher avec erreur
 
 
-Légende pour l’ensemble de champs
+Légende pour l'ensemble de champs
 
 
 Libellé checkbox
@@ -322,7 +321,7 @@ Libellé checkbox
 Libellé checkbox
 
 
-Texte d’erreur obligatoire
+Texte d'erreur obligatoire
 
 
 ###
@@ -332,7 +331,7 @@ Extrait de code
 <div class="fr-form-group">
 <fieldset class="fr-fieldset fr-fieldset--error" aria-labelledby="checkboxes-error-legend checkboxes-error-desc-error" role="group">
 <legend class="fr-fieldset__legend fr-text--regular" id='checkboxes-error-legend'>
-Légende pour l’ensemble de champs
+Légende pour l'ensemble de champs
 </legend>
 <div class="fr-fieldset__content">
 <div class="fr-checkbox-group">
@@ -361,7 +360,7 @@ Libellé checkbox
 </div>
 </div>
 <p id="checkboxes-error-desc-error" class="fr-error-text">
-Texte d’erreur obligatoire
+Texte d'erreur obligatoire
 </p>
 </fieldset>
 </div>
@@ -370,7 +369,7 @@ Texte d’erreur obligatoire
 ### Ensemble de cases à cocher validées
 
 
-Légende pour l’ensemble de champs
+Légende pour l'ensemble de champs
 
 
 Libellé checkbox
@@ -392,7 +391,7 @@ Extrait de code
 <div class="fr-form-group">
 <fieldset class="fr-fieldset fr-fieldset--valid" aria-labelledby="checkboxes-valid-legend checkboxes-valid-desc-valid" role="group">
 <legend class="fr-fieldset__legend fr-text--regular" id='checkboxes-valid-legend'>
-Légende pour l’ensemble de champs
+Légende pour l'ensemble de champs
 </legend>
 <div class="fr-fieldset__content">
 <div class="fr-checkbox-group">
@@ -430,7 +429,7 @@ Texte de validation
 ### Ensemble de cases à cocher avec erreur, en ligne
 
 
-Légende pour l’ensemble de champs
+Légende pour l'ensemble de champs
 
 
 Libellé checkbox
@@ -442,7 +441,7 @@ Libellé checkbox
 Libellé checkbox
 
 
-Texte d’erreur obligatoire
+Texte d'erreur obligatoire
 
 
 ###
@@ -452,7 +451,7 @@ Extrait de code
 <div class="fr-form-group">
 <fieldset class="fr-fieldset fr-fieldset--inline fr-fieldset--error" aria-labelledby="checkboxes-error-inline-legend checkboxes-error-inline-desc-error" role="group">
 <legend class="fr-fieldset__legend fr-text--regular" id='checkboxes-error-inline-legend'>
-Légende pour l’ensemble de champs
+Légende pour l'ensemble de champs
 </legend>
 <div class="fr-fieldset__content">
 <div class="fr-checkbox-group">
@@ -481,7 +480,7 @@ Libellé checkbox
 </div>
 </div>
 <p id="checkboxes-error-inline-desc-error" class="fr-error-text">
-Texte d’erreur obligatoire
+Texte d'erreur obligatoire
 </p>
 </fieldset>
 </div>
@@ -490,7 +489,7 @@ Texte d’erreur obligatoire
 ### Ensemble de cases à cocher validées, en ligne
 
 
-Légende pour l’ensemble de champs
+Légende pour l'ensemble de champs
 
 
 Libellé checkbox
@@ -512,7 +511,7 @@ Extrait de code
 <div class="fr-form-group">
 <fieldset class="fr-fieldset fr-fieldset--inline fr-fieldset--valid" aria-labelledby="checkboxes-valid-inline-legend checkboxes-valid-inline-desc-valid" role="group">
 <legend class="fr-fieldset__legend fr-text--regular" id='checkboxes-valid-inline-legend'>
-Légende pour l’ensemble de champs
+Légende pour l'ensemble de champs
 </legend>
 <div class="fr-fieldset__content">
 <div class="fr-checkbox-group">
@@ -547,10 +546,10 @@ Texte de validation
 </div>
 
 
-### Ensemble de cases à cocher avec texte d‘aide spécifique
+### Ensemble de cases à cocher avec texte d'aide spécifique
 
 
-Légende pour l’ensemble de champs
+Légende pour l'ensemble de champs
 
 
 Libellé checkbox
@@ -572,7 +571,7 @@ Extrait de code
 <div class="fr-form-group">
 <fieldset class="fr-fieldset">
 <legend class="fr-fieldset__legend fr-text--regular" id='checkboxes-hint-element-legend'>
-Légende pour l’ensemble de champs
+Légende pour l'ensemble de champs
 </legend>
 <div class="fr-fieldset__content">
 <div class="fr-checkbox-group">
@@ -607,10 +606,10 @@ Libellé checkbox
 </div>
 
 
-### Ensemble de cases à cocher avec texte d‘aide spécifique, petite taille
+### Ensemble de cases à cocher avec texte d'aide spécifique, petite taille
 
 
-Légende pour l’ensemble de champs
+Légende pour l'ensemble de champs
 
 
 Libellé checkbox
@@ -632,7 +631,7 @@ Extrait de code
 <div class="fr-form-group">
 <fieldset class="fr-fieldset">
 <legend class="fr-fieldset__legend fr-text--regular" id='checkboxes-hint-el-sm-legend'>
-Légende pour l’ensemble de champs
+Légende pour l'ensemble de champs
 </legend>
 <div class="fr-fieldset__content">
 <div class="fr-checkbox-group fr-checkbox-group--sm">
@@ -674,10 +673,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

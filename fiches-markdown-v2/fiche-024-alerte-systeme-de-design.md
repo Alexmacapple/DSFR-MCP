@@ -6,7 +6,6 @@ Alerte - Système de design
 
 Markdown:
 
-
 Alerte - Système de design
 
 
@@ -19,7 +18,7 @@ DSFR v1.14.0
 # Alerte (alert)
 
 
-L'alerte permet d’attirer l’attention de l’utilisateur sur une information sans interrompre sa tâche.
+L'alerte permet d'attirer l'attention de l'utilisateur sur une information sans interrompre sa tâche.
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/alerte)
 
 
@@ -291,10 +290,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

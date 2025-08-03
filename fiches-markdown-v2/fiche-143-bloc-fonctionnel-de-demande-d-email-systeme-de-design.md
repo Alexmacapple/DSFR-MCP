@@ -6,7 +6,6 @@ Bloc fonctionnel de demande d'email - Système de design
 
 Markdown:
 
-
 Bloc fonctionnel de demande d'email - Système de design
 
 
@@ -52,7 +51,7 @@ Adresse électronique
 Format attendu : nom@domaine.fr
 
 
-Le format de l’adresse electronique saisie n’est pas valide. Le format attendu est : nom@domaine.fr
+Le format de l'adresse electronique saisie n'est pas valide. Le format attendu est : nom@domaine.fr
 
 
 ###
@@ -66,12 +65,12 @@ Adresse électronique
 </label>
 <input class="fr-input" spellcheck="false" autocomplete="email" aria-describedby="email-7452-messages" id="email-7452" type="email">
 <div class="fr-messages-group" id="email-7452-messages" aria-live="polite">
-<p class="fr-message fr-message--error" id="email-7452-message-error">Le format de l’adresse electronique saisie n’est pas valide. Le format attendu est : nom@domaine.fr</p>
+<p class="fr-message fr-message--error" id="email-7452-message-error">Le format de l'adresse electronique saisie n'est pas valide. Le format attendu est : nom@domaine.fr</p>
 </div>
 </div>
 
 
-### Demande et indication de traitement d’une adresse électronique
+### Demande et indication de traitement d'une adresse électronique
 
 
 Adresse électronique
@@ -95,7 +94,7 @@ Adresse électronique
 </div>
 
 
-### Demande et indication de traitement d’une adresse électronique - Erreur
+### Demande et indication de traitement d'une adresse électronique - Erreur
 
 
 Adresse électronique
@@ -103,7 +102,7 @@ Indication : cette adresse est utilisée uniquement pour la connexion au service
 Format attendu : nom@domaine.fr
 
 
-Le format de l’adresse electronique saisie n’est pas valide. Le format attendu est : nom@domaine.fr
+Le format de l'adresse electronique saisie n'est pas valide. Le format attendu est : nom@domaine.fr
 
 
 ###
@@ -118,7 +117,7 @@ Adresse électronique
 </label>
 <input class="fr-input" spellcheck="false" autocomplete="email" aria-describedby="email-7462-messages" id="email-7462" type="email">
 <div class="fr-messages-group" id="email-7462-messages" aria-live="polite">
-<p class="fr-message fr-message--error" id="email-7462-message-error">Le format de l’adresse electronique saisie n’est pas valide. Le format attendu est : nom@domaine.fr</p>
+<p class="fr-message fr-message--error" id="email-7462-message-error">Le format de l'adresse electronique saisie n'est pas valide. Le format attendu est : nom@domaine.fr</p>
 </div>
 </div>
 
@@ -130,10 +129,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

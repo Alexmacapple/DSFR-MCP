@@ -6,7 +6,6 @@ Outils d'analyse - Système de design
 
 Markdown:
 
-
 Outils d'analyse - Système de design
 
 
@@ -22,7 +21,7 @@ DSFR v1.14.0
 ### Réseaux sociaux et Lettre d'info avec formulaire
 
 
-## Abonnez-vous à notre lettre d’information
+## Abonnez-vous à notre lettre d'information
 
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.
@@ -34,7 +33,7 @@ Votre adresse électronique (ex. : nom@domaine.fr)
 S'abonner
 
 
-En renseignant votre adresse électronique, vous acceptez de recevoir nos actualités par courriel. Vous pouvez vous désinscrire à tout moment à l’aide des liens de désinscription ou en nous contactant.
+En renseignant votre adresse électronique, vous acceptez de recevoir nos actualités par courriel. Vous pouvez vous désinscrire à tout moment à l'aide des liens de désinscription ou en nous contactant.
 
 
 ## Suivez-nous

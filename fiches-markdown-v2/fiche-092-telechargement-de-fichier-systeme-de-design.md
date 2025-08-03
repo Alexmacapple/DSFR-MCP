@@ -6,7 +6,6 @@ Téléchargement de fichier - Système de design
 
 Markdown:
 
-
 Téléchargement de fichier - Système de design
 
 
@@ -36,7 +35,7 @@ Pour support des versions précédentes
 
 Il existe 2 variantes possible pour ce composant. La forme de lien, et la forme de carte.
 
-L'intitulé du lien doit commencer par ‘Télécharger’.
+L'intitulé du lien doit commencer par 'Télécharger'.
 
 Le détail est obligatoire et doit conntenir le type (extension du fichier), le poids, la langue (si différente)). Laisser le détail vide si utilisation de l'utilitaire js de remplissage automatique
 
@@ -48,7 +47,7 @@ Lien de téléchargement
 ## Lien de téléchargment
 
 
-L’attribut "download" permettant de télécharger directement le document, sans l’ouvrir, est optionnel. Ajouter un nom de fichier en valeur de cet attribut pour renommer le fichier avant de le télécharger. Mettre un attribut target=”_blank” pour ouvrir le document dans une nouvelle fenêtre.
+L'attribut "download" permettant de télécharger directement le document, sans l'ouvrir, est optionnel. Ajouter un nom de fichier en valeur de cet attribut pour renommer le fichier avant de le télécharger. Mettre un attribut target="_blank" pour ouvrir le document dans une nouvelle fenêtre.
 
 
 ### Lien de téléchargement seul
@@ -378,7 +377,7 @@ Fichier en langue étrangère
 ## Fichier d'une autre langue
 
 
-Si la langue du fichier à télécharger est différente de celle de la page courante, il est nécéssaire d'ajouter l'attribut hreflang avec comme valeur le code langue (ex: hreflang="en") sur le lien. L’attribut prend pour valeur le code langue selon la norme ISO 639-1 ( [Liste des codes ISO 639-1](https://fr.wikipedia.org/wiki/Liste_des_codes_ISO_639-1) ). Il faut aussi ajouter le nom de la langue dans les détails (sauf remplissage automatique en js)
+Si la langue du fichier à télécharger est différente de celle de la page courante, il est nécéssaire d'ajouter l'attribut hreflang avec comme valeur le code langue (ex: hreflang="en") sur le lien. L'attribut prend pour valeur le code langue selon la norme ISO 639-1 ( [Liste des codes ISO 639-1](https://fr.wikipedia.org/wiki/Liste_des_codes_ISO_639-1) ). Il faut aussi ajouter le nom de la langue dans les détails (sauf remplissage automatique en js)
 
 
 ### Lien de téléchargement - langue étrangère
@@ -544,10 +543,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

@@ -6,7 +6,6 @@ Outils d'analyse - Système de design
 
 Markdown:
 
-
 Outils d'analyse - Système de design
 
 
@@ -26,14 +25,14 @@ DSFR v1.14.0
 [Intitulé de la carte](../)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../../example/img/placeholder.16x9.png)
 
 
 ### Carte de téléchargement
 
 
 ###
-[Télécharger le/la [Typologie de document] " [Nom du document] "](/example/img/placeholder.3x4.pdf) [Typologie de document][Nom du document]
+[Télécharger le/la [Typologie de document] " [Nom du document] "](/example/img/placeholder.3x4.pdf) [Typologie de document][Nom du document]
 
 
 Texte de description (facultatif)

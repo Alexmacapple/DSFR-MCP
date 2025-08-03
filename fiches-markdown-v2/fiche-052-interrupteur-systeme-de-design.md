@@ -6,7 +6,6 @@ Interrupteur - Système de design
 
 Markdown:
 
-
 Interrupteur - Système de design
 
 
@@ -19,7 +18,7 @@ DSFR v1.14.0
 # Interrupteur (toggle)
 
 
-Le composant “Interrupteur” permet à l’utilisateur de faire un choix entre deux états opposés (activé / désactivé).
+Le composant "Interrupteur" permet à l'utilisateur de faire un choix entre deux états opposés (activé / désactivé).
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/interrupteur)
 
 
@@ -41,7 +40,7 @@ Extrait de code
 </div>
 
 
-#### Toggle simple avec bouton + libellé à droite + texte d’aide
+#### Toggle simple avec bouton + libellé à droite + texte d'aide
 
 
 Libellé de l'interrupteur
@@ -81,7 +80,7 @@ Extrait de code
 </div>
 
 
-#### Toggle simple avec bouton + libellé à droite + état + texte d’aide
+#### Toggle simple avec bouton + libellé à droite + état + texte d'aide
 
 
 Libellé de l'interrupteur
@@ -121,7 +120,7 @@ Extrait de code
 </div>
 
 
-#### Toggle simple avec bouton + libellé à droite + état + séparateur + texte d’aide
+#### Toggle simple avec bouton + libellé à droite + état + séparateur + texte d'aide
 
 
 Libellé de l'interrupteur
@@ -203,7 +202,7 @@ Extrait de code
 Libellé de l'interrupteur
 
 
-Texte d’erreur obligatoire
+Texte d'erreur obligatoire
 
 
 ###
@@ -214,7 +213,7 @@ Extrait de code
 <input type="checkbox" class="fr-toggle__input" id="toggle-3871" aria-describedby="toggle-3871-messages">
 <label class="fr-toggle__label" for="toggle-3871">Libellé de l'interrupteur</label>
 <div class="fr-messages-group" id="toggle-3871-messages" aria-live="polite">
-<p class="fr-message fr-message--error" id="toggle-3871-message-error">Texte d’erreur obligatoire</p>
+<p class="fr-message fr-message--error" id="toggle-3871-message-error">Texte d'erreur obligatoire</p>
 </div>
 </div>
 
@@ -225,7 +224,7 @@ Extrait de code
 Libellé de l'interrupteur
 
 
-Texte d’erreur obligatoire
+Texte d'erreur obligatoire
 
 
 ###
@@ -236,7 +235,7 @@ Extrait de code
 <input type="checkbox" class="fr-toggle__input" id="toggle-3874" aria-describedby="toggle-3874-messages">
 <label class="fr-toggle__label" for="toggle-3874" data-fr-checked-label="Activé" data-fr-unchecked-label="Désactivé">Libellé de l'interrupteur</label>
 <div class="fr-messages-group" id="toggle-3874-messages" aria-live="polite">
-<p class="fr-message fr-message--error" id="toggle-3874-message-error">Texte d’erreur obligatoire</p>
+<p class="fr-message fr-message--error" id="toggle-3874-message-error">Texte d'erreur obligatoire</p>
 </div>
 </div>
 
@@ -288,7 +287,7 @@ Extrait de code
 #### Groupe de toggles simple avec bouton + libellé à droite
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 -
@@ -327,7 +326,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="toggle-group-3884" aria-labelledby="toggle-group-3884-legend toggle-group-3884-messages">
 <legend class="fr-fieldset__legend" id="toggle-group-3884-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <ul class="fr-toggle__list">
@@ -381,7 +380,7 @@ Légende pour l’ensemble des éléments
 #### Groupe de toggles simple avec bouton + libellé à droite + séparateur
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 -
@@ -420,7 +419,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="toggle-group-3889" aria-labelledby="toggle-group-3889-legend toggle-group-3889-messages">
 <legend class="fr-fieldset__legend" id="toggle-group-3889-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <ul class="fr-toggle__list">
@@ -471,10 +470,10 @@ Légende pour l’ensemble des éléments
 </fieldset>
 
 
-#### Groupe de toggles simple avec bouton + libellé à droite + séparateur + texte d’aide
+#### Groupe de toggles simple avec bouton + libellé à droite + séparateur + texte d'aide
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 -
@@ -528,7 +527,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="toggle-group-3899" aria-labelledby="toggle-group-3899-legend toggle-group-3899-messages">
 <legend class="fr-fieldset__legend" id="toggle-group-3899-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <ul class="fr-toggle__list">
@@ -587,7 +586,7 @@ Légende pour l’ensemble des éléments
 #### Groupe de toggles simple avec bouton + libellé à droite + état + séparateur
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 -
@@ -626,7 +625,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="toggle-group-3909" aria-labelledby="toggle-group-3909-legend toggle-group-3909-messages">
 <legend class="fr-fieldset__legend" id="toggle-group-3909-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <ul class="fr-toggle__list">
@@ -677,10 +676,10 @@ Légende pour l’ensemble des éléments
 </fieldset>
 
 
-#### Groupe de toggles simple avec bouton + libellé à droite + état + séparateur + texte d’aide
+#### Groupe de toggles simple avec bouton + libellé à droite + état + séparateur + texte d'aide
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 -
@@ -734,7 +733,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="toggle-group-3919" aria-labelledby="toggle-group-3919-legend toggle-group-3919-messages">
 <legend class="fr-fieldset__legend" id="toggle-group-3919-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <ul class="fr-toggle__list">
@@ -790,19 +789,10 @@ Légende pour l’ensemble des éléments
 </fieldset>
 
 
-#### Groupe de toggles simple avec bouton + libellé à droite + état + séparateur + texte d’aide + erreur
+#### Groupe de toggles simple avec bouton + libellé à droite + état + séparateur + texte d'aide + erreur
 
 
-Légende pour l’ensemble des éléments
-
-
--
-
-
-Libellé de l'interrupteur
-
-
-Texte de description additionnel
+Légende pour l'ensemble des éléments
 
 
 -
@@ -841,7 +831,16 @@ Libellé de l'interrupteur
 Texte de description additionnel
 
 
-Texte d’erreur obligatoire
+-
+
+
+Libellé de l'interrupteur
+
+
+Texte de description additionnel
+
+
+Texte d'erreur obligatoire
 
 
 ###
@@ -850,7 +849,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset fr-fieldset--error" id="toggle-group-3934" role="group" aria-labelledby="toggle-group-3934-legend toggle-group-3934-messages">
 <legend class="fr-fieldset__legend" id="toggle-group-3934-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <ul class="fr-toggle__list">
@@ -902,15 +901,15 @@ Légende pour l’ensemble des éléments
 </ul>
 </div>
 <div class="fr-messages-group" id="toggle-group-3934-messages" aria-live="polite">
-<p class="fr-message fr-message--error" id="toggle-group-3934-message-error">Texte d’erreur obligatoire</p>
+<p class="fr-message fr-message--error" id="toggle-group-3934-message-error">Texte d'erreur obligatoire</p>
 </div>
 </fieldset>
 
 
-#### Groupe de toggles simple avec bouton + libellé à droite + état + séparateur + texte d’aide + valide
+#### Groupe de toggles simple avec bouton + libellé à droite + état + séparateur + texte d'aide + valide
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 -
@@ -967,7 +966,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset fr-fieldset--valid" id="toggle-group-3949" role="group" aria-labelledby="toggle-group-3949-legend toggle-group-3949-messages">
 <legend class="fr-fieldset__legend" id="toggle-group-3949-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <ul class="fr-toggle__list">
@@ -1042,7 +1041,7 @@ Extrait de code
 </div>
 
 
-#### Toggle simple avec bouton + libellé à gauche + texte d’aide
+#### Toggle simple avec bouton + libellé à gauche + texte d'aide
 
 
 Libellé de l'interrupteur
@@ -1082,7 +1081,7 @@ Extrait de code
 </div>
 
 
-#### Toggle simple avec bouton + libellé à gauche + état + texte d’aide
+#### Toggle simple avec bouton + libellé à gauche + état + texte d'aide
 
 
 Libellé de l'interrupteur
@@ -1122,7 +1121,7 @@ Extrait de code
 </div>
 
 
-#### Toggle simple avec bouton + libellé à gauche + état + séparateur + texte d’aide
+#### Toggle simple avec bouton + libellé à gauche + état + séparateur + texte d'aide
 
 
 Libellé de l'interrupteur
@@ -1183,7 +1182,7 @@ Extrait de code
 #### Groupe de toggles simple avec bouton + libellé à gauche + séparateur
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 -
@@ -1222,7 +1221,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="toggle-group-3989" aria-labelledby="toggle-group-3989-legend toggle-group-3989-messages">
 <legend class="fr-fieldset__legend" id="toggle-group-3989-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <ul class="fr-toggle__list">
@@ -1273,10 +1272,10 @@ Légende pour l’ensemble des éléments
 </fieldset>
 
 
-#### Groupe de toggles simple avec bouton + libellé à gauche + séparateur + texte d’aide
+#### Groupe de toggles simple avec bouton + libellé à gauche + séparateur + texte d'aide
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 -
@@ -1330,7 +1329,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="toggle-group-3999" aria-labelledby="toggle-group-3999-legend toggle-group-3999-messages">
 <legend class="fr-fieldset__legend" id="toggle-group-3999-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <ul class="fr-toggle__list">
@@ -1389,7 +1388,7 @@ Légende pour l’ensemble des éléments
 #### Groupe de toggles simple avec bouton + libellé à gauche + état + séparateur
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 -
@@ -1428,7 +1427,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="toggle-group-4009" aria-labelledby="toggle-group-4009-legend toggle-group-4009-messages">
 <legend class="fr-fieldset__legend" id="toggle-group-4009-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <ul class="fr-toggle__list">
@@ -1479,10 +1478,10 @@ Légende pour l’ensemble des éléments
 </fieldset>
 
 
-#### Groupe de toggles simple avec bouton + libellé à gauche + état + séparateur + texte d’aide
+#### Groupe de toggles simple avec bouton + libellé à gauche + état + séparateur + texte d'aide
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 -
@@ -1536,7 +1535,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="toggle-group-4019" aria-labelledby="toggle-group-4019-legend toggle-group-4019-messages">
 <legend class="fr-fieldset__legend" id="toggle-group-4019-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <ul class="fr-toggle__list">
@@ -1606,10 +1605,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

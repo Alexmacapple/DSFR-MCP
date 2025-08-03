@@ -6,7 +6,6 @@ Bloc fonctionnel de nom et prénom - Système de design
 
 Markdown:
 
-
 Bloc fonctionnel de nom et prénom - Système de design
 
 
@@ -19,11 +18,11 @@ DSFR v1.14.0
 # Bloc fonctionnel de nom et prénom (name)
 
 
-La demande de nom et prénom permet d’aider un utilisateur à saisir son nom et son prénom.
+La demande de nom et prénom permet d'aider un utilisateur à saisir son nom et son prénom.
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/blocs-fonctionnels/nom-et-prenom)
 
 
-## Demande d’un nom et d’un prénom en France
+## Demande d'un nom et d'un prénom en France
 
 
 #### Défaut
@@ -438,7 +437,7 @@ Je n'ai pas de prénom
 </fieldset>
 
 
-## Demande d’un nom et d’un prénom à l’international
+## Demande d'un nom et d'un prénom à l'international
 
 
 #### Défaut
@@ -644,10 +643,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

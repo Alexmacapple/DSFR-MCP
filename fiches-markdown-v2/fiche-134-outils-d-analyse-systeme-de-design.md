@@ -6,7 +6,6 @@ Outils d'analyse - Système de design
 
 Markdown:
 
-
 Outils d'analyse - Système de design
 
 
@@ -24,7 +23,7 @@ République
 Française
 
 
-![[À MODIFIER - texte alternatif de l’image]](../../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - texte alternatif de l'image]](../../../../example/img/placeholder.16x9.png)
 
 
 Rechercher
@@ -36,7 +35,7 @@ Menu
 [Nom du site / service](/)
 
 
-baseline - précisions sur l‘organisation
+baseline - précisions sur l'organisation
 
 
 -

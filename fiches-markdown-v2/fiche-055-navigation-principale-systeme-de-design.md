@@ -6,7 +6,6 @@ Navigation principale - Système de design
 
 Markdown:
 
-
 Navigation principale - Système de design
 
 
@@ -19,7 +18,7 @@ DSFR v1.14.0
 # Navigation principale (navigation)
 
 
-La navigation principale est l'élément central de la navigation au sein du site, il oriente l’utilisateur à travers les grandes sections du site et sur éventuellement plusieurs niveaux de profondeur.
+La navigation principale est l'élément central de la navigation au sein du site, il oriente l'utilisateur à travers les grandes sections du site et sur éventuellement plusieurs niveaux de profondeur.
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/navigation-principale)
 
 
@@ -999,10 +998,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

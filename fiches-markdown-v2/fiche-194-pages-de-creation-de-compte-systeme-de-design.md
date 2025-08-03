@@ -6,7 +6,6 @@ Pages de création de compte - Système de design
 
 Markdown:
 
-
 Pages de création de compte - Système de design
 
 
@@ -21,7 +20,7 @@ Menu
 [Nom du site / service](/)
 
 
-baseline - précisions sur l‘organisation
+baseline - précisions sur l'organisation
 
 
 -
@@ -481,7 +480,7 @@ Entrée menu
 -
 
 
-Voir le fil d’Ariane
+Voir le fil d'Ariane
 
 
 1.
@@ -508,14 +507,14 @@ Chapô - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas variu
 ## Se créer un compte avec FranceConnect
 
 
-FranceConnect est la solution proposée par l’État pour sécuriser et simplifier la connexion aux services en ligne.
+FranceConnect est la solution proposée par l'État pour sécuriser et simplifier la connexion aux services en ligne.
 
 
-S’identifier avec
+S'identifier avec
 FranceConnect
 
 
-[Qu’est-ce que FranceConnect ?](https://franceconnect.gouv.fr/)
+[Qu'est-ce que FranceConnect ?](https://franceconnect.gouv.fr/)
 
 
 ou
@@ -629,14 +628,14 @@ Extrait de code
 <div class="fr-col-12 fr-col-md-10 fr-col-lg-9">
 <div class="fr-mb-6v">
 <h2 class="fr-h5">Se créer un compte avec FranceConnect</h2>
-<p class="fr-text--sm">FranceConnect est la solution proposée par l’État pour sécuriser et simplifier la connexion aux services en ligne.</p>
+<p class="fr-text--sm">FranceConnect est la solution proposée par l'État pour sécuriser et simplifier la connexion aux services en ligne.</p>
 <div class="fr-connect-group">
 <button class="fr-connect" id="connect-8468" type="button">
-<span class="fr-connect__login">S’identifier avec</span>
+<span class="fr-connect__login">S'identifier avec</span>
 <span class="fr-connect__brand">FranceConnect</span>
 </button>
 <p>
-<a href="https://franceconnect.gouv.fr/" id="connect-link-8476" target="_blank" rel="noopener" title="Qu’est-ce que FranceConnect ? - nouvelle fenêtre">Qu’est-ce que FranceConnect ?</a>
+<a href="https://franceconnect.gouv.fr/" id="connect-link-8476" target="_blank" rel="noopener" title="Qu'est-ce que FranceConnect ? - nouvelle fenêtre">Qu'est-ce que FranceConnect ?</a>
 </p>
 </div>
 </div>
@@ -734,10 +733,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

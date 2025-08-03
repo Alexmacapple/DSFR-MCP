@@ -6,7 +6,6 @@ Pages de création de compte - Système de design
 
 Markdown:
 
-
 Pages de création de compte - Système de design
 
 
@@ -21,7 +20,7 @@ Menu
 [Nom du site / service](/)
 
 
-baseline - précisions sur l‘organisation
+baseline - précisions sur l'organisation
 
 
 -
@@ -481,7 +480,7 @@ Entrée menu
 -
 
 
-Voir le fil d’Ariane
+Voir le fil d'Ariane
 
 
 1.
@@ -505,10 +504,10 @@ Voir le fil d’Ariane
 Chapô - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.
 
 
-Votre compte a bien été activé. Vous pouvez dès maintenant commencer à l’utiliser.
+Votre compte a bien été activé. Vous pouvez dès maintenant commencer à l'utiliser.
 
 
-Détail - Si vous n’avez pas reçu de courriel (n’hésitez pas à vérifier dans les indérisables), vous pouvez re saisir votre adresse électronique.
+Détail - Si vous n'avez pas reçu de courriel (n'hésitez pas à vérifier dans les indérisables), vous pouvez re saisir votre adresse électronique.
 
 
 [Intitulé
@@ -578,9 +577,9 @@ Extrait de code
 <div class="fr-col-12 fr-col-md-10 fr-col-lg-9">
 <div>
 <div id="alert-9363" class="fr-mb-6v fr-alert fr-alert--success fr-alert--sm">
-<p>Votre compte a bien été activé. Vous pouvez dès maintenant commencer à l’utiliser.</p>
+<p>Votre compte a bien été activé. Vous pouvez dès maintenant commencer à l'utiliser.</p>
 </div>
-<p class="fr-hint-text">Détail - Si vous n’avez pas reçu de courriel (n’hésitez pas à vérifier dans les indérisables), vous pouvez re saisir votre adresse électronique.</p>
+<p class="fr-hint-text">Détail - Si vous n'avez pas reçu de courriel (n'hésitez pas à vérifier dans les indérisables), vous pouvez re saisir votre adresse électronique.</p>
 </div>
 </div>
 </div>
@@ -598,10 +597,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

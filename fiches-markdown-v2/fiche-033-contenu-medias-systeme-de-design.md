@@ -6,7 +6,6 @@ Contenu médias - Système de design
 
 Markdown:
 
-
 Contenu médias - Système de design
 
 
@@ -19,14 +18,14 @@ DSFR v1.14.0
 # Contenu médias (content)
 
 
-Les médias désignent vos contenus photos et vidéos. Lorsqu’ils sont intégré à une page de contenu, il est recommandé de suivre les règles décrites dans la documentation.
+Les médias désignent vos contenus photos et vidéos. Lorsqu'ils sont intégré à une page de contenu, il est recommandé de suivre les règles décrites dans la documentation.
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/contenu-medias)
 
 
 ### Média image edito
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 Description / Source
@@ -38,8 +37,8 @@ Extrait de code
 
 <figure role="group" class="fr-content-media" id="media-1570" aria-label="Description / Source">
 <div class="fr-content-media__img">
-<img class="fr-responsive-img fr-ratio-16x9" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img fr-ratio-16x9" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 <figcaption class="fr-content-media__caption">
 Description / Source
@@ -51,7 +50,7 @@ Description / Source
 ### Média image edito, petite taille
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 Description / Source
@@ -63,8 +62,8 @@ Extrait de code
 
 <figure role="group" class="fr-content-media fr-content-media--sm" id="media-1575" aria-label="Description / Source">
 <div class="fr-content-media__img">
-<img class="fr-responsive-img fr-ratio-16x9" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img fr-ratio-16x9" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 <figcaption class="fr-content-media__caption">
 Description / Source
@@ -76,7 +75,7 @@ Description / Source
 ### Média image edito, grande taille
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 Description / Source
@@ -88,8 +87,8 @@ Extrait de code
 
 <figure role="group" class="fr-content-media fr-content-media--lg" id="media-1580" aria-label="Description / Source">
 <div class="fr-content-media__img">
-<img class="fr-responsive-img fr-ratio-16x9" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img fr-ratio-16x9" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 <figcaption class="fr-content-media__caption">
 Description / Source
@@ -101,7 +100,7 @@ Description / Source
 ### Média image edito ratio 32x9
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 Description / Source
@@ -113,8 +112,8 @@ Extrait de code
 
 <figure role="group" class="fr-content-media" id="media-1585" aria-label="Description / Source">
 <div class="fr-content-media__img">
-<img class="fr-responsive-img fr-ratio-32x9" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img fr-ratio-32x9" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 <figcaption class="fr-content-media__caption">
 Description / Source
@@ -126,7 +125,7 @@ Description / Source
 ### Média image edito ratio 16x9
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 Description / Source
@@ -138,8 +137,8 @@ Extrait de code
 
 <figure role="group" class="fr-content-media" id="media-1590" aria-label="Description / Source">
 <div class="fr-content-media__img">
-<img class="fr-responsive-img fr-ratio-16x9" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img fr-ratio-16x9" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 <figcaption class="fr-content-media__caption">
 Description / Source
@@ -151,7 +150,7 @@ Description / Source
 ### Média image edito ratio 3x2
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 Description / Source
@@ -163,8 +162,8 @@ Extrait de code
 
 <figure role="group" class="fr-content-media" id="media-1595" aria-label="Description / Source">
 <div class="fr-content-media__img">
-<img class="fr-responsive-img fr-ratio-3x2" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img fr-ratio-3x2" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 <figcaption class="fr-content-media__caption">
 Description / Source
@@ -176,7 +175,7 @@ Description / Source
 ### Média image edito ratio 4x3
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 Description / Source
@@ -188,8 +187,8 @@ Extrait de code
 
 <figure role="group" class="fr-content-media" id="media-1600" aria-label="Description / Source">
 <div class="fr-content-media__img">
-<img class="fr-responsive-img fr-ratio-4x3" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img fr-ratio-4x3" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 <figcaption class="fr-content-media__caption">
 Description / Source
@@ -201,7 +200,7 @@ Description / Source
 ### Média image edito ratio 1x1
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 Description / Source
@@ -213,8 +212,8 @@ Extrait de code
 
 <figure role="group" class="fr-content-media" id="media-1605" aria-label="Description / Source">
 <div class="fr-content-media__img">
-<img class="fr-responsive-img fr-ratio-1x1" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img fr-ratio-1x1" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 <figcaption class="fr-content-media__caption">
 Description / Source
@@ -226,7 +225,7 @@ Description / Source
 ### Média image edito ratio 3x4
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 Description / Source
@@ -238,8 +237,8 @@ Extrait de code
 
 <figure role="group" class="fr-content-media" id="media-1610" aria-label="Description / Source">
 <div class="fr-content-media__img">
-<img class="fr-responsive-img fr-ratio-3x4" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img fr-ratio-3x4" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 <figcaption class="fr-content-media__caption">
 Description / Source
@@ -251,7 +250,7 @@ Description / Source
 ### Média image edito ratio 2x3
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 Description / Source
@@ -263,8 +262,8 @@ Extrait de code
 
 <figure role="group" class="fr-content-media" id="media-1615" aria-label="Description / Source">
 <div class="fr-content-media__img">
-<img class="fr-responsive-img fr-ratio-2x3" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img fr-ratio-2x3" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 <figcaption class="fr-content-media__caption">
 Description / Source
@@ -273,7 +272,7 @@ Description / Source
 </figure>
 
 
-### Média image en svg, porteur d’information
+### Média image en svg, porteur d'information
 
 
 Description / Source
@@ -307,8 +306,8 @@ Extrait de code
 
 <figure role="group" class="fr-content-media" id="media-1623" aria-label="Description / Source">
 <div class="fr-content-media__img">
-<!-- Les SVG porteurs de sens doivent avoir l'attribut role="img" et être labeliser par l'attribut aria-label="[A modifier - titre ou texte contenu dans l’image]" -->
-<svg version="1.1" role="img" aria-label=”Gouvernement” xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 895 455" xml:space="preserve">
+<!-- Les SVG porteurs de sens doivent avoir l'attribut role="img" et être labeliser par l'attribut aria-label="[A modifier - titre ou texte contenu dans l'image]" -->
+<svg version="1.1" role="img" aria-label="Gouvernement" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 895 455" xml:space="preserve">
 <style type="text/css">
 .st0 {
 fill: #1F356C;
@@ -551,7 +550,7 @@ Description / Source
 ### Média image avec une transcription
 
 
-![Planche 1 de la BD Simone Veil : la loi sur l’avortement. Épisode 2 - voir transcription ci-dessous](../../../example/img/placeholder-transcription.jpg)
+![Planche 1 de la BD Simone Veil : la loi sur l'avortement. Épisode 2 - voir transcription ci-dessous](../../../example/img/placeholder-transcription.jpg)
 
 
 (C) DILA 2020
@@ -567,13 +566,13 @@ Fermer
 
 
 ##
-Simone Veil : la loi sur l’avortement
+Simone Veil : la loi sur l'avortement
 
 
 Épisode 2 : une loi qui oppose
 
 
-Synopsis : Dans un café, Louise discute avec sa mère de l’opposition virulente qu’a soulevée le projet de loi sur l’avortement défendu par Simone Veil lors des trois jours de débat à l’Assemblée nationale. Trois jours pendant lesquels les langues se sont déliées, pour le meilleur comme pour le pire.
+Synopsis : Dans un café, Louise discute avec sa mère de l'opposition virulente qu'a soulevée le projet de loi sur l'avortement défendu par Simone Veil lors des trois jours de débat à l'Assemblée nationale. Trois jours pendant lesquels les langues se sont déliées, pour le meilleur comme pour le pire.
 
 
 - Case 1
@@ -586,7 +585,7 @@ Synopsis : Dans un café, Louise discute avec sa mère de l’opposition virulen
 
 SIMONE VEIL :
 
-Aucune femme ne recourt de gaieté de cœur à l’avortement. Il suffit d’écouter les femmes.
+Aucune femme ne recourt de gaieté de cœur à l'avortement. Il suffit d'écouter les femmes.
 
 
 - Case 2
@@ -596,7 +595,7 @@ Aucune femme ne recourt de gaieté de cœur à l’avortement. Il suffit d’éc
 
 SIMONE VEIL :
 
-C’est toujours un drame cela restera toujours un drame.
+C'est toujours un drame cela restera toujours un drame.
 
 
 - Case 3
@@ -629,12 +628,12 @@ Il faut se rappeler les réactions suite à ce discours ! Simone Veil a souvent 
 Encart texte
 *
 
-26 novembre 1974. Les débats commencent à l’Assemblée nationale. Jean Foyer, député de la majorité de droite, est le premier opposant au projet à monter à la tribune.
+26 novembre 1974. Les débats commencent à l'Assemblée nationale. Jean Foyer, député de la majorité de droite, est le premier opposant au projet à monter à la tribune.
 
 
 JEAN FOYER :
 
-Déjà des capitaux sont impatients de s’investir dans l’industrie de la mort, et le temps n’est pas loin où nous connaîtrons en France " ces avortoirs ", ces abattoirs, où s’entassent des cadavres de petits hommes et que certains de mes collègues ont eu l’occasion de visiter à l’étranger.
+Déjà des capitaux sont impatients de s'investir dans l'industrie de la mort, et le temps n'est pas loin où nous connaîtrons en France " ces avortoirs ", ces abattoirs, où s'entassent des cadavres de petits hommes et que certains de mes collègues ont eu l'occasion de visiter à l'étranger.
 
 
 - Case 6
@@ -645,14 +644,14 @@ Déjà des capitaux sont impatients de s’investir dans l’industrie de la mor
 Encart texte
 *
 
-Lucien Neuwirth, député de la majorité qui avait défendu en 1967 le projet de loi sur la contraception, s’exprime.
+Lucien Neuwirth, député de la majorité qui avait défendu en 1967 le projet de loi sur la contraception, s'exprime.
 
 
 LUCIEN NEUWIRTH :
 
-... or chacun le sait, l’avortement n’est pas autre chose que l’issue extrême, l’alternative détestable d’une grossesse non désirée.
+... or chacun le sait, l'avortement n'est pas autre chose que l'issue extrême, l'alternative détestable d'une grossesse non désirée.
 
-Il convient donc de s’attaquer à l’effet et non à la cause.
+Il convient donc de s'attaquer à l'effet et non à la cause.
 
 
 ###
@@ -661,8 +660,8 @@ Extrait de code
 
 <figure role="group" class="fr-content-media" id="media-1639" aria-label="(C) DILA 2020">
 <div class="fr-content-media__img">
-<img class="fr-responsive-img fr-ratio-2x3" src="../../../example/img/placeholder-transcription.jpg" alt="Planche 1 de la BD Simone Veil : la loi sur l’avortement. Épisode 2 - voir transcription ci-dessous" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img fr-ratio-2x3" src="../../../example/img/placeholder-transcription.jpg" alt="Planche 1 de la BD Simone Veil : la loi sur l'avortement. Épisode 2 - voir transcription ci-dessous" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 <figcaption class="fr-content-media__caption">
 (C) DILA 2020
@@ -687,11 +686,11 @@ Extrait de code
 </div>
 <div class="fr-modal__content">
 <h2 id="fr-transcription-modal-transcription-1640-title" class="fr-modal__title">
-Simone Veil : la loi sur l’avortement
+Simone Veil : la loi sur l'avortement
 </h2>
 <p class="fr-mb-4v">Épisode 2 : une loi qui oppose
 <br>
-<br>Synopsis : Dans un café, Louise discute avec sa mère de l’opposition virulente qu’a soulevée le projet de loi sur l’avortement défendu par Simone Veil lors des trois jours de débat à l’Assemblée nationale. Trois jours pendant lesquels les langues se sont déliées, pour le meilleur comme pour le pire.
+<br>Synopsis : Dans un café, Louise discute avec sa mère de l'opposition virulente qu'a soulevée le projet de loi sur l'avortement défendu par Simone Veil lors des trois jours de débat à l'Assemblée nationale. Trois jours pendant lesquels les langues se sont déliées, pour le meilleur comme pour le pire.
 </p>
 <ul>
 <li>Case 1</li>
@@ -701,7 +700,7 @@ Simone Veil : la loi sur l’avortement
 <br>
 <em>26 novembre 1974.</em>
 <br>SIMONE VEIL :
-<br>Aucune femme ne recourt de gaieté de cœur à l’avortement. Il suffit d’écouter les femmes.
+<br>Aucune femme ne recourt de gaieté de cœur à l'avortement. Il suffit d'écouter les femmes.
 </p>
 <ul>
 <li>Case 2</li>
@@ -709,7 +708,7 @@ Simone Veil : la loi sur l’avortement
 <p>
 <em>Intérieur jour salon. Plan rapproché de la petite fille (la mère de Louise) serré contre son père, son ours en peluche dans les bras.</em>
 <br>SIMONE VEIL :
-<br>C’est toujours un drame cela restera toujours un drame.
+<br>C'est toujours un drame cela restera toujours un drame.
 </p>
 <ul>
 <li>Case 3</li>
@@ -735,10 +734,10 @@ Simone Veil : la loi sur l’avortement
 <em>Intérieur nuit Assemblée nationale. Plan rapproché sur Jean Foyer à la tribune.
 <br>Encart texte
 </em>
-<br>26 novembre 1974. Les débats commencent à l’Assemblée nationale. Jean Foyer, député de la majorité de droite, est le premier opposant au projet à monter à la tribune.
+<br>26 novembre 1974. Les débats commencent à l'Assemblée nationale. Jean Foyer, député de la majorité de droite, est le premier opposant au projet à monter à la tribune.
 </p>
 <p>JEAN FOYER :
-<br>Déjà des capitaux sont impatients de s’investir dans l’industrie de la mort, et le temps n’est pas loin où nous connaîtrons en France " ces avortoirs ", ces abattoirs, où s’entassent des cadavres de petits hommes et que certains de mes collègues ont eu l’occasion de visiter à l’étranger.
+<br>Déjà des capitaux sont impatients de s'investir dans l'industrie de la mort, et le temps n'est pas loin où nous connaîtrons en France " ces avortoirs ", ces abattoirs, où s'entassent des cadavres de petits hommes et que certains de mes collègues ont eu l'occasion de visiter à l'étranger.
 </p>
 <ul>
 <li>Case 6</li>
@@ -747,11 +746,11 @@ Simone Veil : la loi sur l’avortement
 <em>Intérieur nuit Assemblée. Lucien Neuwirth à la tribune.
 <br>Encart texte
 </em>
-<br>Lucien Neuwirth, député de la majorité qui avait défendu en 1967 le projet de loi sur la contraception, s’exprime.
+<br>Lucien Neuwirth, député de la majorité qui avait défendu en 1967 le projet de loi sur la contraception, s'exprime.
 </p>
 <p>LUCIEN NEUWIRTH :
-<br>... or chacun le sait, l’avortement n’est pas autre chose que l’issue extrême, l’alternative détestable d’une grossesse non désirée.
-<br>Il convient donc de s’attaquer à l’effet et non à la cause.
+<br>... or chacun le sait, l'avortement n'est pas autre chose que l'issue extrême, l'alternative détestable d'une grossesse non désirée.
+<br>Il convient donc de s'attaquer à l'effet et non à la cause.
 </p>
 </div>
 </div>
@@ -763,7 +762,7 @@ Simone Veil : la loi sur l’avortement
 </div>
 
 
-### Média video edito, ratio d’aspect 16/9 par défaut
+### Média video edito, ratio d'aspect 16/9 par défaut
 
 
 Description / Source
@@ -828,7 +827,7 @@ Titre de la transcription
 </div>
 
 
-### Média video edito, ratio d’aspect 16/9 par défaut, petite taille
+### Média video edito, ratio d'aspect 16/9 par défaut, petite taille
 
 
 Description / Source
@@ -896,7 +895,7 @@ Titre de la transcription
 </div>
 
 
-### Média video edito, ratio d’aspect 16/9 par défaut, grande taille
+### Média video edito, ratio d'aspect 16/9 par défaut, grande taille
 
 
 Description / Source
@@ -960,7 +959,7 @@ Titre de la transcription
 </div>
 
 
-### Média video edito, ratio d’aspect 4x3
+### Média video edito, ratio d'aspect 4x3
 
 
 Description / Source
@@ -1026,7 +1025,7 @@ Titre de la transcription
 </div>
 
 
-### Média video edito, ratio d’aspect 4x3, petite taille
+### Média video edito, ratio d'aspect 4x3, petite taille
 
 
 Description / Source
@@ -1090,7 +1089,7 @@ Titre de la transcription
 </div>
 
 
-### Média video edito, ratio d’aspect 4x3, grande taille
+### Média video edito, ratio d'aspect 4x3, grande taille
 
 
 Description / Source
@@ -1158,7 +1157,7 @@ Titre de la transcription
 </div>
 
 
-### Média video edito, ratio d’aspect 1x1
+### Média video edito, ratio d'aspect 1x1
 
 
 Description / Source
@@ -1227,7 +1226,7 @@ Titre de la transcription
 </div>
 
 
-### Média video edito, ratio d’aspect 1x1, petite taille
+### Média video edito, ratio d'aspect 1x1, petite taille
 
 
 Description / Source
@@ -1296,7 +1295,7 @@ Titre de la transcription
 </div>
 
 
-### Média video edito, ratio d’aspect 1x1, grande taille
+### Média video edito, ratio d'aspect 1x1, grande taille
 
 
 Description / Source
@@ -1373,7 +1372,7 @@ Les exemples suivants sont dépréciés, ne pas utiliser comme référence
 Pour support des versions précédentes
 
 
-### Média video edito, ratio d’aspect 16/9 par défaut
+### Média video edito, ratio d'aspect 16/9 par défaut
 
 
 (C) Légende de la vidéo
@@ -1395,7 +1394,7 @@ Extrait de code
 </div>
 
 
-### Média video edito, ratio d’aspect 4/3
+### Média video edito, ratio d'aspect 4/3
 
 
 (C) Légende de la vidéo
@@ -1417,25 +1416,25 @@ Extrait de code
 </div>
 
 
-### Média image edito, ratio d’aspect 4/3
+### Média image edito, ratio d'aspect 4/3
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
-(C) Légende de l‘image
+(C) Légende de l'image
 
 
 ###
 Extrait de code
 
 
-<figure class="fr-content-media" role="group" aria-label="(C) Légende de l‘image">
+<figure class="fr-content-media" role="group" aria-label="(C) Légende de l'image">
 <div class="fr-content-media__img">
-<img class="fr-responsive-img fr-responsive-img--4x3" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img fr-responsive-img--4x3" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
-<figcaption class="fr-content-media__caption">(C) Légende de l‘image</figcaption>
+<figcaption class="fr-content-media__caption">(C) Légende de l'image</figcaption>
 </figure>
 
 
@@ -1446,10 +1445,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

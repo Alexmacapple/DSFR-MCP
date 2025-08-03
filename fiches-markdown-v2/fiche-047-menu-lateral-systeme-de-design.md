@@ -6,7 +6,6 @@ Menu latéral - Système de design
 
 Markdown:
 
-
 Menu latéral - Système de design
 
 
@@ -19,7 +18,7 @@ DSFR v1.14.0
 # Menu latéral (sidemenu)
 
 
-Le menu latéral permet aux utilisateurs de naviguer entre les différentes pages d’une rubrique ou d’un même thème.
+Le menu latéral permet aux utilisateurs de naviguer entre les différentes pages d'une rubrique ou d'un même thème.
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/menu-lateral)
 
 
@@ -4050,10 +4049,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

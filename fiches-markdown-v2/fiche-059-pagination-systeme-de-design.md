@@ -6,7 +6,6 @@ Pagination - Système de design
 
 Markdown:
 
-
 Pagination - Système de design
 
 
@@ -19,7 +18,7 @@ DSFR v1.14.0
 # Pagination (pagination)
 
 
-La pagination permet à l’utilisateur de naviguer entre les différentes pages d’une liste d'éléments.
+La pagination permet à l'utilisateur de naviguer entre les différentes pages d'une liste d'éléments.
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/pagination)
 
 
@@ -402,10 +401,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

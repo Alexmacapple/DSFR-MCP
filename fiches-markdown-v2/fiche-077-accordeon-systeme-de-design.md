@@ -6,7 +6,6 @@ Accordéon - Système de design
 
 Markdown:
 
-
 Accordéon - Système de design
 
 
@@ -44,7 +43,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing, [link test](https://www.syst
 - list item
 
 
-### Groupes d‘accordéons dans des groupes d‘accordéons
+### Groupes d'accordéons dans des groupes d'accordéons
 
 
 ###
@@ -934,7 +933,7 @@ Extrait de code
 </div>
 
 
-### Système d’onglets dans un accordéon
+### Système d'onglets dans un accordéon
 
 
 ###
@@ -1001,10 +1000,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

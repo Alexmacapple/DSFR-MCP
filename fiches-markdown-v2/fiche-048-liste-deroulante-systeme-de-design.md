@@ -6,7 +6,6 @@ Liste déroulante - Système de design
 
 Markdown:
 
-
 Liste déroulante - Système de design
 
 
@@ -174,7 +173,7 @@ Option 3
 Option 4
 
 
-Texte d’erreur obligatoire
+Texte d'erreur obligatoire
 
 
 ###
@@ -193,7 +192,7 @@ Libellé pour liste déroulante
 <option value="4">Option 4</option>
 </select>
 <div class="fr-messages-group" id="select-error-messages" aria-live="polite">
-<p class="fr-message fr-message--error" id="select-error-message-error">Texte d’erreur obligatoire</p>
+<p class="fr-message fr-message--error" id="select-error-message-error">Texte d'erreur obligatoire</p>
 </div>
 </div>
 
@@ -258,10 +257,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

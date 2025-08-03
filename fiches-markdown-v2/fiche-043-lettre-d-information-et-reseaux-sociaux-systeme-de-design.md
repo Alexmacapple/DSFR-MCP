@@ -6,7 +6,6 @@ Lettre d'information et Réseaux Sociaux - Système de design
 
 Markdown:
 
-
 Lettre d'information et Réseaux Sociaux - Système de design
 
 
@@ -19,7 +18,7 @@ DSFR v1.14.0
 # Lettre d'information et Réseaux Sociaux (follow)
 
 
-Le bloc "Lettre d'information et Réseaux Sociaux" est composé d'un bloc permettant à l’utilisateur de s’inscrire à la newsletter de l’organisation et/ou d'un bloc de liens permettant d’accéder aux réseaux sociaux de l’organisation depuis le pied de page.
+Le bloc "Lettre d'information et Réseaux Sociaux" est composé d'un bloc permettant à l'utilisateur de s'inscrire à la newsletter de l'organisation et/ou d'un bloc de liens permettant d'accéder aux réseaux sociaux de l'organisation depuis le pied de page.
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/lettre-d-information-et-reseaux-sociaux)
 
 
@@ -132,7 +131,7 @@ Extrait de code
 ### Lettre d'info seule
 
 
-## Abonnez-vous à notre lettre d’information
+## Abonnez-vous à notre lettre d'information
 
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.
@@ -152,13 +151,13 @@ Extrait de code
 <div class="fr-col-12">
 <div class="fr-follow__newsletter">
 <div>
-<h2 class="fr-h5">Abonnez-vous à notre lettre d’information</h2>
+<h2 class="fr-h5">Abonnez-vous à notre lettre d'information</h2>
 <p class="fr-text--sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.</p>
 </div>
 <div>
 <ul class="fr-btns-group fr-btns-group--inline-md">
 <li>
-<button title="S‘abonner à notre lettre d’information" type="button" id="newsletter-button-4106" class="fr-btn">S'abonner</button>
+<button title="S'abonner à notre lettre d'information" type="button" id="newsletter-button-4106" class="fr-btn">S'abonner</button>
 </li>
 </ul>
 </div>
@@ -172,7 +171,7 @@ Extrait de code
 ### Lettre d'info seule avec formulaire
 
 
-## Abonnez-vous à notre lettre d’information
+## Abonnez-vous à notre lettre d'information
 
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.
@@ -184,7 +183,7 @@ Votre adresse électronique (ex. : nom@domaine.fr)
 S'abonner
 
 
-En renseignant votre adresse électronique, vous acceptez de recevoir nos actualités par courriel. Vous pouvez vous désinscrire à tout moment à l’aide des liens de désinscription ou en nous contactant.
+En renseignant votre adresse électronique, vous acceptez de recevoir nos actualités par courriel. Vous pouvez vous désinscrire à tout moment à l'aide des liens de désinscription ou en nous contactant.
 
 
 ###
@@ -197,7 +196,7 @@ Extrait de code
 <div class="fr-col-12">
 <div class="fr-follow__newsletter">
 <div>
-<h2 class="fr-h5">Abonnez-vous à notre lettre d’information</h2>
+<h2 class="fr-h5">Abonnez-vous à notre lettre d'information</h2>
 <p class="fr-text--sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.</p>
 </div>
 <div>
@@ -208,12 +207,12 @@ Votre adresse électronique (ex. : nom@domaine.fr)
 </label>
 <div class="fr-input-wrap fr-input-wrap--addon">
 <input class="fr-input" title="Votre adresse électronique (ex. : nom@domaine.fr)" autocomplete="email" attributes="[object Object]" aria-describedby="newsletter-email-4113-hint-text newsletter-email-4113-messages" placeholder="Votre adresse électronique (ex. : nom@domaine.fr)" id="newsletter-email-4113" type="email">
-<button title="S‘abonner à notre lettre d’information" type="submit" id="newsletter-button-4114" class="fr-btn">S'abonner</button>
+<button title="S'abonner à notre lettre d'information" type="submit" id="newsletter-button-4114" class="fr-btn">S'abonner</button>
 </div>
 <div class="fr-messages-group" id="newsletter-email-4113-messages" aria-live="polite">
 </div>
 </div>
-<p id="newsletter-email-4113-hint-text" class="fr-hint-text">En renseignant votre adresse électronique, vous acceptez de recevoir nos actualités par courriel. Vous pouvez vous désinscrire à tout moment à l’aide des liens de désinscription ou en nous contactant.</p>
+<p id="newsletter-email-4113-hint-text" class="fr-hint-text">En renseignant votre adresse électronique, vous acceptez de recevoir nos actualités par courriel. Vous pouvez vous désinscrire à tout moment à l'aide des liens de désinscription ou en nous contactant.</p>
 </form>
 </div>
 </div>
@@ -226,7 +225,7 @@ Votre adresse électronique (ex. : nom@domaine.fr)
 ### Réseaux sociaux et Lettre d'info mise en avant
 
 
-## Abonnez-vous à notre lettre d’information
+## Abonnez-vous à notre lettre d'information
 
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.
@@ -275,13 +274,13 @@ Extrait de code
 <div class="fr-col-12 fr-col-md-8">
 <div class="fr-follow__newsletter">
 <div>
-<h2 class="fr-h5">Abonnez-vous à notre lettre d’information</h2>
+<h2 class="fr-h5">Abonnez-vous à notre lettre d'information</h2>
 <p class="fr-text--sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.</p>
 </div>
 <div>
 <ul class="fr-btns-group fr-btns-group--inline-md">
 <li>
-<button title="S‘abonner à notre lettre d’information" type="button" id="newsletter-button-4126" class="fr-btn">S'abonner</button>
+<button title="S'abonner à notre lettre d'information" type="button" id="newsletter-button-4126" class="fr-btn">S'abonner</button>
 </li>
 </ul>
 </div>
@@ -322,7 +321,7 @@ Extrait de code
 ### Réseaux sociaux et Lettre d'info avec formulaire
 
 
-## Abonnez-vous à notre lettre d’information
+## Abonnez-vous à notre lettre d'information
 
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.
@@ -334,7 +333,7 @@ Votre adresse électronique (ex. : nom@domaine.fr)
 S'abonner
 
 
-En renseignant votre adresse électronique, vous acceptez de recevoir nos actualités par courriel. Vous pouvez vous désinscrire à tout moment à l’aide des liens de désinscription ou en nous contactant.
+En renseignant votre adresse électronique, vous acceptez de recevoir nos actualités par courriel. Vous pouvez vous désinscrire à tout moment à l'aide des liens de désinscription ou en nous contactant.
 
 
 ## Suivez-nous
@@ -376,7 +375,7 @@ Extrait de code
 <div class="fr-col-12 fr-col-md-8">
 <div class="fr-follow__newsletter">
 <div>
-<h2 class="fr-h5">Abonnez-vous à notre lettre d’information</h2>
+<h2 class="fr-h5">Abonnez-vous à notre lettre d'information</h2>
 <p class="fr-text--sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.</p>
 </div>
 <div>
@@ -387,12 +386,12 @@ Votre adresse électronique (ex. : nom@domaine.fr)
 </label>
 <div class="fr-input-wrap fr-input-wrap--addon">
 <input class="fr-input" title="Votre adresse électronique (ex. : nom@domaine.fr)" autocomplete="email" aria-describedby="newsletter-email-4145-hint-text newsletter-email-4145-messages" placeholder="Votre adresse électronique (ex. : nom@domaine.fr)" id="newsletter-email-4145" type="email">
-<button title="S‘abonner à notre lettre d’information" type="submit" id="newsletter-button-4146" class="fr-btn">S'abonner</button>
+<button title="S'abonner à notre lettre d'information" type="submit" id="newsletter-button-4146" class="fr-btn">S'abonner</button>
 </div>
 <div class="fr-messages-group" id="newsletter-email-4145-messages" aria-live="polite">
 </div>
 </div>
-<p id="newsletter-email-4145-hint-text" class="fr-hint-text">En renseignant votre adresse électronique, vous acceptez de recevoir nos actualités par courriel. Vous pouvez vous désinscrire à tout moment à l’aide des liens de désinscription ou en nous contactant.</p>
+<p id="newsletter-email-4145-hint-text" class="fr-hint-text">En renseignant votre adresse électronique, vous acceptez de recevoir nos actualités par courriel. Vous pouvez vous désinscrire à tout moment à l'aide des liens de désinscription ou en nous contactant.</p>
 </form>
 </div>
 </div>
@@ -432,7 +431,7 @@ Votre adresse électronique (ex. : nom@domaine.fr)
 ### Réseaux sociaux et Lettre d'info avec formulaire - succès
 
 
-## Abonnez-vous à notre lettre d’information
+## Abonnez-vous à notre lettre d'information
 
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.
@@ -480,7 +479,7 @@ Extrait de code
 <div class="fr-col-12 fr-col-md-8">
 <div class="fr-follow__newsletter">
 <div>
-<h2 class="fr-h5">Abonnez-vous à notre lettre d’information</h2>
+<h2 class="fr-h5">Abonnez-vous à notre lettre d'information</h2>
 <p class="fr-text--sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.</p>
 </div>
 <div>
@@ -525,7 +524,7 @@ Extrait de code
 ### Réseaux sociaux et Lettre d'info avec formulaire - erreur
 
 
-## Abonnez-vous à notre lettre d’information
+## Abonnez-vous à notre lettre d'information
 
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.
@@ -537,10 +536,10 @@ Votre adresse électronique (ex. : nom@domaine.fr)
 S'abonner
 
 
-Le format de l’adresse electronique saisie n’est pas valide. Le format attendu est : nom@domaine.fr
+Le format de l'adresse electronique saisie n'est pas valide. Le format attendu est : nom@domaine.fr
 
 
-En renseignant votre adresse électronique, vous acceptez de recevoir nos actualités par courriel. Vous pouvez vous désinscrire à tout moment à l’aide des liens de désinscription ou en nous contactant.
+En renseignant votre adresse électronique, vous acceptez de recevoir nos actualités par courriel. Vous pouvez vous désinscrire à tout moment à l'aide des liens de désinscription ou en nous contactant.
 
 
 ## Suivez-nous
@@ -582,7 +581,7 @@ Extrait de code
 <div class="fr-col-12 fr-col-md-8">
 <div class="fr-follow__newsletter">
 <div>
-<h2 class="fr-h5">Abonnez-vous à notre lettre d’information</h2>
+<h2 class="fr-h5">Abonnez-vous à notre lettre d'information</h2>
 <p class="fr-text--sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.</p>
 </div>
 <div>
@@ -593,13 +592,13 @@ Votre adresse électronique (ex. : nom@domaine.fr)
 </label>
 <div class="fr-input-wrap fr-input-wrap--addon">
 <input class="fr-input" title="Votre adresse électronique (ex. : nom@domaine.fr)" autocomplete="email" aria-describedby="newsletter-email-4183-hint-text newsletter-email-4183-messages" placeholder="Votre adresse électronique (ex. : nom@domaine.fr)" id="newsletter-email-4183" type="email">
-<button title="S‘abonner à notre lettre d’information" type="submit" id="newsletter-button-4184" class="fr-btn">S'abonner</button>
+<button title="S'abonner à notre lettre d'information" type="submit" id="newsletter-button-4184" class="fr-btn">S'abonner</button>
 </div>
 <div class="fr-messages-group" id="newsletter-email-4183-messages" aria-live="polite">
-<p class="fr-message fr-message--error" id="newsletter-email-4183-message-error">Le format de l’adresse electronique saisie n’est pas valide. Le format attendu est : nom@domaine.fr</p>
+<p class="fr-message fr-message--error" id="newsletter-email-4183-message-error">Le format de l'adresse electronique saisie n'est pas valide. Le format attendu est : nom@domaine.fr</p>
 </div>
 </div>
-<p id="newsletter-email-4183-hint-text" class="fr-hint-text">En renseignant votre adresse électronique, vous acceptez de recevoir nos actualités par courriel. Vous pouvez vous désinscrire à tout moment à l’aide des liens de désinscription ou en nous contactant.</p>
+<p id="newsletter-email-4183-hint-text" class="fr-hint-text">En renseignant votre adresse électronique, vous acceptez de recevoir nos actualités par courriel. Vous pouvez vous désinscrire à tout moment à l'aide des liens de désinscription ou en nous contactant.</p>
 </form>
 </div>
 </div>
@@ -711,7 +710,7 @@ Extrait de code
 ### Réseaux sociaux et Lettre d'info mise en avant
 
 
-Abonnez-vous à notre lettre d’information
+Abonnez-vous à notre lettre d'information
 
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.
@@ -755,11 +754,11 @@ Extrait de code
 <div class="fr-col-12 fr-col-md-8">
 <div class="fr-follow__newsletter">
 <div>
-<p class="fr-h5">Abonnez-vous à notre lettre d’information</p>
+<p class="fr-h5">Abonnez-vous à notre lettre d'information</p>
 <p class="fr-text--sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.</p>
 </div>
 <div>
-<button title="S‘abonner à notre lettre d’information" type="button" class="fr-btn">S'abonner</button>
+<button title="S'abonner à notre lettre d'information" type="button" class="fr-btn">S'abonner</button>
 </div>
 </div>
 </div>
@@ -799,10 +798,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

@@ -6,7 +6,6 @@ Bloc fonctionnel d'adresse postale - Système de design
 
 Markdown:
 
-
 Bloc fonctionnel d'adresse postale - Système de design
 
 
@@ -19,10 +18,10 @@ DSFR v1.14.0
 # Bloc fonctionnel d'adresse postale (address)
 
 
-La demande d’adresse postale permet d’aider un utilisateur à saisir son adresse.
+La demande d'adresse postale permet d'aider un utilisateur à saisir son adresse.
 
 
-#### Demande d’une adresse postale nationale
+#### Demande d'une adresse postale nationale
 
 
 Adresse postale
@@ -32,8 +31,8 @@ Adresse
 Indication : numéro et voie
 
 
-Complément d’adresse (optionnel)
-Indication : bâtiment, immeuble, escalier et numéro d’appartement
+Complément d'adresse (optionnel)
+Indication : bâtiment, immeuble, escalier et numéro d'appartement
 
 
 Code postal
@@ -66,8 +65,8 @@ Adresse
 <div class="fr-fieldset__element">
 <div class="fr-input-group" id="input-group-7331">
 <label class="fr-label" for="complement-7325">
-Complément d’adresse (optionnel)
-<span class="fr-hint-text">Indication : bâtiment, immeuble, escalier et numéro d’appartement</span>
+Complément d'adresse (optionnel)
+<span class="fr-hint-text">Indication : bâtiment, immeuble, escalier et numéro d'appartement</span>
 </label>
 <input class="fr-input" aria-describedby="complement-7325-messages" name="address-line2" autocomplete="address-line2" id="complement-7325" type="text">
 <div class="fr-messages-group" id="complement-7325-messages" aria-live="polite">
@@ -101,7 +100,7 @@ Ville ou commune
 </fieldset>
 
 
-#### Demande d’une adresse postale nationale + Lieu-dit, commune déléguée ou boîte postale
+#### Demande d'une adresse postale nationale + Lieu-dit, commune déléguée ou boîte postale
 
 
 Adresse postale
@@ -111,8 +110,8 @@ Adresse
 Indication : numéro et voie
 
 
-Complément d’adresse (optionnel)
-Indication : bâtiment, immeuble, escalier et numéro d’appartement
+Complément d'adresse (optionnel)
+Indication : bâtiment, immeuble, escalier et numéro d'appartement
 
 
 Lieu-dit, commune déléguée ou boîte postale
@@ -148,8 +147,8 @@ Adresse
 <div class="fr-fieldset__element">
 <div class="fr-input-group" id="input-group-7355">
 <label class="fr-label" for="complement-7348">
-Complément d’adresse (optionnel)
-<span class="fr-hint-text">Indication : bâtiment, immeuble, escalier et numéro d’appartement</span>
+Complément d'adresse (optionnel)
+<span class="fr-hint-text">Indication : bâtiment, immeuble, escalier et numéro d'appartement</span>
 </label>
 <input class="fr-input" aria-describedby="complement-7348-messages" name="address-line2" autocomplete="address-line2" id="complement-7348" type="text">
 <div class="fr-messages-group" id="complement-7348-messages" aria-live="polite">
@@ -297,10 +296,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

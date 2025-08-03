@@ -6,7 +6,6 @@ Bloc fonctionnel de société - Système de design
 
 Markdown:
 
-
 Bloc fonctionnel de société - Système de design
 
 
@@ -19,7 +18,7 @@ DSFR v1.14.0
 # Bloc fonctionnel de société (company)
 
 
-La demande de renseignement sur la société permet d’aider un utilisateur à saisir les renseignements concernant sa société.
+La demande de renseignement sur la société permet d'aider un utilisateur à saisir les renseignements concernant sa société.
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/blocs-fonctionnels/societe)
 
 
@@ -61,7 +60,7 @@ Numéro de SIRET
 </fieldset>
 
 
-#### Demande d’une adresse de siège social
+#### Demande d'une adresse de siège social
 
 
 Adresse postale
@@ -74,8 +73,8 @@ Adresse
 Indication : numéro et voie
 
 
-Complément d’adresse (optionnel)
-Indication : bâtiment, immeuble, escalier et numéro d’appartement
+Complément d'adresse (optionnel)
+Indication : bâtiment, immeuble, escalier et numéro d'appartement
 
 
 Lieu-dit, commune déléguée ou boîte postale
@@ -135,8 +134,8 @@ Adresse
 <div class="fr-fieldset__element">
 <div class="fr-input-group" id="input-group-7705">
 <label class="fr-label" for="complement-7696">
-Complément d’adresse (optionnel)
-<span class="fr-hint-text">Indication : bâtiment, immeuble, escalier et numéro d’appartement</span>
+Complément d'adresse (optionnel)
+<span class="fr-hint-text">Indication : bâtiment, immeuble, escalier et numéro d'appartement</span>
 </label>
 <input class="fr-input" aria-describedby="complement-7696-messages" name="address-line2" autocomplete="address-line2" id="complement-7696" type="text">
 <div class="fr-messages-group" id="complement-7696-messages" aria-live="polite">
@@ -207,7 +206,7 @@ Pays
 </fieldset>
 
 
-#### Demande d’un type de société
+#### Demande d'un type de société
 
 
 Type de société
@@ -262,7 +261,7 @@ Type de société
 </fieldset>
 
 
-#### Demande d’un représentant moral
+#### Demande d'un représentant moral
 
 
 Représentant moral de l'entreprise
@@ -342,10 +341,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

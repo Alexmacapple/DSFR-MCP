@@ -6,7 +6,6 @@ Pages de connexion - Système de design
 
 Markdown:
 
-
 Pages de connexion - Système de design
 
 
@@ -21,7 +20,7 @@ Menu
 [Nom du site / service](/)
 
 
-baseline - précisions sur l‘organisation
+baseline - précisions sur l'organisation
 
 
 -
@@ -481,7 +480,7 @@ Entrée menu
 -
 
 
-Voir le fil d’Ariane
+Voir le fil d'Ariane
 
 
 1.
@@ -508,7 +507,7 @@ Chapô - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas variu
 ## Récupérer le mot de passe de votre compte
 
 
-Description - Veuillez saisir l’adresse électronique associée à votre compte. Nous vous enverrons plus d’informations sur pour réinitialiser votre mot de passe
+Description - Veuillez saisir l'adresse électronique associée à votre compte. Nous vous enverrons plus d'informations sur pour réinitialiser votre mot de passe
 
 
 Identifiant
@@ -591,7 +590,7 @@ Extrait de code
 <h2 class="fr-h5">Récupérer le mot de passe de votre compte</h2>
 </legend>
 <div class="fr-fieldset__element">
-<p class="fr-text--sm">Description - Veuillez saisir l’adresse électronique associée à votre compte. Nous vous enverrons plus d’informations sur pour réinitialiser votre mot de passe</p>
+<p class="fr-text--sm">Description - Veuillez saisir l'adresse électronique associée à votre compte. Nous vous enverrons plus d'informations sur pour réinitialiser votre mot de passe</p>
 </div>
 <div class="fr-fieldset__element">
 <div class="fr-input-group" id="input-group-8128">
@@ -632,10 +631,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

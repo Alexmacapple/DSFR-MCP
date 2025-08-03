@@ -6,7 +6,6 @@ Bouton FranceConnect - Système de design
 
 Markdown:
 
-
 Bouton FranceConnect - Système de design
 
 
@@ -30,11 +29,11 @@ https://franceconnect.gouv.fr/
 ### Bouton FranceConnect
 
 
-S’identifier avec
+S'identifier avec
 FranceConnect
 
 
-[Qu’est-ce que FranceConnect ?](https://franceconnect.gouv.fr/)
+[Qu'est-ce que FranceConnect ?](https://franceconnect.gouv.fr/)
 
 
 ###
@@ -43,11 +42,11 @@ Extrait de code
 
 <div class="fr-connect-group">
 <button class="fr-connect" id="connect-1068" type="button">
-<span class="fr-connect__login">S’identifier avec</span>
+<span class="fr-connect__login">S'identifier avec</span>
 <span class="fr-connect__brand">FranceConnect</span>
 </button>
 <p>
-<a href="https://franceconnect.gouv.fr/" id="connect-link-1069" target="_blank" rel="noopener" title="Qu’est-ce que FranceConnect ? - nouvelle fenêtre">Qu’est-ce que FranceConnect ?</a>
+<a href="https://franceconnect.gouv.fr/" id="connect-link-1069" target="_blank" rel="noopener" title="Qu'est-ce que FranceConnect ? - nouvelle fenêtre">Qu'est-ce que FranceConnect ?</a>
 </p>
 </div>
 
@@ -55,11 +54,11 @@ Extrait de code
 ### Bouton FranceConnect+
 
 
-S’identifier avec
+S'identifier avec
 FranceConnect
 
 
-[Qu’est-ce que FranceConnect+ ?](https://franceconnect.gouv.fr/france-connect-plus)
+[Qu'est-ce que FranceConnect+ ?](https://franceconnect.gouv.fr/france-connect-plus)
 
 
 ###
@@ -68,11 +67,11 @@ Extrait de code
 
 <div class="fr-connect-group">
 <button class="fr-connect fr-connect--plus" id="connect-1073" type="button">
-<span class="fr-connect__login">S’identifier avec</span>
+<span class="fr-connect__login">S'identifier avec</span>
 <span class="fr-connect__brand">FranceConnect</span>
 </button>
 <p>
-<a href="https://franceconnect.gouv.fr/france-connect-plus" id="connect-link-1074" target="_blank" rel="noopener" title="Qu’est-ce que FranceConnect+ ? - nouvelle fenêtre">Qu’est-ce que FranceConnect+ ?</a>
+<a href="https://franceconnect.gouv.fr/france-connect-plus" id="connect-link-1074" target="_blank" rel="noopener" title="Qu'est-ce que FranceConnect+ ? - nouvelle fenêtre">Qu'est-ce que FranceConnect+ ?</a>
 </p>
 </div>
 
@@ -84,10 +83,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

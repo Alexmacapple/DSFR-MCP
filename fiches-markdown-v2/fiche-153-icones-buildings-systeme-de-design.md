@@ -6,7 +6,6 @@ Icônes Buildings - Système de design
 
 Markdown:
 
-
 Icônes Buildings - Système de design
 
 
@@ -19,7 +18,7 @@ DSFR v1.14.0
 # Icônes Buildings (icons-buildings)
 
 
-Les icônes fonctionnelles sont des symboles visuels qui accompagnent l’utilisateur dans ses actions et qui aident à sa compréhension de l’interface.
+Les icônes fonctionnelles sont des symboles visuels qui accompagnent l'utilisateur dans ses actions et qui aident à sa compréhension de l'interface.
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/fondamentaux-techniques/icones)
 
 
@@ -230,10 +229,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

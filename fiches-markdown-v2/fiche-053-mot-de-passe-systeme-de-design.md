@@ -6,7 +6,6 @@ Mot de passe - Système de design
 
 Markdown:
 
-
 Mot de passe - Système de design
 
 
@@ -19,7 +18,7 @@ DSFR v1.14.0
 # Mot de passe (password)
 
 
-La demande de mot de passe permet d’aider un utilisateur à créer ou saisir un mot de passe.
+La demande de mot de passe permet d'aider un utilisateur à créer ou saisir un mot de passe.
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mot-de-passe)
 
 
@@ -210,10 +209,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

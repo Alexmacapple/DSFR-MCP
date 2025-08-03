@@ -6,7 +6,6 @@ Paramètre d'affichage - Système de design
 
 Markdown:
 
-
 Paramètre d'affichage - Système de design
 
 
@@ -512,12 +511,12 @@ Extrait de code
 </div>
 <div class="fr-modal__content">
 <h2 id="fr-theme-modal-title" class="fr-modal__title">
-Paramètres d’affichage
+Paramètres d'affichage
 </h2>
 <div id="fr-display" class="fr-display">
 <fieldset class="fr-fieldset" id="display-fieldset">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="display-fieldset-legend">
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 </legend>
 <div class="fr-fieldset__element">
 <div class="fr-radio-group fr-radio-rich">
@@ -1108,10 +1107,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair
@@ -1147,13 +1146,13 @@ Extrait de code
 </div>
 <div class="fr-modal__content">
 <h2 id="fr-theme-modal-deprecated-title" class="fr-modal__title">
-Paramètres d’affichage
+Paramètres d'affichage
 </h2>
 <div id="fr-display-deprecated" class="fr-form-group fr-display">
 <div class="fr-form-group">
 <fieldset class="fr-fieldset">
 <legend class="fr-fieldset__legend fr-text--regular" id='-legend'>
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 </legend>
 <div class="fr-fieldset__content">
 <div class="fr-radio-group fr-radio-rich">
@@ -1163,7 +1162,7 @@ Thème clair
 </label>
 <div class="fr-radio-rich__img" data-fr-inject-svg>
 <img src="../../../dist/artwork/light.svg" alt="" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 <div class="fr-radio-group fr-radio-rich">
@@ -1173,7 +1172,7 @@ Thème sombre
 </label>
 <div class="fr-radio-rich__img" data-fr-inject-svg>
 <img src="../../../dist/artwork/dark.svg" alt="" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 <div class="fr-radio-group fr-radio-rich">
@@ -1184,7 +1183,7 @@ Système
 </label>
 <div class="fr-radio-rich__img" data-fr-inject-svg>
 <img src="../../../dist/artwork/system.svg" alt="" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -1256,10 +1255,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

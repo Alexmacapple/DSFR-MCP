@@ -6,7 +6,6 @@ Sélecteur de langue - Système de design
 
 Markdown:
 
-
 Sélecteur de langue - Système de design
 
 
@@ -19,7 +18,7 @@ DSFR v1.14.0
 # Sélecteur de langue (translate)
 
 
-Le sélecteur de langue permet à l’utilisateur de choisir la langue dans laquelle est affichée le contenu du site, si celui-ci est disponible en plusieurs langues.
+Le sélecteur de langue permet à l'utilisateur de choisir la langue dans laquelle est affichée le contenu du site, si celui-ci est disponible en plusieurs langues.
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/selecteur-de-langue)
 
 
@@ -215,10 +214,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

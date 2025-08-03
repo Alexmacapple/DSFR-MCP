@@ -6,7 +6,6 @@ Bloc fonctionnel de téléphone - Système de design
 
 Markdown:
 
-
 Bloc fonctionnel de téléphone - Système de design
 
 
@@ -52,7 +51,7 @@ Numéro de téléphone
 Format attendu : (+33) 1 22 33 44 55
 
 
-Le format de numéro de téléphone saisie n’est pas valide. Le format attendu est : (+33) 1 22 33 44 55
+Le format de numéro de téléphone saisie n'est pas valide. Le format attendu est : (+33) 1 22 33 44 55
 
 
 ###
@@ -66,7 +65,7 @@ Numéro de téléphone
 </label>
 <input class="fr-input" autocomplete="tel" aria-describedby="tel-7751-messages" id="tel-7751" type="tel">
 <div class="fr-messages-group" id="tel-7751-messages" aria-live="polite">
-<p class="fr-message fr-message--error" id="tel-7751-message-error">Le format de numéro de téléphone saisie n’est pas valide. Le format attendu est : (+33) 1 22 33 44 55</p>
+<p class="fr-message fr-message--error" id="tel-7751-message-error">Le format de numéro de téléphone saisie n'est pas valide. Le format attendu est : (+33) 1 22 33 44 55</p>
 </div>
 </div>
 
@@ -78,10 +77,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

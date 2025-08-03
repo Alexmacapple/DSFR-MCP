@@ -6,7 +6,6 @@ Bandeau d'information importante - Système de design
 
 Markdown:
 
-
 Bandeau d'information importante - Système de design
 
 
@@ -19,7 +18,7 @@ DSFR v1.14.0
 # Bandeau d'information importante (notice)
 
 
-Le bandeau d’information importante permet aux utilisateurs de voir ou d’accéder à une information importante et temporaire.
+Le bandeau d'information importante permet aux utilisateurs de voir ou d'accéder à une information importante et temporaire.
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bandeau-d-information-importante)
 
 
@@ -447,7 +446,7 @@ Menu
 [Nom du site / service](/)
 
 
-baseline - précisions sur l‘organisation
+baseline - précisions sur l'organisation
 
 
 -
@@ -910,7 +909,7 @@ Entrée menu
 Information importante
 
 
-Voir le fil d’Ariane
+Voir le fil d'Ariane
 
 
 1.
@@ -941,10 +940,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

@@ -1,6 +1,6 @@
 {
   "name": "dsfr-mcp",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "MCP Server complet pour le Système de Design de l'État Français (DSFR)",
   "main": "src/index.js",
   "scripts": {
@@ -9,13 +9,22 @@
     "test": "jest",
     "test:unit": "jest --testPathPattern=test/unit",
     "test:integration": "jest --testPathPattern=test/integration",
+    "test:performance": "jest --testPathPattern=test/performance",
+    "test:schemas": "jest --testPathPattern=test/unit/schemas",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "test:mcp": "node test-mcp.js",
+    "test:all": "npm run test:unit && npm run test:integration && npm run test:performance",
     "build:index": "node scripts/build-index.js",
     "validate": "node scripts/validate-html.js",
+    "verify-data": "node scripts/verify-data-integrity.js",
+    "standardize-files": "node scripts/standardize-filenames.js",
+    "validate-metadata": "node scripts/validate-yaml-metadata.js",
     "lint": "eslint src/",
-    "lint:fix": "eslint src/ --fix"
+    "lint:fix": "eslint src/ --fix",
+    "lint:check": "eslint src/ --max-warnings 0",
+    "security:audit": "npm audit --audit-level=high",
+    "quality:check": "npm run lint:check && npm run test:coverage"
   },
   "keywords": [
     "mcp",
@@ -31,6 +40,7 @@
   "dependencies": {
     "@modelcontextprotocol/sdk": "^0.6.0",
     "ajv": "^8.12.0",
+    "ajv-formats": "^3.0.1",
     "chalk": "^4.1.2",
     "cheerio": "^1.0.0-rc.12",
     "dotenv": "^16.3.1",

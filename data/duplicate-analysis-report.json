@@ -1,0 +1,36 @@
+{
+  "timestamp": "2025-08-03T11:25:07.794Z",
+  "summary": {
+    "totalFiles": 214,
+    "analyticsFiles": 62,
+    "uniqueContents": 213,
+    "duplicateGroups": 0
+  },
+  "duplicateGroups": [],
+  "recommendations": [
+    {
+      "type": "analytics_consolidation",
+      "title": "Consolider les fiches analytics",
+      "description": "0 groupes de fiches analytics peuvent être restructurées",
+      "action": "Créer une structure hiérarchique pour les analytics par composant",
+      "impact": "high",
+      "savings": "0 fichiers"
+    },
+    {
+      "type": "true_duplicates",
+      "title": "Supprimer les vrais duplicatas",
+      "description": "0 groupes de vrais duplicatas identifiés",
+      "action": "Supprimer les fichiers dupliqués en gardant la version la plus récente",
+      "impact": "medium",
+      "savings": "0 fichiers"
+    },
+    {
+      "type": "file_naming",
+      "title": "Standardiser la nomenclature",
+      "description": "Améliorer la cohérence des noms de fichiers",
+      "action": "Appliquer une convention de nommage uniforme",
+      "impact": "low",
+      "savings": "Meilleure organisation"
+    }
+  ]
+}

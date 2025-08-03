@@ -6,7 +6,6 @@ Citation - Système de design
 
 Markdown:
 
-
 Citation - Système de design
 
 
@@ -19,7 +18,7 @@ DSFR v1.14.0
 # Citation (quote)
 
 
-La citation permet de citer un texte dans une page éditoriale. La citation peut provenir d'un extrait d’un discours oral formulé par une tierce personne ou d’un texte écrit.
+La citation permet de citer un texte dans une page éditoriale. La citation peut provenir d'un extrait d'un discours oral formulé par une tierce personne ou d'un texte écrit.
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/citation)
 
 
@@ -161,7 +160,7 @@ Extrait de code
 </ul>
 <div class="fr-quote__image">
 <img class="fr-responsive-img" src="../../../example/img/placeholder.1x1.png" alt="" />
-<!-- L’alternative de l’image (attribut alt) doit rester vide car l’image est illustrative et ne doit pas être restituée aux technologies d’assistance -->
+<!-- L'alternative de l'image (attribut alt) doit rester vide car l'image est illustrative et ne doit pas être restituée aux technologies d'assistance -->
 </div>
 </figcaption>
 </figure>
@@ -226,10 +225,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

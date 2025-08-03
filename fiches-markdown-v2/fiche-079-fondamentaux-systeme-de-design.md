@@ -6,7 +6,6 @@ Fondamentaux - Système de design
 
 Markdown:
 
-
 Fondamentaux - Système de design
 
 
@@ -25,25 +24,25 @@ Le package core est utilisé comme fondation du Design System, il contient plusi
 ### Typographie
 
 
-Les typographies Marianne(R) et Spectral sont les typographies officielles de la charte de l'État. Leur usage crée une cohérence entre les interfaces et offre une expérience positive à l’utilisateur. Leur respect renforce également la reconnaissance de la parole de l’État.
+Les typographies Marianne(R) et Spectral sont les typographies officielles de la charte de l'État. Leur usage crée une cohérence entre les interfaces et offre une expérience positive à l'utilisateur. Leur respect renforce également la reconnaissance de la parole de l'État.
 
 
 ### Icônes
 
 
-Les icônes fonctionnelles sont des symboles visuels qui accompagnent l’utilisateur dans ses actions et qui aident à sa compréhension de l’interface.
+Les icônes fonctionnelles sont des symboles visuels qui accompagnent l'utilisateur dans ses actions et qui aident à sa compréhension de l'interface.
 
 
 ### Icônes de favoris - Favicon
 
 
-L’icône de favoris est un petit icône associé à un site web. Il permet à l’utilisateur de repérer qu’il se trouve sur un site de l'état.
+L'icône de favoris est un petit icône associé à un site web. Il permet à l'utilisateur de repérer qu'il se trouve sur un site de l'état.
 
 
 ### Medias
 
 
-Les médias désignent vos contenus photos et vidéos. Lorsqu’ils sont intégré à une page de contenu, il est recommandé de suivre les règles décrites ci-dessous.
+Les médias désignent vos contenus photos et vidéos. Lorsqu'ils sont intégré à une page de contenu, il est recommandé de suivre les règles décrites ci-dessous.
 
 
 ### Grille
@@ -208,10 +207,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

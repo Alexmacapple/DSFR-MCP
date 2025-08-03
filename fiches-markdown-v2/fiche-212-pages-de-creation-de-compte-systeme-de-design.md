@@ -6,7 +6,6 @@ Pages de création de compte - Système de design
 
 Markdown:
 
-
 Pages de création de compte - Système de design
 
 
@@ -21,7 +20,7 @@ Menu
 [Nom du site / service](/)
 
 
-baseline - précisions sur l‘organisation
+baseline - précisions sur l'organisation
 
 
 -
@@ -481,7 +480,7 @@ Entrée menu
 -
 
 
-Voir le fil d’Ariane
+Voir le fil d'Ariane
 
 
 1.
@@ -510,7 +509,7 @@ Renseigner une identité
 Étape 2 sur 3
 
 
-Étape suivante : Saisir des coordonnées
+Étape suivante : Saisir des coordonnées
 
 
 ------------------------------
@@ -626,7 +625,7 @@ Renseigner une identité
 </h2>
 <div class="fr-stepper__steps" data-fr-current-step="2" data-fr-steps="3"></div>
 <p class="fr-stepper__details">
-<span class="fr-text--bold">Étape suivante :</span> Saisir des coordonnées
+<span class="fr-text--bold">Étape suivante :</span> Saisir des coordonnées
 </p>
 </div>
 <hr>
@@ -743,10 +742,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

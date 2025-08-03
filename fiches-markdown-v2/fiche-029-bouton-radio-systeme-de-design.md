@@ -6,7 +6,6 @@ Bouton radio - Système de design
 
 Markdown:
 
-
 Bouton radio - Système de design
 
 
@@ -19,7 +18,7 @@ DSFR v1.14.0
 # Bouton radio (radio)
 
 
-Le bouton radio permettent à l’utilisateur de sélectionner une seule option dans une liste.
+Le bouton radio permettent à l'utilisateur de sélectionner une seule option dans une liste.
 
 ##### Documentation
 
@@ -38,7 +37,7 @@ Le bouton radio permettent à l’utilisateur de sélectionner une seule option 
 ### Ensemble de boutons radio
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé bouton radio
@@ -56,7 +55,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="radio" aria-labelledby="radio-legend radio-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="radio-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <div class="fr-radio-group">
@@ -90,7 +89,7 @@ Libellé bouton radio
 ### Ensemble de boutons radio, petite taille
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé bouton radio
@@ -108,7 +107,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="radio-small" aria-labelledby="radio-small-legend radio-small-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="radio-small-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <div class="fr-radio-group fr-radio-group--sm">
@@ -142,7 +141,7 @@ Libellé bouton radio
 ### Ensemble de boutons radio désactivées
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé bouton radio
@@ -160,7 +159,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="radio-disabled" aria-labelledby="radio-disabled-legend radio-disabled-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="radio-disabled-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <div class="fr-radio-group">
@@ -194,7 +193,7 @@ Libellé bouton radio
 ### Ensemble de boutons radio en ligne
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé bouton radio
@@ -212,7 +211,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="radio-inline" aria-labelledby="radio-inline-legend radio-inline-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="radio-inline-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element fr-fieldset__element--inline">
 <div class="fr-radio-group">
@@ -243,10 +242,10 @@ Libellé bouton radio
 </fieldset>
 
 
-### Ensemble de boutons radio avec texte d‘aide
+### Ensemble de boutons radio avec texte d'aide
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 Texte de description additionnel
 
 
@@ -265,7 +264,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="radio-hint" aria-labelledby="radio-hint-legend radio-hint-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="radio-hint-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 <span class="fr-hint-text">Texte de description additionnel</span>
 </legend>
 <div class="fr-fieldset__element">
@@ -300,7 +299,7 @@ Libellé bouton radio
 ### Ensemble de boutons radio avec erreur
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé bouton radio
@@ -312,7 +311,7 @@ Libellé bouton radio
 Libellé bouton radio
 
 
-Texte d’erreur obligatoire
+Texte d'erreur obligatoire
 
 
 ###
@@ -321,7 +320,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset fr-fieldset--error" id="radio-error" role="group" aria-labelledby="radio-error-legend radio-error-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="radio-error-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <div class="fr-radio-group">
@@ -348,7 +347,7 @@ Libellé bouton radio
 </div>
 </div>
 <div class="fr-messages-group" id="radio-error-messages" aria-live="polite">
-<p class="fr-message fr-message--error" id="radio-error-message-error">Texte d’erreur obligatoire</p>
+<p class="fr-message fr-message--error" id="radio-error-message-error">Texte d'erreur obligatoire</p>
 </div>
 </fieldset>
 
@@ -356,7 +355,7 @@ Libellé bouton radio
 ### Ensemble de boutons radio avec erreur, en ligne
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé bouton radio
@@ -368,7 +367,7 @@ Libellé bouton radio
 Libellé bouton radio
 
 
-Texte d’erreur obligatoire
+Texte d'erreur obligatoire
 
 
 ###
@@ -377,7 +376,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset fr-fieldset--error" id="radio-error-inline" role="group" aria-labelledby="radio-error-inline-legend radio-error-inline-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="radio-error-inline-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element fr-fieldset__element--inline">
 <div class="fr-radio-group">
@@ -404,7 +403,7 @@ Libellé bouton radio
 </div>
 </div>
 <div class="fr-messages-group" id="radio-error-inline-messages" aria-live="polite">
-<p class="fr-message fr-message--error" id="radio-error-inline-message-error">Texte d’erreur obligatoire</p>
+<p class="fr-message fr-message--error" id="radio-error-inline-message-error">Texte d'erreur obligatoire</p>
 </div>
 </fieldset>
 
@@ -412,7 +411,7 @@ Libellé bouton radio
 ### Ensemble de boutons radio validés
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé bouton radio
@@ -433,7 +432,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset fr-fieldset--valid" id="radio-valid" role="group" aria-labelledby="radio-valid-legend radio-valid-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="radio-valid-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <div class="fr-radio-group">
@@ -468,7 +467,7 @@ Libellé bouton radio
 ### Ensemble de boutons radio validés, en ligne
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé bouton radio
@@ -489,7 +488,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset fr-fieldset--valid" id="radio-valid-inline" role="group" aria-labelledby="radio-valid-inline-legend radio-valid-inline-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="radio-valid-inline-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element fr-fieldset__element--inline">
 <div class="fr-radio-group">
@@ -521,10 +520,10 @@ Libellé bouton radio
 </fieldset>
 
 
-### Ensemble de boutons radio avec texte d‘aide spécifique
+### Ensemble de boutons radio avec texte d'aide spécifique
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé bouton radio
@@ -545,7 +544,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="radio-hint-element" aria-labelledby="radio-hint-element-legend radio-hint-element-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="radio-hint-element-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <div class="fr-radio-group">
@@ -579,10 +578,10 @@ Libellé bouton radio
 </fieldset>
 
 
-### Ensemble de boutons radio avec texte d‘aide spécifique, petite taille
+### Ensemble de boutons radio avec texte d'aide spécifique, petite taille
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé bouton radio
@@ -603,7 +602,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="radio-hint-el-sm" aria-labelledby="radio-hint-el-sm-legend radio-hint-el-sm-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="radio-hint-el-sm-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <div class="fr-radio-group fr-radio-group--sm">
@@ -640,7 +639,7 @@ Libellé bouton radio
 ### Ensemble de boutons radio, libellé en indice et exposant
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé radio sup
@@ -661,7 +660,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="radio-sub" aria-labelledby="radio-sub-legend radio-sub-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="radio-sub-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <div class="fr-radio-group">
@@ -704,7 +703,7 @@ Légende pour l’ensemble des éléments
 ### Ensemble de boutons radio riches, simple
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé bouton radio
@@ -722,7 +721,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="radio-rich" aria-labelledby="radio-rich-legend radio-rich-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="radio-rich-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <div class="fr-radio-group fr-radio-rich">
@@ -777,7 +776,7 @@ Libellé bouton radio
 ### Ensemble de boutons radio riches, en ligne, simple
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé bouton radio
@@ -795,7 +794,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="radio-rich-inline" aria-labelledby="radio-rich-inline-legend radio-rich-inline-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="radio-rich-inline-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element fr-fieldset__element--inline">
 <div class="fr-radio-group fr-radio-rich">
@@ -850,7 +849,7 @@ Libellé bouton radio
 ### Ensemble de boutons radio riches sans pictogramme
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé bouton radio
@@ -868,7 +867,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="radio-rich-no-img" aria-labelledby="radio-rich-no-img-legend radio-rich-no-img-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="radio-rich-no-img-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <div class="fr-radio-group fr-radio-rich">
@@ -902,7 +901,7 @@ Libellé bouton radio
 ### Ensemble de boutons radio riches sans pictogramme, en ligne
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé bouton radio
@@ -920,7 +919,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="radio-rich-no-pictogram-inline" aria-labelledby="radio-rich-no-pictogram-inline-legend radio-rich-no-pictogram-inline-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="radio-rich-no-pictogram-inline-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element fr-fieldset__element--inline">
 <div class="fr-radio-group fr-radio-rich">
@@ -954,7 +953,7 @@ Libellé bouton radio
 ### Ensemble de boutons radio riches avec textes d'aide
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 Texte de description additionnel
 
 
@@ -976,7 +975,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="radio-rich-hint" aria-labelledby="radio-rich-hint-legend radio-rich-hint-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="radio-rich-hint-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 <span class="fr-hint-text">Texte de description additionnel</span>
 </legend>
 <div class="fr-fieldset__element">
@@ -1035,7 +1034,7 @@ Libellé bouton radio
 ### Ensemble de boutons radio riches avec textes d'aide, en ligne
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 Texte de description additionnel
 
 
@@ -1057,7 +1056,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="radio-rich-hint-inline" aria-labelledby="radio-rich-hint-inline-legend radio-rich-hint-inline-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="radio-rich-hint-inline-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 <span class="fr-hint-text">Texte de description additionnel</span>
 </legend>
 <div class="fr-fieldset__element fr-fieldset__element--inline">
@@ -1116,7 +1115,7 @@ Libellé bouton radio
 ### Ensemble de boutons radio riches avec erreur et textes d'aide
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 Texte de description additionnel
 
 
@@ -1132,7 +1131,7 @@ Libellé bouton radio
 Texte de description additionnel
 
 
-Texte d’erreur obligatoire
+Texte d'erreur obligatoire
 
 
 ###
@@ -1141,7 +1140,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset fr-fieldset--error" id="radio-rich-error" role="group" aria-labelledby="radio-rich-error-legend radio-rich-error-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="radio-rich-error-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 <span class="fr-hint-text">Texte de description additionnel</span>
 </legend>
 <div class="fr-fieldset__element">
@@ -1193,7 +1192,7 @@ Libellé bouton radio
 </div>
 </div>
 <div class="fr-messages-group" id="radio-rich-error-messages" aria-live="polite">
-<p class="fr-message fr-message--error" id="radio-rich-error-message-error">Texte d’erreur obligatoire</p>
+<p class="fr-message fr-message--error" id="radio-rich-error-message-error">Texte d'erreur obligatoire</p>
 </div>
 </fieldset>
 
@@ -1201,7 +1200,7 @@ Libellé bouton radio
 ### Ensemble de boutons radio riches avec erreur et textes d'aide, en ligne
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 Texte de description additionnel
 
 
@@ -1217,7 +1216,7 @@ Libellé bouton radio
 Texte de description additionnel
 
 
-Texte d’erreur obligatoire
+Texte d'erreur obligatoire
 
 
 ###
@@ -1226,7 +1225,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset fr-fieldset--error" id="radio-rich-error-inline" role="group" aria-labelledby="radio-rich-error-inline-legend radio-rich-error-inline-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="radio-rich-error-inline-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 <span class="fr-hint-text">Texte de description additionnel</span>
 </legend>
 <div class="fr-fieldset__element fr-fieldset__element--inline">
@@ -1278,7 +1277,7 @@ Libellé bouton radio
 </div>
 </div>
 <div class="fr-messages-group" id="radio-rich-error-inline-messages" aria-live="polite">
-<p class="fr-message fr-message--error" id="radio-rich-error-inline-message-error">Texte d’erreur obligatoire</p>
+<p class="fr-message fr-message--error" id="radio-rich-error-inline-message-error">Texte d'erreur obligatoire</p>
 </div>
 </fieldset>
 
@@ -1286,7 +1285,7 @@ Libellé bouton radio
 ### Ensemble de boutons radio riches désactivés
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé bouton radio
@@ -1307,7 +1306,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="radio-rich-disabled" aria-labelledby="radio-rich-disabled-legend radio-rich-disabled-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="radio-rich-disabled-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <div class="fr-radio-group fr-radio-rich">
@@ -1376,10 +1375,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

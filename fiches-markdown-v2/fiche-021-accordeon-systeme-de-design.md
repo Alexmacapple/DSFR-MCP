@@ -6,7 +6,6 @@ Accordéon - Système de design
 
 Markdown:
 
-
 Accordéon - Système de design
 
 
@@ -52,7 +51,7 @@ Extrait de code
 </section>
 
 
-### Groupe d‘accordéons
+### Groupe d'accordéons
 
 
 ###
@@ -190,7 +189,7 @@ Extrait de code
 </div>
 
 
-### Groupe d‘accordéons ouvert au chargement
+### Groupe d'accordéons ouvert au chargement
 
 
 ###
@@ -321,7 +320,7 @@ Extrait de code
 </div>
 
 
-### Groupe d‘accordéons dissociés
+### Groupe d'accordéons dissociés
 
 
 ###
@@ -466,7 +465,7 @@ Extrait de code
 </div>
 
 
-### Groupe d‘accordéons dissociés ouvert au chargement
+### Groupe d'accordéons dissociés ouvert au chargement
 
 
 ###
@@ -629,10 +628,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

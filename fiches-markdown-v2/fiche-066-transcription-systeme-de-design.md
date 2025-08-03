@@ -6,7 +6,6 @@ Transcription - Système de design
 
 Markdown:
 
-
 Transcription - Système de design
 
 
@@ -21,7 +20,7 @@ DSFR v1.14.0
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/transcription)
 
 
-### Transcription avec zone d’action
+### Transcription avec zone d'action
 
 
 Transcription
@@ -86,10 +85,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

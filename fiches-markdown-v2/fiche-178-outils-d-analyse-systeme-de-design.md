@@ -6,7 +6,6 @@ Outils d'analyse - Système de design
 
 Markdown:
 
-
 Outils d'analyse - Système de design
 
 
@@ -47,4 +46,4 @@ détail (optionnel)
 détail (optionnel)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../../../example/img/placeholder.16x9.png)

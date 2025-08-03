@@ -6,7 +6,6 @@ Outils d'analyse - Système de design
 
 Markdown:
 
-
 Outils d'analyse - Système de design
 
 
@@ -158,7 +157,7 @@ République
 
 Française
 
-[[À MODIFIER - texte alternatif de l’image]](/) [[À MODIFIER - texte alternatif de l’image](../../../../example/img/placeholder.16x9.png)
+[[À MODIFIER - texte alternatif de l'image]](/) [[À MODIFIER - texte alternatif de l'image](../../../../example/img/placeholder.16x9.png)
 
 
 Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dolore magna aliqua. Vitae sapien pellentesque habitant morbi tristique senectus et. Diam maecenas sed enim ut. Accumsan lacus vel facilisis volutpat est. Ut aliqu

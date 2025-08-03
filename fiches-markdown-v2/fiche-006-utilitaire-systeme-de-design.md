@@ -6,7 +6,6 @@ Utilitaire - Système de design
 
 Markdown:
 
-
 Utilitaire - Système de design
 
 
@@ -25,7 +24,7 @@ Le package utility apporte des utilitaires optionnels et complémentaires aux fo
 ### Icônes
 
 
-Les icônes fonctionnelles sont des symboles visuels qui accompagnent l’utilisateur dans ses actions et qui aident à sa compréhension de l’interface.
+Les icônes fonctionnelles sont des symboles visuels qui accompagnent l'utilisateur dans ses actions et qui aident à sa compréhension de l'interface.
 
 
 ##### Documentation
@@ -58,10 +57,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

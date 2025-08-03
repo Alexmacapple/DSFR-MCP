@@ -6,7 +6,6 @@ Mises en exergue - Système de design
 
 Markdown:
 
-
 Mises en exergue - Système de design
 
 
@@ -19,7 +18,7 @@ DSFR v1.14.0
 # Mises en exergue (highlight)
 
 
-La mise en exergue permet à l’utilisateur de distinguer et repérer une information facilement.
+La mise en exergue permet à l'utilisateur de distinguer et repérer une information facilement.
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mise-en-exergue)
 
 
@@ -90,10 +89,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

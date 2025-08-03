@@ -63,6 +63,17 @@ class ValidationService {
   }
 
   async validateHTML({ html_code, check_accessibility = true, check_semantic = true, strict_mode = false }) {
+    const results = await this.validateHTMLCore({ html_code, check_accessibility, check_semantic, strict_mode });
+
+    return {
+      content: [{
+        type: 'text',
+        text: this.formatValidationResults(results)
+      }]
+    };
+  }
+
+  async validateHTMLCore({ html_code, check_accessibility = true, check_semantic = true, strict_mode = false }) {
     const results = {
       valid: true,
       errors: [],
@@ -103,12 +114,7 @@ class ValidationService {
       });
     }
 
-    return {
-      content: [{
-        type: 'text',
-        text: this.formatValidationResults(results)
-      }]
-    };
+    return results;
   }
 
   validateHTMLStructure(document, results) {

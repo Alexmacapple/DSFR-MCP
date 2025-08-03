@@ -6,7 +6,6 @@ Liens d'évitement - Système de design
 
 Markdown:
 
-
 Liens d'évitement - Système de design
 
 
@@ -38,7 +37,7 @@ Menu
 [Nom du site / service](/)
 
 
-baseline - précisions sur l‘organisation
+baseline - précisions sur l'organisation
 
 
 -
@@ -516,11 +515,11 @@ DSFR v1.14.0
 # Liens d'évitement (skiplink)
 
 
-Les liens d’évitement permettent aux utilisateurs naviguant au clavier, ou équipés de lecteurs d'écran, d’accéder plus rapidement à des zones précises de la page.
+Les liens d'évitement permettent aux utilisateurs naviguant au clavier, ou équipés de lecteurs d'écran, d'accéder plus rapidement à des zones précises de la page.
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/lien-d-evitement)
 
 
-#### Liens d’évitement
+#### Liens d'évitement
 
 
 ###
@@ -630,10 +629,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

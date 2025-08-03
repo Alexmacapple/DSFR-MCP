@@ -6,7 +6,6 @@ Bloc fonctionnel de civilité - Système de design
 
 Markdown:
 
-
 Bloc fonctionnel de civilité - Système de design
 
 
@@ -19,7 +18,7 @@ DSFR v1.14.0
 # Bloc fonctionnel de civilité (civility)
 
 
-La demande de civilité permet à un utilisateur de donner sa civilité (sexe, situation familière, titre d’appel).
+La demande de civilité permet à un utilisateur de donner sa civilité (sexe, situation familière, titre d'appel).
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/blocs-fonctionnels/civilite)
 
 
@@ -115,13 +114,13 @@ Situation familiale
 </fieldset>
 
 
-Les boutons radios sont recommandés lorsque l’utilisateur doit choisir un élément parmi 2 à 5 choix possibles.
+Les boutons radios sont recommandés lorsque l'utilisateur doit choisir un élément parmi 2 à 5 choix possibles.
 
 
-#### Demande du titre d’appel
+#### Demande du titre d'appel
 
 
-Titre d’appel
+Titre d'appel
 
 
 Docteur
@@ -139,7 +138,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="honorific-7406" aria-labelledby="honorific-7406-legend honorific-7406-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="honorific-7406-legend">
-Titre d’appel
+Titre d'appel
 </legend>
 <div class="fr-fieldset__element">
 <div class="fr-radio-group fr-radio-group--sm">
@@ -170,16 +169,16 @@ Sans réponse
 </fieldset>
 
 
-Au delà de 5 choix ou lorsque l’espace n’est pas suffisant, il est préférable d’utiliser une liste déroulante.
+Au delà de 5 choix ou lorsque l'espace n'est pas suffisant, il est préférable d'utiliser une liste déroulante.
 
 
-#### Demande du titre d’appel
+#### Demande du titre d'appel
 
 
-Demande du titre d’appel
+Demande du titre d'appel
 
 
-Titre d’appel
+Titre d'appel
 
 
 Sélectionner une option
@@ -198,12 +197,12 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="honorific-7413" aria-labelledby="honorific-7413-legend honorific-7413-messages">
 <legend class="fr-sr-only" id="honorific-7413-legend">
-Demande du titre d’appel
+Demande du titre d'appel
 </legend>
 <div class="fr-fieldset__element">
 <div class="fr-select-group">
 <label class="fr-label" for="honorific-7414">
-Titre d’appel
+Titre d'appel
 </label>
 <select class="fr-select" aria-describedby="honorific-7414-messages" id="honorific-7414" name="honorific">
 <option value="" selected disabled>Sélectionner une option</option>
@@ -231,10 +230,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

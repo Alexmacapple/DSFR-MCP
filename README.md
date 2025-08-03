@@ -1,19 +1,22 @@
 # 🇫🇷 DSFR-MCP - Model Context Protocol pour le Système de Design de l'État Français
 
-[![Version](https://img.shields.io/badge/version-1.0.2-blue.svg)](https://github.com/DSFR-MCP)
+[![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)](https://github.com/DSFR-MCP)
 [![Node](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Tests](https://img.shields.io/badge/tests-12%2F12%20passed-brightgreen.svg)](#tests)
 
 Serveur MCP (Model Context Protocol) complet pour le Système de Design de l'État Français (DSFR). Ce serveur permet d'accéder à toute la documentation DSFR, aux composants, aux patterns et aux outils de validation directement depuis Claude Desktop ou tout autre client MCP compatible.
 
 ## 🚀 Fonctionnalités principales
 
-- **📚 Documentation complète** : Accès aux 213 fiches de documentation DSFR organisées dans une structure v2 optimisée
-- **🔍 Recherche intelligente** : Recherche fuzzy dans tous les composants et patterns
-- **🛠️ Génération de code** : Création automatique de composants pour différents frameworks
-- **✅ Validation** : Vérification de la conformité DSFR et de l'accessibilité RGAA
-- **🎨 Personnalisation** : Création de thèmes et adaptation des composants
+- **📚 Documentation complète** : Accès aux 213 fiches de documentation DSFR nettoyées et organisées dans une structure v2 optimisée
+- **🔍 Recherche intelligente** : Recherche fuzzy dans tous les composants et patterns avec indexation avancée
+- **🛠️ Génération de code avancée** : Création automatique de composants React, Vue, Angular avec templates TypeScript et guides d'accessibilité
+- **✅ Validation robuste** : Vérification approfondie de la conformité DSFR et de l'accessibilité RGAA avec scoring automatique
+- **🎨 Personnalisation complète** : Création de thèmes avec palettes de couleurs, mode sombre, et mixins SCSS automatiques
 - **📦 Code source analysé** : Parsing complet du code source DSFR officiel avec versioning et métadonnées
+- **🧹 Données nettoyées** : Déduplication automatique et validation d'intégrité des 213 fiches markdown
+- **🎯 12/12 outils MCP** : Tous les outils MCP fonctionnels avec tests d'intégration complets
 
 ## 📋 Table des matières
 
@@ -146,9 +149,9 @@ Vérifie l'accessibilité RGAA de ce code HTML : [votre code]
 
 | Outil | Description | Paramètres |
 |-------|-------------|------------|
-| `generate_dsfr_component` | Génère un composant | `component_type`, `framework`, `options` |
+| `generate_dsfr_component` | Génère un composant avancé avec TypeScript et accessibilité | `component_type`, `framework`, `options` |
 | `generate_dsfr_template` | Génère un template | `template_name`, `framework` |
-| `create_dsfr_theme` | Crée un thème personnalisé | `theme_name`, `colors` |
+| `create_dsfr_theme` | Crée un thème avec palette couleurs, mode sombre et SCSS | `theme_name`, `primary_color`, `secondary_color`, `custom_variables` |
 
 ### Outils de validation
 
@@ -161,9 +164,9 @@ Vérifie l'accessibilité RGAA de ce code HTML : [votre code]
 
 | Outil | Description | Paramètres |
 |-------|-------------|------------|
-| `convert_to_framework` | Convertit vers framework | `html_code`, `target_framework` |
+| `convert_to_framework` | Conversion intelligente HTML vers React/Vue/Angular avec analyse | `html_code`, `target_framework`, `component_name` |
 | `get_dsfr_icons` | Liste les icônes | `category`, `search` |
-| `get_dsfr_colors` | Palette de couleurs | `format` |
+| `get_dsfr_colors` | Palette de couleurs avec utilitaires CSS | `include_utilities`, `format` |
 
 ## 🏗️ Architecture
 
@@ -180,10 +183,15 @@ DSFR-MCP/
 │   │   ├── accessibility.js  # Vérification RGAA
 │   │   └── dsfr-source-parser.js # Parser du code source
 │   └── templates/            # Templates prédéfinis
-├── fiches-markdown-v2/       # 213 fiches de documentation
+├── fiches-markdown-v2/       # 213 fiches de documentation nettoyées
 ├── data/                     # Données extraites et index
-├── test/                     # Tests unitaires et intégration
-├── scripts/                  # Scripts utilitaires
+├── test/                     # Tests unitaires et intégration (12/12 passed)
+│   ├── unit/                 # Tests unitaires des services
+│   └── integration/          # Tests d'intégration MCP tools
+├── scripts/                  # Scripts de nettoyage et validation
+│   ├── verify-data-integrity.js     # Validation intégrité données
+│   ├── standardize-filenames.js     # Standardisation noms fichiers
+│   └── validate-yaml-metadata.js    # Validation métadonnées YAML
 └── docs/                     # Documentation additionnelle
 ```
 
@@ -205,15 +213,21 @@ npm run test:watch
 ### Scripts disponibles
 
 ```bash
-npm start          # Démarre le serveur
-npm run dev        # Mode développement avec watch
-npm test           # Lance tous les tests
-npm run test:unit  # Tests unitaires uniquement
-npm run test:e2e   # Tests end-to-end
-npm run lint       # Vérifie le code
-npm run lint:fix   # Corrige automatiquement
-npm run build      # Build de production
-npm run docs       # Génère la documentation
+npm start                    # Démarre le serveur
+npm run dev                  # Mode développement avec watch
+npm test                     # Lance tous les tests (12/12 passed)
+npm run test:unit            # Tests unitaires uniquement
+npm run test:integration     # Tests d'intégration MCP tools
+npm run test:e2e             # Tests end-to-end
+npm run lint                 # Vérifie le code
+npm run lint:fix             # Corrige automatiquement
+npm run build                # Build de production
+npm run docs                 # Génère la documentation
+
+# Scripts de nettoyage des données
+npm run verify-data          # Vérifie l'intégrité des 213 fiches
+npm run standardize-files    # Standardise les noms de fichiers
+npm run validate-metadata    # Valide les métadonnées YAML
 ```
 
 ### Structure du code

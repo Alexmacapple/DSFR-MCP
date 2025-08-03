@@ -6,7 +6,6 @@ Carte - Système de design
 
 Markdown:
 
-
 Carte - Système de design
 
 
@@ -19,7 +18,7 @@ DSFR v1.14.0
 # Carte (card)
 
 
-La carte donne des aperçus cliquables d’une page de contenu à l’utilisateur. Elle fait généralement partie d'une collection ou liste d’aperçus de contenu similaires. La carte n’est jamais présentée de manière isolée.
+La carte donne des aperçus cliquables d'une page de contenu à l'utilisateur. Elle fait généralement partie d'une collection ou liste d'aperçus de contenu similaires. La carte n'est jamais présentée de manière isolée.
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/carte)
 
 
@@ -37,7 +36,7 @@ dans une grille sur 4 à 6 colonnes en version desktop
 (sur lequel se trouve le lien)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -54,8 +53,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -71,7 +70,7 @@ dans une grille sur 3 à 4 colonnes en version desktop
 (sur lequel se trouve le lien)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -88,8 +87,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -105,7 +104,7 @@ dans une grille sur 6 à 12 colonnes en version desktop
 (sur lequel se trouve le lien)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -122,8 +121,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -140,7 +139,7 @@ Icône
 (sur lequel se trouve le lien)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -157,8 +156,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -174,7 +173,7 @@ Extrait de code
 Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dolore magna aliqua. Vitae sapien pellentesque habitant morbi tristique senectus et
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -192,8 +191,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -210,7 +209,7 @@ Variations
 (sur lequel se trouve le lien)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -227,8 +226,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -241,7 +240,7 @@ Extrait de code
 (sur lequel se trouve le lien)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -258,8 +257,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -272,7 +271,7 @@ Extrait de code
 (sur lequel se trouve le lien)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -289,8 +288,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -303,7 +302,7 @@ Extrait de code
 (sur lequel se trouve le lien)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -320,8 +319,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -341,7 +340,7 @@ dans une grille sur 4 à 6 colonnes en version desktop
 Intitulé de la carte (sur lequel se trouve le bouton)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -358,8 +357,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -375,7 +374,7 @@ dans une grille sur 3 à 4 colonnes en version desktop
 Intitulé de la carte (sur lequel se trouve le bouton)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -392,8 +391,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -409,7 +408,7 @@ dans une grille sur 6 à 12 colonnes en version desktop
 Intitulé de la carte (sur lequel se trouve le bouton)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -426,8 +425,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -443,7 +442,7 @@ Intitulé de la carte (sur lequel se trouve le bouton)
 Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dolore magna aliqua. Vitae sapien pellentesque habitant morbi tristique senectus et
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -461,8 +460,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -475,7 +474,7 @@ Extrait de code
 Intitulé de la carte (sur lequel se trouve le bouton)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -492,8 +491,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -536,7 +535,7 @@ Image et ratio
 (sur lequel se trouve le lien)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.32x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.32x9.png)
 
 
 ###
@@ -553,8 +552,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img fr-ratio-32x9" src="../../../example/img/placeholder.32x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img fr-ratio-32x9" src="../../../example/img/placeholder.32x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -567,7 +566,7 @@ Extrait de code
 (sur lequel se trouve le lien)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.3x2.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.3x2.png)
 
 
 ###
@@ -584,8 +583,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img fr-ratio-3x2" src="../../../example/img/placeholder.3x2.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img fr-ratio-3x2" src="../../../example/img/placeholder.3x2.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -598,7 +597,7 @@ Extrait de code
 (sur lequel se trouve le lien)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.4x3.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.4x3.png)
 
 
 ###
@@ -615,8 +614,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img fr-ratio-4x3" src="../../../example/img/placeholder.4x3.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img fr-ratio-4x3" src="../../../example/img/placeholder.4x3.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -629,7 +628,7 @@ Extrait de code
 (sur lequel se trouve le lien)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.1x1.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.1x1.png)
 
 
 ###
@@ -646,8 +645,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img fr-ratio-1x1" src="../../../example/img/placeholder.1x1.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img fr-ratio-1x1" src="../../../example/img/placeholder.1x1.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -660,7 +659,7 @@ Extrait de code
 (sur lequel se trouve le lien)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.3x4.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.3x4.png)
 
 
 ###
@@ -677,8 +676,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img fr-ratio-3x4" src="../../../example/img/placeholder.3x4.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img fr-ratio-3x4" src="../../../example/img/placeholder.3x4.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -691,7 +690,7 @@ Extrait de code
 (sur lequel se trouve le lien)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.2x3.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.2x3.png)
 
 
 ###
@@ -708,8 +707,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img fr-ratio-2x3" src="../../../example/img/placeholder.2x3.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img fr-ratio-2x3" src="../../../example/img/placeholder.2x3.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -726,7 +725,7 @@ En-tête
 (sur lequel se trouve le lien)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 -
@@ -749,8 +748,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 <ul class="fr-badges-group">
 <li>
@@ -787,7 +786,7 @@ Libellé badge
 Libellé badge
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -815,8 +814,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -844,7 +843,7 @@ Libellé tag
 Libellé tag
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -872,8 +871,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -892,7 +891,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dol
 détail (optionnel)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -913,8 +912,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -933,7 +932,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dol
 détail (optionnel)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -954,8 +953,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -974,7 +973,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dol
 détail (optionnel)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -995,8 +994,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -1018,7 +1017,7 @@ détail (optionnel)
 détail (optionnel)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -1042,8 +1041,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -1077,7 +1076,7 @@ détail (optionnel)
 détail (optionnel)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -1109,8 +1108,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -1144,7 +1143,7 @@ détail (optionnel)
 détail (optionnel)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -1176,8 +1175,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -1211,7 +1210,7 @@ détail (optionnel)
 détail (optionnel)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -1243,8 +1242,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -1278,7 +1277,7 @@ détail (optionnel)
 détail (optionnel)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -1310,8 +1309,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -1345,7 +1344,7 @@ détail (optionnel)
 détail (optionnel)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -1377,8 +1376,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -1412,7 +1411,7 @@ détail (optionnel)
 détail (optionnel)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -1444,8 +1443,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -1462,7 +1461,7 @@ Sans lien
 Intitulé de la carte
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -1479,8 +1478,8 @@ Intitulé de la carte
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -1497,7 +1496,7 @@ Sans lien étendu
 (sur lequel se trouve le lien)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -1514,8 +1513,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -1531,7 +1530,7 @@ Extrait de code
 Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dolore magna aliqua. Vitae sapien pellentesque habitant morbi tristique senectus et
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -1549,8 +1548,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -1566,7 +1565,7 @@ Extrait de code
 Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dolore magna aliqua. Vitae sapien pellentesque habitant morbi tristique senectus et
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -1584,8 +1583,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -1601,7 +1600,7 @@ Extrait de code
 Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dolore magna aliqua. Vitae sapien pellentesque habitant morbi tristique senectus et
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -1619,8 +1618,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -1640,7 +1639,7 @@ Desactivée
 Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dolore magna aliqua. Vitae sapien pellentesque habitant morbi tristique senectus et
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -1658,8 +1657,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -1675,7 +1674,7 @@ Intitulé de la carte (sur lequel se trouve le bouton)
 Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dolore magna aliqua. Vitae sapien pellentesque habitant morbi tristique senectus et
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -1693,8 +1692,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -1722,7 +1721,7 @@ Libellé
 Libellé
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -1749,8 +1748,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -1777,7 +1776,7 @@ Libellé
 Libellé
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -1808,8 +1807,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -1836,7 +1835,7 @@ Libellé
 Libellé
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -1867,8 +1866,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -1895,7 +1894,7 @@ Libellé
 Libellé
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -1926,8 +1925,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -1952,7 +1951,7 @@ détail (optionnel)
 -
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -1983,8 +1982,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -2025,7 +2024,7 @@ détail (optionnel)
 détail (optionnel)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -2057,8 +2056,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -2095,7 +2094,7 @@ détail (optionnel)
 détail (optionnel)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -2127,8 +2126,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -2165,7 +2164,7 @@ détail (optionnel)
 détail (optionnel)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -2197,8 +2196,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -2237,7 +2236,7 @@ Libellé
 Libellé
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -2276,8 +2275,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -2316,7 +2315,7 @@ Libellé
 Libellé
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -2355,8 +2354,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -2395,7 +2394,7 @@ Libellé
 Libellé
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -2434,8 +2433,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -2474,7 +2473,7 @@ Libellé
 Libellé
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -2513,8 +2512,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -2553,7 +2552,7 @@ Libellé
 Libellé
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -2592,8 +2591,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -2632,7 +2631,7 @@ Libellé
 Libellé
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.32x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.32x9.png)
 
 
 ###
@@ -2671,8 +2670,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img fr-ratio-32x9" src="../../../example/img/placeholder.32x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img fr-ratio-32x9" src="../../../example/img/placeholder.32x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -2704,7 +2703,7 @@ Libellé tag
 Libellé tag
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -2726,7 +2725,7 @@ Libellé badge
 Libellé badge
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -2739,7 +2738,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dol
 détail (optionnel)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -2752,7 +2751,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dol
 détail (optionnel)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -2767,7 +2766,7 @@ Libellé
 Libellé
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -2780,7 +2779,7 @@ Libellé
 -
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -2810,8 +2809,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -2838,8 +2837,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -2859,8 +2858,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -2880,8 +2879,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -2907,8 +2906,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -2934,8 +2933,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -2965,7 +2964,7 @@ Libellé tag
 Libellé tag
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -2987,7 +2986,7 @@ Libellé badge
 Libellé badge
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -3000,7 +2999,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dol
 détail (optionnel)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -3013,7 +3012,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dol
 détail (optionnel)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -3028,7 +3027,7 @@ Libellé
 Libellé
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -3041,7 +3040,7 @@ Libellé
 -
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -3071,8 +3070,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -3099,8 +3098,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -3120,8 +3119,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -3141,8 +3140,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -3168,8 +3167,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -3195,8 +3194,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -3226,7 +3225,7 @@ Libellé tag
 Libellé tag
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -3248,7 +3247,7 @@ Libellé badge
 Libellé badge
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -3261,7 +3260,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dol
 détail (optionnel)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -3274,7 +3273,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dol
 détail (optionnel)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -3289,7 +3288,7 @@ Libellé
 Libellé
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -3302,7 +3301,7 @@ Libellé
 -
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -3332,8 +3331,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -3360,8 +3359,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -3381,8 +3380,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -3402,8 +3401,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -3429,8 +3428,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -3456,8 +3455,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -3491,7 +3490,7 @@ Libellé tag
 Libellé tag
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -3513,7 +3512,7 @@ Libellé badge
 Libellé badge
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -3526,7 +3525,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dol
 détail (optionnel)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -3539,7 +3538,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dol
 détail (optionnel)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -3554,7 +3553,7 @@ Libellé
 Libellé
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -3567,7 +3566,7 @@ Libellé
 -
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -3597,8 +3596,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -3625,8 +3624,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -3646,8 +3645,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -3667,8 +3666,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -3694,8 +3693,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -3721,8 +3720,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -3752,7 +3751,7 @@ Libellé tag
 Libellé tag
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -3774,7 +3773,7 @@ Libellé badge
 Libellé badge
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -3787,7 +3786,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dol
 détail (optionnel)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -3800,7 +3799,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dol
 détail (optionnel)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -3815,7 +3814,7 @@ Libellé
 Libellé
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -3828,7 +3827,7 @@ Libellé
 -
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -3858,8 +3857,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -3886,8 +3885,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -3907,8 +3906,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -3928,8 +3927,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -3955,8 +3954,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -3982,8 +3981,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -4013,7 +4012,7 @@ Libellé tag
 Libellé tag
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -4035,7 +4034,7 @@ Libellé badge
 Libellé badge
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -4048,7 +4047,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dol
 détail (optionnel)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -4061,7 +4060,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dol
 détail (optionnel)
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -4076,7 +4075,7 @@ Libellé
 Libellé
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -4089,7 +4088,7 @@ Libellé
 -
 
 
-![[À MODIFIER - vide ou texte alternatif de l’image]](../../../example/img/placeholder.16x9.png)
+![[À MODIFIER - vide ou texte alternatif de l'image]](../../../example/img/placeholder.16x9.png)
 
 
 ###
@@ -4119,8 +4118,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -4147,8 +4146,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -4168,8 +4167,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -4189,8 +4188,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -4216,8 +4215,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -4243,8 +4242,8 @@ Extrait de code
 </div>
 <div class="fr-card__header">
 <div class="fr-card__img">
-<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+<img class="fr-responsive-img" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - vide ou texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n'apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
 </div>
 </div>
 </div>
@@ -4270,10 +4269,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

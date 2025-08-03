@@ -6,7 +6,6 @@ Barre de recherche - Système de design
 
 Markdown:
 
-
 Barre de recherche - Système de design
 
 
@@ -19,7 +18,7 @@ DSFR v1.14.0
 # Barre de recherche (search)
 
 
-La barre de recherche est un système de navigation qui permet à l'utilisateur d’accéder rapidement à un contenu en lançant une recherche sur un mot clé ou une expression.
+La barre de recherche est un système de navigation qui permet à l'utilisateur d'accéder rapidement à un contenu en lançant une recherche sur un mot clé ou une expression.
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/barre-de-recherche)
 
 
@@ -78,10 +77,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

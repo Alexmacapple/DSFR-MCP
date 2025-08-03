@@ -6,7 +6,6 @@ Outils d'analyse - Système de design
 
 Markdown:
 
-
 Outils d'analyse - Système de design
 
 
@@ -19,10 +18,10 @@ DSFR v1.14.0
 # Outils d'analyse (analytics)
 
 
-### Étiquette d’élément a
+### Étiquette d'élément a
 
 
-Voir le fil d’Ariane
+Voir le fil d'Ariane
 
 
 1.
@@ -64,4 +63,4 @@ Voir le fil d’Ariane
 
 
 -
-[Fil d’ariane avec boutons](breadcrumb-button)
+[Fil d'ariane avec boutons](breadcrumb-button)

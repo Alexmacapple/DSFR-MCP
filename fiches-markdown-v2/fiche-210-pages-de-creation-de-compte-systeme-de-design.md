@@ -6,7 +6,6 @@ Pages de création de compte - Système de design
 
 Markdown:
 
-
 Pages de création de compte - Système de design
 
 
@@ -21,7 +20,7 @@ Menu
 [Nom du site / service](/)
 
 
-baseline - précisions sur l‘organisation
+baseline - précisions sur l'organisation
 
 
 -
@@ -481,7 +480,7 @@ Entrée menu
 -
 
 
-Voir le fil d’Ariane
+Voir le fil d'Ariane
 
 
 1.
@@ -526,8 +525,8 @@ Adresse
 Indication : numéro et voie
 
 
-Complément d’adresse (optionnel)
-Indication : bâtiment, immeuble, escalier et numéro d’appartement
+Complément d'adresse (optionnel)
+Indication : bâtiment, immeuble, escalier et numéro d'appartement
 
 
 Code postal
@@ -647,8 +646,8 @@ Adresse
 <div class="fr-fieldset__element">
 <div class="fr-input-group" id="input-group-9020">
 <label class="fr-label" for="complement-9011">
-Complément d’adresse (optionnel)
-<span class="fr-hint-text">Indication : bâtiment, immeuble, escalier et numéro d’appartement</span>
+Complément d'adresse (optionnel)
+<span class="fr-hint-text">Indication : bâtiment, immeuble, escalier et numéro d'appartement</span>
 </label>
 <input class="fr-input" aria-describedby="complement-9011-messages" name="address-line2" autocomplete="address-line2" id="complement-9011" type="text">
 <div class="fr-messages-group" id="complement-9011-messages" aria-live="polite">
@@ -712,10 +711,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

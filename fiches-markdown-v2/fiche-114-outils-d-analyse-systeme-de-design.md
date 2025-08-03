@@ -6,7 +6,6 @@ Outils d'analyse - Système de design
 
 Markdown:
 
-
 Outils d'analyse - Système de design
 
 
@@ -22,7 +21,7 @@ DSFR v1.14.0
 ### Ensemble de boutons radio
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé bouton radio

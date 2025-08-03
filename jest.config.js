@@ -53,18 +53,8 @@ module.exports = {
     NODE_ENV: 'test'
   },
   
-  // Modules à transformer
-  transform: {
-    '^.+\\.js$': ['babel-jest', {
-      presets: [
-        ['@babel/preset-env', {
-          targets: {
-            node: 'current'
-          }
-        }]
-      ]
-    }]
-  },
+  // Pas de transform nécessaire pour Node.js moderne
+  transform: {},
   
   // Setup des tests
   setupFilesAfterEnv: ['<rootDir>/test/setup.js'],

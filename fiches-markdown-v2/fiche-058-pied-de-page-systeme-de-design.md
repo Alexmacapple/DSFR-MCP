@@ -6,7 +6,6 @@ Pied de page - Système de design
 
 Markdown:
 
-
 Pied de page - Système de design
 
 
@@ -19,7 +18,7 @@ DSFR v1.14.0
 # Pied de page (footer)
 
 
-Le pied de page propose des éléments d’information sur le site et une navigation secondaire pour l’utilisateur afin qu’il poursuive son parcours. Il est modulable selon les besoins et les exigences du site.
+Le pied de page propose des éléments d'information sur le site et une navigation secondaire pour l'utilisateur afin qu'il poursuive son parcours. Il est modulable selon les besoins et les exigences du site.
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/pied-de-page)
 
 
@@ -80,7 +79,7 @@ Extrait de code
 <div class="fr-container">
 <div class="fr-footer__body">
 <div class="fr-footer__brand fr-enlarge-link">
-<a id="footer-brand-link-6663" title="Retour à l’accueil du site - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)" href="/">
+<a id="footer-brand-link-6663" title="Retour à l'accueil du site - Nom de l'entité (ministère, secrétariat d'état, gouvernement)" href="/">
 <p class="fr-logo">
 Intitulé
 <br>officiel
@@ -477,7 +476,7 @@ Nom de la catégorie
 <div class="fr-container">
 <div class="fr-footer__body">
 <div class="fr-footer__brand fr-enlarge-link">
-<a id="footer-brand-link-6686" title="Retour à l’accueil du site - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)" href="/">
+<a id="footer-brand-link-6686" title="Retour à l'accueil du site - Nom de l'entité (ministère, secrétariat d'état, gouvernement)" href="/">
 <p class="fr-logo">
 Intitulé
 <br>officiel
@@ -536,7 +535,7 @@ République
 
 Française
 
-[[À MODIFIER - texte alternatif de l’image]](/) [[À MODIFIER - texte alternatif de l’image](../../../example/img/placeholder.16x9.png)
+[[À MODIFIER - texte alternatif de l'image]](/) [[À MODIFIER - texte alternatif de l'image](../../../example/img/placeholder.16x9.png)
 
 
 Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dolore magna aliqua. Vitae sapien pellentesque habitant morbi tristique senectus et. Diam maecenas sed enim ut. Accumsan lacus vel facilisis volutpat est. Ut aliqu
@@ -592,9 +591,9 @@ Extrait de code
 République
 <br>Française
 </p>
-<a id="footer-brand-link-6709" title="Retour à l’accueil du site - [À MODIFIER - texte alternatif de l’image : nom de l'opérateur ou du site serviciel] - République Française" href="/" class="fr-footer__brand-link">
-<img class="fr-footer__logo" style="max-width:10rem;" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l’image -->
+<a id="footer-brand-link-6709" title="Retour à l'accueil du site - [À MODIFIER - texte alternatif de l'image : nom de l'opérateur ou du site serviciel] - République Française" href="/" class="fr-footer__brand-link">
+<img class="fr-footer__logo" style="max-width:10rem;" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l'image -->
 </a>
 </div>
 <div class="fr-footer__content">
@@ -671,19 +670,19 @@ Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dol
 ## Nos partenaires
 
 
-[[À MODIFIER - texte alternatif de l’image](../../../example/img/placeholder.16x9.png)
+[[À MODIFIER - texte alternatif de l'image](../../../example/img/placeholder.16x9.png)
 
 
 -
-[[À MODIFIER - texte alternatif de l’image](../../../example/img/placeholder.16x9.png)
+[[À MODIFIER - texte alternatif de l'image](../../../example/img/placeholder.16x9.png)
 
 
 -
-[[À MODIFIER - texte alternatif de l’image](../../../example/img/placeholder.1x1.png)
+[[À MODIFIER - texte alternatif de l'image](../../../example/img/placeholder.1x1.png)
 
 
 -
-[[À MODIFIER - texte alternatif de l’image](../../../example/img/placeholder.9x16.png)
+[[À MODIFIER - texte alternatif de l'image](../../../example/img/placeholder.9x16.png)
 
 
 -
@@ -717,7 +716,7 @@ Extrait de code
 <div class="fr-container">
 <div class="fr-footer__body">
 <div class="fr-footer__brand fr-enlarge-link">
-<a id="footer-brand-link-6732" title="Retour à l’accueil du site - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)" href="/">
+<a id="footer-brand-link-6732" title="Retour à l'accueil du site - Nom de l'entité (ministère, secrétariat d'état, gouvernement)" href="/">
 <p class="fr-logo">
 Intitulé
 <br>officiel
@@ -747,28 +746,28 @@ Intitulé
 <div class="fr-footer__partners-logos">
 <div class="fr-footer__partners-main">
 <a class="fr-footer__partners-link" href="">
-<img class="fr-footer__logo" style="height: 5.625rem" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l’image -->
+<img class="fr-footer__logo" style="height: 5.625rem" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l'image -->
 </a>
 </div>
 <div class="fr-footer__partners-sub">
 <ul>
 <li>
 <a class="fr-footer__partners-link" href="">
-<img class="fr-footer__logo" style="height: 5.625rem" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l’image -->
+<img class="fr-footer__logo" style="height: 5.625rem" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l'image -->
 </a>
 </li>
 <li>
 <a class="fr-footer__partners-link" href="">
-<img class="fr-footer__logo" style="height: 5.625rem" src="../../../example/img/placeholder.1x1.png" alt="[À MODIFIER - texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l’image -->
+<img class="fr-footer__logo" style="height: 5.625rem" src="../../../example/img/placeholder.1x1.png" alt="[À MODIFIER - texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l'image -->
 </a>
 </li>
 <li>
 <a class="fr-footer__partners-link" href="">
-<img class="fr-footer__logo" style="height: 5.625rem" src="../../../example/img/placeholder.9x16.png" alt="[À MODIFIER - texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l’image -->
+<img class="fr-footer__logo" style="height: 5.625rem" src="../../../example/img/placeholder.9x16.png" alt="[À MODIFIER - texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l'image -->
 </a>
 </li>
 </ul>
@@ -831,7 +830,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dol
 ## Notre partenaire
 
 
-[[À MODIFIER - texte alternatif de l’image](../../../example/img/placeholder.16x9.png)
+[[À MODIFIER - texte alternatif de l'image](../../../example/img/placeholder.16x9.png)
 
 
 -
@@ -865,7 +864,7 @@ Extrait de code
 <div class="fr-container">
 <div class="fr-footer__body">
 <div class="fr-footer__brand fr-enlarge-link">
-<a id="footer-brand-link-6755" title="Retour à l’accueil du site - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)" href="/">
+<a id="footer-brand-link-6755" title="Retour à l'accueil du site - Nom de l'entité (ministère, secrétariat d'état, gouvernement)" href="/">
 <p class="fr-logo">
 Intitulé
 <br>officiel
@@ -895,8 +894,8 @@ Intitulé
 <div class="fr-footer__partners-logos">
 <div class="fr-footer__partners-main">
 <a class="fr-footer__partners-link" href="">
-<img class="fr-footer__logo" style="height: 5.625rem" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l’image -->
+<img class="fr-footer__logo" style="height: 5.625rem" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l'image -->
 </a>
 </div>
 </div>
@@ -958,15 +957,15 @@ Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dol
 
 
 -
-[[À MODIFIER - texte alternatif de l’image](../../../example/img/placeholder.16x9.png)
+[[À MODIFIER - texte alternatif de l'image](../../../example/img/placeholder.16x9.png)
 
 
 -
-[[À MODIFIER - texte alternatif de l’image](../../../example/img/placeholder.1x1.png)
+[[À MODIFIER - texte alternatif de l'image](../../../example/img/placeholder.1x1.png)
 
 
 -
-[[À MODIFIER - texte alternatif de l’image](../../../example/img/placeholder.9x16.png)
+[[À MODIFIER - texte alternatif de l'image](../../../example/img/placeholder.9x16.png)
 
 
 -
@@ -1000,7 +999,7 @@ Extrait de code
 <div class="fr-container">
 <div class="fr-footer__body">
 <div class="fr-footer__brand fr-enlarge-link">
-<a id="footer-brand-link-6778" title="Retour à l’accueil du site - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)" href="/">
+<a id="footer-brand-link-6778" title="Retour à l'accueil du site - Nom de l'entité (ministère, secrétariat d'état, gouvernement)" href="/">
 <p class="fr-logo">
 Intitulé
 <br>officiel
@@ -1032,20 +1031,20 @@ Intitulé
 <ul>
 <li>
 <a class="fr-footer__partners-link" href="">
-<img class="fr-footer__logo" style="height: 5.625rem" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l’image -->
+<img class="fr-footer__logo" style="height: 5.625rem" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l'image -->
 </a>
 </li>
 <li>
 <a class="fr-footer__partners-link" href="">
-<img class="fr-footer__logo" style="height: 5.625rem" src="../../../example/img/placeholder.1x1.png" alt="[À MODIFIER - texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l’image -->
+<img class="fr-footer__logo" style="height: 5.625rem" src="../../../example/img/placeholder.1x1.png" alt="[À MODIFIER - texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l'image -->
 </a>
 </li>
 <li>
 <a class="fr-footer__partners-link" href="">
-<img class="fr-footer__logo" style="height: 5.625rem" src="../../../example/img/placeholder.9x16.png" alt="[À MODIFIER - texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l’image -->
+<img class="fr-footer__logo" style="height: 5.625rem" src="../../../example/img/placeholder.9x16.png" alt="[À MODIFIER - texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l'image -->
 </a>
 </li>
 </ul>
@@ -1218,7 +1217,7 @@ République
 
 Française
 
-[[À MODIFIER - texte alternatif de l’image]](/) [[À MODIFIER - texte alternatif de l’image](../../../example/img/placeholder.16x9.png)
+[[À MODIFIER - texte alternatif de l'image]](/) [[À MODIFIER - texte alternatif de l'image](../../../example/img/placeholder.16x9.png)
 
 
 Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dolore magna aliqua. Vitae sapien pellentesque habitant morbi tristique senectus et. Diam maecenas sed enim ut. Accumsan lacus vel facilisis volutpat est. Ut aliqu
@@ -1242,19 +1241,19 @@ Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dol
 ## Nos partenaires
 
 
-[[À MODIFIER - texte alternatif de l’image](../../../example/img/placeholder.16x9.png)
+[[À MODIFIER - texte alternatif de l'image](../../../example/img/placeholder.16x9.png)
 
 
 -
-[[À MODIFIER - texte alternatif de l’image](../../../example/img/placeholder.16x9.png)
+[[À MODIFIER - texte alternatif de l'image](../../../example/img/placeholder.16x9.png)
 
 
 -
-[[À MODIFIER - texte alternatif de l’image](../../../example/img/placeholder.1x1.png)
+[[À MODIFIER - texte alternatif de l'image](../../../example/img/placeholder.1x1.png)
 
 
 -
-[[À MODIFIER - texte alternatif de l’image](../../../example/img/placeholder.9x16.png)
+[[À MODIFIER - texte alternatif de l'image](../../../example/img/placeholder.9x16.png)
 
 
 -
@@ -1448,9 +1447,9 @@ Nom de la catégorie
 République
 <br>Française
 </p>
-<a id="footer-brand-link-6801" title="Retour à l’accueil du site - [À MODIFIER - texte alternatif de l’image : nom de l'opérateur ou du site serviciel] - République Française" href="/" class="fr-footer__brand-link">
-<img class="fr-footer__logo" style="max-width:10rem;" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l’image -->
+<a id="footer-brand-link-6801" title="Retour à l'accueil du site - [À MODIFIER - texte alternatif de l'image : nom de l'opérateur ou du site serviciel] - République Française" href="/" class="fr-footer__brand-link">
+<img class="fr-footer__logo" style="max-width:10rem;" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l'image -->
 </a>
 </div>
 <div class="fr-footer__content">
@@ -1476,28 +1475,28 @@ République
 <div class="fr-footer__partners-logos">
 <div class="fr-footer__partners-main">
 <a class="fr-footer__partners-link" href="">
-<img class="fr-footer__logo" style="height: 5.625rem" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l’image -->
+<img class="fr-footer__logo" style="height: 5.625rem" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l'image -->
 </a>
 </div>
 <div class="fr-footer__partners-sub">
 <ul>
 <li>
 <a class="fr-footer__partners-link" href="">
-<img class="fr-footer__logo" style="height: 5.625rem" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l’image -->
+<img class="fr-footer__logo" style="height: 5.625rem" src="../../../example/img/placeholder.16x9.png" alt="[À MODIFIER - texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l'image -->
 </a>
 </li>
 <li>
 <a class="fr-footer__partners-link" href="">
-<img class="fr-footer__logo" style="height: 5.625rem" src="../../../example/img/placeholder.1x1.png" alt="[À MODIFIER - texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l’image -->
+<img class="fr-footer__logo" style="height: 5.625rem" src="../../../example/img/placeholder.1x1.png" alt="[À MODIFIER - texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l'image -->
 </a>
 </li>
 <li>
 <a class="fr-footer__partners-link" href="">
-<img class="fr-footer__logo" style="height: 5.625rem" src="../../../example/img/placeholder.9x16.png" alt="[À MODIFIER - texte alternatif de l’image]" />
-<!-- L’alternative de l’image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l’image -->
+<img class="fr-footer__logo" style="height: 5.625rem" src="../../../example/img/placeholder.9x16.png" alt="[À MODIFIER - texte alternatif de l'image]" />
+<!-- L'alternative de l'image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l'image -->
 </a>
 </li>
 </ul>
@@ -1538,10 +1537,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

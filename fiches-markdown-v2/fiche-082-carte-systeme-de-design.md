@@ -6,7 +6,6 @@ Carte - Système de design
 
 Markdown:
 
-
 Carte - Système de design
 
 
@@ -19,7 +18,7 @@ DSFR v1.14.0
 # Carte (card)
 
 
-La carte donne des aperçus cliquables d’une page de contenu à l’utilisateur. Elle fait généralement partie d'une collection ou liste d’aperçus de contenu similaires. La carte n’est jamais présentée de manière isolée.
+La carte donne des aperçus cliquables d'une page de contenu à l'utilisateur. Elle fait généralement partie d'une collection ou liste d'aperçus de contenu similaires. La carte n'est jamais présentée de manière isolée.
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/carte)
 
 
@@ -52,7 +51,7 @@ Extrait de code
 <div class="fr-card fr-enlarge-link">
 <div class="fr-card__body">
 <h4 class="fr-card__title">
-<a href="#" class="fr-card__link">Qu’est-ce que le Pass Culture et comment l’obtenir ?</a>
+<a href="#" class="fr-card__link">Qu'est-ce que le Pass Culture et comment l'obtenir ?</a>
 </h4>
 <p class="fr-card__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
 <p class="fr-card__detail">Détail</p>
@@ -86,14 +85,14 @@ Extrait de code
 <div class="fr-card fr-enlarge-link">
 <div class="fr-card__body">
 <h4 class="fr-card__title">
-<a href="#" class="fr-card__link">Qu’est-ce que le Pass Culture et comment l’obtenir ?</a>
+<a href="#" class="fr-card__link">Qu'est-ce que le Pass Culture et comment l'obtenir ?</a>
 </h4>
 <p class="fr-card__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
 <p class="fr-card__detail">Détail</p>
 </div>
 <div class="fr-card__img">
 <img class="fr-responsive-img" src="../../../../example/img/placeholder.16x9.png" alt="" />
-<!-- L’alternative de l’image (attribut alt) doit rester vide car l’image est illustrative et ne doit pas être restituée aux technologies d’assistance -->
+<!-- L'alternative de l'image (attribut alt) doit rester vide car l'image est illustrative et ne doit pas être restituée aux technologies d'assistance -->
 </div>
 </div>
 </div>
@@ -121,13 +120,13 @@ Extrait de code
 <div class="fr-card fr-enlarge-link">
 <div class="fr-card__body">
 <h4 class="fr-card__title">
-<a href="#" class="fr-card__link">Qu’est-ce que le Pass Culture et comment l’obtenir ?</a>
+<a href="#" class="fr-card__link">Qu'est-ce que le Pass Culture et comment l'obtenir ?</a>
 </h4>
 <p class="fr-card__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
 </div>
 <div class="fr-card__img">
 <img class="fr-responsive-img" src="../../../../example/img/placeholder.16x9.png" alt="" />
-<!-- L’alternative de l’image (attribut alt) doit rester vide car l’image est illustrative et ne doit pas être restituée aux technologies d’assistance -->
+<!-- L'alternative de l'image (attribut alt) doit rester vide car l'image est illustrative et ne doit pas être restituée aux technologies d'assistance -->
 </div>
 </div>
 </div>
@@ -158,14 +157,14 @@ Extrait de code
 <div class="fr-card">
 <div class="fr-card__body">
 <h4 class="fr-card__title">
-<a href="#" class="fr-card__link">Qu’est-ce que le Pass Culture et comment l’obtenir ?</a>
+<a href="#" class="fr-card__link">Qu'est-ce que le Pass Culture et comment l'obtenir ?</a>
 </h4>
 <p class="fr-card__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
 <p class="fr-card__detail">Détail</p>
 </div>
 <div class="fr-card__img">
 <img class="fr-responsive-img" src="../../../../example/img/placeholder.16x9.png" alt="" />
-<!-- L’alternative de l’image (attribut alt) doit rester vide car l’image est illustrative et ne doit pas être restituée aux technologies d’assistance -->
+<!-- L'alternative de l'image (attribut alt) doit rester vide car l'image est illustrative et ne doit pas être restituée aux technologies d'assistance -->
 </div>
 </div>
 </div>
@@ -196,14 +195,14 @@ Extrait de code
 <div class="fr-card fr-enlarge-link fr-card--horizontal">
 <div class="fr-card__body">
 <h4 class="fr-card__title">
-<a href="#" class="fr-card__link">Qu’est-ce que le Pass Culture et comment l’obtenir ?</a>
+<a href="#" class="fr-card__link">Qu'est-ce que le Pass Culture et comment l'obtenir ?</a>
 </h4>
 <p class="fr-card__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
 <p class="fr-card__detail">Détail</p>
 </div>
 <div class="fr-card__img">
 <img class="fr-responsive-img" src="../../../../example/img/placeholder.16x9.png" alt="" />
-<!-- L’alternative de l’image (attribut alt) doit rester vide car l’image est illustrative et ne doit pas être restituée aux technologies d’assistance -->
+<!-- L'alternative de l'image (attribut alt) doit rester vide car l'image est illustrative et ne doit pas être restituée aux technologies d'assistance -->
 </div>
 </div>
 </div>
@@ -231,13 +230,13 @@ Extrait de code
 <div class="fr-card fr-enlarge-link fr-card--horizontal">
 <div class="fr-card__body">
 <h4 class="fr-card__title">
-<a href="#" class="fr-card__link">Qu’est-ce que le Pass Culture et comment l’obtenir ?</a>
+<a href="#" class="fr-card__link">Qu'est-ce que le Pass Culture et comment l'obtenir ?</a>
 </h4>
 <p class="fr-card__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
 </div>
 <div class="fr-card__img">
 <img class="fr-responsive-img" src="../../../../example/img/placeholder.16x9.png" alt="" />
-<!-- L’alternative de l’image (attribut alt) doit rester vide car l’image est illustrative et ne doit pas être restituée aux technologies d’assistance -->
+<!-- L'alternative de l'image (attribut alt) doit rester vide car l'image est illustrative et ne doit pas être restituée aux technologies d'assistance -->
 </div>
 </div>
 </div>
@@ -265,13 +264,13 @@ Extrait de code
 <div class="fr-card fr-card--horizontal">
 <div class="fr-card__body">
 <h4 class="fr-card__title">
-<a href="#" class="fr-card__link">Qu’est-ce que le Pass Culture et comment l’obtenir ?</a>
+<a href="#" class="fr-card__link">Qu'est-ce que le Pass Culture et comment l'obtenir ?</a>
 </h4>
 <p class="fr-card__desc">Description texte body small regular consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
 </div>
 <div class="fr-card__img">
 <img class="fr-responsive-img" src="../../../../example/img/placeholder.16x9.png" alt="" />
-<!-- L’alternative de l’image (attribut alt) doit rester vide car l’image est illustrative et ne doit pas être restituée aux technologies d’assistance -->
+<!-- L'alternative de l'image (attribut alt) doit rester vide car l'image est illustrative et ne doit pas être restituée aux technologies d'assistance -->
 </div>
 </div>
 </div>
@@ -285,10 +284,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

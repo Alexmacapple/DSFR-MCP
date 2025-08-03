@@ -6,7 +6,6 @@ Bloc fonctionnel de nationalité - Système de design
 
 Markdown:
 
-
 Bloc fonctionnel de nationalité - Système de design
 
 
@@ -19,7 +18,7 @@ DSFR v1.14.0
 # Bloc fonctionnel de nationalité (nationality)
 
 
-La demande de nationalité permet d’aider un utilisateur à saisir sa nationalité.
+La demande de nationalité permet d'aider un utilisateur à saisir sa nationalité.
 
 
 #### Demande de nationalité
@@ -74,10 +73,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

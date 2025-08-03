@@ -6,7 +6,6 @@ Pages de connexion - Système de design
 
 Markdown:
 
-
 Pages de connexion - Système de design
 
 
@@ -28,10 +27,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

@@ -6,7 +6,6 @@ Bouton - Système de design
 
 Markdown:
 
-
 Bouton - Système de design
 
 
@@ -19,7 +18,7 @@ DSFR v1.14.0
 # Bouton (button)
 
 
-Le bouton est un élément d’interaction avec l’interface permettant à l’utilisateur d’effectuer une action.
+Le bouton est un élément d'interaction avec l'interface permettant à l'utilisateur d'effectuer une action.
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bouton)
 
 
@@ -117,7 +116,7 @@ Extrait de code
 <button title="[À MODIFIER - Libellé bouton]" type="button" class="fr-btn fr-icon-checkbox-circle-line">Libellé bouton</button>
 
 
-L’exemple ci-dessous montre la possibilité d'appliquer le style du bouton secondaire sur un élément de type "lien" <a>. A n'appliquer qu'en cas exceptionnel d'impossibilité technique d'utiliser un <button>.
+L'exemple ci-dessous montre la possibilité d'appliquer le style du bouton secondaire sur un élément de type "lien" <a>. A n'appliquer qu'en cas exceptionnel d'impossibilité technique d'utiliser un <button>.
 
 
 ### Bouton markup a href
@@ -201,7 +200,7 @@ Extrait de code
 <button title="[À MODIFIER - Libellé bouton]" type="button" class="fr-btn fr-icon-checkbox-circle-line fr-btn--secondary">Libellé bouton</button>
 
 
-L’exemple ci-dessous montre la possibilité d'appliquer le style du bouton secondaire sur un élément de type "lien" <a>. A n'appliquer qu'en cas exceptionnel d'impossibilité technique d'utiliser un <button>.
+L'exemple ci-dessous montre la possibilité d'appliquer le style du bouton secondaire sur un élément de type "lien" <a>. A n'appliquer qu'en cas exceptionnel d'impossibilité technique d'utiliser un <button>.
 
 
 ### Bouton secondaire markup a href
@@ -285,7 +284,7 @@ Extrait de code
 <button title="[À MODIFIER - Libellé bouton]" type="button" class="fr-btn fr-icon-checkbox-circle-line fr-btn--tertiary">Libellé bouton</button>
 
 
-L’exemple ci-dessous montre la possibilité d'appliquer le style du bouton secondaire sur un élément de type "lien" <a>. A n'appliquer qu'en cas exceptionnel d'impossibilité technique d'utiliser un <button>.
+L'exemple ci-dessous montre la possibilité d'appliquer le style du bouton secondaire sur un élément de type "lien" <a>. A n'appliquer qu'en cas exceptionnel d'impossibilité technique d'utiliser un <button>.
 
 
 ### Bouton tertiaire markup a href
@@ -369,7 +368,7 @@ Extrait de code
 <button title="[À MODIFIER - Libellé bouton]" type="button" class="fr-btn fr-icon-checkbox-circle-line fr-btn--tertiary-no-outline">Libellé bouton</button>
 
 
-L’exemple ci-dessous montre la possibilité d'appliquer le style du bouton secondaire sur un élément de type "lien" <a>. A n'appliquer qu'en cas exceptionnel d'impossibilité technique d'utiliser un <button>.
+L'exemple ci-dessous montre la possibilité d'appliquer le style du bouton secondaire sur un élément de type "lien" <a>. A n'appliquer qu'en cas exceptionnel d'impossibilité technique d'utiliser un <button>.
 
 
 ### Bouton tertiaire sans contour markup a href
@@ -929,10 +928,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

@@ -6,7 +6,6 @@ Formulaire - Système de design
 
 Markdown:
 
-
 Formulaire - Système de design
 
 
@@ -25,7 +24,7 @@ Ce package permet de mettre en forme les différents champs d'un formulaire, not
 ### Ensemble de champs de saisie
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé champ de saisie
@@ -43,7 +42,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="text" aria-labelledby="text-legend text-messages">
 <legend class="fr-fieldset__legend" id="text-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <div class="fr-input-group" id="input-group-3733">
@@ -83,7 +82,7 @@ Libellé champ de saisie
 ### Ensemble de boutons radio
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé bouton radio
@@ -101,7 +100,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="radio" aria-labelledby="radio-legend radio-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="radio-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <div class="fr-radio-group">
@@ -135,7 +134,7 @@ Libellé bouton radio
 ### Ensemble de cases à cocher
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé case à cocher
@@ -153,7 +152,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="checkbox" aria-labelledby="checkbox-legend checkbox-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="checkbox-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element">
 <div class="fr-checkbox-group">
@@ -193,7 +192,7 @@ Libellé case à cocher
 ### Ensemble de boutons radio, en ligne
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé bouton radio
@@ -211,7 +210,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="radio-inline" aria-labelledby="radio-inline-legend radio-inline-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="radio-inline-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element fr-fieldset__element--inline">
 <div class="fr-radio-group">
@@ -245,7 +244,7 @@ Libellé bouton radio
 ### Ensemble de cases à cocher, en ligne
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 
 
 Libellé case à cocher
@@ -263,7 +262,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="checkbox-inline" aria-labelledby="checkbox-inline-legend checkbox-inline-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="checkbox-inline-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 </legend>
 <div class="fr-fieldset__element fr-fieldset__element--inline">
 <div class="fr-checkbox-group">
@@ -303,7 +302,7 @@ Libellé case à cocher
 ### Ensemble de boutons radio avec erreur
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 Texte de description additionnel
 
 
@@ -316,7 +315,7 @@ Libellé bouton radio
 Libellé bouton radio
 
 
-Texte d’erreur obligatoire
+Texte d'erreur obligatoire
 
 
 ###
@@ -325,7 +324,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset fr-fieldset--error" id="radio-error" role="group" aria-labelledby="radio-error-legend radio-error-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="radio-error-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 <span class="fr-hint-text">Texte de description additionnel</span>
 </legend>
 <div class="fr-fieldset__element">
@@ -353,7 +352,7 @@ Libellé bouton radio
 </div>
 </div>
 <div class="fr-messages-group" id="radio-error-messages" aria-live="polite">
-<p class="fr-message fr-message--error" id="radio-error-message-error">Texte d’erreur obligatoire</p>
+<p class="fr-message fr-message--error" id="radio-error-message-error">Texte d'erreur obligatoire</p>
 </div>
 </fieldset>
 
@@ -361,7 +360,7 @@ Libellé bouton radio
 ### Ensemble de boutons radio riches
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 Texte de description additionnel
 
 
@@ -383,7 +382,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="radio-rich" aria-labelledby="radio-rich-legend radio-rich-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="radio-rich-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 <span class="fr-hint-text">Texte de description additionnel</span>
 </legend>
 <div class="fr-fieldset__element">
@@ -421,7 +420,7 @@ Libellé bouton radio
 ### Ensemble de cases à cocher, avec erreur
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 Texte de description additionnel
 
 
@@ -434,7 +433,7 @@ Libellé case à cocher
 Libellé case à cocher
 
 
-Texte d’erreur obligatoire
+Texte d'erreur obligatoire
 
 
 ###
@@ -443,7 +442,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset fr-fieldset--error" id="checkbox-error" role="group" aria-labelledby="checkbox-error-legend checkbox-error-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="checkbox-error-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 <span class="fr-hint-text">Texte de description additionnel</span>
 </legend>
 <div class="fr-fieldset__element">
@@ -477,7 +476,7 @@ Libellé case à cocher
 </div>
 </div>
 <div class="fr-messages-group" id="checkbox-error-messages" aria-live="polite">
-<p class="fr-message fr-message--error" id="checkbox-error-message-error">Texte d’erreur obligatoire</p>
+<p class="fr-message fr-message--error" id="checkbox-error-message-error">Texte d'erreur obligatoire</p>
 </div>
 </fieldset>
 
@@ -485,7 +484,7 @@ Libellé case à cocher
 ### Ensemble de champs de saisie désactivés
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 Texte de description additionnel
 
 
@@ -507,7 +506,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="text-disabled" disabled aria-labelledby="text-disabled-legend text-disabled-messages">
 <legend class="fr-fieldset__legend" id="text-disabled-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 <span class="fr-hint-text">Texte de description additionnel</span>
 </legend>
 <div class="fr-fieldset__element">
@@ -551,7 +550,7 @@ Libellé champ de saisie
 ### Ensemble de boutons radio désactivés
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 Texte de description additionnel
 
 
@@ -573,7 +572,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="radio-disabled" disabled aria-labelledby="radio-disabled-legend radio-disabled-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="radio-disabled-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 <span class="fr-hint-text">Texte de description additionnel</span>
 </legend>
 <div class="fr-fieldset__element">
@@ -611,7 +610,7 @@ Libellé bouton radio
 ### Ensemble de cases à cocher désactivés
 
 
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 Texte de description additionnel
 
 
@@ -633,7 +632,7 @@ Extrait de code
 
 <fieldset class="fr-fieldset" id="checkbox-disabled" disabled aria-labelledby="checkbox-disabled-legend checkbox-disabled-messages">
 <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="checkbox-disabled-legend">
-Légende pour l’ensemble des éléments
+Légende pour l'ensemble des éléments
 <span class="fr-hint-text">Texte de description additionnel</span>
 </legend>
 <div class="fr-fieldset__element">
@@ -745,10 +744,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

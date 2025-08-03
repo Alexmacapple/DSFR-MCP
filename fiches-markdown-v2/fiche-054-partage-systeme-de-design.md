@@ -6,7 +6,6 @@ Partage - Système de design
 
 Markdown:
 
-
 Partage - Système de design
 
 
@@ -19,7 +18,7 @@ DSFR v1.14.0
 # Partage (share)
 
 
-Les boutons de partage permettent aux utilisateurs de partager facilement un contenu, via les réseaux sociaux, par envoi de mail ou en copiant l’URL du contenu dans le presse-papier.
+Les boutons de partage permettent aux utilisateurs de partager facilement un contenu, via les réseaux sociaux, par envoi de mail ou en copiant l'URL du contenu dans le presse-papier.
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/partage)
 
 
@@ -314,10 +313,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

@@ -6,7 +6,6 @@ Bloc marque - Système de design
 
 Markdown:
 
-
 Bloc marque - Système de design
 
 
@@ -103,11 +102,11 @@ Ministère
 ### Exemple logo long
 
 
-Secrétaire d’État
+Secrétaire d'État
 
 chargé(e) de
 
-l’égalité entre les
+l'égalité entre les
 
 femmes et les
 
@@ -123,9 +122,9 @@ Extrait de code
 
 
 <p class="fr-logo">
-Secrétaire d’État
+Secrétaire d'État
 <br>chargé(e) de
-<br>l’égalité entre les
+<br>l'égalité entre les
 <br>femmes et les
 <br>hommes et de la
 <br>lutte contre les
@@ -138,7 +137,7 @@ Secrétaire d’État
 
 Ministère
 
-de l’europe
+de l'europe
 
 et des affaires
 
@@ -151,7 +150,7 @@ Extrait de code
 
 <p class="fr-logo">
 Ministère
-<br>de l’europe
+<br>de l'europe
 <br>et des affaires
 <br>étrangères
 </p>
@@ -164,10 +163,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

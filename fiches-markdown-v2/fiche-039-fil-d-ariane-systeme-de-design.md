@@ -6,7 +6,6 @@ Fil d'Ariane - Système de design
 
 Markdown:
 
-
 Fil d'Ariane - Système de design
 
 
@@ -19,14 +18,14 @@ DSFR v1.14.0
 # Fil d'Ariane (breadcrumb)
 
 
-Le fil d’Ariane est un système de navigation secondaire qui permet à l’utilisateur de se situer sur le site qu’il consulte.
+Le fil d'Ariane est un système de navigation secondaire qui permet à l'utilisateur de se situer sur le site qu'il consulte.
 [Documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/fil-d-ariane)
 
 
-### Fil d’Ariane avec liens
+### Fil d'Ariane avec liens
 
 
-Voir le fil d’Ariane
+Voir le fil d'Ariane
 
 
 1.
@@ -69,7 +68,7 @@ Extrait de code
 
 
 <nav role="navigation" class="fr-breadcrumb" aria-label="vous êtes ici :">
-<button type="button" class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-3707">Voir le fil d’Ariane</button>
+<button type="button" class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-3707">Voir le fil d'Ariane</button>
 <div class="fr-collapse" id="breadcrumb-3707">
 <ol class="fr-breadcrumb__list">
 <li>
@@ -118,10 +117,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

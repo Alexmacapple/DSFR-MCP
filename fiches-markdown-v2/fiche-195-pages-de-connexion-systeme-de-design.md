@@ -6,7 +6,6 @@ Pages de connexion - Système de design
 
 Markdown:
 
-
 Pages de connexion - Système de design
 
 
@@ -21,7 +20,7 @@ Menu
 [Nom du site / service](/)
 
 
-baseline - précisions sur l‘organisation
+baseline - précisions sur l'organisation
 
 
 -
@@ -481,7 +480,7 @@ Entrée menu
 -
 
 
-Voir le fil d’Ariane
+Voir le fil d'Ariane
 
 
 1.
@@ -505,14 +504,14 @@ Voir le fil d’Ariane
 ## Se connecter avec FranceConnect
 
 
-FranceConnect est la solution proposée par l’État pour sécuriser et simplifier la connexion aux services en ligne.
+FranceConnect est la solution proposée par l'État pour sécuriser et simplifier la connexion aux services en ligne.
 
 
-S’identifier avec
+S'identifier avec
 FranceConnect
 
 
-[Qu’est-ce que FranceConnect ?](https://franceconnect.gouv.fr/)
+[Qu'est-ce que FranceConnect ?](https://franceconnect.gouv.fr/)
 
 
 ou
@@ -547,7 +546,7 @@ Se connecter
 ------------------------------
 
 
-## Vous n’avez pas de compte ?
+## Vous n'avez pas de compte ?
 
 
 -
@@ -614,14 +613,14 @@ Extrait de code
 <h1 class="fr-h4">Connexion à [Nom de service-site]</h1>
 <div class="fr-mb-6v">
 <h2 class="fr-h5">Se connecter avec FranceConnect</h2>
-<p class="fr-text--sm">FranceConnect est la solution proposée par l’État pour sécuriser et simplifier la connexion aux services en ligne.</p>
+<p class="fr-text--sm">FranceConnect est la solution proposée par l'État pour sécuriser et simplifier la connexion aux services en ligne.</p>
 <div class="fr-connect-group">
 <button class="fr-connect" id="connect-7765" type="button">
-<span class="fr-connect__login">S’identifier avec</span>
+<span class="fr-connect__login">S'identifier avec</span>
 <span class="fr-connect__brand">FranceConnect</span>
 </button>
 <p>
-<a href="https://franceconnect.gouv.fr/" id="connect-link-7771" target="_blank" rel="noopener" title="Qu’est-ce que FranceConnect ? - nouvelle fenêtre">Qu’est-ce que FranceConnect ?</a>
+<a href="https://franceconnect.gouv.fr/" id="connect-link-7771" target="_blank" rel="noopener" title="Qu'est-ce que FranceConnect ? - nouvelle fenêtre">Qu'est-ce que FranceConnect ?</a>
 </p>
 </div>
 </div>
@@ -696,7 +695,7 @@ Se souvenir de moi
 </form>
 </div>
 <hr>
-<h2 class="fr-h5">Vous n’avez pas de compte ?</h2>
+<h2 class="fr-h5">Vous n'avez pas de compte ?</h2>
 <ul class="fr-btns-group">
 <li>
 <button type="button" class="fr-btn fr-btn--secondary">Créer un compte</button>
@@ -718,10 +717,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair

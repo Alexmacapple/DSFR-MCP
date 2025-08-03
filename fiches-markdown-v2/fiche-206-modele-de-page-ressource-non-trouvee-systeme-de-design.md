@@ -6,7 +6,6 @@ Modèle de page ressource non trouvée - Système de design
 
 Markdown:
 
-
 Modèle de page ressource non trouvée - Système de design
 
 
@@ -21,7 +20,7 @@ Menu
 [Nom du site / service](/)
 
 
-baseline - précisions sur l‘organisation
+baseline - précisions sur l'organisation
 
 
 -
@@ -490,9 +489,9 @@ Erreur 404
 La page que vous cherchez est introuvable. Excusez-nous pour la gène occasionnée.
 
 
-Si vous avez tapé l'adresse web dans le navigateur, vérifiez qu'elle est correcte. La page n’est peut-être plus disponible.
+Si vous avez tapé l'adresse web dans le navigateur, vérifiez qu'elle est correcte. La page n'est peut-être plus disponible.
 
-Dans ce cas, pour continuer votre visite vous pouvez consulter notre page d’accueil.
+Dans ce cas, pour continuer votre visite vous pouvez consulter notre page d'accueil.
 
 
 -
@@ -557,8 +556,8 @@ Extrait de code
 <p class="fr-text--sm fr-mb-3w">Erreur 404</p>
 <p class="fr-text--lead fr-mb-3w">La page que vous cherchez est introuvable. Excusez-nous pour la gène occasionnée.</p>
 <p class="fr-text--sm fr-mb-5w">
-Si vous avez tapé l'adresse web dans le navigateur, vérifiez qu'elle est correcte. La page n’est peut-être plus disponible.
-<br>Dans ce cas, pour continuer votre visite vous pouvez consulter notre page d’accueil.
+Si vous avez tapé l'adresse web dans le navigateur, vérifiez qu'elle est correcte. La page n'est peut-être plus disponible.
+<br>Dans ce cas, pour continuer votre visite vous pouvez consulter notre page d'accueil.
 </p>
 <ul class="fr-btns-group fr-btns-group--inline-md">
 <li>
@@ -591,10 +590,10 @@ Fermer
 
 
 ##
-Paramètres d’affichage
+Paramètres d'affichage
 
 
-Choisissez un thème pour personnaliser l’apparence du site.
+Choisissez un thème pour personnaliser l'apparence du site.
 
 
 Thème clair
