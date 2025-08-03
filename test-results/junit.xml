@@ -1,148 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="12" failures="2" errors="0" time="0.279">
-  <testsuite name="Advanced MCP Tools Integration" errors="0" failures="2" skipped="0" timestamp="2025-08-03T11:44:02" time="0.264" tests="12">
-    <testcase classname="Advanced MCP Tools Integration create_dsfr_theme (Enhanced) should create advanced theme with color palette and dark mode" name="Advanced MCP Tools Integration create_dsfr_theme (Enhanced) should create advanced theme with color palette and dark mode" time="0.002">
+<testsuites name="jest tests" tests="25" failures="0" errors="0" time="0.081">
+  <testsuite name="Architecture V2 - Core Components" errors="0" failures="0" skipped="0" timestamp="2025-08-03T19:26:46" time="0.064" tests="25">
+    <testcase classname="Architecture V2 - Core Components Container DI should create and resolve singletons" name="Architecture V2 - Core Components Container DI should create and resolve singletons" time="0.001">
     </testcase>
-    <testcase classname="Advanced MCP Tools Integration create_dsfr_theme (Enhanced) should handle theme creation without secondary color" name="Advanced MCP Tools Integration create_dsfr_theme (Enhanced) should handle theme creation without secondary color" time="0">
+    <testcase classname="Architecture V2 - Core Components Container DI should create transient services" name="Architecture V2 - Core Components Container DI should create transient services" time="0">
     </testcase>
-    <testcase classname="Advanced MCP Tools Integration convert_to_framework (Enhanced) should provide advanced React conversion with analysis" name="Advanced MCP Tools Integration convert_to_framework (Enhanced) should provide advanced React conversion with analysis" time="0.001">
+    <testcase classname="Architecture V2 - Core Components Container DI should handle values" name="Architecture V2 - Core Components Container DI should handle values" time="0">
     </testcase>
-    <testcase classname="Advanced MCP Tools Integration convert_to_framework (Enhanced) should provide advanced Vue conversion" name="Advanced MCP Tools Integration convert_to_framework (Enhanced) should provide advanced Vue conversion" time="0.001">
-      <failure>Error: expect(received).toContain(expected) // indexOf
-
-Expected substring: &quot;const TestCard&quot;
-Received string:    &quot;# Conversion avancée vers vue·
-## Analyse du code source·
-- **Boutons détectés**: Non
-- **Champs de saisie**: Non
-- **Modales**: Non
-- **Accordéons**: Non
-- **Onglets**: Non
-- **Éléments interactifs**: Non·
-## Recommandations·
-- Utilisez la Composition API pour les composants complexes
-- Définissez des props typées avec TypeScript
-- Utilisez les directives Vue pour la manipulation du DOM·
-```vue
-&lt;template&gt;
-  &lt;div class=\&quot;fr-card\&quot;&gt;&lt;h3 class=\&quot;fr-card__title\&quot;&gt;Test&lt;/h3&gt;&lt;/div&gt;
-&lt;/template&gt;·
-&lt;script&gt;
-export default {
-  name: &apos;TestCard&apos;,
-  props: {
-    title: {
-      type: String,
-      default: &apos;&apos;
-    },
-  },
-  mounted() {
-    // Initialisation des composants DSFR si nécessaire
-  }
-}
-&lt;/script&gt;·
-&lt;style scoped&gt;
-@import \&quot;@gouvfr/dsfr/dist/dsfr.css\&quot;;
-&lt;/style&gt;
-```·
-## Guide de test·
-### Tests unitaires·
-```javascript
-import { mount } from &apos;@vue/test-utils&apos;;
-import TestCard from &apos;./TestCard.vue&apos;;·
-describe(&apos;TestCard&apos;, () =&gt; {
-  test(&apos;renders correctly&apos;, () =&gt; {
-    const wrapper = mount(TestCard);
-    expect(wrapper.exists()).toBe(true);
-  });
-});
-```·
-### Bonnes pratiques·
-1. **Accessibilité**: Vérifiez que tous les éléments interactifs sont accessibles au clavier
-2. **Performance**: Implémentez la mémorisation pour les composants coûteux
-3. **Tests**: Couvrez au minimum 80% du code avec des tests
-4. **Documentation**: Documentez les props et les événements
-5. **DSFR**: Respectez les guidelines du DSFR pour la cohérence·
-### Intégration dans un projet existant·
-```bash
-# Installation des dépendances DSFR
-npm install @gouvfr/dsfr·
-# Dépendances Vue supplémentaires
-npm install --save-dev @vue/test-utils
-```
-&quot;
-    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/DSFR-MCP/test/integration/advanced-mcp-tools.test.js:127:23)
-    at processTicksAndRejections (node:internal/process/task_queues:105:5)</failure>
+    <testcase classname="Architecture V2 - Core Components Container DI should handle dependencies" name="Architecture V2 - Core Components Container DI should handle dependencies" time="0">
     </testcase>
-    <testcase classname="Advanced MCP Tools Integration convert_to_framework (Enhanced) should provide advanced Angular conversion" name="Advanced MCP Tools Integration convert_to_framework (Enhanced) should provide advanced Angular conversion" time="0">
+    <testcase classname="Architecture V2 - Core Components Container DI should throw for unknown services" name="Architecture V2 - Core Components Container DI should throw for unknown services" time="0.001">
     </testcase>
-    <testcase classname="Advanced MCP Tools Integration convert_to_framework (Enhanced) should handle unsupported framework gracefully" name="Advanced MCP Tools Integration convert_to_framework (Enhanced) should handle unsupported framework gracefully" time="0">
+    <testcase classname="Architecture V2 - Core Components Container DI should list registered services" name="Architecture V2 - Core Components Container DI should list registered services" time="0">
     </testcase>
-    <testcase classname="Advanced MCP Tools Integration generate_dsfr_component (Enhanced) should generate advanced component with comprehensive features" name="Advanced MCP Tools Integration generate_dsfr_component (Enhanced) should generate advanced component with comprehensive features" time="0.213">
+    <testcase classname="Architecture V2 - Core Components ConfigService should load default configuration" name="Architecture V2 - Core Components ConfigService should load default configuration" time="0.001">
     </testcase>
-    <testcase classname="Advanced MCP Tools Integration generate_dsfr_component (Enhanced) should generate Vue component with advanced features" name="Advanced MCP Tools Integration generate_dsfr_component (Enhanced) should generate Vue component with advanced features" time="0">
+    <testcase classname="Architecture V2 - Core Components ConfigService should handle nested keys" name="Architecture V2 - Core Components ConfigService should handle nested keys" time="0">
     </testcase>
-    <testcase classname="Advanced MCP Tools Integration generate_dsfr_component (Enhanced) should generate Angular component with advanced features" name="Advanced MCP Tools Integration generate_dsfr_component (Enhanced) should generate Angular component with advanced features" time="0">
+    <testcase classname="Architecture V2 - Core Components ConfigService should return default values" name="Architecture V2 - Core Components ConfigService should return default values" time="0">
     </testcase>
-    <testcase classname="Advanced MCP Tools Integration generate_dsfr_component (Enhanced) should generate component even for unknown types" name="Advanced MCP Tools Integration generate_dsfr_component (Enhanced) should generate component even for unknown types" time="0.001">
-      <failure>Error: expect(received).toContain(expected) // indexOf
-
-Expected substring: &quot;Généré automatiquement&quot;
-Received string:    &quot;# Composant DSFR avancé : custom-widget·
-## Informations·
-- **Type**: custom-widget
-- **Framework**: vanilla
-- **Version DSFR**: 1.14.0
-- **Statut**: Disponible·
-## Variantes disponibles·
-- **default**: Variante par défaut·
-## HTML Structure·
-```html
-&lt;div class=\&quot;fr-custom-widget\&quot;&gt;
-  Contenu personnalisé
-&lt;/div&gt;
-```·
-## CSS et personnalisation·
-### CSS de base·
-```scss
-// Import du composant DSFR
-@import \&quot;@gouvfr/dsfr/dist/component/custom-widget/custom-widget.css\&quot;;·
-```··
-## Guide d&apos;accessibilité·
-- Respectez les standards WCAG 2.1 AA
-- Testez avec un lecteur d&apos;écran
-- Assurez-vous de la navigation au clavier
-- Vérifiez le contraste des couleurs·
-### Tests recommandés·
-- Test avec lecteur d&apos;écran (NVDA, JAWS, VoiceOver)
-- Navigation complète au clavier
-- Validation automatisée (axe-core)
-- Test de contraste (Colour Contrast Analyser)··
-## Exemples d&apos;utilisation·
-### Intégration HTML simple·
-```html
-&lt;!DOCTYPE html&gt;
-&lt;html lang=\&quot;fr\&quot;&gt;
-&lt;head&gt;
-  &lt;meta charset=\&quot;UTF-8\&quot;&gt;
-  &lt;meta name=\&quot;viewport\&quot; content=\&quot;width=device-width, initial-scale=1.0\&quot;&gt;
-  &lt;title&gt;Exemple DSFR&lt;/title&gt;
-  &lt;link rel=\&quot;stylesheet\&quot; href=\&quot;@gouvfr/dsfr/dist/dsfr.min.css\&quot;&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;div class=\&quot;fr-custom-widget\&quot;&gt;
-    Contenu personnalisé
-  &lt;/div&gt;
-  &lt;script src=\&quot;@gouvfr/dsfr/dist/dsfr.min.js\&quot;&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-```·
-&quot;
-    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/DSFR-MCP/test/integration/advanced-mcp-tools.test.js:271:23)</failure>
+    <testcase classname="Architecture V2 - Core Components ConfigService should set and get values" name="Architecture V2 - Core Components ConfigService should set and get values" time="0">
     </testcase>
-    <testcase classname="Advanced MCP Tools Integration generate_dsfr_component (Enhanced) should handle vanilla framework with JavaScript components" name="Advanced MCP Tools Integration generate_dsfr_component (Enhanced) should handle vanilla framework with JavaScript components" time="0">
+    <testcase classname="Architecture V2 - Core Components ConfigService should check key existence" name="Architecture V2 - Core Components ConfigService should check key existence" time="0">
     </testcase>
-    <testcase classname="Advanced MCP Tools Integration Integration and Error Handling should handle all tools consistently" name="Advanced MCP Tools Integration Integration and Error Handling should handle all tools consistently" time="0">
+    <testcase classname="Architecture V2 - Core Components ConfigService should merge configurations" name="Architecture V2 - Core Components ConfigService should merge configurations" time="0.001">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components LoggerService should create logger with config" name="Architecture V2 - Core Components LoggerService should create logger with config" time="0">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components LoggerService should log different levels" name="Architecture V2 - Core Components LoggerService should log different levels" time="0.001">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components LoggerService should format logs correctly" name="Architecture V2 - Core Components LoggerService should format logs correctly" time="0">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components LoggerService should handle log levels" name="Architecture V2 - Core Components LoggerService should handle log levels" time="0">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components CacheService should store and retrieve values" name="Architecture V2 - Core Components CacheService should store and retrieve values" time="0.001">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components CacheService should handle TTL" name="Architecture V2 - Core Components CacheService should handle TTL" time="0.016">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components CacheService should delete values" name="Architecture V2 - Core Components CacheService should delete values" time="0">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components CacheService should clear cache" name="Architecture V2 - Core Components CacheService should clear cache" time="0">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components CacheService should provide statistics" name="Architecture V2 - Core Components CacheService should provide statistics" time="0.001">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components CacheService should handle compression" name="Architecture V2 - Core Components CacheService should handle compression" time="0">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components CacheService should format bytes correctly" name="Architecture V2 - Core Components CacheService should format bytes correctly" time="0">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components Performance Tests should initialize services quickly" name="Architecture V2 - Core Components Performance Tests should initialize services quickly" time="0">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components Performance Tests should handle multiple concurrent cache operations" name="Architecture V2 - Core Components Performance Tests should handle multiple concurrent cache operations" time="0.001">
     </testcase>
   </testsuite>
 </testsuites>

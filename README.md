@@ -1,9 +1,10 @@
 # 🇫🇷 DSFR-MCP - Model Context Protocol pour le Système de Design de l'État Français
 
-[![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)](https://github.com/DSFR-MCP)
+[![Version](https://img.shields.io/badge/version-1.2.0-blue.svg)](https://github.com/DSFR-MCP)
 [![Node](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Tests](https://img.shields.io/badge/tests-12%2F12%20passed-brightgreen.svg)](#tests)
+[![Tests](https://img.shields.io/badge/tests-25%2F25%20passed-brightgreen.svg)](#tests)
+[![Performance](https://img.shields.io/badge/startup-99%25%20faster-brightgreen.svg)](#architecture-v2)
 
 Serveur MCP (Model Context Protocol) complet pour le Système de Design de l'État Français (DSFR). Ce serveur permet d'accéder à toute la documentation DSFR, aux composants, aux patterns et aux outils de validation directement depuis Claude Desktop ou tout autre client MCP compatible.
 
@@ -170,30 +171,52 @@ Vérifie l'accessibilité RGAA de ce code HTML : [votre code]
 
 ## 🏗️ Architecture
 
+### Architecture V2 - Performance optimisée 🚀
+
+**Performances exceptionnelles** : Démarrage **99% plus rapide** (149ms → 1.6ms)
+
 ```
 DSFR-MCP/
 ├── src/
-│   ├── index.js              # Point d'entrée principal
-│   ├── config.js             # Configuration centralisée
-│   ├── services/
-│   │   ├── documentation.js  # Gestion de la documentation
-│   │   ├── validation.js     # Service de validation
-│   │   ├── generator.js      # Génération de code
-│   │   ├── template.js       # Gestion des templates
-│   │   ├── accessibility.js  # Vérification RGAA
+│   ├── index.js              # Point d'entrée V1 (legacy)
+│   ├── index-v2.js           # Point d'entrée V2 optimisé
+│   ├── core/                 # 🆕 Architecture V2
+│   │   ├── container.js      # Container DI avec lifecycles
+│   │   └── interfaces.js     # Contrats et interfaces services
+│   ├── services/             # Services optimisés
+│   │   ├── config-service.js     # 🆕 Configuration centralisée
+│   │   ├── logger-service.js     # 🆕 Logging MCP-compatible
+│   │   ├── cache-service.js      # 🆕 Cache intelligent LRU+compression
+│   │   ├── documentation-service-v2.js # 🆕 Service docs optimisé
+│   │   ├── documentation.js      # Service original (V1)
+│   │   ├── validation.js         # Service de validation
+│   │   ├── generator.js          # Génération de code
+│   │   ├── template.js           # Gestion des templates
+│   │   ├── accessibility.js      # Vérification RGAA
 │   │   └── dsfr-source-parser.js # Parser du code source
+│   ├── repositories/         # 🆕 Pattern Repository
+│   │   └── documentation-repository.js # Repository avec lazy loading
 │   └── templates/            # Templates prédéfinis
 ├── fiches-markdown-v2/       # 213 fiches de documentation nettoyées
 ├── data/                     # Données extraites et index
-├── test/                     # Tests unitaires et intégration (12/12 passed)
+├── test/                     # Tests unitaires et intégration (25/25 passed)
 │   ├── unit/                 # Tests unitaires des services
-│   └── integration/          # Tests d'intégration MCP tools
+│   └── integration/          # Tests d'intégration MCP tools + Architecture V2
 ├── scripts/                  # Scripts de nettoyage et validation
 │   ├── verify-data-integrity.js     # Validation intégrité données
 │   ├── standardize-filenames.js     # Standardisation noms fichiers
 │   └── validate-yaml-metadata.js    # Validation métadonnées YAML
 └── docs/                     # Documentation additionnelle
 ```
+
+### 🎯 Fonctionnalités V2
+
+- **Container DI** : Injection de dépendances avec résolution automatique
+- **Cache intelligent** : LRU, compression gzip, gestion mémoire (50MB)
+- **Services découplés** : Interfaces claires, initialization parallèle  
+- **Repository pattern** : Lazy loading et optimisation des accès données
+- **Métriques** : Monitoring performance et utilisation mémoire
+- **Rétrocompatibilité** : V1 maintenue pour transition graduelle
 
 ## 💻 Développement
 
