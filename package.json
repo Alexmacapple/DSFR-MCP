@@ -1,6 +1,6 @@
 {
   "name": "dsfr-mcp",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "MCP Server complet pour le Système de Design de l'État Français (DSFR)",
   "main": "src/index.js",
   "scripts": {
@@ -24,7 +24,9 @@
     "lint:fix": "eslint src/ --fix",
     "lint:check": "eslint src/ --max-warnings 0",
     "security:audit": "npm audit --audit-level=high",
-    "quality:check": "npm run lint:check && npm run test:coverage"
+    "quality:check": "npm run lint:check && npm run test:coverage",
+    "benchmark": "node benchmark-parser-v2.js",
+    "quick-benchmark": "node quick-benchmark.js"
   },
   "keywords": [
     "mcp",
@@ -46,6 +48,7 @@
     "dotenv": "^16.3.1",
     "fuse.js": "^7.0.0",
     "gray-matter": "^4.0.3",
+    "js-yaml": "^4.1.0",
     "jsdom": "^23.0.0",
     "marked": "^9.1.0",
     "ora": "^5.4.1",
