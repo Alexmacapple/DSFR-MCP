@@ -5,6 +5,39 @@ Tous les changements notables de ce projet seront documentés dans ce fichier.
 Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/),
 et ce projet adhère au [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.0] - 2025-08-05
+
+### 🐳 Révolution Docker - Installation Simplifiée
+
+> **🎯 Migration Docker complète** - Fini les problèmes de configuration entre environnements !
+
+#### 🚀 Nouvelle Installation Docker (Recommandée)
+- **✅ Dockerfile multi-stage optimisé** : Image Node.js Alpine < 100MB avec sécurité renforcée
+- **✅ Docker Compose complet** : Services principaux, développement et monitoring intégrés
+- **✅ Configuration automatique** : Scripts `configure-claude.sh/.ps1` pour macOS/Linux/Windows
+- **✅ Isolation totale** : Aucun conflit avec Node.js local, environnement reproductible
+- **✅ Volumes persistants** : Données et logs conservés entre redémarrages
+
+#### 🔧 Scripts d'Installation Automatique
+- **Installation en une commande** : `./docker/scripts/configure-claude.sh`
+- **Support multi-OS** : Scripts bash (macOS/Linux) et PowerShell (Windows)
+- **Configuration Claude Desktop** : Génération automatique des fichiers JSON
+- **Modes flexibles** : stdio (défaut), TCP, développement avec hot-reload
+
+#### 📖 Documentation Docker Complète
+- **Guide complet** : `GUIDE_INSTALLATION_DOCKER.md` avec exemples détaillés
+- **Migration native→Docker** : Procédures de migration depuis installation Node.js
+- **Dépannage avancé** : Solutions spécifiques aux containers et volumes
+- **Monitoring intégré** : Prometheus, logs centralisés, healthchecks
+
+#### 🎯 Avantages Environnementaux
+- **🔄 Portabilité totale** : Configuration identique sur tous les Mac/PC
+- **⚡ Installation ultra-rapide** : Build multi-stage avec cache intelligent  
+- **🛡️ Sécurité renforcée** : Utilisateur non-root, isolation des processus
+- **📊 Observabilité** : Logs structurés, métriques de performance, monitoring
+
+---
+
 ## [1.3.1] - 2025-08-04
 
 ### 🛠️ Correctifs et Améliorations

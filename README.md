@@ -1,6 +1,7 @@
 # 🇫🇷 DSFR-MCP - Model Context Protocol pour le Système de Design de l'État Français
 
-[![Version](https://img.shields.io/badge/version-1.3.0-blue.svg)](https://github.com/DSFR-MCP)
+[![Version](https://img.shields.io/badge/version-1.3.1-blue.svg)](https://github.com/Alexmacapple/DSFR-MCP)
+[![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=flat&logo=docker&logoColor=white)](https://docker.com)
 [![Node](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Tests](https://img.shields.io/badge/tests-43%2F43%20passed-brightgreen.svg)](#tests)
@@ -35,17 +36,33 @@ Serveur MCP (Model Context Protocol) complet pour le Système de Design de l'Ét
 
 ## 🔧 Installation
 
-### Pré-requis
+> **🎯 Nouveau : Installation Docker recommandée !** Fini les problèmes de configuration entre environnements.
 
+### 🐳 Option 1: Installation Docker (Recommandée)
+
+**Avantages :** Identique sur tous les Mac/PC, aucun conflit, configuration automatique.
+
+```bash
+# Cloner le projet
+git clone https://github.com/Alexmacapple/DSFR-MCP.git
+cd DSFR-MCP
+
+# Installation automatique avec Docker
+./docker/scripts/configure-claude.sh
+```
+
+**➡️ [Guide complet Docker](GUIDE_INSTALLATION_DOCKER.md)**
+
+### 📦 Option 2: Installation Native
+
+**Pré-requis :**
 - **Node.js** version 18.0.0 ou supérieure
 - **npm** version 9.0.0 ou supérieure
 - **Claude Desktop** (ou un autre client MCP)
 
-### Installation rapide
-
 ```bash
 # Cloner le projet
-git clone https://github.com/votre-repo/DSFR-MCP.git
+git clone https://github.com/Alexmacapple/DSFR-MCP.git
 cd DSFR-MCP
 
 # Installer les dépendances
@@ -185,6 +202,7 @@ DSFR-MCP/
 ├── src/
 │   ├── index.js              # Point d'entrée V1 (legacy)
 │   ├── index-v2.js           # Point d'entrée V2 optimisé
+│   ├── index-docker.js       # 🆕 Point d'entrée Docker avec keep-alive
 │   ├── core/                 # 🆕 Architecture V2
 │   │   ├── container.js      # Container DI avec lifecycles
 │   │   └── interfaces.js     # Contrats et interfaces services
@@ -205,6 +223,15 @@ DSFR-MCP/
 │   ├── repositories/         # 🆕 Pattern Repository
 │   │   └── documentation-repository.js # Repository avec lazy loading
 │   └── templates/            # Templates prédéfinis
+├── docker/                   # 🆕 Infrastructure Docker complète
+│   ├── scripts/              # Scripts d'installation automatique
+│   │   ├── configure-claude.sh   # Configuration macOS/Linux
+│   │   └── configure-claude.ps1  # Configuration Windows
+│   ├── config/               # Configurations Docker
+│   └── prometheus/           # Configuration monitoring
+├── Dockerfile                # 🆕 Image multi-stage optimisée
+├── docker-compose.yml        # 🆕 Services Docker avec profiles
+├── GUIDE_INSTALLATION_DOCKER.md # 🆕 Guide complet Docker
 ├── fiches-markdown-v2/       # 213 fiches de documentation nettoyées
 ├── data/                     # Données extraites et index
 ├── test/                     # Tests unitaires et intégration (43/43 passed)

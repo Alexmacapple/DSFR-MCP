@@ -6,6 +6,7 @@ Merci de votre intérêt pour contribuer au projet DSFR-MCP ! Ce guide vous aide
 
 - [Code de conduite](#code-de-conduite)
 - [Comment contribuer](#comment-contribuer)
+- [Environnement de développement](#environnement-de-développement)
 - [Signaler un bug](#signaler-un-bug)
 - [Proposer une fonctionnalité](#proposer-une-fonctionnalité)
 - [Soumettre une Pull Request](#soumettre-une-pull-request)
@@ -26,6 +27,71 @@ Ce projet adhère à un code de conduite bienveillant. En participant, vous vous
 5. **Push** vers votre fork : `git push origin feature/ma-fonctionnalite`
 6. **Ouvrez** une Pull Request
 
+## Environnement de développement
+
+> **🎯 Recommandé : Utilisez Docker pour un environnement de développement cohérent !**
+
+### 🐳 Développement avec Docker (Recommandé)
+
+**Avantages :**
+- Environnement identique pour tous les contributeurs
+- Aucun conflit avec votre installation Node.js locale
+- Configuration automatique des dépendances
+- Hot-reload intégré
+
+```bash
+# Cloner le projet
+git clone https://github.com/votre-username/DSFR-MCP.git
+cd DSFR-MCP
+
+# Démarrer l'environnement de développement
+docker-compose --profile dev up -d
+
+# Voir les logs en temps réel
+docker-compose logs -f dsfr-mcp-dev
+
+# Exécuter des commandes dans le container
+docker-compose exec dsfr-mcp-dev npm test
+docker-compose exec dsfr-mcp-dev npm run lint
+
+# Shell interactif pour le développement
+docker-compose exec dsfr-mcp-dev sh
+```
+
+#### Scripts Docker pour le développement
+
+```bash
+# Tests
+docker-compose exec dsfr-mcp-dev npm test              # Tous les tests
+docker-compose exec dsfr-mcp-dev npm run test:unit     # Tests unitaires
+docker-compose exec dsfr-mcp-dev npm run test:watch    # Tests en mode watch
+
+# Qualité de code
+docker-compose exec dsfr-mcp-dev npm run lint          # Vérification ESLint
+docker-compose exec dsfr-mcp-dev npm run lint:fix      # Correction automatique
+
+# Performance
+docker-compose exec dsfr-mcp-dev npm run benchmark     # Benchmark complet
+docker-compose exec dsfr-mcp-dev npm run quick-benchmark # Benchmark rapide
+
+# Redémarrer le service après modification
+docker-compose restart dsfr-mcp-dev
+```
+
+### 📦 Développement natif
+
+**Pré-requis :**
+- Node.js 18+
+- npm 9+
+
+```bash
+# Installer les dépendances
+npm install
+
+# Lancer en mode développement
+npm run dev
+```
+
 ## Signaler un bug
 
 Les bugs sont suivis via les [issues GitHub](https://github.com/votre-repo/DSFR-MCP/issues).
@@ -39,7 +105,11 @@ Avant de créer un rapport de bug, vérifiez que le problème n'a pas déjà ét
 - Le comportement attendu
 - Le comportement observé
 - Des captures d'écran si pertinent
-- Votre environnement (OS, version Node.js, etc.)
+- Votre environnement :
+  - **Docker** : `docker --version` et `docker-compose --version`
+  - **Natif** : OS, version Node.js, npm, Claude Desktop
+  - Mode d'installation utilisé (Docker/natif)
+  - Logs du container : `docker-compose logs dsfr-mcp`
 
 ## Proposer une fonctionnalité
 
@@ -98,7 +168,21 @@ npm run lint:fix  # Pour corriger automatiquement
 
 ## Tests
 
-### Lancer les tests
+### 🐳 Lancer les tests avec Docker (Recommandé)
+
+```bash
+# Dans le container de développement
+docker-compose exec dsfr-mcp-dev npm test              # Tous les tests
+docker-compose exec dsfr-mcp-dev npm run test:unit     # Tests unitaires
+docker-compose exec dsfr-mcp-dev npm run test:integration # Tests d'intégration
+docker-compose exec dsfr-mcp-dev npm run test:coverage # Couverture
+docker-compose exec dsfr-mcp-dev npm run test:watch    # Mode watch
+
+# Ou directement sur l'image de production
+docker-compose exec dsfr-mcp npm test
+```
+
+### 📦 Tests natifs
 
 ```bash
 # Tous les tests

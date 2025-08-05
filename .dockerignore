@@ -1,0 +1,76 @@
+# ==============================================
+# .dockerignore pour DSFR-MCP
+# ==============================================
+
+# Dépendances
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Fichiers de développement
+.git
+.gitignore
+*.md
+!README.md
+.env.local
+.env.development
+.env.test
+
+# Logs
+logs
+*.log
+.npm
+.eslintcache
+
+# Dossiers temporaires
+.tmp
+.temp
+*.tmp
+*.temp
+
+# OS et éditeurs
+.DS_Store
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# Tests
+test-results/
+coverage/
+.nyc_output
+
+# Cache
+.cache
+.parcel-cache
+
+# Fichiers de build/dist (si applicable)
+dist/
+build/
+
+# Fichiers de configuration locale
+.claude/
+.swarm/
+.claude-flow/
+
+# Archives et backups
+*.zip
+*.tar.gz
+*.tgz
+*.tar
+*.rar
+
+# Fichiers temporaires du projet
+quick-benchmark.js
+benchmark-parser-v2.js
+debug-server.js
+simple-mcp-test.js
+test-*.js
+
+# Conserver les données essentielles
+!data/
+!src/
+!package*.json
+!.env.example

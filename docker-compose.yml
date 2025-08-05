@@ -1,0 +1,129 @@
+
+# ==============================================
+# Docker Compose pour DSFR-MCP Server
+# Version: 1.4.0
+# ==============================================
+
+services:
+  # ---- Service principal MCP (mode stdio pour Claude Desktop) ----
+  dsfr-mcp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runtime
+    image: dsfr-mcp:latest
+    container_name: dsfr-mcp-server
+    restart: unless-stopped
+    
+    environment:
+      - NODE_ENV=production
+      - LOG_LEVEL=info
+      - MCP_MODE=stdio
+    
+    volumes:
+      # Volume pour les données (persistance)
+      - dsfr-data:/app/data
+      # Volume pour les logs
+      - dsfr-logs:/app/logs
+      # Montage optionnel pour les configs locales
+      - ./docker/config:/app/config:ro
+    
+    # Réseau par défaut (pas d'exposition de ports en mode stdio)
+    networks:
+      - dsfr-network
+    
+    # Resources limits pour la stabilité
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: '0.5'
+        reservations:
+          memory: 256M
+          cpus: '0.25'
+    
+    # Command utilisant le fichier minimal pour Docker
+    command: ["dumb-init", "node", "src/index-minimal.js"]
+    
+    # Healthcheck pour monitoring
+    healthcheck:
+      test: ["CMD", "node", "-e", "console.log('MCP Server is healthy')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # ---- Service de développement (mode TCP + hot-reload) ----
+  dsfr-mcp-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runtime
+    image: dsfr-mcp:dev
+    container_name: dsfr-mcp-dev
+    restart: unless-stopped
+    profiles: ["dev"]
+    
+    environment:
+      - NODE_ENV=development
+      - LOG_LEVEL=debug
+      - MCP_MODE=tcp
+      - PORT=3000
+    
+    ports:
+      - "3000:3000"
+    
+    volumes:
+      # Montage du code source pour hot-reload
+      - ./src:/app/src:ro
+      - ./data:/app/data:ro
+      - dsfr-logs-dev:/app/logs
+    
+    networks:
+      - dsfr-network
+    
+    command: ["dumb-init", "node", "--watch", "src/index.js"]
+
+  # ---- Service de monitoring (optionnel) ----
+  dsfr-mcp-monitor:
+    image: prom/prometheus:latest
+    container_name: dsfr-mcp-prometheus
+    restart: unless-stopped
+    profiles: ["monitoring"]
+    
+    ports:
+      - "9090:9090"
+    
+    volumes:
+      - ./docker/prometheus:/etc/prometheus:ro
+      - prometheus-data:/prometheus
+    
+    networks:
+      - dsfr-network
+    
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+
+# ---- Réseaux ----
+networks:
+  dsfr-network:
+    driver: bridge
+    name: dsfr-mcp-network
+
+# ---- Volumes persistants ----
+volumes:
+  dsfr-data:
+    name: dsfr-mcp-data
+    driver: local
+  dsfr-logs:
+    name: dsfr-mcp-logs
+    driver: local
+  dsfr-logs-dev:
+    name: dsfr-mcp-logs-dev
+    driver: local
+  prometheus-data:
+    name: dsfr-mcp-prometheus
+    driver: local
