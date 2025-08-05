@@ -1,0 +1,10 @@
+////
+/// Core Module : Spacing elevation
+/// @group core
+////
+
+@use 'src/module/elevation';
+
+@include elevation.define;
+
+

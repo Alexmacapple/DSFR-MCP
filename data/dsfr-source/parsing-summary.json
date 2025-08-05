@@ -1,0 +1,558 @@
+{
+  "totalFiles": 3016,
+  "components": {
+    "count": 52,
+    "list": [
+      "_part",
+      "accordion",
+      "alert",
+      "badge",
+      "breadcrumb",
+      "button",
+      "callout",
+      "card",
+      "checkbox",
+      "combobox",
+      "composition",
+      "connect",
+      "consent",
+      "content",
+      "display",
+      "download",
+      "dropdown",
+      "follow",
+      "footer",
+      "form",
+      "header",
+      "highlight",
+      "input",
+      "link",
+      "logo",
+      "modal",
+      "navigation",
+      "notice",
+      "pagination",
+      "password",
+      "quote",
+      "radio",
+      "range",
+      "search",
+      "segmented",
+      "select",
+      "share",
+      "sidemenu",
+      "skiplink",
+      "stepper",
+      "summary",
+      "tab",
+      "table",
+      "tabnav",
+      "tag",
+      "tile",
+      "toggle",
+      "tooltip",
+      "transcription",
+      "translate",
+      "upload",
+      "user"
+    ],
+    "details": {
+      "accordion": {
+        "files": 35,
+        "styles": 4,
+        "scripts": 3,
+        "templates": 6,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "alert": {
+        "files": 25,
+        "styles": 4,
+        "scripts": 1,
+        "templates": 6,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "breadcrumb": {
+        "files": 29,
+        "styles": 4,
+        "scripts": 3,
+        "templates": 4,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "button": {
+        "files": 44,
+        "styles": 4,
+        "scripts": 3,
+        "templates": 6,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "callout": {
+        "files": 22,
+        "styles": 4,
+        "scripts": 1,
+        "templates": 3,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "card": {
+        "files": 63,
+        "styles": 4,
+        "scripts": 3,
+        "templates": 31,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "checkbox": {
+        "files": 33,
+        "styles": 4,
+        "scripts": 3,
+        "templates": 4,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "consent": {
+        "files": 37,
+        "styles": 4,
+        "scripts": 1,
+        "templates": 8,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "connect": {
+        "files": 36,
+        "styles": 4,
+        "scripts": 1,
+        "templates": 6,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "download": {
+        "files": 31,
+        "styles": 2,
+        "scripts": 1,
+        "templates": 14,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "follow": {
+        "files": 37,
+        "styles": 4,
+        "scripts": 1,
+        "templates": 16,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "footer": {
+        "files": 37,
+        "styles": 4,
+        "scripts": 1,
+        "templates": 10,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "link": {
+        "files": 45,
+        "styles": 4,
+        "scripts": 1,
+        "templates": 11,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "input": {
+        "files": 36,
+        "styles": 4,
+        "scripts": 1,
+        "templates": 12,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "header": {
+        "files": 49,
+        "styles": 4,
+        "scripts": 3,
+        "templates": 14,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "modal": {
+        "files": 35,
+        "styles": 4,
+        "scripts": 3,
+        "templates": 9,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "navigation": {
+        "files": 38,
+        "styles": 4,
+        "scripts": 3,
+        "templates": 9,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "quote": {
+        "files": 23,
+        "styles": 4,
+        "scripts": 1,
+        "templates": 4,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "notice": {
+        "files": 30,
+        "styles": 4,
+        "scripts": 1,
+        "templates": 10,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "radio": {
+        "files": 32,
+        "styles": 4,
+        "scripts": 1,
+        "templates": 6,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "pagination": {
+        "files": 28,
+        "styles": 4,
+        "scripts": 1,
+        "templates": 4,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "select": {
+        "files": 25,
+        "styles": 4,
+        "scripts": 1,
+        "templates": 4,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "search": {
+        "files": 24,
+        "styles": 4,
+        "scripts": 1,
+        "templates": 4,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "summary": {
+        "files": 25,
+        "styles": 4,
+        "scripts": 1,
+        "templates": 4,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "share": {
+        "files": 29,
+        "styles": 4,
+        "scripts": 1,
+        "templates": 8,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "tab": {
+        "files": 41,
+        "styles": 4,
+        "scripts": 3,
+        "templates": 7,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "sidemenu": {
+        "files": 37,
+        "styles": 4,
+        "scripts": 3,
+        "templates": 5,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "tag": {
+        "files": 39,
+        "styles": 4,
+        "scripts": 3,
+        "templates": 8,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "table": {
+        "files": 57,
+        "styles": 4,
+        "scripts": 3,
+        "templates": 20,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "tile": {
+        "files": 58,
+        "styles": 4,
+        "scripts": 3,
+        "templates": 29,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "toggle": {
+        "files": 36,
+        "styles": 4,
+        "scripts": 3,
+        "templates": 5,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "transcription": {
+        "files": 29,
+        "styles": 4,
+        "scripts": 3,
+        "templates": 3,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "upload": {
+        "files": 20,
+        "styles": 3,
+        "scripts": 1,
+        "templates": 3,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "translate": {
+        "files": 27,
+        "styles": 4,
+        "scripts": 1,
+        "templates": 6,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "badge": {
+        "files": 31,
+        "styles": 4,
+        "scripts": 1,
+        "templates": 6,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "content": {
+        "files": 30,
+        "styles": 4,
+        "scripts": 1,
+        "templates": 9,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "form": {
+        "files": 36,
+        "styles": 4,
+        "scripts": 1,
+        "templates": 11,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "highlight": {
+        "files": 23,
+        "styles": 4,
+        "scripts": 1,
+        "templates": 5,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "stepper": {
+        "files": 24,
+        "styles": 4,
+        "scripts": 1,
+        "templates": 3,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "tooltip": {
+        "files": 34,
+        "styles": 4,
+        "scripts": 3,
+        "templates": 8,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "_part": {
+        "files": 2,
+        "styles": 0,
+        "scripts": 0,
+        "templates": 0,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "combobox": {
+        "files": 2,
+        "styles": 0,
+        "scripts": 0,
+        "templates": 0,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "composition": {
+        "files": 2,
+        "styles": 0,
+        "scripts": 0,
+        "templates": 0,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "display": {
+        "files": 15,
+        "styles": 1,
+        "scripts": 3,
+        "templates": 3,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "dropdown": {
+        "files": 2,
+        "styles": 0,
+        "scripts": 0,
+        "templates": 0,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "logo": {
+        "files": 21,
+        "styles": 4,
+        "scripts": 1,
+        "templates": 5,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "password": {
+        "files": 31,
+        "styles": 4,
+        "scripts": 3,
+        "templates": 6,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "range": {
+        "files": 33,
+        "styles": 4,
+        "scripts": 3,
+        "templates": 5,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "segmented": {
+        "files": 28,
+        "styles": 3,
+        "scripts": 3,
+        "templates": 4,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "skiplink": {
+        "files": 19,
+        "styles": 4,
+        "scripts": 1,
+        "templates": 4,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "tabnav": {
+        "files": 2,
+        "styles": 0,
+        "scripts": 0,
+        "templates": 0,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      },
+      "user": {
+        "files": 2,
+        "styles": 0,
+        "scripts": 0,
+        "templates": 0,
+        "hasDocumentation": true,
+        "hasSchema": true,
+        "examplesCount": 0
+      }
+    }
+  },
+  "coreModules": {
+    "count": 10,
+    "list": [
+      "action",
+      "core",
+      "_part",
+      "asset",
+      "deprecated",
+      "example",
+      "i18n",
+      "script",
+      "style",
+      "template"
+    ]
+  },
+  "utilities": {
+    "count": 4,
+    "list": [
+      "utility",
+      "colors",
+      "icons",
+      "pictograms"
+    ]
+  },
+  "analytics": 53,
+  "examples": 0,
+  "documentation": 9,
+  "generatedAt": "2025-08-02T18:56:20.939Z"
+}

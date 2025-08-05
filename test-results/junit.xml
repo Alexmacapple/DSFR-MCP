@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="25" failures="0" errors="0" time="0.081">
+  <testsuite name="Architecture V2 - Core Components" errors="0" failures="0" skipped="0" timestamp="2025-08-03T19:26:46" time="0.064" tests="25">
+    <testcase classname="Architecture V2 - Core Components Container DI should create and resolve singletons" name="Architecture V2 - Core Components Container DI should create and resolve singletons" time="0.001">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components Container DI should create transient services" name="Architecture V2 - Core Components Container DI should create transient services" time="0">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components Container DI should handle values" name="Architecture V2 - Core Components Container DI should handle values" time="0">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components Container DI should handle dependencies" name="Architecture V2 - Core Components Container DI should handle dependencies" time="0">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components Container DI should throw for unknown services" name="Architecture V2 - Core Components Container DI should throw for unknown services" time="0.001">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components Container DI should list registered services" name="Architecture V2 - Core Components Container DI should list registered services" time="0">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components ConfigService should load default configuration" name="Architecture V2 - Core Components ConfigService should load default configuration" time="0.001">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components ConfigService should handle nested keys" name="Architecture V2 - Core Components ConfigService should handle nested keys" time="0">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components ConfigService should return default values" name="Architecture V2 - Core Components ConfigService should return default values" time="0">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components ConfigService should set and get values" name="Architecture V2 - Core Components ConfigService should set and get values" time="0">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components ConfigService should check key existence" name="Architecture V2 - Core Components ConfigService should check key existence" time="0">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components ConfigService should merge configurations" name="Architecture V2 - Core Components ConfigService should merge configurations" time="0.001">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components LoggerService should create logger with config" name="Architecture V2 - Core Components LoggerService should create logger with config" time="0">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components LoggerService should log different levels" name="Architecture V2 - Core Components LoggerService should log different levels" time="0.001">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components LoggerService should format logs correctly" name="Architecture V2 - Core Components LoggerService should format logs correctly" time="0">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components LoggerService should handle log levels" name="Architecture V2 - Core Components LoggerService should handle log levels" time="0">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components CacheService should store and retrieve values" name="Architecture V2 - Core Components CacheService should store and retrieve values" time="0.001">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components CacheService should handle TTL" name="Architecture V2 - Core Components CacheService should handle TTL" time="0.016">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components CacheService should delete values" name="Architecture V2 - Core Components CacheService should delete values" time="0">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components CacheService should clear cache" name="Architecture V2 - Core Components CacheService should clear cache" time="0">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components CacheService should provide statistics" name="Architecture V2 - Core Components CacheService should provide statistics" time="0.001">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components CacheService should handle compression" name="Architecture V2 - Core Components CacheService should handle compression" time="0">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components CacheService should format bytes correctly" name="Architecture V2 - Core Components CacheService should format bytes correctly" time="0">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components Performance Tests should initialize services quickly" name="Architecture V2 - Core Components Performance Tests should initialize services quickly" time="0">
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components Performance Tests should handle multiple concurrent cache operations" name="Architecture V2 - Core Components Performance Tests should handle multiple concurrent cache operations" time="0.001">
+    </testcase>
+  </testsuite>
+</testsuites>

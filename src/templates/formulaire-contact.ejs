@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr" data-fr-theme>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><%= title || 'Contact - Service de l\'État' %></title>
+    
+    <!-- DSFR CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.11.2/dist/dsfr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.11.2/dist/utility/utility.min.css">
+</head>
+<body>
+    <div class="fr-container fr-mt-4w fr-mb-4w">
+        <div class="fr-grid-row fr-grid-row--center">
+            <div class="fr-col-12 fr-col-md-8">
+                <h1><%= pageTitle || 'Nous contacter' %></h1>
+                
+                <% if (locals.intro) { %>
+                <p class="fr-text--lead"><%= intro %></p>
+                <% } %>
+                
+                <form action="<%= actionUrl || '/contact' %>" method="post" novalidate>
+                    <!-- Civilité -->
+                    <fieldset class="fr-fieldset" aria-labelledby="civility-legend">
+                        <legend class="fr-fieldset__legend" id="civility-legend">
+                            <span class="fr-text--regular">Civilité *</span>
+                        </legend>
+                        <div class="fr-fieldset__content">
+                            <div class="fr-radio-group">
+                                <input type="radio" id="civility-1" name="civility" value="madame" required>
+                                <label class="fr-label" for="civility-1">Madame</label>
+                            </div>
+                            <div class="fr-radio-group">
+                                <input type="radio" id="civility-2" name="civility" value="monsieur" required>
+                                <label class="fr-label" for="civility-2">Monsieur</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                    
+                    <!-- Nom et prénom -->
+                    <div class="fr-grid-row fr-grid-row--gutters">
+                        <div class="fr-col-12 fr-col-md-6">
+                            <div class="fr-input-group">
+                                <label class="fr-label" for="lastname">
+                                    Nom *
+                                </label>
+                                <input class="fr-input" type="text" id="lastname" name="lastname" required>
+                            </div>
+                        </div>
+                        <div class="fr-col-12 fr-col-md-6">
+                            <div class="fr-input-group">
+                                <label class="fr-label" for="firstname">
+                                    Prénom *
+                                </label>
+                                <input class="fr-input" type="text" id="firstname" name="firstname" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Email -->
+                    <div class="fr-input-group">
+                        <label class="fr-label" for="email">
+                            Adresse électronique *
+                            <span class="fr-hint-text">Format attendu : nom@domaine.fr</span>
+                        </label>
+                        <input class="fr-input" type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <!-- Téléphone -->
+                    <div class="fr-input-group">
+                        <label class="fr-label" for="phone">
+                            Téléphone
+                            <span class="fr-hint-text">Format attendu : +33 6 12 34 56 78</span>
+                        </label>
+                        <input class="fr-input" type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <!-- Objet -->
+                    <div class="fr-select-group">
+                        <label class="fr-label" for="subject">
+                            Objet de votre demande *
+                        </label>
+                        <select class="fr-select" id="subject" name="subject" required>
+                            <option value="" selected disabled>Sélectionnez un objet</option>
+                            <option value="information">Demande d'information</option>
+                            <option value="technical">Problème technique</option>
+                            <option value="suggestion">Suggestion d'amélioration</option>
+                            <option value="complaint">Réclamation</option>
+                            <option value="other">Autre</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Message -->
+                    <div class="fr-input-group">
+                        <label class="fr-label" for="message">
+                            Votre message *
+                            <span class="fr-hint-text">Maximum 2000 caractères</span>
+                        </label>
+                        <textarea class="fr-input" id="message" name="message" rows="6" maxlength="2000" required></textarea>
+                    </div>
+                    
+                    <!-- Pièce jointe -->
+                    <% if (locals.allowAttachments) { %>
+                    <div class="fr-upload-group">
+                        <label class="fr-label" for="file">
+                            Ajouter une pièce jointe
+                            <span class="fr-hint-text">Taille maximale : 10 Mo. Formats acceptés : jpg, png, pdf, docx</span>
+                        </label>
+                        <input class="fr-upload" type="file" id="file" name="file" 
+                               accept=".jpg,.jpeg,.png,.pdf,.doc,.docx">
+                    </div>
+                    <% } %>
+                    
+                    <!-- Consentement -->
+                    <div class="fr-checkbox-group">
+                        <input type="checkbox" id="consent" name="consent" required>
+                        <label class="fr-label" for="consent">
+                            J'accepte que les informations saisies soient utilisées pour me recontacter *
+                        </label>
+                    </div>
+                    
+                    <!-- Newsletter -->
+                    <% if (locals.newsletter) { %>
+                    <div class="fr-checkbox-group">
+                        <input type="checkbox" id="newsletter" name="newsletter">
+                        <label class="fr-label" for="newsletter">
+                            Je souhaite recevoir la lettre d'information
+                        </label>
+                    </div>
+                    <% } %>
+                    
+                    <!-- CAPTCHA -->
+                    <% if (locals.captcha) { %>
+                    <div class="fr-alert fr-alert--info fr-mb-3w">
+                        <p>Veuillez confirmer que vous n'êtes pas un robot</p>
+                        <!-- Intégrer ici votre solution CAPTCHA -->
+                    </div>
+                    <% } %>
+                    
+                    <!-- Informations obligatoires -->
+                    <p class="fr-text--sm fr-mb-3w">
+                        <span class="fr-text--bold">* Champs obligatoires</span>
+                    </p>
+                    
+                    <!-- Boutons -->
+                    <ul class="fr-btns-group">
+                        <li>
+                            <button type="submit" class="fr-btn">
+                                Envoyer
+                            </button>
+                        </li>
+                        <li>
+                            <button type="reset" class="fr-btn fr-btn--secondary">
+                                Annuler
+                            </button>
+                        </li>
+                    </ul>
+                </form>
+                
+                <!-- Informations complémentaires -->
+                <% if (locals.additionalInfo) { %>
+                <div class="fr-callout fr-mt-3w">
+                    <h3 class="fr-callout__title">Informations complémentaires</h3>
+                    <p class="fr-callout__text">
+                        <%= additionalInfo %>
+                    </p>
+                </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

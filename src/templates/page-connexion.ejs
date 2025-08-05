@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr" data-fr-theme>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><%= title || 'Connexion - Service de l\'État' %></title>
+    
+    <!-- DSFR CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.11.2/dist/dsfr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.11.2/dist/utility/utility.min.css">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="/favicon/favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="/favicon/manifest.webmanifest" crossorigin="use-credentials">
+</head>
+<body>
+    <!-- En-tête -->
+    <header role="banner" class="fr-header">
+        <div class="fr-header__body">
+            <div class="fr-container">
+                <div class="fr-header__body-row">
+                    <div class="fr-header__brand fr-enlarge-link">
+                        <div class="fr-header__brand-top">
+                            <div class="fr-header__logo">
+                                <p class="fr-logo">
+                                    <%= serviceName || 'Nom du service' %>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenu principal -->
+    <main role="main" id="main">
+        <div class="fr-container fr-mt-4w fr-mb-4w">
+            <div class="fr-grid-row fr-grid-row--center">
+                <div class="fr-col-12 fr-col-md-8 fr-col-lg-6">
+                    <h1><%= pageTitle || 'Se connecter' %></h1>
+                    
+                    <% if (locals.franceConnect) { %>
+                    <!-- FranceConnect -->
+                    <div class="fr-connect-group fr-mb-3w">
+                        <button class="fr-connect">
+                            <span class="fr-connect__login">S'identifier avec</span>
+                            <span class="fr-connect__brand">FranceConnect</span>
+                        </button>
+                        <p>
+                            <a href="https://franceconnect.gouv.fr/" target="_blank" rel="noopener" title="Qu'est-ce que FranceConnect ? - nouvelle fenêtre">
+                                Qu'est-ce que FranceConnect ?
+                            </a>
+                        </p>
+                    </div>
+                    
+                    <div class="fr-h5 fr-mb-3w text-center">ou</div>
+                    <% } %>
+                    
+                    <!-- Formulaire de connexion -->
+                    <form action="<%= actionUrl || '/login' %>" method="post">
+                        <% if (locals.error) { %>
+                        <div class="fr-alert fr-alert--error fr-mb-3w">
+                            <p class="fr-alert__title">Erreur</p>
+                            <p><%= error %></p>
+                        </div>
+                        <% } %>
+                        
+                        <div class="fr-input-group">
+                            <label class="fr-label" for="username">
+                                <%= emailLabel || 'Adresse email' %>
+                                <span class="fr-hint-text"><%= emailHint || 'Format : nom@domaine.fr' %></span>
+                            </label>
+                            <input class="fr-input" type="email" id="username" name="username" required 
+                                   aria-describedby="username-error" autocomplete="email">
+                            <p id="username-error" class="fr-error-text" aria-live="polite"></p>
+                        </div>
+                        
+                        <div class="fr-input-group">
+                            <label class="fr-label" for="password">
+                                Mot de passe
+                                <% if (locals.forgotPasswordUrl) { %>
+                                <span class="fr-hint-text">
+                                    <a href="<%= forgotPasswordUrl %>">Mot de passe oublié ?</a>
+                                </span>
+                                <% } %>
+                            </label>
+                            <input class="fr-input" type="password" id="password" name="password" required 
+                                   aria-describedby="password-error" autocomplete="current-password">
+                            <p id="password-error" class="fr-error-text" aria-live="polite"></p>
+                        </div>
+                        
+                        <% if (locals.rememberMe !== false) { %>
+                        <div class="fr-checkbox-group">
+                            <input type="checkbox" id="remember" name="remember">
+                            <label class="fr-label" for="remember">
+                                Se souvenir de moi
+                            </label>
+                        </div>
+                        <% } %>
+                        
+                        <ul class="fr-btns-group">
+                            <li>
+                                <button type="submit" class="fr-btn">
+                                    Se connecter
+                                </button>
+                            </li>
+                        </ul>
+                    </form>
+                    
+                    <% if (locals.registerUrl) { %>
+                    <hr class="fr-hr fr-mt-3w">
+                    <p class="fr-text--center">
+                        Vous n'avez pas encore de compte ?
+                        <a href="<%= registerUrl %>">Créer un compte</a>
+                    </p>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="fr-footer" role="contentinfo" id="footer">
+        <div class="fr-container">
+            <div class="fr-footer__body">
+                <div class="fr-footer__brand fr-enlarge-link">
+                    <p class="fr-logo">
+                        <%= footerBrand || 'République<br/>Française' %>
+                    </p>
+                </div>
+                <div class="fr-footer__content">
+                    <p class="fr-footer__content-desc">
+                        <%= footerDescription || 'Service public de l\'État' %>
+                    </p>
+                    <ul class="fr-footer__content-list">
+                        <li class="fr-footer__content-item">
+                            <a class="fr-footer__content-link" href="https://legifrance.gouv.fr">legifrance.gouv.fr</a>
+                        </li>
+                        <li class="fr-footer__content-item">
+                            <a class="fr-footer__content-link" href="https://gouvernement.fr">gouvernement.fr</a>
+                        </li>
+                        <li class="fr-footer__content-item">
+                            <a class="fr-footer__content-link" href="https://service-public.fr">service-public.fr</a>
+                        </li>
+                        <li class="fr-footer__content-item">
+                            <a class="fr-footer__content-link" href="https://data.gouv.fr">data.gouv.fr</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="fr-footer__bottom">
+                <ul class="fr-footer__bottom-list">
+                    <li class="fr-footer__bottom-item">
+                        <a class="fr-footer__bottom-link" href="/plan-site">Plan du site</a>
+                    </li>
+                    <li class="fr-footer__bottom-item">
+                        <a class="fr-footer__bottom-link" href="/accessibilite">Accessibilité : non conforme</a>
+                    </li>
+                    <li class="fr-footer__bottom-item">
+                        <a class="fr-footer__bottom-link" href="/mentions-legales">Mentions légales</a>
+                    </li>
+                    <li class="fr-footer__bottom-item">
+                        <a class="fr-footer__bottom-link" href="/donnees-personnelles">Données personnelles</a>
+                    </li>
+                    <li class="fr-footer__bottom-item">
+                        <a class="fr-footer__bottom-link" href="/gestion-cookies">Gestion des cookies</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- DSFR JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.11.2/dist/dsfr.min.js"></script>
+</body>
+</html>

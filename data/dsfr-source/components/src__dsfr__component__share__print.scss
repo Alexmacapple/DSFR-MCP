@@ -1,0 +1,11 @@
+////
+/// Share Print
+/// @group share
+////
+
+@media print {
+  @import 'index';
+  @import 'style/print';
+}
+
+
