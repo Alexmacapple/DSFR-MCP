@@ -288,14 +288,12 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 async function main() {
   // Pas de console.log ici - MCP nécessite du JSON pur sur stdout
   
-  // Démarrage du transport stdio AVANT l'indexation
+  // Indexation initiale de la documentation
+  await docService.initialize();
+  
+  // Démarrage du transport stdio
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  
-  // Indexation en arrière-plan (non-bloquante)
-  docService.initialize().catch(() => {
-    // Ignorer les erreurs d'indexation pour ne pas faire planter le serveur
-  });
 }
 
 // Gestion des erreurs

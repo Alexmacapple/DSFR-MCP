@@ -226,15 +226,7 @@ class DocumentationService {
   // Méthodes publiques pour les outils MCP
 
   async searchComponents({ query, category, limit = 10 }) {
-    if (!this.initialized) {
-      // Si l'initialisation n'est pas terminée, retourner un message d'attente
-      return {
-        content: [{
-          type: 'text',
-          text: 'Documentation en cours d\'indexation... Veuillez réessayer dans quelques secondes.'
-        }]
-      };
-    }
+    await this.initialize();
     
     let results = this.documents;
     
