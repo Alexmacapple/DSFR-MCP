@@ -189,9 +189,9 @@ Transformer DSFR-MCP en **référence de qualité** pour l'intégration du Syst�
   - ⏸️ Snippets et auto-complétion (ROI incertain)
   - ⏸️ Preview en temps réel (complexité énorme)
   
-- ⏸️ **CLI autonome** - *Éventuellement plus tard*
+- ⏸️ **CLI autonome** - *Reporté (pas de demande utilisateur immédiate)*
   - ⏸️ Interface en ligne de commande
-  - ⏸️ Scripts de build/validation
+  - ⏸️ Scripts de build/validation  
   - ⏸️ Intégration CI/CD
   - ⏸️ NPX package
 

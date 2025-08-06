@@ -9,6 +9,8 @@
 
 Serveur MCP (Model Context Protocol) complet pour le Système de Design de l'État Français (DSFR). Ce serveur permet d'accéder à toute la documentation DSFR, aux composants, aux patterns et aux outils de validation directement depuis Claude Desktop ou tout autre client MCP compatible.
 
+⚠️ **Usage exclusif** : Le DSFR est réservé aux institutions publiques françaises (administrations, préfectures, ministères, collectivités territoriales, ambassades, etc.) conformément à la réglementation en vigueur.
+
 ## 🚀 Fonctionnalités principales
 
 - **📚 Documentation complète** : Accès aux 213 fiches de documentation DSFR nettoyées et organisées dans une structure v2 optimisée
@@ -126,6 +128,10 @@ INDEX_UPDATE_INTERVAL=3600000
 
 ## 📚 Utilisation
 
+### 🚀 Démarrage rapide
+
+**➡️ [Guide Quickstart DSFR-MCP](QUICKSTART.md)** - De zéro à votre première page DSFR en 30 minutes !
+
 ### Démarrage du serveur
 
 ```bash
@@ -135,6 +141,21 @@ npm start
 # Mode développement (avec rechargement automatique)
 npm run dev
 ```
+
+### 📖 Guides et ressources d'apprentissage
+
+#### 🎯 Tutoriels et guides
+- **[Quickstart - 30 minutes](QUICKSTART.md)** - Tutorial complet du setup à la première page
+- **[Guide Docker](GUIDE_INSTALLATION_DOCKER.md)** - Installation Docker pas-à-pas
+
+#### 📁 Exemples de projets institutionnels
+
+⚠️ **Usage exclusif DSFR** : Ces exemples respectent la réglementation - le DSFR est réservé aux institutions publiques françaises uniquement.
+
+- **[Service public numérique](examples/01-service-public-numerique/)** - Site institutionnel de l'État
+- **[Dashboard administratif public](examples/02-app-react-dashboard/)** - Back-office React pour administrations
+- **[Portail citoyen et téléservices](examples/03-portail-citoyen/)** - Démarches en ligne et guichet numérique  
+- **[Documentation technique publique](examples/04-documentation-site/)** - Portail API gouvernementales
 
 ### Exemples de requêtes dans Claude
 
@@ -371,9 +392,12 @@ Les contributions sont les bienvenues ! Veuillez suivre ces étapes :
 
 ### Documentation
 
+- **[Quickstart DSFR-MCP](QUICKSTART.md)** - Guide de démarrage 30 minutes
+- **[Guide d'installation Docker](GUIDE_INSTALLATION_DOCKER.md)** - Installation complète Docker
 - [Guide d'installation détaillé](GUIDE_INSTALLATION_MCP_CLAUDE.md)
-- [Documentation API](docs/API.md)
+- [Documentation API](docs/API.md)  
 - [FAQ](docs/FAQ.md)
+- **[Exemples de projets institutionnels](examples/)** - 4 projets conformes à l'usage exclusif DSFR
 
 ### Obtenir de l'aide
 
