@@ -100,9 +100,9 @@ chmod +x install.sh
 {
   "mcpServers": {
     "dsfr-documentation": {
-      "command": "node",
-      "args": ["src/index.js"],
-      "cwd": "/chemin/absolu/vers/DSFR-MCP"
+      "command": "docker",
+      "args": ["exec", "-i", "dsfr-mcp-server", "node", "src/index-docker-production.js"],
+      "env": {}
     }
   }
 }
@@ -232,7 +232,8 @@ DSFR-MCP/
 ├── src/
 │   ├── index.js              # Point d'entrée V1 (legacy)
 │   ├── index-v2.js           # Point d'entrée V2 optimisé
-│   ├── index-docker.js       # 🆕 Point d'entrée Docker avec keep-alive
+│   ├── index-minimal.js      # 🆕 Point d'entrée Docker minimal
+│   ├── index-docker-production.js # 🆕 Point d'entrée Docker PRODUCTION avec 15+ outils
 │   ├── core/                 # 🆕 Architecture V2
 │   │   ├── container.js      # Container DI avec lifecycles
 │   │   └── interfaces.js     # Contrats et interfaces services

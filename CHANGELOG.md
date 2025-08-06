@@ -5,6 +5,25 @@ Tous les changements notables de ce projet seront documentés dans ce fichier.
 Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/),
 et ce projet adhère au [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.1] - 2025-08-06
+
+### 🚀 Docker MCP Production - Déploiement Robuste
+
+> **🎯 Version production Docker avec 15+ outils MCP** - Stabilité et performance maximales !
+
+#### ✨ Nouvelles fonctionnalités Docker Production
+- **✅ Serveur MCP production robuste** : `index-docker-production.js` avec 15+ outils fonctionnels
+- **✅ Mécanismes de fallback avancés** : Services de secours si dépendances indisponibles
+- **✅ Keep-alive intelligent** : Monitoring toutes les 30 secondes avec status détaillé
+- **✅ Gestion d'erreurs robuste** : Récupération automatique des services défaillants
+- **✅ Container stable** : Statut UP et healthy confirmé avec health checks
+
+#### 🔧 Améliorations techniques
+- **Configuration Docker-Compose optimisée** : Health checks et commandes production
+- **Index minimal renforcé** : Keep-alive pour compatibilité Docker
+- **Documentation actualisée** : README.md et guides Docker mis à jour
+- **Tests de stabilité** : Validation container et services MCP
+
 ## [1.4.0] - 2025-08-05
 
 ### 🐳 Révolution Docker - Installation Simplifiée
