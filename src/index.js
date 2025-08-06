@@ -718,12 +718,13 @@ async function main() {
     console.error('✅ [PRODUCTION] MCP DSFR Docker PRODUCTION connecté avec tous les services !');
     console.error(`📊 [PRODUCTION] ${servicesInitialized ? 'Services complets' : 'Services fallback'} activés`);
     
-    // Keep-alive production avec monitoring
-    setInterval(() => {
-      const timestamp = new Date().toISOString();
-      const status = servicesInitialized ? 'SERVICES_OK' : 'FALLBACK_MODE';
-      console.error(`[${timestamp}] [PRODUCTION] MCP Docker alive - Status: ${status} - 15 outils actifs`);
-    }, 60000); // Toutes les minutes en production
+    // Keep-alive production avec monitoring (désactivé en mode stdio pour Claude Desktop)
+    // Note: Le keep-alive interfère avec la communication MCP stdio
+    // setInterval(() => {
+    //   const timestamp = new Date().toISOString();
+    //   const status = servicesInitialized ? 'SERVICES_OK' : 'FALLBACK_MODE';
+    //   console.error(`[${timestamp}] [PRODUCTION] MCP Docker alive - Status: ${status} - 15 outils actifs`);
+    // }, 60000);
     
   } catch (error) {
     console.error('[DOCKER] [PRODUCTION] Erreur fatale lors de l\'initialisation:', error.message);
