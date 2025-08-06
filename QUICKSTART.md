@@ -29,7 +29,7 @@ cd DSFR-MCP
 docker-compose up -d
 
 # Configurer Claude Desktop automatiquement
-./scripts/configure-claude.sh
+./docker/scripts/configure-claude.sh
 ```
 
 ### Option B : Installation Node.js
@@ -49,7 +49,7 @@ npm start
 Votre serveur DSFR-MCP est prêt si vous voyez :
 ```
 ✅ DSFR-MCP Server v1.4.1 started
-🔧 16/16 outils MCP chargés
+🔧 16/16 outils MCP chargés avec succès
 🚀 Serveur prêt sur stdio
 ```
 
@@ -94,7 +94,7 @@ Si ça fonctionne, Claude utilisera l'outil `search_dsfr_components` ! 🎉
 
 ## 🎨 Créer votre premier composant (10 min)
 
-Maintenant, nous allons créer nos premiers composants DSFR avec l'aide de Claude.
+Maintenant, nous allons créer nos premiers composants DSFR avec l'aide de Claude en utilisant les 16 outils DSFR-MCP disponibles.
 
 ### Étape 1 : Générer un bouton DSFR
 
@@ -443,11 +443,12 @@ Vous venez de créer votre première page web complète utilisant :
 
 Maintenant que vous maîtrisez les bases, vous pouvez :
 
-1. **Explorer les 16 outils DSFR-MCP** disponibles
+1. **Explorer les 16 outils DSFR-MCP** disponibles (4 recherche + 3 génération + 2 validation + 3 utilitaires + 4 avancés)
 2. **Créer des thèmes personnalisés** avec `create_dsfr_theme`
 3. **Convertir vers React/Vue** avec `convert_to_framework`
-4. **Analyser l'usage DSFR** de vos projets existants
-5. **Générer de la documentation** personnalisée
+4. **Analyser l'usage DSFR** de vos projets existants avec `analyze_dsfr_usage`
+5. **Générer de la documentation** personnalisée avec `export_documentation`
+6. **Obtenir des suggestions d'amélioration** avec `suggest_improvements`
 
 ## 🔗 Ressources utiles
 

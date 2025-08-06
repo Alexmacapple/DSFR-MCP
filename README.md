@@ -1,6 +1,6 @@
 # 🇫🇷 DSFR-MCP - Model Context Protocol pour le Système de Design de l'État Français
 
-[![Version](https://img.shields.io/badge/version-1.3.0-blue.svg)](https://github.com/Alexmacapple/DSFR-MCP)
+[![Version](https://img.shields.io/badge/version-1.4.1-blue.svg)](https://github.com/Alexmacapple/DSFR-MCP)
 [![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=flat&logo=docker&logoColor=white)](https://docker.com)
 [![Node](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
@@ -21,7 +21,7 @@ Serveur MCP (Model Context Protocol) complet pour le Système de Design de l'Ét
 - **🎨 Personnalisation complète** : Création de thèmes avec palettes de couleurs, mode sombre, et mixins SCSS automatiques
 - **📦 Architecture V2 optimisée** : Injection de dépendances, cache intelligent LRU, services découplés (99% plus rapide au démarrage)
 - **🧹 Données nettoyées** : Déduplication automatique et validation d'intégrité des 213 fiches markdown
-- **🎯 12/12 outils MCP** : Tous les outils MCP fonctionnels avec tests d'intégration complets
+- **🎯 16/16 outils MCP** : Tous les outils MCP fonctionnels avec tests d'intégration complets
 
 ## 📋 Table des matières
 
@@ -174,9 +174,9 @@ Génère un composant bouton DSFR en React avec les variantes primary et seconda
 Vérifie l'accessibilité RGAA de ce code HTML : [votre code]
 ```
 
-## 🛠️ Outils disponibles
+## 🛠️ Outils disponibles (16/16)
 
-### Outils de recherche et documentation
+### Outils de recherche et documentation (4)
 
 | Outil | Description | Paramètres |
 |-------|-------------|------------|
@@ -185,7 +185,7 @@ Vérifie l'accessibilité RGAA de ce code HTML : [votre code]
 | `list_dsfr_categories` | Liste des catégories | - |
 | `search_patterns` | Recherche de patterns | `query`, `pattern_type` |
 
-### Outils de génération
+### Outils de génération (3)
 
 | Outil | Description | Paramètres |
 |-------|-------------|------------|
@@ -193,20 +193,29 @@ Vérifie l'accessibilité RGAA de ce code HTML : [votre code]
 | `generate_dsfr_template` | Génère un template | `template_name`, `framework` |
 | `create_dsfr_theme` | Crée un thème avec palette couleurs, mode sombre et SCSS | `theme_name`, `primary_color`, `secondary_color`, `custom_variables` |
 
-### Outils de validation
+### Outils de validation (2)
 
 | Outil | Description | Paramètres |
 |-------|-------------|------------|
 | `validate_dsfr_html` | Valide le HTML DSFR | `html_code`, `strict_mode` |
 | `check_accessibility` | Vérifie l'accessibilité | `html_code`, `rgaa_level` |
 
-### Outils utilitaires
+### Outils utilitaires (3)
 
 | Outil | Description | Paramètres |
 |-------|-------------|------------|
 | `convert_to_framework` | Conversion intelligente HTML vers React/Vue/Angular avec analyse | `html_code`, `target_framework`, `component_name` |
 | `get_dsfr_icons` | Liste les icônes | `category`, `search` |
 | `get_dsfr_colors` | Palette de couleurs avec utilitaires CSS | `include_utilities`, `format` |
+
+### Outils avancés (4) - Nouveaux en v1.4.1
+
+| Outil | Description | Paramètres |
+|-------|-------------|------------|
+| `analyze_dsfr_usage` | Analyse complète d'utilisation DSFR avec détection automatique | `html_code`, `framework_detection` |
+| `suggest_improvements` | Suggestions d'améliorations par catégories (accessibilité, conformité, performance) | `html_code`, `categories`, `priority` |
+| `compare_versions` | Comparaison versions DSFR avec guide de migration | `current_version`, `target_version` |
+| `export_documentation` | Export documentation personnalisée multi-format | `format`, `content_filter`, `branding` |
 
 ## 🏗️ Architecture
 
@@ -294,7 +303,7 @@ DSFR-MCP/
 
 ```bash
 # Cloner avec les sous-modules
-git clone --recursive https://github.com/votre-repo/DSFR-MCP.git
+git clone --recursive https://github.com/Alexmacapple/DSFR-MCP.git
 
 # Installer les dépendances de développement
 npm install --include=dev
@@ -394,16 +403,13 @@ Les contributions sont les bienvenues ! Veuillez suivre ces étapes :
 
 - **[Quickstart DSFR-MCP](QUICKSTART.md)** - Guide de démarrage 30 minutes
 - **[Guide d'installation Docker](GUIDE_INSTALLATION_DOCKER.md)** - Installation complète Docker
-- [Guide d'installation détaillé](GUIDE_INSTALLATION_MCP_CLAUDE.md)
-- [Documentation API](docs/API.md)  
-- [FAQ](docs/FAQ.md)
+- **[Roadmap et évolutions](ROADMAP.md)** - Feuille de route du projet
 - **[Exemples de projets institutionnels](examples/)** - 4 projets conformes à l'usage exclusif DSFR
 
 ### Obtenir de l'aide
 
-- 📧 Email : support@dsfr-mcp.fr
-- 💬 Discord : [Rejoindre le serveur](https://discord.gg/dsfr-mcp)
-- 🐛 Issues : [GitHub Issues](https://github.com/votre-repo/DSFR-MCP/issues)
+- 🐛 Issues : [GitHub Issues](https://github.com/Alexmacapple/DSFR-MCP/issues) - Signaler un problème ou faire une suggestion
+- 📖 Documentation : Guides intégrés dans le repository
 
 ### Checklist de dépannage
 

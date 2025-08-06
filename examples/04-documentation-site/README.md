@@ -155,7 +155,7 @@ Implémente une recherche documentaire avec :
 
 ### 1. Prérequis
 ```bash
-# DSFR-MCP configuré (voir Quickstart)
+# DSFR-MCP configuré (voir [Quickstart](../../QUICKSTART.md))
 # Node.js 18+
 # Git pour le contenu
 ```

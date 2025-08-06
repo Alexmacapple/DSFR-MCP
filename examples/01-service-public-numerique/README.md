@@ -142,7 +142,7 @@ Valide ce site pour la conformité DSFR stricte et l'accessibilité RGAA obligat
 
 ### 1. Prérequis réglementaires
 ```bash
-# DSFR-MCP configuré (voir Quickstart)
+# DSFR-MCP configuré (voir [Quickstart](../../QUICKSTART.md))
 # Validation juridique du projet
 # Autorisation hiérarchique d'usage DSFR
 ```

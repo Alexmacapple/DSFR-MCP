@@ -1,7 +1,7 @@
 # 🐳 Guide d'installation DSFR-MCP avec Docker
 
 [![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)](https://docker.com)
-[![Version](https://img.shields.io/badge/version-1.3.1-blue.svg)](https://github.com/Alexmacapple/DSFR-MCP)
+[![Version](https://img.shields.io/badge/version-1.4.1-blue.svg)](https://github.com/Alexmacapple/DSFR-MCP)
 
 > **🎯 Solution recommandée** : Docker élimine tous les problèmes de configuration entre environnements !
 

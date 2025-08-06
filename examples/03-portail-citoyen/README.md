@@ -143,7 +143,7 @@ Crée des formulaires administratifs conformes avec :
 
 ### 1. Prérequis
 ```bash
-# DSFR-MCP configuré (voir Quickstart)
+# DSFR-MCP configuré (voir [Quickstart](../../QUICKSTART.md))
 # Node.js 18+
 # Certificats SSL (développement HTTPS obligatoire)
 ```

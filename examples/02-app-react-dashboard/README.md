@@ -148,7 +148,7 @@ Crée la configuration complète pour :
 
 ### 1. Prérequis
 ```bash
-# DSFR-MCP configuré (voir Quickstart)
+# DSFR-MCP configuré (voir [Quickstart](../../QUICKSTART.md))
 # Node.js 18+
 # Git
 ```
