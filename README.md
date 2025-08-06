@@ -147,7 +147,9 @@ npm run dev
 #### 🎯 Tutoriels et guides
 - **[Quickstart - 30 minutes](QUICKSTART.md)** - Tutorial complet du setup à la première page
 - **[Guide Docker](GUIDE_INSTALLATION_DOCKER.md)** - Installation Docker pas-à-pas
-- **[Guide des 15 Outils MCP](GUIDE_OUTILS_MCP.md)** - 🆕 Documentation complète de tous les outils avec exemples pratiques
+- **[Guide des 15 Outils MCP](GUIDE_OUTILS_MCP.md)** - Documentation complète de tous les outils avec exemples pratiques
+- **[Guide de Performance](GUIDE_PERFORMANCE.md)** - 🆕 Optimisations Phase 4A, cache intelligent, best practices
+- **[Exemples Avancés](EXEMPLES_AVANCES.md)** - 🆕 45+ cas concrets, workflows optimisés, intégrations
 
 #### 📁 Exemples de projets institutionnels
 
@@ -405,7 +407,9 @@ Les contributions sont les bienvenues ! Veuillez suivre ces étapes :
 
 - **[Quickstart DSFR-MCP](QUICKSTART.md)** - Guide de démarrage 30 minutes
 - **[Guide d'installation Docker](GUIDE_INSTALLATION_DOCKER.md)** - Installation complète Docker
-- **[Guide des 15 Outils MCP](GUIDE_OUTILS_MCP.md)** - 🆕 Documentation complète de tous les outils avec exemples pratiques
+- **[Guide des 15 Outils MCP](GUIDE_OUTILS_MCP.md)** - Documentation complète de tous les outils avec exemples pratiques
+- **[Guide de Performance](GUIDE_PERFORMANCE.md)** - 🆕 Optimisations Phase 4A, cache intelligent, best practices
+- **[Exemples Avancés](EXEMPLES_AVANCES.md)** - 🆕 45+ cas concrets, workflows optimisés, intégrations
 - **[Roadmap et évolutions](ROADMAP.md)** - Feuille de route du projet
 - **[Exemples de projets institutionnels](examples/)** - 4 projets conformes à l'usage exclusif DSFR
 
