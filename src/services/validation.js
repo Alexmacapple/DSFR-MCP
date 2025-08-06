@@ -465,6 +465,411 @@ class ValidationService {
 
     return output;
   }
+
+  // 🆕 Phase 3.1 - Suggestion d'améliorations
+  async suggestImprovements({
+    html_code,
+    improvement_categories = ['accessibility', 'dsfr-compliance', 'best-practices'],
+    priority_level = 'high',
+    include_code_examples = true,
+    include_explanations = true,
+    max_suggestions = 20
+  }) {
+    const dom = new JSDOM(html_code);
+    const document = dom.window.document;
+
+    const improvements = {
+      suggestions: [],
+      stats: {
+        analyzed_elements: document.querySelectorAll('*').length,
+        total_issues_found: 0,
+        categories_analyzed: improvement_categories
+      },
+      priority_distribution: {
+        critical: 0,
+        high: 0,
+        medium: 0,
+        low: 0
+      }
+    };
+
+    // Analyser chaque catégorie demandée
+    for (const category of improvement_categories) {
+      switch (category) {
+        case 'accessibility':
+          this.suggestAccessibilityImprovements(document, improvements, include_code_examples);
+          break;
+        case 'dsfr-compliance':
+          this.suggestDsfrComplianceImprovements(document, improvements, include_code_examples);
+          break;
+        case 'performance':
+          this.suggestPerformanceImprovements(document, improvements, include_code_examples);
+          break;
+        case 'seo':
+          this.suggestSeoImprovements(document, improvements, include_code_examples);
+          break;
+        case 'semantics':
+          this.suggestSemanticImprovements(document, improvements, include_code_examples);
+          break;
+        case 'best-practices':
+          this.suggestBestPracticesImprovements(document, improvements, include_code_examples);
+          break;
+      }
+    }
+
+    // Filtrer par niveau de priorité
+    const priorityOrder = ['critical', 'high', 'medium', 'low'];
+    const minPriorityIndex = priorityOrder.indexOf(priority_level);
+    
+    if (priority_level !== 'all') {
+      improvements.suggestions = improvements.suggestions.filter(suggestion => 
+        priorityOrder.indexOf(suggestion.priority) <= minPriorityIndex
+      );
+    }
+
+    // Limiter le nombre de suggestions
+    improvements.suggestions = improvements.suggestions.slice(0, max_suggestions);
+    
+    // Mettre à jour les statistiques
+    improvements.stats.total_issues_found = improvements.suggestions.length;
+    improvements.suggestions.forEach(suggestion => {
+      improvements.priority_distribution[suggestion.priority]++;
+    });
+
+    return {
+      content: [{
+        type: 'text',
+        text: this.formatImprovementSuggestions(improvements, include_explanations)
+      }]
+    };
+  }
+
+  suggestAccessibilityImprovements(document, improvements, includeExamples) {
+    // Images sans alt
+    const imagesWithoutAlt = document.querySelectorAll('img:not([alt])');
+    imagesWithoutAlt.forEach((img, index) => {
+      improvements.suggestions.push({
+        id: `acc_img_alt_${index}`,
+        category: 'accessibility',
+        priority: 'critical',
+        title: 'Image sans attribut alt',
+        description: 'Les images doivent avoir un attribut alt pour l\'accessibilité',
+        element: `<img src="${img.src || 'unknown'}">`,
+        issue: 'Attribut alt manquant',
+        solution: 'Ajouter un attribut alt descriptif',
+        code_before: includeExamples ? img.outerHTML : null,
+        code_after: includeExamples ? img.outerHTML.replace('>', ' alt="Description de l\'image">') : null,
+        impact: 'Les lecteurs d\'écran ne peuvent pas décrire l\'image aux utilisateurs malvoyants'
+      });
+    });
+
+    // Liens sans texte descriptif
+    const linksWithoutText = document.querySelectorAll('a');
+    linksWithoutText.forEach((link, index) => {
+      const text = link.textContent.trim();
+      if (!text && !link.getAttribute('aria-label')) {
+        improvements.suggestions.push({
+          id: `acc_link_text_${index}`,
+          category: 'accessibility',
+          priority: 'high',
+          title: 'Lien sans texte accessible',
+          description: 'Tous les liens doivent avoir un texte ou un aria-label',
+          element: link.outerHTML,
+          issue: 'Lien sans texte ni aria-label',
+          solution: 'Ajouter du texte ou un aria-label',
+          code_after: includeExamples ? `<a href="${link.href}" aria-label="Description du lien">${link.innerHTML}</a>` : null
+        });
+      }
+    });
+
+    // Champs de formulaire sans label
+    const inputsWithoutLabel = document.querySelectorAll('input:not([type="hidden"]), select, textarea');
+    inputsWithoutLabel.forEach((input, index) => {
+      const id = input.id;
+      const hasLabel = id && document.querySelector(`label[for="${id}"]`);
+      const hasAriaLabel = input.getAttribute('aria-label');
+      
+      if (!hasLabel && !hasAriaLabel) {
+        improvements.suggestions.push({
+          id: `acc_form_label_${index}`,
+          category: 'accessibility',
+          priority: 'critical',
+          title: 'Champ de formulaire sans label',
+          description: 'Tous les champs doivent être associés à un label',
+          element: input.outerHTML,
+          solution: 'Ajouter un label avec l\'attribut for correspondant à l\'id du champ',
+          code_after: includeExamples ? `<label for="${input.id || 'field-id'}">Libellé du champ</label>\n${input.outerHTML}` : null
+        });
+      }
+    });
+  }
+
+  suggestDsfrComplianceImprovements(document, improvements, includeExamples) {
+    // Boutons sans classes DSFR
+    const buttons = document.querySelectorAll('button:not(.fr-btn), input[type="submit"]:not(.fr-btn)');
+    buttons.forEach((button, index) => {
+      improvements.suggestions.push({
+        id: `dsfr_btn_${index}`,
+        category: 'dsfr-compliance',
+        priority: 'medium',
+        title: 'Bouton sans style DSFR',
+        description: 'Utiliser les classes fr-btn pour la cohérence visuelle',
+        element: button.outerHTML,
+        solution: 'Ajouter la classe fr-btn',
+        code_after: includeExamples ? button.outerHTML.replace('class="', 'class="fr-btn ').replace('<button', '<button class="fr-btn"').replace('<input', '<input class="fr-btn"') : null
+      });
+    });
+
+    // Conteneurs sans classes DSFR
+    const hasContainer = document.querySelector('.fr-container');
+    if (!hasContainer) {
+      improvements.suggestions.push({
+        id: 'dsfr_container',
+        category: 'dsfr-compliance',
+        priority: 'high',
+        title: 'Pas de conteneur DSFR',
+        description: 'Utiliser fr-container pour structurer la mise en page',
+        solution: 'Envelopper le contenu principal dans un div.fr-container',
+        code_after: includeExamples ? '<div class="fr-container">\n  <!-- Votre contenu ici -->\n</div>' : null
+      });
+    }
+
+    // Grille DSFR
+    const hasGrid = document.querySelector('.fr-grid-row');
+    const hasFlexOrGrid = document.querySelector('[style*="display: flex"], [style*="display: grid"]');
+    if (hasFlexOrGrid && !hasGrid) {
+      improvements.suggestions.push({
+        id: 'dsfr_grid',
+        category: 'dsfr-compliance',
+        priority: 'medium',
+        title: 'Système de grille custom détecté',
+        description: 'Considérer l\'utilisation du système de grille DSFR',
+        solution: 'Remplacer par fr-grid-row et fr-col',
+        code_after: includeExamples ? '<div class="fr-grid-row">\n  <div class="fr-col-12 fr-col-md-6">Colonne 1</div>\n  <div class="fr-col-12 fr-col-md-6">Colonne 2</div>\n</div>' : null
+      });
+    }
+  }
+
+  suggestPerformanceImprovements(document, improvements, includeExamples) {
+    // Images sans attributs de performance
+    const images = document.querySelectorAll('img');
+    images.forEach((img, index) => {
+      if (!img.getAttribute('loading') && !img.getAttribute('decoding')) {
+        improvements.suggestions.push({
+          id: `perf_img_${index}`,
+          category: 'performance',
+          priority: 'low',
+          title: 'Image sans optimisations de performance',
+          description: 'Ajouter loading="lazy" pour le lazy loading',
+          element: img.outerHTML,
+          solution: 'Ajouter les attributs loading et decoding',
+          code_after: includeExamples ? img.outerHTML.replace('>', ' loading="lazy" decoding="async">') : null
+        });
+      }
+    });
+
+    // Scripts sans defer/async
+    const scripts = document.querySelectorAll('script[src]:not([async]):not([defer])');
+    if (scripts.length > 0) {
+      improvements.suggestions.push({
+        id: 'perf_scripts',
+        category: 'performance',
+        priority: 'medium',
+        title: 'Scripts bloquants détectés',
+        description: 'Les scripts externes peuvent bloquer le rendu de la page',
+        solution: 'Ajouter defer ou async selon le besoin',
+        code_after: includeExamples ? '<script src="script.js" defer></script>' : null
+      });
+    }
+  }
+
+  suggestSeoImprovements(document, improvements, includeExamples) {
+    // Balises meta manquantes
+    const hasDescription = document.querySelector('meta[name="description"]');
+    if (!hasDescription) {
+      improvements.suggestions.push({
+        id: 'seo_description',
+        category: 'seo',
+        priority: 'high',
+        title: 'Meta description manquante',
+        description: 'La meta description améliore le référencement',
+        solution: 'Ajouter une meta description',
+        code_after: includeExamples ? '<meta name="description" content="Description de votre page">' : null
+      });
+    }
+
+    // Titres H1 multiples
+    const h1s = document.querySelectorAll('h1');
+    if (h1s.length > 1) {
+      improvements.suggestions.push({
+        id: 'seo_h1_multiple',
+        category: 'seo',
+        priority: 'medium',
+        title: 'Plusieurs H1 détectés',
+        description: 'Une seule balise H1 par page est recommandée pour le SEO',
+        solution: 'Utiliser H2, H3, etc. pour les sous-titres'
+      });
+    }
+  }
+
+  suggestSemanticImprovements(document, improvements, includeExamples) {
+    // Structure sémantique manquante
+    const hasMain = document.querySelector('main');
+    if (!hasMain) {
+      improvements.suggestions.push({
+        id: 'sem_main',
+        category: 'semantics',
+        priority: 'high',
+        title: 'Balise main manquante',
+        description: 'La balise main identifie le contenu principal',
+        solution: 'Envelopper le contenu principal dans une balise main',
+        code_after: includeExamples ? '<main>\n  <!-- Contenu principal -->\n</main>' : null
+      });
+    }
+
+    // Divs qui pourraient être des éléments sémantiques
+    const suspiciousDivs = document.querySelectorAll('div[class*="header"], div[class*="footer"], div[class*="nav"], div[class*="article"]');
+    suspiciousDivs.forEach((div, index) => {
+      const className = div.className;
+      let suggestedTag = 'div';
+      
+      if (className.includes('header')) suggestedTag = 'header';
+      else if (className.includes('footer')) suggestedTag = 'footer';
+      else if (className.includes('nav')) suggestedTag = 'nav';
+      else if (className.includes('article')) suggestedTag = 'article';
+
+      if (suggestedTag !== 'div') {
+        improvements.suggestions.push({
+          id: `sem_div_${index}`,
+          category: 'semantics',
+          priority: 'low',
+          title: `Div sémantique détectée`,
+          description: `Cette div pourrait être remplacée par une balise ${suggestedTag}`,
+          element: div.outerHTML.substring(0, 100) + '...',
+          solution: `Remplacer la div par <${suggestedTag}>`,
+          code_after: includeExamples ? div.outerHTML.replace('<div', `<${suggestedTag}`).replace('</div>', `</${suggestedTag}>`) : null
+        });
+      }
+    });
+  }
+
+  suggestBestPracticesImprovements(document, improvements, includeExamples) {
+    // Classes CSS avec !important dans style inline
+    const elementsWithImportant = document.querySelectorAll('*[style*="!important"]');
+    elementsWithImportant.forEach((element, index) => {
+      improvements.suggestions.push({
+        id: `bp_important_${index}`,
+        category: 'best-practices',
+        priority: 'medium',
+        title: 'Usage de !important détecté',
+        description: 'Éviter !important, préférer la spécificité CSS',
+        element: element.outerHTML.substring(0, 100),
+        solution: 'Refactoriser le CSS sans !important'
+      });
+    });
+
+    // IDs dupliqués
+    const allIds = [];
+    const duplicateIds = [];
+    document.querySelectorAll('[id]').forEach(element => {
+      const id = element.getAttribute('id');
+      if (allIds.includes(id) && !duplicateIds.includes(id)) {
+        duplicateIds.push(id);
+      }
+      allIds.push(id);
+    });
+
+    duplicateIds.forEach(id => {
+      improvements.suggestions.push({
+        id: `bp_duplicate_id_${id}`,
+        category: 'best-practices',
+        priority: 'high',
+        title: `ID dupliqué: ${id}`,
+        description: 'Les IDs doivent être uniques dans le document',
+        solution: 'Utiliser des classes ou rendre les IDs uniques'
+      });
+    });
+  }
+
+  formatImprovementSuggestions(improvements, includeExplanations) {
+    let output = '# 🚀 Suggestions d\'améliorations DSFR\n\n';
+    
+    // Statistiques
+    output += '## 📊 Résumé de l\'analyse\n\n';
+    output += `- **Éléments analysés** : ${improvements.stats.analyzed_elements}\n`;
+    output += `- **Suggestions trouvées** : ${improvements.stats.total_issues_found}\n`;
+    output += `- **Catégories analysées** : ${improvements.stats.categories_analyzed.join(', ')}\n\n`;
+
+    // Distribution par priorité
+    output += '### Répartition par priorité\n\n';
+    Object.entries(improvements.priority_distribution).forEach(([priority, count]) => {
+      if (count > 0) {
+        const emoji = { critical: '🔴', high: '🟠', medium: '🟡', low: '🟢' };
+        output += `- ${emoji[priority]} **${priority}** : ${count} suggestion${count > 1 ? 's' : ''}\n`;
+      }
+    });
+    output += '\n';
+
+    // Suggestions groupées par catégorie
+    const groupedSuggestions = improvements.suggestions.reduce((acc, suggestion) => {
+      if (!acc[suggestion.category]) acc[suggestion.category] = [];
+      acc[suggestion.category].push(suggestion);
+      return acc;
+    }, {});
+
+    Object.entries(groupedSuggestions).forEach(([category, suggestions]) => {
+      const categoryEmojis = {
+        accessibility: '♿',
+        'dsfr-compliance': '🎨',
+        performance: '⚡',
+        seo: '🔍',
+        semantics: '📝',
+        'best-practices': '✨'
+      };
+      
+      output += `## ${categoryEmojis[category] || '📋'} ${category.charAt(0).toUpperCase() + category.slice(1)}\n\n`;
+      
+      suggestions.forEach((suggestion, index) => {
+        const priorityEmoji = { critical: '🔴', high: '🟠', medium: '🟡', low: '🟢' };
+        
+        output += `### ${index + 1}. ${suggestion.title} ${priorityEmoji[suggestion.priority]}\n\n`;
+        
+        if (includeExplanations && suggestion.description) {
+          output += `**Description** : ${suggestion.description}\n\n`;
+        }
+        
+        if (suggestion.issue) {
+          output += `**Problème** : ${suggestion.issue}\n\n`;
+        }
+        
+        output += `**Solution** : ${suggestion.solution}\n\n`;
+        
+        if (suggestion.impact) {
+          output += `**Impact** : ${suggestion.impact}\n\n`;
+        }
+
+        // Exemples de code
+        if (suggestion.code_before) {
+          output += '**Avant** :\n```html\n' + suggestion.code_before + '\n```\n\n';
+        }
+        
+        if (suggestion.code_after) {
+          output += '**Après** :\n```html\n' + suggestion.code_after + '\n```\n\n';
+        }
+        
+        output += '---\n\n';
+      });
+    });
+
+    if (improvements.suggestions.length === 0) {
+      output += '## 🎉 Félicitations !\n\n';
+      output += 'Aucune amélioration majeure détectée. Votre code respecte déjà les bonnes pratiques !\n\n';
+    }
+
+    output += '*Analyse générée par DSFR-MCP v1.4.0*';
+    
+    return output;
+  }
 }
 
 module.exports = ValidationService;

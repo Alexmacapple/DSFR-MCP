@@ -1002,6 +1002,454 @@ class DocumentationService {
   getBestPracticesRecommendations(practices) { return []; }
   calculateDsfrRatio(code) { return 0.6; }
   calculateComplexityScore(code) { return Math.min(100, Math.floor(code.length / 100)); }
+
+  // 🆕 Phase 3.1 - Comparaison de versions DSFR
+  async compareVersions({
+    version_from,
+    version_to,
+    comparison_scope = ['components', 'breaking-changes', 'new-features'],
+    include_migration_guide = true,
+    include_code_examples = true,
+    output_format = 'detailed'
+  }) {
+    await this.initialize();
+
+    const comparison = {
+      versions: { from: version_from, to: version_to },
+      analysis_date: new Date().toISOString(),
+      scope: comparison_scope,
+      changes: {
+        breaking_changes: [],
+        new_features: [],
+        deprecated: [],
+        components: {
+          added: [],
+          modified: [],
+          removed: []
+        },
+        styles: {
+          added: [],
+          modified: [],
+          removed: []
+        },
+        accessibility: [],
+        icons: []
+      },
+      migration_guide: include_migration_guide ? this.generateMigrationGuide(version_from, version_to) : null,
+      compatibility_score: 0
+    };
+
+    // Analyser les changements selon le scope demandé
+    for (const scope of comparison_scope) {
+      switch (scope) {
+        case 'components':
+          this.analyzeComponentChanges(version_from, version_to, comparison);
+          break;
+        case 'breaking-changes':
+          this.analyzeBreakingChanges(version_from, version_to, comparison);
+          break;
+        case 'new-features':
+          this.analyzeNewFeatures(version_from, version_to, comparison);
+          break;
+        case 'deprecated':
+          this.analyzeDeprecatedFeatures(version_from, version_to, comparison);
+          break;
+        case 'styles':
+          this.analyzeStyleChanges(version_from, version_to, comparison);
+          break;
+        case 'accessibility':
+          this.analyzeAccessibilityChanges(version_from, version_to, comparison);
+          break;
+        case 'icons':
+          this.analyzeIconChanges(version_from, version_to, comparison);
+          break;
+      }
+    }
+
+    // Calculer le score de compatibilité
+    comparison.compatibility_score = this.calculateCompatibilityScore(comparison);
+
+    return {
+      content: [{
+        type: 'text',
+        text: this.formatVersionComparison(comparison, output_format, include_code_examples)
+      }]
+    };
+  }
+
+  analyzeComponentChanges(versionFrom, versionTo, comparison) {
+    // Simulation de l'analyse des composants (en réalité, cela nécessiterait une base de données des versions)
+    const componentChanges = this.getComponentChangesData(versionFrom, versionTo);
+    
+    comparison.changes.components = {
+      added: componentChanges.added || [],
+      modified: componentChanges.modified || [],
+      removed: componentChanges.removed || []
+    };
+  }
+
+  analyzeBreakingChanges(versionFrom, versionTo, comparison) {
+    const breakingChanges = this.getBreakingChangesData(versionFrom, versionTo);
+    comparison.changes.breaking_changes = breakingChanges || [];
+  }
+
+  analyzeNewFeatures(versionFrom, versionTo, comparison) {
+    const newFeatures = this.getNewFeaturesData(versionFrom, versionTo);
+    comparison.changes.new_features = newFeatures || [];
+  }
+
+  analyzeDeprecatedFeatures(versionFrom, versionTo, comparison) {
+    const deprecated = this.getDeprecatedFeaturesData(versionFrom, versionTo);
+    comparison.changes.deprecated = deprecated || [];
+  }
+
+  analyzeStyleChanges(versionFrom, versionTo, comparison) {
+    const styleChanges = this.getStyleChangesData(versionFrom, versionTo);
+    comparison.changes.styles = styleChanges || { added: [], modified: [], removed: [] };
+  }
+
+  analyzeAccessibilityChanges(versionFrom, versionTo, comparison) {
+    const accessibilityChanges = this.getAccessibilityChangesData(versionFrom, versionTo);
+    comparison.changes.accessibility = accessibilityChanges || [];
+  }
+
+  analyzeIconChanges(versionFrom, versionTo, comparison) {
+    const iconChanges = this.getIconChangesData(versionFrom, versionTo);
+    comparison.changes.icons = iconChanges || [];
+  }
+
+  // Données simulées pour la comparaison (en production, cela viendrait d'une API ou base de données)
+  getComponentChangesData(from, to) {
+    const versionData = {
+      '1.13.0_to_1.14.0': {
+        added: [
+          { name: 'fr-stepper', description: 'Nouveau composant indicateur d\'étapes', category: 'navigation' },
+          { name: 'fr-summary', description: 'Composant sommaire amélioré', category: 'navigation' }
+        ],
+        modified: [
+          { 
+            name: 'fr-button', 
+            description: 'Nouvelles variantes de couleur ajoutées',
+            changes: ['Nouvelle classe fr-btn--tertiary-no-outline', 'Améliorations accessibilité']
+          },
+          {
+            name: 'fr-card',
+            description: 'Structure HTML simplifiée',
+            changes: ['Nouveau markup optionnel', 'Meilleure gestion des images']
+          }
+        ],
+        removed: []
+      },
+      '1.14.0_to_1.15.0': {
+        added: [
+          { name: 'fr-consent-manager', description: 'Gestionnaire de consentement intégré', category: 'utility' }
+        ],
+        modified: [
+          {
+            name: 'fr-modal',
+            description: 'Améliorations d\'accessibilité et performance',
+            changes: ['Gestion du focus améliorée', 'Nouvelles options de personnalisation']
+          }
+        ],
+        removed: [
+          { name: 'fr-legacy-grid', description: 'Ancien système de grille supprimé', replacement: 'fr-grid-row' }
+        ]
+      }
+    };
+
+    const key = `${from}_to_${to}`;
+    return versionData[key] || { added: [], modified: [], removed: [] };
+  }
+
+  getBreakingChangesData(from, to) {
+    const breakingChanges = {
+      '1.13.0_to_1.14.0': [
+        {
+          type: 'css_class_renamed',
+          old_class: 'fr-btn--outline',
+          new_class: 'fr-btn--secondary',
+          impact: 'high',
+          description: 'La classe fr-btn--outline a été renommée en fr-btn--secondary',
+          migration: 'Remplacer toutes les occurrences de fr-btn--outline par fr-btn--secondary'
+        }
+      ],
+      '1.14.0_to_1.15.0': [
+        {
+          type: 'markup_structure',
+          component: 'fr-accordion',
+          description: 'Structure HTML de l\'accordéon modifiée',
+          impact: 'medium',
+          migration: 'Mettre à jour la structure selon la nouvelle documentation'
+        }
+      ]
+    };
+
+    const key = `${from}_to_${to}`;
+    return breakingChanges[key] || [];
+  }
+
+  getNewFeaturesData(from, to) {
+    const newFeatures = {
+      '1.13.0_to_1.14.0': [
+        {
+          name: 'Variables CSS personnalisables',
+          description: 'Nouvelles variables CSS pour personnaliser les couleurs du thème',
+          category: 'theming',
+          example: '--fr-background-color-custom: #f0f0f0;'
+        },
+        {
+          name: 'Support du mode sombre automatique',
+          description: 'Détection automatique de la préférence utilisateur',
+          category: 'accessibility'
+        }
+      ]
+    };
+
+    const key = `${from}_to_${to}`;
+    return newFeatures[key] || [];
+  }
+
+  getDeprecatedFeaturesData(from, to) {
+    const deprecated = {
+      '1.14.0_to_1.15.0': [
+        {
+          feature: 'fr-legacy-button',
+          replacement: 'fr-btn',
+          removal_version: '2.0.0',
+          description: 'Ancien système de boutons déprécié'
+        }
+      ]
+    };
+
+    const key = `${from}_to_${to}`;
+    return deprecated[key] || [];
+  }
+
+  getStyleChangesData(from, to) {
+    return { added: [], modified: [], removed: [] }; // Simplifié pour l'exemple
+  }
+
+  getAccessibilityChangesData(from, to) {
+    const accessibilityChanges = {
+      '1.13.0_to_1.14.0': [
+        {
+          improvement: 'Contrast ratios améliorés',
+          description: 'Tous les composants respectent maintenant WCAG 2.1 AA',
+          impact: 'Meilleure accessibilité pour les utilisateurs malvoyants'
+        }
+      ]
+    };
+
+    const key = `${from}_to_${to}`;
+    return accessibilityChanges[key] || [];
+  }
+
+  getIconChangesData(from, to) {
+    return []; // Simplifié pour l'exemple
+  }
+
+  generateMigrationGuide(from, to) {
+    return {
+      overview: `Guide de migration de DSFR ${from} vers ${to}`,
+      estimated_time: 'Moyenne: 2-4 heures selon la taille du projet',
+      steps: [
+        {
+          step: 1,
+          title: 'Sauvegarde et préparation',
+          description: 'Créer une branche de migration et sauvegarder le projet actuel',
+          actions: [
+            'git checkout -b migration-dsfr-' + to,
+            'Tester le projet actuel',
+            'Documenter les personnalisations existantes'
+          ]
+        },
+        {
+          step: 2,
+          title: 'Mise à jour des dépendances',
+          description: 'Mettre à jour le package DSFR vers la nouvelle version',
+          actions: [
+            'npm update @gouvfr/dsfr@' + to,
+            'Vérifier les dépendances compatibles',
+            'Mettre à jour les imports CSS/JS'
+          ]
+        },
+        {
+          step: 3,
+          title: 'Migration des composants',
+          description: 'Appliquer les changements de structure et classes',
+          actions: [
+            'Identifier les composants affectés',
+            'Appliquer les changements breaking',
+            'Tester chaque composant modifié'
+          ]
+        },
+        {
+          step: 4,
+          title: 'Tests et validation',
+          description: 'Valider la migration et corriger les problèmes',
+          actions: [
+            'Tester l\'ensemble du projet',
+            'Vérifier l\'accessibilité',
+            'Valider la compatibilité navigateurs'
+          ]
+        }
+      ],
+      common_issues: [
+        {
+          issue: 'Classes CSS non reconnues',
+          solution: 'Vérifier la liste des classes dépréciées et utiliser les nouvelles'
+        },
+        {
+          issue: 'Problèmes de mise en page',
+          solution: 'Revoir les modifications du système de grille'
+        }
+      ]
+    };
+  }
+
+  calculateCompatibilityScore(comparison) {
+    let score = 100;
+    
+    // Déduire des points selon l'impact des changements
+    comparison.changes.breaking_changes.forEach(change => {
+      switch (change.impact) {
+        case 'high': score -= 15; break;
+        case 'medium': score -= 8; break;
+        case 'low': score -= 3; break;
+      }
+    });
+
+    // Bonus pour les nouvelles fonctionnalités
+    score += comparison.changes.new_features.length * 2;
+    
+    return Math.max(0, Math.min(100, score));
+  }
+
+  formatVersionComparison(comparison, format, includeExamples) {
+    let output = `# 🔄 Comparaison DSFR ${comparison.versions.from} → ${comparison.versions.to}\n\n`;
+    
+    // Résumé exécutif
+    output += `## 📊 Résumé\n\n`;
+    output += `- **Score de compatibilité** : ${comparison.compatibility_score}/100\n`;
+    output += `- **Changements critiques** : ${comparison.changes.breaking_changes.length}\n`;
+    output += `- **Nouvelles fonctionnalités** : ${comparison.changes.new_features.length}\n`;
+    output += `- **Composants affectés** : ${comparison.changes.components.modified.length}\n`;
+    
+    const migrationComplexity = comparison.compatibility_score > 80 ? 'Facile' : 
+                                comparison.compatibility_score > 60 ? 'Modérée' : 'Complexe';
+    output += `- **Complexité de migration** : ${migrationComplexity}\n\n`;
+
+    if (format === 'summary') {
+      return output + '*Résumé généré par DSFR-MCP v1.4.0*';
+    }
+
+    // Changements critiques
+    if (comparison.changes.breaking_changes.length > 0) {
+      output += `## 🚨 Changements critiques\n\n`;
+      comparison.changes.breaking_changes.forEach((change, index) => {
+        const impactEmoji = { high: '🔴', medium: '🟠', low: '🟡' };
+        output += `### ${index + 1}. ${change.description} ${impactEmoji[change.impact] || '📋'}\n\n`;
+        
+        if (change.old_class && change.new_class) {
+          output += `**Migration** : \`${change.old_class}\` → \`${change.new_class}\`\n\n`;
+        }
+        
+        output += `**Action requise** : ${change.migration}\n\n`;
+        
+        if (includeExamples && change.old_class) {
+          output += '**Avant** :\n```html\n<button class="' + change.old_class + '">Bouton</button>\n```\n\n';
+          output += '**Après** :\n```html\n<button class="' + change.new_class + '">Bouton</button>\n```\n\n';
+        }
+        
+        output += '---\n\n';
+      });
+    }
+
+    // Nouvelles fonctionnalités
+    if (comparison.changes.new_features.length > 0) {
+      output += `## ✨ Nouvelles fonctionnalités\n\n`;
+      comparison.changes.new_features.forEach((feature, index) => {
+        output += `### ${index + 1}. ${feature.name}\n\n`;
+        output += `${feature.description}\n\n`;
+        if (feature.category) output += `**Catégorie** : ${feature.category}\n\n`;
+        if (feature.example && includeExamples) {
+          output += '**Exemple** :\n```css\n' + feature.example + '\n```\n\n';
+        }
+        output += '---\n\n';
+      });
+    }
+
+    // Composants modifiés
+    if (comparison.changes.components.modified.length > 0) {
+      output += `## 🔄 Composants modifiés\n\n`;
+      comparison.changes.components.modified.forEach((component, index) => {
+        output += `### ${index + 1}. ${component.name}\n\n`;
+        output += `${component.description}\n\n`;
+        if (component.changes && component.changes.length > 0) {
+          output += `**Changements** :\n`;
+          component.changes.forEach(change => {
+            output += `- ${change}\n`;
+          });
+          output += '\n';
+        }
+        output += '---\n\n';
+      });
+    }
+
+    // Fonctionnalités dépréciées
+    if (comparison.changes.deprecated.length > 0) {
+      output += `## ⚠️ Fonctionnalités dépréciées\n\n`;
+      comparison.changes.deprecated.forEach((item, index) => {
+        output += `### ${index + 1}. ${item.feature}\n\n`;
+        output += `${item.description}\n\n`;
+        output += `**Remplacement** : ${item.replacement}\n`;
+        output += `**Suppression prévue** : v${item.removal_version}\n\n`;
+        output += '---\n\n';
+      });
+    }
+
+    // Guide de migration
+    if (comparison.migration_guide && format !== 'checklist') {
+      output += `## 📋 Guide de migration\n\n`;
+      output += `**Temps estimé** : ${comparison.migration_guide.estimated_time}\n\n`;
+      
+      comparison.migration_guide.steps.forEach(step => {
+        output += `### Étape ${step.step}: ${step.title}\n\n`;
+        output += `${step.description}\n\n`;
+        output += `**Actions** :\n`;
+        step.actions.forEach(action => {
+          output += `- ${action}\n`;
+        });
+        output += '\n';
+      });
+
+      // Problèmes courants
+      if (comparison.migration_guide.common_issues.length > 0) {
+        output += `### Problèmes courants\n\n`;
+        comparison.migration_guide.common_issues.forEach(issue => {
+          output += `**${issue.issue}** : ${issue.solution}\n\n`;
+        });
+      }
+    }
+
+    // Format checklist
+    if (format === 'checklist') {
+      output += `## ✅ Checklist de migration\n\n`;
+      output += `- [ ] Créer une branche de migration\n`;
+      output += `- [ ] Mettre à jour les dépendances DSFR\n`;
+      comparison.changes.breaking_changes.forEach(change => {
+        output += `- [ ] ${change.migration}\n`;
+      });
+      output += `- [ ] Tester tous les composants\n`;
+      output += `- [ ] Valider l'accessibilité\n`;
+      output += `- [ ] Merger la migration\n\n`;
+    }
+
+    output += `---\n\n`;
+    output += `*Comparaison générée par DSFR-MCP v1.4.0 le ${new Date().toLocaleDateString('fr-FR')}*`;
+    
+    return output;
+  }
 }
 
 module.exports = DocumentationService;

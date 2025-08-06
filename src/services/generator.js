@@ -2171,6 +2171,592 @@ function handleClick(event) {
     
     return output;
   }
+
+  // 🆕 Phase 3.1 - Export de documentation DSFR
+  async exportDocumentation({
+    export_format = 'markdown',
+    components = [],
+    include_examples = true,
+    include_accessibility = true,
+    include_design_tokens = false,
+    template_style = 'standard',
+    custom_branding = {},
+    filters = {}
+  }) {
+    // Initialiser le service de documentation si nécessaire
+    if (!this.docService) {
+      const DocumentationService = require('./documentation');
+      this.docService = new DocumentationService();
+      await this.docService.initialize();
+    }
+
+    const exportData = {
+      meta: {
+        generated_at: new Date().toISOString(),
+        format: export_format,
+        style: template_style,
+        version: '1.4.0',
+        total_components: 0
+      },
+      branding: {
+        title: custom_branding.title || 'Documentation DSFR',
+        logo_url: custom_branding.logo_url || null,
+        footer_text: custom_branding.footer_text || 'Généré avec DSFR-MCP',
+        primary_color: custom_branding.primary_color || '#000091'
+      },
+      content: {
+        introduction: this.generateIntroduction(template_style),
+        components: [],
+        design_tokens: include_design_tokens ? this.generateDesignTokens() : null,
+        appendix: this.generateAppendix(include_accessibility)
+      }
+    };
+
+    // Obtenir la liste des composants à exporter
+    const componentList = await this.getComponentsToExport(components, filters);
+    exportData.meta.total_components = componentList.length;
+
+    // Générer la documentation pour chaque composant
+    for (const componentId of componentList) {
+      const componentDoc = await this.generateComponentDocumentation(
+        componentId, 
+        { include_examples, include_accessibility, template_style }
+      );
+      exportData.content.components.push(componentDoc);
+    }
+
+    // Formater selon le format demandé
+    const formattedOutput = await this.formatExportOutput(exportData, export_format);
+
+    return {
+      content: [{
+        type: 'text',
+        text: formattedOutput
+      }]
+    };
+  }
+
+  async getComponentsToExport(components, filters) {
+    // Liste par défaut des composants DSFR
+    const allComponents = [
+      'button', 'input', 'select', 'textarea', 'checkbox', 'radio',
+      'accordion', 'alert', 'badge', 'breadcrumb', 'card', 'header',
+      'footer', 'modal', 'navigation', 'pagination', 'sidemenu',
+      'stepper', 'summary', 'table', 'tabs', 'tag', 'tile', 'tooltip'
+    ];
+
+    let selectedComponents = components.length > 0 ? components : allComponents;
+
+    // Appliquer les filtres
+    if (filters.categories && filters.categories.length > 0) {
+      const categoryMap = {
+        'core': ['button', 'input', 'select', 'textarea'],
+        'component': ['accordion', 'alert', 'badge', 'card', 'modal', 'tabs'],
+        'layout': ['header', 'footer', 'navigation', 'breadcrumb'],
+        'utility': ['tag', 'tooltip', 'stepper', 'pagination']
+      };
+
+      const allowedComponents = [];
+      filters.categories.forEach(category => {
+        if (categoryMap[category]) {
+          allowedComponents.push(...categoryMap[category]);
+        }
+      });
+
+      selectedComponents = selectedComponents.filter(comp => allowedComponents.includes(comp));
+    }
+
+    return selectedComponents.sort();
+  }
+
+  generateIntroduction(style) {
+    const intros = {
+      minimal: {
+        title: 'Guide DSFR',
+        content: 'Documentation des composants du Système de Design de l\'État Français.'
+      },
+      standard: {
+        title: 'Documentation DSFR - Système de Design de l\'État',
+        content: `Ce guide présente l'ensemble des composants du Système de Design de l'État Français (DSFR).
+
+Le DSFR est la traduction concrète de l'identité de l'État conçue pour favoriser l'adoption d'une expérience numérique accessible, cohérente et harmonisée pour toutes les démarches numériques de l'État.`
+      },
+      detailed: {
+        title: 'Documentation Complète DSFR',
+        content: `# Système de Design de l'État Français
+
+## À propos du DSFR
+
+Le Système de Design de l'État Français (DSFR) est un ensemble cohérent de composants, de modèles et de bonnes pratiques, mis au service des équipes qui créent les services numériques de l'État.
+
+## Objectifs
+
+- **Cohérence** : Assurer une expérience utilisateur harmonisée
+- **Accessibilité** : Respecter les standards RGAA et WCAG
+- **Efficacité** : Accélérer la conception et le développement
+- **Qualité** : Maintenir un haut niveau de qualité
+
+## Utilisation
+
+Cette documentation présente chaque composant avec ses variantes, ses règles d'usage et ses exemples d'implémentation.`
+      }
+    };
+
+    return intros[style] || intros.standard;
+  }
+
+  async generateComponentDocumentation(componentId, options) {
+    const { include_examples, include_accessibility, template_style } = options;
+
+    // Générer la documentation de base du composant
+    const baseDoc = await this.docService.generateDSFRComponent(componentId, {
+      include_examples,
+      include_accessibility,
+      detailed: template_style === 'detailed'
+    });
+
+    // Parser le contenu markdown pour extraire les sections
+    const sections = this.parseMarkdownSections(baseDoc.content[0].text);
+
+    return {
+      id: componentId,
+      name: this.getComponentDisplayName(componentId),
+      category: this.getComponentCategory(componentId),
+      sections: sections,
+      examples: include_examples ? this.generateComponentExamples(componentId) : [],
+      accessibility: include_accessibility ? this.generateAccessibilityInfo(componentId) : null
+    };
+  }
+
+  parseMarkdownSections(markdown) {
+    const sections = {};
+    const lines = markdown.split('\n');
+    let currentSection = '';
+    let currentContent = [];
+
+    lines.forEach(line => {
+      if (line.startsWith('## ')) {
+        // Sauvegarder la section précédente
+        if (currentSection && currentContent.length > 0) {
+          sections[currentSection] = currentContent.join('\n');
+        }
+        // Commencer une nouvelle section
+        currentSection = line.replace('## ', '').toLowerCase().replace(/\s+/g, '_');
+        currentContent = [];
+      } else {
+        currentContent.push(line);
+      }
+    });
+
+    // Sauvegarder la dernière section
+    if (currentSection && currentContent.length > 0) {
+      sections[currentSection] = currentContent.join('\n');
+    }
+
+    return sections;
+  }
+
+  generateComponentExamples(componentId) {
+    return [
+      {
+        title: 'Exemple de base',
+        framework: 'html',
+        code: this.getBasicExample(componentId)
+      },
+      {
+        title: 'Avec variations',
+        framework: 'html',
+        code: this.getVariationExample(componentId)
+      }
+    ];
+  }
+
+  getBasicExample(componentId) {
+    const examples = {
+      button: '<button class="fr-btn">Bouton</button>',
+      input: '<div class="fr-input-group">\n  <label class="fr-label" for="input">Libellé</label>\n  <input class="fr-input" type="text" id="input" name="input">\n</div>',
+      alert: '<div class="fr-alert fr-alert--info">\n  <h3 class="fr-alert__title">Information</h3>\n  <p>Message d\'information</p>\n</div>',
+      card: '<div class="fr-card">\n  <div class="fr-card__body">\n    <div class="fr-card__content">\n      <h3 class="fr-card__title">Titre de la carte</h3>\n      <p class="fr-card__desc">Description de la carte</p>\n    </div>\n  </div>\n</div>'
+    };
+
+    return examples[componentId] || `<div class="fr-${componentId}">Exemple ${componentId}</div>`;
+  }
+
+  getVariationExample(componentId) {
+    const variations = {
+      button: '<button class="fr-btn fr-btn--secondary">Secondaire</button>\n<button class="fr-btn fr-btn--tertiary">Tertiaire</button>',
+      alert: '<div class="fr-alert fr-alert--success">\n  <h3 class="fr-alert__title">Succès</h3>\n  <p>Opération réussie</p>\n</div>',
+      badge: '<span class="fr-badge fr-badge--info">Info</span>\n<span class="fr-badge fr-badge--success">Succès</span>'
+    };
+
+    return variations[componentId] || this.getBasicExample(componentId);
+  }
+
+  generateAccessibilityInfo(componentId) {
+    const accessibilityData = {
+      button: {
+        requirements: ['Texte descriptif', 'États focus/hover/active', 'Navigation clavier'],
+        aria_attributes: ['aria-label', 'aria-describedby'],
+        keyboard_navigation: 'Espace, Entrée pour activer'
+      },
+      input: {
+        requirements: ['Label associé', 'Messages d\'erreur', 'Instructions'],
+        aria_attributes: ['aria-describedby', 'aria-invalid', 'aria-required'],
+        keyboard_navigation: 'Tab pour naviguer, Entrée pour valider'
+      }
+    };
+
+    return accessibilityData[componentId] || {
+      requirements: ['Navigation clavier', 'Contraste suffisant'],
+      aria_attributes: [],
+      keyboard_navigation: 'Tab pour naviguer'
+    };
+  }
+
+  generateDesignTokens() {
+    return {
+      colors: {
+        primary: {
+          'blue-france': '#000091',
+          'blue-france-sun': '#1212FF',
+          'blue-france-main': '#6A6AF4'
+        },
+        functional: {
+          'success': '#18753C',
+          'warning': '#B34000',
+          'error': '#CE0500',
+          'info': '#0063CB'
+        }
+      },
+      spacing: {
+        'xs': '0.25rem',
+        'sm': '0.5rem',
+        'md': '1rem',
+        'lg': '1.5rem',
+        'xl': '2rem'
+      },
+      typography: {
+        'font-family': 'Marianne, system-ui, sans-serif',
+        'font-size-sm': '0.875rem',
+        'font-size-md': '1rem',
+        'font-size-lg': '1.125rem'
+      }
+    };
+  }
+
+  generateAppendix(includeAccessibility) {
+    let appendix = {
+      resources: {
+        title: 'Ressources utiles',
+        links: [
+          { title: 'Site officiel DSFR', url: 'https://www.systeme-de-design.gouv.fr/' },
+          { title: 'GitHub DSFR', url: 'https://github.com/GouvernementFR/dsfr' },
+          { title: 'Documentation technique', url: 'https://www.systeme-de-design.gouv.fr/utilisation-et-organisation/developpeurs/' }
+        ]
+      }
+    };
+
+    if (includeAccessibility) {
+      appendix.accessibility = {
+        title: 'Guide d\'accessibilité',
+        content: `## Principes d'accessibilité DSFR
+
+### Conformité RGAA
+Tous les composants DSFR respectent les critères du RGAA 4.1 (niveau AA).
+
+### Tests recommandés
+- Navigation au clavier complète
+- Test avec lecteurs d'écran
+- Vérification des contrastes
+- Validation du code HTML
+
+### Outils utiles
+- aXe DevTools pour les tests automatisés
+- NVDA/JAWS pour les tests utilisateur
+- Colour Contrast Analyser pour les contrastes`
+      };
+    }
+
+    return appendix;
+  }
+
+  async formatExportOutput(exportData, format) {
+    switch (format) {
+      case 'markdown':
+        return this.formatMarkdown(exportData);
+      case 'html':
+        return this.formatHTML(exportData);
+      case 'json':
+        return this.formatJSON(exportData);
+      case 'pdf-ready':
+        return this.formatPDFReady(exportData);
+      default:
+        return this.formatMarkdown(exportData);
+    }
+  }
+
+  formatMarkdown(exportData) {
+    let output = `# ${exportData.branding.title}\n\n`;
+    
+    // Introduction
+    if (exportData.content.introduction.content) {
+      output += exportData.content.introduction.content + '\n\n';
+    }
+
+    // Table des matières
+    output += '## Table des matières\n\n';
+    exportData.content.components.forEach((component, index) => {
+      output += `${index + 1}. [${component.name}](#${component.id})\n`;
+    });
+    output += '\n';
+
+    // Design tokens
+    if (exportData.content.design_tokens) {
+      output += '## Design Tokens\n\n';
+      output += this.formatDesignTokensMarkdown(exportData.content.design_tokens);
+      output += '\n';
+    }
+
+    // Composants
+    exportData.content.components.forEach(component => {
+      output += `## ${component.name} {#${component.id}}\n\n`;
+      
+      if (component.sections.description) {
+        output += component.sections.description + '\n\n';
+      }
+
+      // Exemples
+      if (component.examples && component.examples.length > 0) {
+        output += '### Exemples\n\n';
+        component.examples.forEach(example => {
+          output += `#### ${example.title}\n\n`;
+          output += '```' + example.framework + '\n';
+          output += example.code + '\n';
+          output += '```\n\n';
+        });
+      }
+
+      // Accessibilité
+      if (component.accessibility) {
+        output += '### Accessibilité\n\n';
+        output += `**Exigences** : ${component.accessibility.requirements.join(', ')}\n\n`;
+        if (component.accessibility.aria_attributes.length > 0) {
+          output += `**Attributs ARIA** : ${component.accessibility.aria_attributes.join(', ')}\n\n`;
+        }
+        output += `**Navigation clavier** : ${component.accessibility.keyboard_navigation}\n\n`;
+      }
+
+      output += '---\n\n';
+    });
+
+    // Annexes
+    if (exportData.content.appendix) {
+      output += this.formatAppendixMarkdown(exportData.content.appendix);
+    }
+
+    // Footer
+    output += `\n---\n\n*${exportData.branding.footer_text}*\n`;
+    output += `*Généré le ${new Date().toLocaleDateString('fr-FR')}*`;
+
+    return output;
+  }
+
+  formatHTML(exportData) {
+    let html = `<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${exportData.branding.title}</title>
+  <style>
+    body { font-family: Marianne, system-ui, sans-serif; line-height: 1.6; max-width: 1200px; margin: 0 auto; padding: 2rem; }
+    h1 { color: ${exportData.branding.primary_color}; border-bottom: 3px solid ${exportData.branding.primary_color}; }
+    h2 { color: #333; margin-top: 2rem; }
+    code { background: #f5f5f5; padding: 0.2rem 0.4rem; border-radius: 3px; }
+    pre { background: #f5f5f5; padding: 1rem; border-radius: 5px; overflow-x: auto; }
+    .component { border: 1px solid #ddd; border-radius: 5px; padding: 1rem; margin: 1rem 0; }
+    .meta { color: #666; font-size: 0.9rem; text-align: right; margin-top: 2rem; }
+  </style>
+</head>
+<body>`;
+
+    html += `<h1>${exportData.branding.title}</h1>`;
+    
+    if (exportData.content.introduction.content) {
+      html += `<div class="introduction">${this.markdownToHTML(exportData.content.introduction.content)}</div>`;
+    }
+
+    // Composants
+    exportData.content.components.forEach(component => {
+      html += `<div class="component" id="${component.id}">`;
+      html += `<h2>${component.name}</h2>`;
+      
+      if (component.sections.description) {
+        html += this.markdownToHTML(component.sections.description);
+      }
+
+      if (component.examples && component.examples.length > 0) {
+        html += '<h3>Exemples</h3>';
+        component.examples.forEach(example => {
+          html += `<h4>${example.title}</h4>`;
+          html += `<pre><code>${this.escapeHTML(example.code)}</code></pre>`;
+        });
+      }
+
+      html += '</div>';
+    });
+
+    html += `<div class="meta">${exportData.branding.footer_text}<br>Généré le ${new Date().toLocaleDateString('fr-FR')}</div>`;
+    html += '</body></html>';
+
+    return html;
+  }
+
+  formatJSON(exportData) {
+    return JSON.stringify(exportData, null, 2);
+  }
+
+  formatPDFReady(exportData) {
+    // Format optimisé pour conversion PDF
+    let output = this.formatHTML(exportData);
+    
+    // Ajouter des styles PDF-friendly
+    const pdfStyles = `
+    @media print {
+      body { margin: 0; padding: 1cm; font-size: 12pt; }
+      h1 { page-break-before: always; }
+      .component { page-break-inside: avoid; }
+      pre { font-size: 10pt; }
+    }
+    `;
+    
+    output = output.replace('</style>', pdfStyles + '</style>');
+    return output;
+  }
+
+  formatDesignTokensMarkdown(tokens) {
+    let output = '';
+    
+    Object.entries(tokens).forEach(([category, values]) => {
+      output += `### ${category.charAt(0).toUpperCase() + category.slice(1)}\n\n`;
+      
+      Object.entries(values).forEach(([key, value]) => {
+        if (typeof value === 'object') {
+          output += `**${key}** :\n`;
+          Object.entries(value).forEach(([subKey, subValue]) => {
+            output += `- \`${subKey}\`: ${subValue}\n`;
+          });
+        } else {
+          output += `- \`${key}\`: ${value}\n`;
+        }
+      });
+      output += '\n';
+    });
+    
+    return output;
+  }
+
+  formatAppendixMarkdown(appendix) {
+    let output = '## Annexes\n\n';
+    
+    Object.entries(appendix).forEach(([key, section]) => {
+      output += `### ${section.title}\n\n`;
+      
+      if (section.content) {
+        output += section.content + '\n\n';
+      }
+      
+      if (section.links) {
+        section.links.forEach(link => {
+          output += `- [${link.title}](${link.url})\n`;
+        });
+        output += '\n';
+      }
+    });
+    
+    return output;
+  }
+
+  // Utilitaires
+  markdownToHTML(markdown) {
+    return markdown
+      .replace(/### (.*)/g, '<h3>$1</h3>')
+      .replace(/## (.*)/g, '<h2>$1</h2>')
+      .replace(/# (.*)/g, '<h1>$1</h1>')
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.*?)\*/g, '<em>$1</em>')
+      .replace(/`(.*?)`/g, '<code>$1</code>')
+      .replace(/\n\n/g, '</p><p>')
+      .replace(/^(.)/gm, '<p>$1')
+      .replace(/(.)\n$/gm, '$1</p>');
+  }
+
+  escapeHTML(text) {
+    return text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  getComponentDisplayName(componentId) {
+    const names = {
+      'button': 'Bouton',
+      'input': 'Champ de saisie',
+      'select': 'Liste déroulante',
+      'textarea': 'Zone de texte',
+      'checkbox': 'Case à cocher',
+      'radio': 'Bouton radio',
+      'accordion': 'Accordéon',
+      'alert': 'Alerte',
+      'badge': 'Badge',
+      'breadcrumb': 'Fil d\'Ariane',
+      'card': 'Carte',
+      'header': 'En-tête',
+      'footer': 'Pied de page',
+      'modal': 'Modale',
+      'navigation': 'Navigation',
+      'pagination': 'Pagination',
+      'sidemenu': 'Menu latéral',
+      'stepper': 'Indicateur d\'étapes',
+      'summary': 'Sommaire',
+      'table': 'Tableau',
+      'tabs': 'Onglets',
+      'tag': 'Tag',
+      'tile': 'Tuile',
+      'tooltip': 'Info-bulle'
+    };
+
+    return names[componentId] || componentId.charAt(0).toUpperCase() + componentId.slice(1);
+  }
+
+  getComponentCategory(componentId) {
+    const categories = {
+      'button': 'core',
+      'input': 'core',
+      'select': 'core',
+      'textarea': 'core',
+      'checkbox': 'core',
+      'radio': 'core',
+      'accordion': 'component',
+      'alert': 'component',
+      'badge': 'component',
+      'card': 'component',
+      'modal': 'component',
+      'tabs': 'component',
+      'header': 'layout',
+      'footer': 'layout',
+      'navigation': 'layout',
+      'breadcrumb': 'layout',
+      'tag': 'utility',
+      'tooltip': 'utility',
+      'stepper': 'utility',
+      'pagination': 'utility'
+    };
+
+    return categories[componentId] || 'component';
+  }
 }
 
 module.exports = GeneratorService;
