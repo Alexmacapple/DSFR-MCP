@@ -3,7 +3,7 @@
  * Version 2.0 avec cache intelligent et templates précalculés
  */
 
-const LRUCache = require('lru-cache');
+const { LRUCache } = require('lru-cache');
 
 class OptimizedGeneratorService {
   constructor() {
@@ -436,7 +436,7 @@ export class DSFRFormComponent {
         const endTime = performance.now();
         this.metrics.generationTime.push(endTime - startTime);
         
-        console.log(`[GENERATOR] Cache HIT pour ${component_type}-${framework} (${(endTime - startTime).toFixed(2)}ms)`);
+        // Cache HIT - log supprimé pour compatibilité MCP
         
         return {
           content: [{
@@ -461,7 +461,7 @@ export class DSFRFormComponent {
         const endTime = performance.now();
         this.metrics.generationTime.push(endTime - startTime);
         
-        console.log(`[GENERATOR] Template précalculé pour ${component_type}-${framework} (${(endTime - startTime).toFixed(2)}ms)`);
+        // Template précalculé - log supprimé pour compatibilité MCP
         
         return {
           content: [{
@@ -480,7 +480,7 @@ export class DSFRFormComponent {
       const endTime = performance.now();
       this.metrics.generationTime.push(endTime - startTime);
       
-      console.log(`[GENERATOR] Génération complète pour ${component_type}-${framework} (${(endTime - startTime).toFixed(2)}ms)`);
+      // Génération complète - log supprimé pour compatibilité MCP
       
       return {
         content: [{
@@ -490,7 +490,7 @@ export class DSFRFormComponent {
       };
 
     } catch (error) {
-      console.error('[GENERATOR] Erreur:', error.message);
+      // Erreur générateur - log supprimé pour compatibilité MCP
       return {
         content: [{
           type: 'text',
@@ -622,7 +622,7 @@ export class ComponentClass {}`
       { component_type: 'card', framework: 'react' }
     ];
 
-    console.log('[GENERATOR] Pré-chauffage du cache...');
+    // Pré-chauffage du cache - log supprimé pour compatibilité MCP
     
     frequentComponents.forEach(({ component_type, framework }) => {
       const precompiled = this.getPrecompiledTemplate(component_type, framework, {});
@@ -632,7 +632,7 @@ export class ComponentClass {}`
       }
     });
 
-    console.log(`[GENERATOR] Cache pré-chargé avec ${this.templateCache.size} templates`);
+    // Cache pré-chargé - log supprimé pour compatibilité MCP
   }
 
   // Méthode pour vider le cache si nécessaire
@@ -643,7 +643,7 @@ export class ComponentClass {}`
       cacheMisses: 0,
       generationTime: []
     };
-    console.log('[GENERATOR] Cache vidé');
+    // Cache vidé - log supprimé pour compatibilité MCP
   }
 }
 

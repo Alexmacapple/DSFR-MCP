@@ -11,6 +11,11 @@ const {
   ListToolsRequestSchema,
 } = require('@modelcontextprotocol/sdk/types.js');
 
+// Logger conditionnel pour éviter la pollution JSON-RPC en mode MCP
+const isMCPMode = process.argv.includes('--mcp') || process.env.MCP_CLIENT || (!process.stdin.isTTY && process.stdin.readable);
+const logError = isMCPMode ? () => {} : logError;
+const logInfo = isMCPMode ? () => {} : console.log;
+
 // Imports des configurations et services avec gestion d'erreur
 let config, DocumentationService, ValidationService, GeneratorService, TemplateService, AccessibilityService;
 
@@ -22,7 +27,7 @@ try {
   TemplateService = require('./services/template');
   AccessibilityService = require('./services/accessibility');
 } catch (error) {
-  console.error('[DOCKER] Erreur lors du chargement des dépendances:', error.message);
+  logError('[DOCKER] Erreur lors du chargement des dépendances:', error.message);
   // Fallback vers configuration minimale
   config = {
     server: { name: 'dsfr-mcp', version: '1.3.0' },
@@ -48,9 +53,9 @@ async function initializeServices() {
     if (AccessibilityService) accessibilityService = new AccessibilityService();
     
     servicesInitialized = true;
-    console.error('[DOCKER] Services initialisés avec succès');
+    logError('[DOCKER] Services initialisés avec succès');
   } catch (error) {
-    console.error('[DOCKER] Erreur lors de l\'initialisation des services:', error.message);
+    logError('[DOCKER] Erreur lors de l\'initialisation des services:', error.message);
     // Services de fallback simulés
     docService = createFallbackDocService();
     validationService = createFallbackValidationService();
@@ -58,7 +63,7 @@ async function initializeServices() {
     templateService = createFallbackTemplateService();
     accessibilityService = createFallbackAccessibilityService();
     servicesInitialized = true;
-    console.error('[DOCKER] Services fallback activés');
+    logError('[DOCKER] Services fallback activés');
   }
 }
 
@@ -671,7 +676,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         throw new Error(`Outil inconnu: ${name}`);
     }
   } catch (error) {
-    console.error(`[DOCKER] Erreur outil ${name}:`, error.message);
+    logError(`[DOCKER] Erreur outil ${name}:`, error.message);
     return {
       content: [{
         type: 'text',
@@ -683,29 +688,29 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
 // Gestion robuste des erreurs Docker
 process.on('uncaughtException', (error) => {
-  console.error('[DOCKER] Erreur non gérée:', error.message);
+  logError('[DOCKER] Erreur non gérée:', error.message);
   // Délai pour éviter les boucles infinites
   setTimeout(() => process.exit(1), 2000);
 });
 
 process.on('unhandledRejection', (error) => {
-  console.error('[DOCKER] Promesse rejetée:', error);
+  logError('[DOCKER] Promesse rejetée:', error);
   setTimeout(() => process.exit(1), 2000);
 });
 
 process.on('SIGTERM', () => {
-  console.error('[DOCKER] Signal SIGTERM - Arrêt gracieux');
+  logError('[DOCKER] Signal SIGTERM - Arrêt gracieux');
   process.exit(0);
 });
 
 process.on('SIGINT', () => {
-  console.error('[DOCKER] Signal SIGINT - Arrêt gracieux'); 
+  logError('[DOCKER] Signal SIGINT - Arrêt gracieux'); 
   process.exit(0);
 });
 
 // Initialisation principale Docker Production
 async function main() {
-  console.error('🐳 [PRODUCTION] Démarrage MCP DSFR Docker PRODUCTION...');
+  logError('🐳 [PRODUCTION] Démarrage MCP DSFR Docker PRODUCTION...');
   
   try {
     // Initialisation des services avec gestion d'erreur
@@ -715,25 +720,43 @@ async function main() {
     const transport = new StdioServerTransport();
     await server.connect(transport);
     
-    console.error('✅ [PRODUCTION] MCP DSFR Docker PRODUCTION connecté avec tous les services !');
-    console.error(`📊 [PRODUCTION] ${servicesInitialized ? 'Services complets' : 'Services fallback'} activés`);
+    logError('✅ [PRODUCTION] MCP DSFR Docker PRODUCTION connecté avec tous les services !');
+    logError(`📊 [PRODUCTION] ${servicesInitialized ? 'Services complets' : 'Services fallback'} activés`);
     
-    // Keep-alive production avec monitoring (désactivé en mode stdio pour Claude Desktop)
-    // Note: Le keep-alive interfère avec la communication MCP stdio
-    // setInterval(() => {
-    //   const timestamp = new Date().toISOString();
-    //   const status = servicesInitialized ? 'SERVICES_OK' : 'FALLBACK_MODE';
-    //   console.error(`[${timestamp}] [PRODUCTION] MCP Docker alive - Status: ${status} - 15 outils actifs`);
-    // }, 60000);
+    // Keep-alive intelligent selon le mode d'exécution
+    const hasStdin = process.stdin.readable || !process.stdin.isTTY;
+    if (hasStdin && (process.stdin.isTTY || process.env.MCP_CLIENT || process.argv.includes('--mcp'))) {
+      // Mode MCP interactif : utiliser stdin pour MCP
+      process.stdin.resume();
+      logError('📡 [PRODUCTION] Mode MCP : attente des commandes sur stdin');
+    } else {
+      // Mode daemon : utiliser un timer pour maintenir le processus actif
+      logError('⚡ [PRODUCTION] Mode daemon : maintien du processus actif');
+      setInterval(() => {
+        // Heartbeat silencieux toutes les 30 secondes
+        process.stdout.write(''); // Ne rien écrire pour ne pas interférer avec MCP
+      }, 30000);
+      
+      // Écouter les signaux de fermeture proprement
+      process.on('SIGTERM', () => {
+        logError('🔄 [PRODUCTION] Signal SIGTERM reçu, fermeture propre...');
+        process.exit(0);
+      });
+      
+      process.on('SIGINT', () => {
+        logError('🔄 [PRODUCTION] Signal SIGINT reçu, fermeture propre...');
+        process.exit(0);
+      });
+    }
     
   } catch (error) {
-    console.error('[DOCKER] [PRODUCTION] Erreur fatale lors de l\'initialisation:', error.message);
+    logError('[DOCKER] [PRODUCTION] Erreur fatale lors de l\'initialisation:', error.message);
     process.exit(1);
   }
 }
 
 // Démarrage avec gestion d'erreur robuste
 main().catch((error) => {
-  console.error('[DOCKER] [PRODUCTION] Erreur critique:', error.message);
+  logError('[DOCKER] [PRODUCTION] Erreur critique:', error.message);
   process.exit(1);
 });

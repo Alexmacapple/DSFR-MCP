@@ -50,6 +50,7 @@
     "gray-matter": "^4.0.3",
     "js-yaml": "^4.1.0",
     "jsdom": "^23.0.0",
+    "lru-cache": "^11.1.0",
     "marked": "^9.1.0",
     "ora": "^5.4.1",
     "prettier": "^3.2.5"
