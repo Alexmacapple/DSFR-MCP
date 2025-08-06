@@ -62,11 +62,11 @@ build/
 *.tar
 *.rar
 
-# Fichiers temporaires du projet
-quick-benchmark.js
-benchmark-parser-v2.js
-debug-server.js
-simple-mcp-test.js
+# Scripts de développement (maintenant dans scripts/)
+scripts/quick-benchmark.js
+scripts/benchmark-parser-v2.js
+scripts/debug-server.js
+scripts/test-mcp.js
 test-*.js
 
 # Conserver les données essentielles

@@ -13,7 +13,7 @@
     "test:schemas": "jest --testPathPattern=test/unit/schemas",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "test:mcp": "node test-mcp.js",
+    "test:mcp": "node scripts/test-mcp.js",
     "test:all": "npm run test:unit && npm run test:integration && npm run test:performance",
     "build:index": "node scripts/build-index.js",
     "validate": "node scripts/validate-html.js",
@@ -25,8 +25,8 @@
     "lint:check": "eslint src/ --max-warnings 0",
     "security:audit": "npm audit --audit-level=high",
     "quality:check": "npm run lint:check && npm run test:coverage",
-    "benchmark": "node benchmark-parser-v2.js",
-    "quick-benchmark": "node quick-benchmark.js"
+    "benchmark": "node scripts/benchmark-parser-v2.js",
+    "quick-benchmark": "node scripts/quick-benchmark.js"
   },
   "keywords": [
     "mcp",
