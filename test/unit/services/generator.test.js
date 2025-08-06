@@ -1,10 +1,13 @@
 const GeneratorService = require('../../../src/services/generator');
 
 // Mock du parser DSFR
+const mockParseSourceFile = jest.fn();
+const mockGetComponent = jest.fn();
+
 jest.mock('../../../src/services/dsfr-source-parser-silent', () => {
   return jest.fn().mockImplementation(() => ({
-    parseSourceFile: jest.fn(),
-    getComponent: jest.fn()
+    parseSourceFile: mockParseSourceFile,
+    getComponent: mockGetComponent
   }));
 });
 
@@ -14,7 +17,10 @@ describe('GeneratorService', () => {
   
   beforeEach(() => {
     service = new GeneratorService();
-    mockParser = service.sourceParser;
+    mockParser = {
+      parseSourceFile: mockParseSourceFile,
+      getComponent: mockGetComponent
+    };
     jest.clearAllMocks();
   });
   
@@ -28,13 +34,13 @@ describe('GeneratorService', () => {
   describe('initialize', () => {
     it('should initialize the source parser', async () => {
       // Arrange
-      mockParser.parseSourceFile.mockResolvedValue();
+      mockParseSourceFile.mockResolvedValue();
       
       // Act
       await service.initialize();
       
       // Assert
-      expect(mockParser.parseSourceFile).toHaveBeenCalledTimes(1);
+      expect(mockParseSourceFile).toHaveBeenCalledTimes(1);
       expect(service.initialized).toBe(true);
     });
     
@@ -46,7 +52,7 @@ describe('GeneratorService', () => {
       await service.initialize();
       
       // Assert
-      expect(mockParser.parseSourceFile).not.toHaveBeenCalled();
+      expect(mockParseSourceFile).not.toHaveBeenCalled();
     });
   });
   
@@ -65,12 +71,12 @@ describe('GeneratorService', () => {
     };
     
     beforeEach(() => {
-      mockParser.parseSourceFile.mockResolvedValue();
+      mockParseSourceFile.mockResolvedValue();
     });
     
     it('should generate vanilla component successfully', async () => {
       // Arrange
-      mockParser.getComponent.mockReturnValue(mockComponent);
+      mockGetComponent.mockReturnValue(mockComponent);
       
       // Act
       const result = await service.generateComponent({
@@ -88,7 +94,7 @@ describe('GeneratorService', () => {
     
     it('should generate React component', async () => {
       // Arrange
-      mockParser.getComponent.mockReturnValue(mockComponent);
+      mockGetComponent.mockReturnValue(mockComponent);
       
       // Act
       const result = await service.generateComponent({
@@ -104,7 +110,7 @@ describe('GeneratorService', () => {
     
     it('should generate Vue component', async () => {
       // Arrange
-      mockParser.getComponent.mockReturnValue(mockComponent);
+      mockGetComponent.mockReturnValue(mockComponent);
       
       // Act
       const result = await service.generateComponent({
@@ -119,7 +125,7 @@ describe('GeneratorService', () => {
     
     it('should generate Angular component', async () => {
       // Arrange
-      mockParser.getComponent.mockReturnValue(mockComponent);
+      mockGetComponent.mockReturnValue(mockComponent);
       
       // Act
       const result = await service.generateComponent({
@@ -134,7 +140,7 @@ describe('GeneratorService', () => {
     
     it('should handle non-existent component', async () => {
       // Arrange
-      mockParser.getComponent.mockReturnValue(null);
+      mockGetComponent.mockReturnValue(null);
       
       // Act
       const result = await service.generateComponent({
@@ -147,7 +153,7 @@ describe('GeneratorService', () => {
     
     it('should handle unsupported framework', async () => {
       // Arrange
-      mockParser.getComponent.mockReturnValue(mockComponent);
+      mockGetComponent.mockReturnValue(mockComponent);
       
       // Act
       const result = await service.generateComponent({
@@ -161,7 +167,7 @@ describe('GeneratorService', () => {
     
     it('should use default framework when not specified', async () => {
       // Arrange
-      mockParser.getComponent.mockReturnValue(mockComponent);
+      mockGetComponent.mockReturnValue(mockComponent);
       
       // Act
       const result = await service.generateComponent({
