@@ -218,6 +218,145 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
             format: { type: 'string', enum: ['hex', 'rgb', 'hsl'], default: 'hex' }
           }
         }
+      },
+
+      // 🆕 NOUVEAUX OUTILS AVANCÉS - Phase 3.1
+      {
+        name: 'analyze_dsfr_usage',
+        description: 'Analyse l\'utilisation du DSFR dans un code source et fournit des recommandations détaillées',
+        inputSchema: {
+          type: 'object',
+          properties: {
+            source_code: { 
+              type: 'string', 
+              minLength: 1,
+              maxLength: 100000,
+              description: 'Code source à analyser (HTML, CSS, JS)' 
+            },
+            project_type: { 
+              type: 'string', 
+              enum: ['vanilla', 'react', 'vue', 'angular', 'auto-detect'],
+              default: 'auto-detect',
+              description: 'Type de projet à analyser'
+            },
+            analysis_depth: {
+              type: 'string',
+              enum: ['basic', 'detailed', 'comprehensive'],
+              default: 'detailed',
+              description: 'Niveau de profondeur de l\'analyse'
+            },
+            include_recommendations: {
+              type: 'boolean',
+              default: true,
+              description: 'Inclure des recommandations d\'amélioration'
+            }
+          },
+          required: ['source_code']
+        }
+      },
+      {
+        name: 'suggest_improvements',
+        description: 'Suggère des améliorations automatiques pour un code HTML selon les critères DSFR',
+        inputSchema: {
+          type: 'object',
+          properties: {
+            html_code: {
+              type: 'string',
+              minLength: 1,
+              maxLength: 50000,
+              description: 'Code HTML à améliorer'
+            },
+            improvement_categories: {
+              type: 'array',
+              items: {
+                type: 'string',
+                enum: ['accessibility', 'performance', 'seo', 'dsfr-compliance', 'semantics', 'best-practices']
+              },
+              default: ['accessibility', 'dsfr-compliance', 'best-practices'],
+              description: 'Catégories d\'améliorations à analyser'
+            },
+            priority_level: {
+              type: 'string',
+              enum: ['critical', 'high', 'medium', 'low', 'all'],
+              default: 'high',
+              description: 'Niveau de priorité minimum des suggestions'
+            },
+            include_code_examples: {
+              type: 'boolean',
+              default: true,
+              description: 'Inclure des exemples de code corrigé'
+            }
+          },
+          required: ['html_code']
+        }
+      },
+      {
+        name: 'compare_versions',
+        description: 'Compare deux versions du DSFR et guide la migration entre versions',
+        inputSchema: {
+          type: 'object',
+          properties: {
+            version_from: {
+              type: 'string',
+              pattern: '^\\d+\\.\\d+\\.\\d+$',
+              description: 'Version source du DSFR (ex: 1.13.0)'
+            },
+            version_to: {
+              type: 'string',
+              pattern: '^\\d+\\.\\d+\\.\\d+$',
+              description: 'Version cible du DSFR (ex: 1.14.0)'
+            },
+            comparison_scope: {
+              type: 'array',
+              items: {
+                type: 'string',
+                enum: ['components', 'styles', 'breaking-changes', 'new-features', 'deprecated', 'accessibility']
+              },
+              default: ['components', 'breaking-changes', 'new-features'],
+              description: 'Aspects à comparer entre les versions'
+            },
+            include_migration_guide: {
+              type: 'boolean',
+              default: true,
+              description: 'Inclure un guide de migration'
+            }
+          },
+          required: ['version_from', 'version_to']
+        }
+      },
+      {
+        name: 'export_documentation',
+        description: 'Exporte de la documentation DSFR personnalisée dans différents formats',
+        inputSchema: {
+          type: 'object',
+          properties: {
+            export_format: {
+              type: 'string',
+              enum: ['markdown', 'html', 'json', 'pdf-ready'],
+              default: 'markdown',
+              description: 'Format d\'export de la documentation'
+            },
+            components: {
+              type: 'array',
+              items: {
+                type: 'string',
+                pattern: '^[a-zA-Z0-9_-]+$'
+              },
+              description: 'Liste des composants à exporter (vide = tous)'
+            },
+            include_examples: {
+              type: 'boolean',
+              default: true,
+              description: 'Inclure les exemples de code'
+            },
+            template_style: {
+              type: 'string',
+              enum: ['standard', 'compact', 'detailed', 'minimal'],
+              default: 'standard',
+              description: 'Style de template pour la documentation'
+            }
+          }
+        }
       }
     ],
   };
@@ -270,6 +409,19 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         
       case 'get_dsfr_colors':
         return await docService.getColors(args);
+
+      // 🆕 NOUVEAUX OUTILS AVANCÉS - Phase 3.1
+      case 'analyze_dsfr_usage':
+        return await docService.analyzeUsage(args);
+        
+      case 'suggest_improvements':
+        return await validationService.suggestImprovements(args);
+        
+      case 'compare_versions':
+        return await docService.compareVersions(args);
+        
+      case 'export_documentation':
+        return await generatorService.exportDocumentation(args);
         
       default:
         throw new Error(`Outil inconnu: ${name}`);

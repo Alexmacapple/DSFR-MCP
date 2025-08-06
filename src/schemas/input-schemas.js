@@ -335,6 +335,232 @@ class InputSchemas {
           }
         },
         additionalProperties: false
+      },
+
+      // 🆕 NOUVEAUX OUTILS AVANCÉS - Phase 3.1
+
+      analyze_dsfr_usage: {
+        type: 'object',
+        properties: {
+          source_code: {
+            type: 'string',
+            minLength: 1,
+            maxLength: 100000,
+            description: 'Code source à analyser (HTML, CSS, JS)'
+          },
+          project_type: {
+            type: 'string',
+            enum: ['vanilla', 'react', 'vue', 'angular', 'auto-detect'],
+            default: 'auto-detect',
+            description: 'Type de projet à analyser'
+          },
+          analysis_depth: {
+            type: 'string',
+            enum: ['basic', 'detailed', 'comprehensive'],
+            default: 'detailed',
+            description: 'Niveau de profondeur de l\'analyse'
+          },
+          include_recommendations: {
+            type: 'boolean',
+            default: true,
+            description: 'Inclure des recommandations d\'amélioration'
+          },
+          include_usage_stats: {
+            type: 'boolean',
+            default: true,
+            description: 'Inclure les statistiques d\'utilisation'
+          },
+          check_best_practices: {
+            type: 'boolean',
+            default: true,
+            description: 'Vérifier les bonnes pratiques DSFR'
+          }
+        },
+        required: ['source_code'],
+        additionalProperties: false
+      },
+
+      suggest_improvements: {
+        type: 'object',
+        properties: {
+          html_code: {
+            type: 'string',
+            minLength: 1,
+            maxLength: 50000,
+            description: 'Code HTML à améliorer'
+          },
+          improvement_categories: {
+            type: 'array',
+            items: {
+              type: 'string',
+              enum: ['accessibility', 'performance', 'seo', 'dsfr-compliance', 'semantics', 'best-practices']
+            },
+            default: ['accessibility', 'dsfr-compliance', 'best-practices'],
+            description: 'Catégories d\'améliorations à analyser'
+          },
+          priority_level: {
+            type: 'string',
+            enum: ['critical', 'high', 'medium', 'low', 'all'],
+            default: 'high',
+            description: 'Niveau de priorité minimum des suggestions'
+          },
+          include_code_examples: {
+            type: 'boolean',
+            default: true,
+            description: 'Inclure des exemples de code corrigé'
+          },
+          include_explanations: {
+            type: 'boolean',
+            default: true,
+            description: 'Inclure des explications détaillées'
+          },
+          max_suggestions: {
+            type: 'integer',
+            minimum: 1,
+            maximum: 50,
+            default: 20,
+            description: 'Nombre maximum de suggestions à retourner'
+          }
+        },
+        required: ['html_code'],
+        additionalProperties: false
+      },
+
+      compare_versions: {
+        type: 'object',
+        properties: {
+          version_from: {
+            type: 'string',
+            pattern: '^\\d+\\.\\d+\\.\\d+$',
+            description: 'Version source du DSFR (ex: 1.13.0)'
+          },
+          version_to: {
+            type: 'string',
+            pattern: '^\\d+\\.\\d+\\.\\d+$',
+            description: 'Version cible du DSFR (ex: 1.14.0)'
+          },
+          comparison_scope: {
+            type: 'array',
+            items: {
+              type: 'string',
+              enum: ['components', 'styles', 'breaking-changes', 'new-features', 'deprecated', 'accessibility', 'icons']
+            },
+            default: ['components', 'breaking-changes', 'new-features'],
+            description: 'Aspects à comparer entre les versions'
+          },
+          include_migration_guide: {
+            type: 'boolean',
+            default: true,
+            description: 'Inclure un guide de migration'
+          },
+          include_code_examples: {
+            type: 'boolean',
+            default: true,
+            description: 'Inclure des exemples de code pour la migration'
+          },
+          output_format: {
+            type: 'string',
+            enum: ['detailed', 'summary', 'checklist'],
+            default: 'detailed',
+            description: 'Format de la sortie de comparaison'
+          }
+        },
+        required: ['version_from', 'version_to'],
+        additionalProperties: false
+      },
+
+      export_documentation: {
+        type: 'object',
+        properties: {
+          export_format: {
+            type: 'string',
+            enum: ['markdown', 'html', 'json', 'pdf-ready'],
+            default: 'markdown',
+            description: 'Format d\'export de la documentation'
+          },
+          components: {
+            type: 'array',
+            items: {
+              type: 'string',
+              minLength: 1,
+              maxLength: 50,
+              pattern: '^[a-zA-Z0-9_-]+$'
+            },
+            description: 'Liste des composants à exporter (vide = tous les composants)'
+          },
+          include_examples: {
+            type: 'boolean',
+            default: true,
+            description: 'Inclure les exemples de code'
+          },
+          include_accessibility: {
+            type: 'boolean',
+            default: true,
+            description: 'Inclure les informations d\'accessibilité'
+          },
+          include_design_tokens: {
+            type: 'boolean',
+            default: false,
+            description: 'Inclure les design tokens et variables CSS'
+          },
+          template_style: {
+            type: 'string',
+            enum: ['standard', 'compact', 'detailed', 'minimal'],
+            default: 'standard',
+            description: 'Style de template pour la documentation'
+          },
+          custom_branding: {
+            type: 'object',
+            properties: {
+              title: {
+                type: 'string',
+                maxLength: 100,
+                description: 'Titre personnalisé de la documentation'
+              },
+              logo_url: {
+                type: 'string',
+                format: 'uri',
+                description: 'URL du logo personnalisé'
+              },
+              footer_text: {
+                type: 'string',
+                maxLength: 500,
+                description: 'Texte de pied de page personnalisé'
+              },
+              primary_color: {
+                type: 'string',
+                pattern: '^#[0-9A-Fa-f]{6}$',
+                description: 'Couleur principale (format hexadécimal)'
+              }
+            },
+            additionalProperties: false,
+            description: 'Options de personnalisation de la documentation'
+          },
+          filters: {
+            type: 'object',
+            properties: {
+              categories: {
+                type: 'array',
+                items: {
+                  type: 'string',
+                  enum: ['core', 'component', 'layout', 'utility', 'analytics', 'scheme']
+                },
+                description: 'Filtrer par catégories'
+              },
+              frameworks: {
+                type: 'array',
+                items: {
+                  type: 'string',
+                  enum: ['vanilla', 'react', 'vue', 'angular']
+                },
+                description: 'Inclure des exemples pour ces frameworks'
+              }
+            },
+            additionalProperties: false,
+            description: 'Filtres pour personnaliser le contenu exporté'
+          }
+        },
+        additionalProperties: false
       }
     };
 
