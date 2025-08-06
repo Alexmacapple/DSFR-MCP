@@ -14,6 +14,7 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "test:mcp": "node scripts/test-mcp.js",
+    "test:data": "node scripts/run-data-quality-checks.js",
     "test:all": "npm run test:unit && npm run test:integration && npm run test:performance",
     "build:index": "node scripts/build-index.js",
     "validate": "node scripts/validate-html.js",
