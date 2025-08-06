@@ -94,7 +94,7 @@ Communication directe avec Claude Desktop via stdin/stdout.
   "mcpServers": {
     "dsfr-documentation": {
       "command": "docker",
-      "args": ["exec", "-i", "dsfr-mcp-server", "node", "src/index-docker-production.js"],
+      "args": ["exec", "-i", "dsfr-mcp-server", "node", "src/index.js"],
       "env": {}
     }
   }

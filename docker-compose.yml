@@ -42,12 +42,12 @@ services:
           memory: 256M
           cpus: '0.25'
     
-    # Command utilisant la version Docker PRODUCTION définitive
-    command: ["dumb-init", "node", "src/index-docker-production.js"]
+    # Command utilisant le point d'entrée unique standardisé
+    command: ["dumb-init", "node", "src/index.js"]
     
     # Healthcheck pour monitoring
     healthcheck:
-      test: ["CMD", "sh", "-c", "ps aux | grep 'node src/index-docker-production.js' | grep -v grep || exit 1"]
+      test: ["CMD", "sh", "-c", "ps aux | grep 'node src/index.js' | grep -v grep || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3

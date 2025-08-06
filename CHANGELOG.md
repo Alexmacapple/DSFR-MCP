@@ -12,7 +12,7 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 > **🎯 Version production Docker avec 15+ outils MCP** - Stabilité et performance maximales !
 
 #### ✨ Nouvelles fonctionnalités Docker Production
-- **✅ Serveur MCP production robuste** : `index-docker-production.js` avec 15+ outils fonctionnels
+- **✅ Serveur MCP production robuste** : `index.js` unifié avec 15+ outils fonctionnels
 - **✅ Mécanismes de fallback avancés** : Services de secours si dépendances indisponibles
 - **✅ Keep-alive intelligent** : Monitoring toutes les 30 secondes avec status détaillé
 - **✅ Gestion d'erreurs robuste** : Récupération automatique des services défaillants
@@ -198,12 +198,11 @@ src/
 │   └── documentation-service-v2.js # Service docs optimisé
 ├── repositories/
 │   └── documentation-repository.js # Repository pattern avec lazy loading
-└── index-v2.js             # Point d'entrée architecture V2
 ```
 
-#### 🔄 Compatibilité
-- **Rétrocompatibilité** : V1 maintenue pour transition graduelle
-- **Migration simple** : V2 utilisable via index-v2.js
+#### 🔄 Point d'entrée unifié
+- **Consolidation** : Toute la logique de production dans index.js
+- **Simplicité** : Un seul fichier de démarrage pour tous les environnements
 - **Tests séparés** : Validation indépendante des deux architectures
 
 ## [1.1.0] - 2025-08-03

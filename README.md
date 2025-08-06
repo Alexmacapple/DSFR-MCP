@@ -101,7 +101,7 @@ chmod +x install.sh
   "mcpServers": {
     "dsfr-documentation": {
       "command": "docker",
-      "args": ["exec", "-i", "dsfr-mcp-server", "node", "src/index-docker-production.js"],
+      "args": ["exec", "-i", "dsfr-mcp-server", "node", "src/index.js"],
       "env": {}
     }
   }
@@ -233,10 +233,7 @@ Vérifie l'accessibilité RGAA de ce code HTML : [votre code]
 ```
 DSFR-MCP/
 ├── src/
-│   ├── index.js              # Point d'entrée V1 (legacy)
-│   ├── index-v2.js           # Point d'entrée V2 optimisé
-│   ├── index-minimal.js      # 🆕 Point d'entrée Docker minimal
-│   ├── index-docker-production.js # 🆕 Point d'entrée Docker PRODUCTION avec 15+ outils
+│   ├── index.js              # 🆕 Point d'entrée unique avec logique production complète
 │   ├── core/                 # 🆕 Architecture V2
 │   │   ├── container.js      # Container DI avec lifecycles
 │   │   └── interfaces.js     # Contrats et interfaces services
