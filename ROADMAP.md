@@ -178,39 +178,54 @@ Transformer DSFR-MCP en **référence de qualité** pour l'intégration du Syst�
 - ✅ Tests et validations complètes
 - ✅ Documentation technique mise à jour
 
-## 🚀 Phase 3.2 : Intégrations - EN COURS ⚡
+## 📝 Phase 3.2 : Intégrations - REPORTÉE/OPTIONNELLE 🔄
 
-### Priorité ACTUELLE 🟠
+### ⏸️ **DÉCISION : Phase reportée à plus tard**
 
-#### 3.2 Intégrations (2-3 semaines)
-- [ ] **Extensions d'éditeurs**
-  - [ ] Extension VS Code
-  - [ ] Plugin JetBrains
-  - [ ] Snippets et auto-complétion
-  - [ ] Preview en temps réel
+#### 3.2 Intégrations (reporté - complexité vs ROI)
+- ⏸️ **Extensions d'éditeurs** - *Reporté*
+  - ⏸️ Extension VS Code (maintenance complexe)
+  - ⏸️ Plugin JetBrains (barrière technique élevée)
+  - ⏸️ Snippets et auto-complétion (ROI incertain)
+  - ⏸️ Preview en temps réel (complexité énorme)
   
-- [ ] **CLI autonome**
-  - [ ] Interface en ligne de commande
-  - [ ] Scripts de build/validation
-  - [ ] Intégration CI/CD
-  - [ ] NPX package
+- ⏸️ **CLI autonome** - *Éventuellement plus tard*
+  - ⏸️ Interface en ligne de commande
+  - ⏸️ Scripts de build/validation
+  - ⏸️ Intégration CI/CD
+  - ⏸️ NPX package
 
-**Livrables :**
-- Extensions publiées sur marketplaces
-- CLI npm disponible
-- Documentation d'intégration
+**📋 Statut :** Fonctionnalités reportées - Focus sur la stabilité et l'optimisation de l'existant
 
-#### 3.3 API REST optionnelle (1 semaine)
-- [ ] **Serveur HTTP**
-  - [ ] API REST pour accès externe
-  - [ ] Documentation OpenAPI
-  - [ ] Rate limiting
-  - [ ] Authentification basique
+---
 
-**Livrables :**
-- API REST documentée
-- SDK JavaScript
-- Exemples d'intégration
+## 🎯 Priorités actuelles - À définir
+
+### 🤔 **Options pour la suite :**
+
+**A. Stabilisation et qualité**
+- [ ] Amélioration des performances existantes
+- [ ] Ajout de nouveaux outils MCP spécialisés
+- [ ] Documentation et exemples enrichis
+- [ ] Tests de charge et optimisations
+
+**B. API REST (simple)**
+- [ ] Serveur HTTP basique pour accès externe
+- [ ] Documentation OpenAPI
+- [ ] Rate limiting
+- [ ] SDK JavaScript léger
+
+**C. Communauté et adoption**
+- [ ] Amélioration de la documentation utilisateur
+- [ ] Exemples de projets concrets
+- [ ] Guide de contribution
+- [ ] Templates et ressources prêtes à l'emploi
+
+**D. Maintenance et évolution**
+- [ ] Support des nouvelles versions DSFR
+- [ ] Monitoring avancé
+- [ ] Optimisations continue
+- [ ] Feedback utilisateurs et itérations
 
 ---
 
