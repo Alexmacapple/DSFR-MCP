@@ -60,14 +60,44 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
   };
 });
 
-// Pas de gestion d'erreur complexe - juste exit
-process.on('uncaughtException', () => process.exit(1));
-process.on('unhandledRejection', () => process.exit(1));
+// Gestion d'erreur avec keep-alive pour Docker
+process.on('uncaughtException', (error) => {
+  console.error('Erreur:', error.message);
+  setTimeout(() => process.exit(1), 1000);
+});
 
-// Initialisation ultra-simple
+process.on('unhandledRejection', (error) => {
+  console.error('Promesse rejetée:', error);
+  setTimeout(() => process.exit(1), 1000);
+});
+
+// Gestion des signaux pour Docker
+process.on('SIGTERM', () => {
+  console.error('Signal SIGTERM reçu');
+  process.exit(0);
+});
+
+process.on('SIGINT', () => {
+  console.error('Signal SIGINT reçu'); 
+  process.exit(0);
+});
+
+// Initialisation avec keep-alive Docker
 async function main() {
+  console.error('🐳 Démarrage MCP DSFR Docker...');
+  
   const transport = new StdioServerTransport();
   await server.connect(transport);
+  
+  console.error('✅ MCP DSFR Docker connecté et prêt !');
+  
+  // Keep-alive pour maintenir le processus actif en mode Docker
+  setInterval(() => {
+    console.error(`[${new Date().toISOString()}] MCP Docker alive`);
+  }, 30000);
 }
 
-main().catch(() => process.exit(1));
+main().catch((error) => {
+  console.error('Erreur fatale:', error.message);
+  process.exit(1);
+});

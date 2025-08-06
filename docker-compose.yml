@@ -42,12 +42,12 @@ services:
           memory: 256M
           cpus: '0.25'
     
-    # Command utilisant le fichier minimal pour Docker
-    command: ["dumb-init", "node", "src/index-minimal.js"]
+    # Command utilisant la version Docker PRODUCTION définitive
+    command: ["dumb-init", "node", "src/index-docker-production.js"]
     
     # Healthcheck pour monitoring
     healthcheck:
-      test: ["CMD", "node", "-e", "console.log('MCP Server is healthy')"]
+      test: ["CMD", "sh", "-c", "ps aux | grep 'node src/index-docker-production.js' | grep -v grep || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3
