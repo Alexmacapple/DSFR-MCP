@@ -18,7 +18,7 @@ try {
   config = require('./config');
   DocumentationService = require('./services/documentation');
   ValidationService = require('./services/validation');
-  GeneratorService = require('./services/generator');
+  OptimizedGeneratorService = require('./services/generator-optimized');
   TemplateService = require('./services/template');
   AccessibilityService = require('./services/accessibility');
 } catch (error) {
@@ -43,7 +43,7 @@ async function initializeServices() {
       await docService.initialize();
     }
     if (ValidationService) validationService = new ValidationService();
-    if (GeneratorService) generatorService = new GeneratorService();
+    if (OptimizedGeneratorService) generatorService = new OptimizedGeneratorService();
     if (TemplateService) templateService = new TemplateService();
     if (AccessibilityService) accessibilityService = new AccessibilityService();
     
