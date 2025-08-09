@@ -19,45 +19,53 @@ class DSFRSourceParser {
 
   async parseSourceFiles() {
     console.log('📦 Parsing du code source DSFR (structure optimisée)...');
-    
+
     try {
       // Charger l'index des fichiers
       this.fileIndex = JSON.parse(await fs.readFile(this.indexFile, 'utf-8'));
       console.log(`📂 ${this.fileIndex.totalFiles} fichiers à traiter`);
-      
+
       // Traiter les fichiers par catégorie
-      const categories = ['components', 'core', 'utilities', 'analytics', 'examples', 'documentation', 'other'];
-      
+      const categories = [
+        'components',
+        'core',
+        'utilities',
+        'analytics',
+        'examples',
+        'documentation',
+        'other',
+      ];
+
       for (const category of categories) {
         const categoryPath = path.join(this.sourceDir, category);
-        
+
         try {
           const files = await fs.readdir(categoryPath);
           console.log(`\n⚙️  Traitement de ${category}: ${files.length} fichiers`);
-          
+
           let processedCount = 0;
           for (const file of files) {
             if (file === '.DS_Store' || file.startsWith('.')) continue;
-            
+
             // Skip le fichier index s'il existe
             if (file === 'index.json') continue;
-            
+
             const filePath = path.join(categoryPath, file);
             const stats = await fs.stat(filePath);
-            
+
             if (stats.isFile()) {
               // Si c'est un fichier .meta.json, récupérer les métadonnées
               if (file.endsWith('.meta.json')) {
                 const metadata = JSON.parse(await fs.readFile(filePath, 'utf-8'));
                 const contentFileName = file.replace('.meta.json', '');
                 const contentFilePath = path.join(categoryPath, contentFileName);
-                
+
                 // Vérifier si le fichier de contenu existe
                 try {
                   const fileContent = await fs.readFile(contentFilePath, 'utf-8');
                   const originalPath = metadata.originalPath;
                   const sectionType = this.detectSectionType(originalPath);
-                  
+
                   await this.processSection(sectionType, originalPath, fileContent);
                   processedCount++;
                 } catch (err) {
@@ -66,22 +74,21 @@ class DSFRSourceParser {
               }
             }
           }
-          
+
           console.log(`   ✓ ${processedCount} fichiers traités`);
         } catch (error) {
           console.warn(`⚠️  Catégorie ${category} non trouvée ou vide: ${error.message}`);
         }
       }
-      
+
       console.log('\n✅ Parsing terminé');
       this.displayStats();
-      
     } catch (error) {
       console.error('❌ Erreur lors du parsing:', error);
       throw error;
     }
   }
-  
+
   // Méthode de compatibilité
   async parseSourceFile() {
     console.warn('⚠️  parseSourceFile() est déprécié, utilisation de parseSourceFiles()');
@@ -101,43 +108,43 @@ class DSFRSourceParser {
     if (filePath.includes('.scss')) return 'style';
     if (filePath.includes('.js')) return 'script';
     if (filePath.includes('.yml') || filePath.includes('.yaml')) return 'config';
-    
+
     return 'other';
   }
 
   async processSection(type, filePath, content) {
     const fileName = path.basename(filePath);
     const dirName = path.dirname(filePath);
-    
+
     switch (type) {
       case 'component':
         await this.processComponent(filePath, content);
         break;
-        
+
       case 'core':
         await this.processCore(filePath, content);
         break;
-        
+
       case 'utility':
         await this.processUtility(filePath, content);
         break;
-        
+
       case 'analytics':
         await this.processAnalytics(filePath, content);
         break;
-        
+
       case 'example':
         await this.processExample(filePath, content);
         break;
-        
+
       case 'schema':
         await this.processSchema(filePath, content);
         break;
-        
+
       case 'documentation':
         await this.processDocumentation(filePath, content);
         break;
-        
+
       case 'style':
       case 'script':
       case 'config':
@@ -150,9 +157,9 @@ class DSFRSourceParser {
     // Extraire le nom du composant
     const match = filePath.match(/component\/([^\/]+)\//);
     if (!match) return;
-    
+
     const componentName = match[1];
-    
+
     if (!this.components.has(componentName)) {
       this.components.set(componentName, {
         name: componentName,
@@ -161,12 +168,12 @@ class DSFRSourceParser {
         documentation: '',
         schema: null,
         styles: {},
-        scripts: {}
+        scripts: {},
       });
     }
-    
+
     const component = this.components.get(componentName);
-    
+
     // Classifier le fichier
     if (filePath.endsWith('.scss')) {
       const styleType = this.getStyleType(filePath);
@@ -181,27 +188,27 @@ class DSFRSourceParser {
     } else if (filePath.includes('/example/')) {
       component.examples.push({
         path: filePath,
-        content: content
+        content: content,
       });
     }
-    
+
     component.files[path.basename(filePath)] = content;
   }
 
   async processCore(filePath, content) {
     const moduleName = this.extractModuleName(filePath, 'core');
-    
+
     if (!this.coreModules.has(moduleName)) {
       this.coreModules.set(moduleName, {
         name: moduleName,
         files: {},
-        documentation: ''
+        documentation: '',
       });
     }
-    
+
     const module = this.coreModules.get(moduleName);
     module.files[path.basename(filePath)] = content;
-    
+
     if (filePath.endsWith('.md')) {
       module.documentation = content;
     }
@@ -209,18 +216,18 @@ class DSFRSourceParser {
 
   async processUtility(filePath, content) {
     const utilityName = this.extractModuleName(filePath, 'utility');
-    
+
     if (!this.utilities.has(utilityName)) {
       this.utilities.set(utilityName, {
         name: utilityName,
         files: {},
-        documentation: ''
+        documentation: '',
       });
     }
-    
+
     const utility = this.utilities.get(utilityName);
     utility.files[path.basename(filePath)] = content;
-    
+
     if (filePath.endsWith('.md')) {
       utility.documentation = content;
     }
@@ -230,7 +237,7 @@ class DSFRSourceParser {
     const fileName = path.basename(filePath);
     this.analytics.set(fileName, {
       path: filePath,
-      content: content
+      content: content,
     });
   }
 
@@ -242,7 +249,7 @@ class DSFRSourceParser {
       this.examples.set(filePath, {
         component: componentName,
         path: filePath,
-        content: content
+        content: content,
       });
     }
   }
@@ -251,7 +258,7 @@ class DSFRSourceParser {
     const componentName = this.extractComponentFromPath(filePath);
     this.schemas.set(componentName, {
       path: filePath,
-      content: this.parseYAML(content)
+      content: this.parseYAML(content),
     });
   }
 
@@ -259,7 +266,7 @@ class DSFRSourceParser {
     const docName = path.basename(filePath, '.md');
     this.documentation.set(docName, {
       path: filePath,
-      content: content
+      content: content,
     });
   }
 
@@ -293,15 +300,15 @@ class DSFRSourceParser {
     const result = {};
     const lines = content.split('\n');
     let currentKey = null;
-    let currentIndent = 0;
-    
+    const currentIndent = 0;
+
     for (const line of lines) {
       const trimmed = line.trim();
       if (!trimmed || trimmed.startsWith('#')) continue;
-      
+
       const indent = line.search(/\S/);
       const match = trimmed.match(/^([^:]+):\s*(.*)$/);
-      
+
       if (match) {
         const [, key, value] = match;
         if (indent === 0) {
@@ -315,7 +322,7 @@ class DSFRSourceParser {
         }
       }
     }
-    
+
     return result;
   }
 
@@ -353,8 +360,7 @@ class DSFRSourceParser {
   }
 
   getExamplesForComponent(componentName) {
-    return Array.from(this.examples.values())
-      .filter(ex => ex.component === componentName);
+    return Array.from(this.examples.values()).filter((ex) => ex.component === componentName);
   }
 
   getDocumentation(name) {
@@ -363,78 +369,76 @@ class DSFRSourceParser {
 
   async exportToDataFolder() {
     console.log('📁 Export des données parsées...');
-    
+
     const dataPath = path.join('data', 'dsfr-source');
-    
+
     // Créer la structure de dossiers
     await fs.mkdir(dataPath, { recursive: true });
     await fs.mkdir(path.join(dataPath, 'components'), { recursive: true });
     await fs.mkdir(path.join(dataPath, 'core'), { recursive: true });
     await fs.mkdir(path.join(dataPath, 'utilities'), { recursive: true });
-    
+
     // Exporter les composants
     for (const [name, component] of this.components) {
       const componentPath = path.join(dataPath, 'components', name);
       await fs.mkdir(componentPath, { recursive: true });
-      
+
       // Sauvegarder les métadonnées
       await fs.writeFile(
         path.join(componentPath, 'metadata.json'),
-        JSON.stringify({
-          name: component.name,
-          files: Object.keys(component.files),
-          hasExamples: component.examples.length > 0,
-          hasDocumentation: !!component.documentation,
-          hasSchema: !!component.schema
-        }, null, 2)
+        JSON.stringify(
+          {
+            name: component.name,
+            files: Object.keys(component.files),
+            hasExamples: component.examples.length > 0,
+            hasDocumentation: !!component.documentation,
+            hasSchema: !!component.schema,
+          },
+          null,
+          2
+        )
       );
-      
+
       // Sauvegarder les fichiers
       for (const [fileName, content] of Object.entries(component.files)) {
-        await fs.writeFile(
-          path.join(componentPath, fileName),
-          content
-        );
+        await fs.writeFile(path.join(componentPath, fileName), content);
       }
     }
-    
+
     // Créer un index global
     const index = {
       components: this.getComponentList(),
       coreModules: Array.from(this.coreModules.keys()),
       utilities: Array.from(this.utilities.keys()),
       totalFiles: this.getTotalFileCount(),
-      generatedAt: new Date().toISOString()
+      generatedAt: new Date().toISOString(),
     };
-    
-    await fs.writeFile(
-      path.join(dataPath, 'index.json'),
-      JSON.stringify(index, null, 2)
-    );
-    
+
+    await fs.writeFile(path.join(dataPath, 'index.json'), JSON.stringify(index, null, 2));
+
     console.log('✅ Export terminé');
   }
 
   getTotalFileCount() {
     let count = 0;
-    
+
     for (const component of this.components.values()) {
       count += Object.keys(component.files).length;
     }
-    
+
     for (const module of this.coreModules.values()) {
       count += Object.keys(module.files).length;
     }
-    
+
     for (const utility of this.utilities.values()) {
       count += Object.keys(utility.files).length;
     }
-    
+
     count += this.analytics.size;
     count += this.examples.size;
     count += this.schemas.size;
     count += this.documentation.size;
-    
+
     return count;
   }
 }

@@ -10,7 +10,7 @@ module.exports = {
   server: {
     name: 'dsfr-mcp',
     version: '1.0.0',
-    description: 'MCP Server complet pour le Système de Design de l\'État Français'
+    description: "MCP Server complet pour le Système de Design de l'État Français",
   },
 
   // Chemins
@@ -18,35 +18,35 @@ module.exports = {
     fiches: path.join(rootDir, 'fiches-markdown-v2'),
     data: path.join(rootDir, 'data'),
     templates: path.join(rootDir, 'src', 'templates'),
-    output: path.join(rootDir, 'output')
+    output: path.join(rootDir, 'output'),
   },
 
   // Catégories DSFR
   categories: {
     core: {
       name: 'Fondamentaux',
-      description: 'Éléments de base du DSFR : couleurs, typographie, grilles, espacement'
+      description: 'Éléments de base du DSFR : couleurs, typographie, grilles, espacement',
     },
     component: {
       name: 'Composants',
-      description: 'Composants UI réutilisables : boutons, formulaires, navigation'
+      description: 'Composants UI réutilisables : boutons, formulaires, navigation',
     },
     layout: {
       name: 'Modèles et exemples',
-      description: 'Patterns de pages et layouts complets'
+      description: 'Patterns de pages et layouts complets',
     },
     utility: {
       name: 'Utilitaires',
-      description: 'Classes utilitaires CSS pour un développement rapide'
+      description: 'Classes utilitaires CSS pour un développement rapide',
     },
     analytics: {
-      name: 'Outils d\'analyse',
-      description: 'Intégration d\'outils d\'analyse et de mesure'
+      name: "Outils d'analyse",
+      description: "Intégration d'outils d'analyse et de mesure",
     },
     scheme: {
       name: 'Combinaisons de couleur',
-      description: 'Schémas de couleurs et thèmes'
-    }
+      description: 'Schémas de couleurs et thèmes',
+    },
   },
 
   // Types de composants
@@ -56,34 +56,34 @@ module.exports = {
     content: 'Contenu',
     feedback: 'Feedback',
     layout: 'Mise en page',
-    utility: 'Utilitaire'
+    utility: 'Utilitaire',
   },
 
   // Framework supportés
   frameworks: {
     vanilla: {
       name: 'HTML/CSS/JS Vanilla',
-      fileExtensions: ['.html', '.css', '.js']
+      fileExtensions: ['.html', '.css', '.js'],
     },
     react: {
       name: 'React',
-      fileExtensions: ['.jsx', '.tsx']
+      fileExtensions: ['.jsx', '.tsx'],
     },
     vue: {
       name: 'Vue.js',
-      fileExtensions: ['.vue']
+      fileExtensions: ['.vue'],
     },
     angular: {
       name: 'Angular',
-      fileExtensions: ['.component.ts', '.component.html']
-    }
+      fileExtensions: ['.component.ts', '.component.html'],
+    },
   },
 
   // Configuration de l'indexation
   indexing: {
     updateInterval: 3600000, // 1 heure en ms
     maxFileSize: 5 * 1024 * 1024, // 5MB
-    supportedFormats: ['.md', '.html', '.json']
+    supportedFormats: ['.md', '.html', '.json'],
   },
 
   // Configuration de la validation
@@ -91,19 +91,19 @@ module.exports = {
     rgaaLevel: 'AA',
     checkAccessibility: true,
     checkSemanticHTML: true,
-    checkDSFRCompliance: true
+    checkDSFRCompliance: true,
   },
 
   // Templates prédéfinis
   templates: {
     'page-connexion': 'Page de connexion',
-    'page-inscription': 'Page d\'inscription',
-    'page-erreur-404': 'Page d\'erreur 404',
-    'page-erreur-500': 'Page d\'erreur 500',
+    'page-inscription': "Page d'inscription",
+    'page-erreur-404': "Page d'erreur 404",
+    'page-erreur-500': "Page d'erreur 500",
     'formulaire-contact': 'Formulaire de contact',
     'tableau-donnees': 'Tableau de données',
     'page-recherche': 'Page de recherche',
-    'dashboard': 'Tableau de bord'
+    dashboard: 'Tableau de bord',
   },
 
   // Configuration des exports
@@ -111,7 +111,7 @@ module.exports = {
     formats: ['html', 'react', 'vue', 'angular'],
     includeAssets: true,
     minify: false,
-    prettify: true
+    prettify: true,
   },
 
   // Messages et textes
@@ -120,6 +120,6 @@ module.exports = {
     indexingStart: 'Indexation de la documentation...',
     indexingComplete: 'Indexation terminée',
     validationSuccess: 'Validation réussie',
-    validationError: 'Erreur de validation'
-  }
+    validationError: 'Erreur de validation',
+  },
 };

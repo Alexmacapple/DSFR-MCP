@@ -14,12 +14,12 @@ class SearchIndexService extends IService {
     this.config = config;
     this.cache = cache;
     this.logger = logger;
-    
+
     this.initialized = false;
     this.indexes = new Map();
     this.facets = new Map();
     this.documents = new Map();
-    
+
     // Configuration de Fuse.js pour recherche fuzzy
     this.fuseConfig = {
       includeScore: true,
@@ -27,7 +27,7 @@ class SearchIndexService extends IService {
       threshold: 0.3, // Seuil de similitude
       minMatchCharLength: 2,
       findAllMatches: true,
-      ignoreLocation: true
+      ignoreLocation: true,
     };
 
     // Statistiques
@@ -36,22 +36,22 @@ class SearchIndexService extends IService {
       indexSize: 0,
       lastIndexUpdate: null,
       searchCount: 0,
-      averageSearchTime: 0
+      averageSearchTime: 0,
     };
   }
 
   async initialize() {
     if (this.initialized) return;
-    
+
     this.logger.info('Initialisation du SearchIndexService');
-    
+
     // Charger l'index depuis le cache persistant si disponible
     await this.loadPersistedIndex();
-    
+
     this.initialized = true;
     this.logger.info('SearchIndexService initialisé', {
       documents: this.stats.totalDocuments,
-      indexes: this.indexes.size
+      indexes: this.indexes.size,
     });
   }
 
@@ -64,28 +64,28 @@ class SearchIndexService extends IService {
    */
   async addDocuments(documents, indexName = 'default') {
     const startTime = Date.now();
-    
+
     if (!Array.isArray(documents)) {
       documents = [documents];
     }
 
     // Préparer les documents pour l'indexation
-    const processedDocs = documents.map(doc => this.preprocessDocument(doc));
-    
+    const processedDocs = documents.map((doc) => this.preprocessDocument(doc));
+
     // Construire les facettes
     this.buildFacets(processedDocs, indexName);
-    
+
     // Créer l'index Fuse
     const searchKeys = await this.generateSearchKeys(processedDocs);
     const fuseIndex = new Fuse(processedDocs, {
       ...this.fuseConfig,
-      keys: searchKeys
+      keys: searchKeys,
     });
 
     this.indexes.set(indexName, fuseIndex);
-    
+
     // Stocker les documents pour les récupérer facilement
-    processedDocs.forEach(doc => {
+    processedDocs.forEach((doc) => {
       this.documents.set(doc.id, doc);
     });
 
@@ -101,14 +101,14 @@ class SearchIndexService extends IService {
     this.logger.info(`Index '${indexName}' mis à jour`, {
       documents: processedDocs.length,
       totalDocuments: this.stats.totalDocuments,
-      indexTime: `${indexTime}ms`
+      indexTime: `${indexTime}ms`,
     });
 
     return {
       indexName,
       documentsAdded: processedDocs.length,
       totalDocuments: this.stats.totalDocuments,
-      indexTime
+      indexTime,
     };
   }
 
@@ -117,7 +117,7 @@ class SearchIndexService extends IService {
    */
   async search(query, options = {}) {
     const startTime = Date.now();
-    
+
     const {
       index = 'default',
       facets = {},
@@ -127,7 +127,7 @@ class SearchIndexService extends IService {
       sortBy = 'relevance',
       sortOrder = 'desc',
       includeHighlights = true,
-      includeStats = false
+      includeStats = false,
     } = options;
 
     const fuseIndex = this.indexes.get(index);
@@ -156,7 +156,7 @@ class SearchIndexService extends IService {
     const paginatedResults = results.slice(offset, offset + limit);
 
     // Formater les résultats
-    const formattedResults = paginatedResults.map(result => {
+    const formattedResults = paginatedResults.map((result) => {
       const doc = result.item || result;
       const formatted = {
         id: doc.id,
@@ -164,7 +164,7 @@ class SearchIndexService extends IService {
         description: doc.description,
         category: doc.category,
         url: doc.url,
-        score: result.score || 1
+        score: result.score || 1,
       };
 
       // Ajouter les highlights si demandé
@@ -190,9 +190,9 @@ class SearchIndexService extends IService {
         limit,
         offset,
         pages: Math.ceil(total / limit),
-        currentPage: Math.floor(offset / limit) + 1
+        currentPage: Math.floor(offset / limit) + 1,
       },
-      searchTime
+      searchTime,
     };
 
     if (includeStats) {
@@ -220,7 +220,7 @@ class SearchIndexService extends IService {
       searchableText: this.buildSearchableText(doc),
       // Ajout de métadonnées d'indexation
       indexed: new Date().toISOString(),
-      version: doc.version || '1.0.0'
+      version: doc.version || '1.0.0',
     };
   }
 
@@ -236,7 +236,7 @@ class SearchIndexService extends IService {
       doc.content,
       ...(Array.isArray(doc.tags) ? doc.tags : []),
       doc.category,
-      doc.subcategory
+      doc.subcategory,
     ].filter(Boolean);
 
     return fields.join(' ').toLowerCase();
@@ -251,15 +251,15 @@ class SearchIndexService extends IService {
       { name: 'description', weight: 0.6 },
       { name: 'searchableText', weight: 0.4 },
       { name: 'tags', weight: 0.3 },
-      { name: 'category', weight: 0.2 }
+      { name: 'category', weight: 0.2 },
     ];
 
     // Analyser les documents pour détecter des clés supplémentaires
     const additionalKeys = new Set();
-    
-    documents.forEach(doc => {
+
+    documents.forEach((doc) => {
       if (doc.metadata) {
-        Object.keys(doc.metadata).forEach(key => {
+        Object.keys(doc.metadata).forEach((key) => {
           if (typeof doc.metadata[key] === 'string') {
             additionalKeys.add(`metadata.${key}`);
           }
@@ -268,9 +268,9 @@ class SearchIndexService extends IService {
     });
 
     // Ajouter les clés supplémentaires avec un poids faible
-    const extraKeys = Array.from(additionalKeys).map(key => ({
+    const extraKeys = Array.from(additionalKeys).map((key) => ({
       name: key,
-      weight: 0.1
+      weight: 0.1,
     }));
 
     return [...baseKeys, ...extraKeys];
@@ -284,28 +284,28 @@ class SearchIndexService extends IService {
       category: new Map(),
       subcategory: new Map(),
       type: new Map(),
-      tags: new Map()
+      tags: new Map(),
     };
 
-    documents.forEach(doc => {
+    documents.forEach((doc) => {
       // Compter les catégories
       if (doc.category) {
         facets.category.set(doc.category, (facets.category.get(doc.category) || 0) + 1);
       }
-      
+
       // Compter les sous-catégories
       if (doc.subcategory) {
         facets.subcategory.set(doc.subcategory, (facets.subcategory.get(doc.subcategory) || 0) + 1);
       }
-      
+
       // Compter les types
       if (doc.type) {
         facets.type.set(doc.type, (facets.type.get(doc.type) || 0) + 1);
       }
-      
+
       // Compter les tags
       if (Array.isArray(doc.tags)) {
-        doc.tags.forEach(tag => {
+        doc.tags.forEach((tag) => {
           facets.tags.set(tag, (facets.tags.get(tag) || 0) + 1);
         });
       }
@@ -313,7 +313,7 @@ class SearchIndexService extends IService {
 
     // Convertir les Maps en objets et trier par count
     const processedFacets = {};
-    Object.keys(facets).forEach(facetName => {
+    Object.keys(facets).forEach((facetName) => {
       processedFacets[facetName] = Array.from(facets[facetName].entries())
         .map(([value, count]) => ({ value, count }))
         .sort((a, b) => b.count - a.count);
@@ -326,14 +326,14 @@ class SearchIndexService extends IService {
    * Applique les filtres de facettes
    */
   applyFacetFilters(results, facets) {
-    return results.filter(result => {
+    return results.filter((result) => {
       const doc = result.item || result;
-      
+
       return Object.entries(facets).every(([facetName, facetValues]) => {
         if (!Array.isArray(facetValues)) {
           facetValues = [facetValues];
         }
-        
+
         switch (facetName) {
           case 'category':
             return facetValues.includes(doc.category);
@@ -342,7 +342,7 @@ class SearchIndexService extends IService {
           case 'type':
             return facetValues.includes(doc.type);
           case 'tags':
-            return facetValues.some(tag => doc.tags.includes(tag));
+            return facetValues.some((tag) => doc.tags.includes(tag));
           default:
             return true;
         }
@@ -354,16 +354,16 @@ class SearchIndexService extends IService {
    * Applique les filtres personnalisés
    */
   applyCustomFilters(results, filters) {
-    return results.filter(result => {
+    return results.filter((result) => {
       const doc = result.item || result;
-      
+
       return Object.entries(filters).every(([field, condition]) => {
         const value = this.getNestedValue(doc, field);
-        
+
         if (typeof condition === 'string' || typeof condition === 'number') {
           return value === condition;
         }
-        
+
         if (typeof condition === 'object') {
           if (condition.$regex) {
             return new RegExp(condition.$regex, condition.$options || 'i').test(value);
@@ -378,7 +378,7 @@ class SearchIndexService extends IService {
             return value <= condition.$lte;
           }
         }
-        
+
         return true;
       });
     });
@@ -389,11 +389,11 @@ class SearchIndexService extends IService {
    */
   sortResults(results, sortBy, sortOrder) {
     const multiplier = sortOrder === 'desc' ? -1 : 1;
-    
+
     return results.sort((a, b) => {
       const docA = a.item || a;
       const docB = b.item || b;
-      
+
       switch (sortBy) {
         case 'relevance':
           return multiplier * ((a.score || 0) - (b.score || 0));
@@ -416,7 +416,7 @@ class SearchIndexService extends IService {
    */
   calculateAvailableFacets(results, indexName) {
     const indexFacets = this.facets.get(indexName) || {};
-    
+
     // Si pas de résultats, renvoyer les facettes complètes
     if (results.length === 0) {
       return indexFacets;
@@ -425,25 +425,28 @@ class SearchIndexService extends IService {
     // Calculer les facettes basées sur les résultats actuels
     const resultFacets = {
       category: new Map(),
-      subcategory: new Map(), 
+      subcategory: new Map(),
       type: new Map(),
-      tags: new Map()
+      tags: new Map(),
     };
 
-    results.forEach(result => {
+    results.forEach((result) => {
       const doc = result.item || result;
-      
+
       if (doc.category) {
         resultFacets.category.set(doc.category, (resultFacets.category.get(doc.category) || 0) + 1);
       }
       if (doc.subcategory) {
-        resultFacets.subcategory.set(doc.subcategory, (resultFacets.subcategory.get(doc.subcategory) || 0) + 1);
+        resultFacets.subcategory.set(
+          doc.subcategory,
+          (resultFacets.subcategory.get(doc.subcategory) || 0) + 1
+        );
       }
       if (doc.type) {
         resultFacets.type.set(doc.type, (resultFacets.type.get(doc.type) || 0) + 1);
       }
       if (Array.isArray(doc.tags)) {
-        doc.tags.forEach(tag => {
+        doc.tags.forEach((tag) => {
           resultFacets.tags.set(tag, (resultFacets.tags.get(tag) || 0) + 1);
         });
       }
@@ -451,7 +454,7 @@ class SearchIndexService extends IService {
 
     // Convertir en format final
     const processedFacets = {};
-    Object.keys(resultFacets).forEach(facetName => {
+    Object.keys(resultFacets).forEach((facetName) => {
       processedFacets[facetName] = Array.from(resultFacets[facetName].entries())
         .map(([value, count]) => ({ value, count }))
         .sort((a, b) => b.count - a.count);
@@ -464,13 +467,13 @@ class SearchIndexService extends IService {
    * Formate les highlights de recherche
    */
   formatHighlights(matches) {
-    return matches.map(match => ({
+    return matches.map((match) => ({
       field: match.key,
       highlights: match.indices.map(([start, end]) => ({
         start,
         end,
-        text: match.value.substring(start, end + 1)
-      }))
+        text: match.value.substring(start, end + 1),
+      })),
     }));
   }
 
@@ -480,10 +483,10 @@ class SearchIndexService extends IService {
   getAllDocuments(indexName) {
     const fuseIndex = this.indexes.get(indexName);
     if (!fuseIndex) return [];
-    
+
     // Fuse.js ne permet pas d'obtenir tous les documents directement
     // On fait une recherche vide pour récupérer tout
-    return fuseIndex.getIndex().docs.map(doc => ({ item: doc, score: 1 }));
+    return fuseIndex.getIndex().docs.map((doc) => ({ item: doc, score: 1 }));
   }
 
   /**
@@ -493,29 +496,29 @@ class SearchIndexService extends IService {
     try {
       const cacheKey = 'search-index';
       const persistedData = await this.cache.get(cacheKey);
-      
+
       if (persistedData) {
         // Reconstruire les indexes Fuse à partir des données persistées
         for (const [indexName, data] of Object.entries(persistedData.indexes)) {
           const fuseIndex = new Fuse(data.documents, {
             ...this.fuseConfig,
-            keys: data.keys
+            keys: data.keys,
           });
           this.indexes.set(indexName, fuseIndex);
         }
-        
+
         // Restaurer les autres données
         this.facets = new Map(Object.entries(persistedData.facets || {}));
         this.documents = new Map(Object.entries(persistedData.documents || {}));
         this.stats = { ...this.stats, ...persistedData.stats };
-        
+
         this.logger.info('Index persisté chargé depuis le cache', {
           indexes: this.indexes.size,
-          documents: this.stats.totalDocuments
+          documents: this.stats.totalDocuments,
         });
       }
     } catch (error) {
-      this.logger.warn('Erreur lors du chargement de l\'index persisté', { error: error.message });
+      this.logger.warn("Erreur lors du chargement de l'index persisté", { error: error.message });
     }
   }
 
@@ -525,7 +528,7 @@ class SearchIndexService extends IService {
   async persistIndex() {
     try {
       const cacheKey = 'search-index';
-      
+
       // Préparer les données à persister
       const persistData = {
         indexes: {},
@@ -533,23 +536,23 @@ class SearchIndexService extends IService {
         documents: Object.fromEntries(this.documents),
         stats: this.stats,
         version: '1.0.0',
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
       };
 
       // Extraire les données des indexes Fuse
       for (const [indexName, fuseIndex] of this.indexes) {
         persistData.indexes[indexName] = {
           documents: fuseIndex.getIndex().docs,
-          keys: fuseIndex.options.keys
+          keys: fuseIndex.options.keys,
         };
       }
 
       // Sauvegarder dans le cache avec TTL long (24h)
       await this.cache.set(cacheKey, persistData, 24 * 60 * 60 * 1000);
-      
+
       this.logger.debug('Index persisté dans le cache');
     } catch (error) {
-      this.logger.error('Erreur lors de la persistance de l\'index', { error: error.message });
+      this.logger.error("Erreur lors de la persistance de l'index", { error: error.message });
     }
   }
 
@@ -575,16 +578,17 @@ class SearchIndexService extends IService {
   updateSearchStats(searchTime) {
     this.stats.searchCount++;
     const alpha = 0.1;
-    this.stats.averageSearchTime = this.stats.averageSearchTime === 0
-      ? searchTime
-      : (alpha * searchTime) + ((1 - alpha) * this.stats.averageSearchTime);
+    this.stats.averageSearchTime =
+      this.stats.averageSearchTime === 0
+        ? searchTime
+        : alpha * searchTime + (1 - alpha) * this.stats.averageSearchTime;
   }
 
   getSearchStats() {
     return {
       ...this.stats,
       averageSearchTime: Math.round(this.stats.averageSearchTime) + 'ms',
-      indexSizeFormatted: this.formatBytes(this.stats.indexSize)
+      indexSizeFormatted: this.formatBytes(this.stats.indexSize),
     };
   }
 

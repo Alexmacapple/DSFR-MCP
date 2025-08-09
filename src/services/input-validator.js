@@ -15,18 +15,18 @@ class InputValidatorService {
   validateAndSanitize(toolName, params) {
     // Validation avec le schéma
     const validation = this.schemas.validate(toolName, params);
-    
+
     if (!validation.valid) {
       throw new Error(`Paramètres invalides pour ${toolName}: ${validation.errors.join(', ')}`);
     }
 
     // Sanitisation supplémentaire
     const sanitized = this.additionalSanitization(validation.sanitized, toolName);
-    
+
     return {
       valid: true,
       sanitized,
-      errors: []
+      errors: [],
     };
   }
 
@@ -58,7 +58,9 @@ class InputValidatorService {
       case 'generate_dsfr_component':
         // Normaliser le nom du composant
         if (sanitized.component_type) {
-          sanitized.component_type = sanitized.component_type.toLowerCase().replace(/[^a-z0-9_-]/g, '');
+          sanitized.component_type = sanitized.component_type
+            .toLowerCase()
+            .replace(/[^a-z0-9_-]/g, '');
         }
         break;
 
@@ -97,15 +99,17 @@ class InputValidatorService {
    * @returns {string} Requête sanitisée
    */
   sanitizeSearchQuery(query) {
-    return query
-      .trim()
-      .toLowerCase()
-      // Supprimer les caractères spéciaux dangereux
-      .replace(/[<>&"']/g, '')
-      // Normaliser les espaces
-      .replace(/\s+/g, ' ')
-      // Limiter à des caractères alphanumériques et quelques caractères sûrs
-      .replace(/[^a-zA-Z0-9\s\-_]/g, '');
+    return (
+      query
+        .trim()
+        .toLowerCase()
+        // Supprimer les caractères spéciaux dangereux
+        .replace(/[<>&"']/g, '')
+        // Normaliser les espaces
+        .replace(/\s+/g, ' ')
+        // Limiter à des caractères alphanumériques et quelques caractères sûrs
+        .replace(/[^a-zA-Z0-9\s\-_]/g, '')
+    );
   }
 
   /**
@@ -114,14 +118,16 @@ class InputValidatorService {
    * @returns {string} Code HTML sanitisé
    */
   sanitizeHtmlCode(htmlCode) {
-    return htmlCode
-      .trim()
-      // Supprimer les scripts malveillants basiques
-      .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
-      .replace(/javascript:/gi, '')
-      .replace(/on\w+\s*=/gi, '')
-      // Normaliser les espaces
-      .replace(/\s+/g, ' ');
+    return (
+      htmlCode
+        .trim()
+        // Supprimer les scripts malveillants basiques
+        .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+        .replace(/javascript:/gi, '')
+        .replace(/on\w+\s*=/gi, '')
+        // Normaliser les espaces
+        .replace(/\s+/g, ' ')
+    );
   }
 
   /**
@@ -146,7 +152,7 @@ class InputValidatorService {
   normalizePascalCase(name) {
     return name
       .split(/[-_\s]+/)
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
       .join('');
   }
 
@@ -160,7 +166,8 @@ class InputValidatorService {
 
     // Vérifier la taille globale des paramètres
     const paramsString = JSON.stringify(params);
-    if (paramsString.length > 100000) { // 100KB max
+    if (paramsString.length > 100000) {
+      // 100KB max
       errors.push('Les paramètres sont trop volumineux (max 100KB)');
     }
 
@@ -171,7 +178,7 @@ class InputValidatorService {
 
     return {
       valid: errors.length === 0,
-      errors
+      errors,
     };
   }
 
@@ -183,11 +190,13 @@ class InputValidatorService {
    */
   createErrorResponse(message, errors = []) {
     return {
-      content: [{
-        type: 'text',
-        text: `❌ **Erreur de validation**\n\n${message}\n\n**Détails :**\n${errors.map(e => `- ${e}`).join('\n')}`
-      }],
-      isError: true
+      content: [
+        {
+          type: 'text',
+          text: `❌ **Erreur de validation**\n\n${message}\n\n**Détails :**\n${errors.map((e) => `- ${e}`).join('\n')}`,
+        },
+      ],
+      isError: true,
     };
   }
 
@@ -199,8 +208,8 @@ class InputValidatorService {
    */
   validateRequiredParams(params, required) {
     const errors = [];
-    
-    required.forEach(param => {
+
+    required.forEach((param) => {
       if (params[param] === undefined || params[param] === null || params[param] === '') {
         errors.push(`Le paramètre '${param}' est requis`);
       }
@@ -218,7 +227,7 @@ class InputValidatorService {
   validateStringLimits(params, limits) {
     const errors = [];
 
-    Object.keys(limits).forEach(param => {
+    Object.keys(limits).forEach((param) => {
       if (params[param] && typeof params[param] === 'string') {
         const value = params[param];
         const limit = limits[param];
@@ -241,9 +250,9 @@ class InputValidatorService {
    * @returns {Array} Liste des outils
    */
   getAvailableTools() {
-    return this.schemas.getAvailableTools().map(toolName => ({
+    return this.schemas.getAvailableTools().map((toolName) => ({
       name: toolName,
-      schema: this.schemas.getSchema(toolName)
+      schema: this.schemas.getSchema(toolName),
     }));
   }
 }

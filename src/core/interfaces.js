@@ -258,5 +258,5 @@ module.exports = {
   IValidationService,
   IGeneratorService,
   IConfigService,
-  ILoggerService
+  ILoggerService,
 };

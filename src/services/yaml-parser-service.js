@@ -13,13 +13,13 @@ class YamlParserService extends IService {
     super();
     this.config = config;
     this.logger = logger;
-    this.ajv = new Ajv({ 
-      allErrors: true, 
+    this.ajv = new Ajv({
+      allErrors: true,
       verbose: true,
-      strict: false // Pour supporter les schémas DSFR flexibles
+      strict: false, // Pour supporter les schémas DSFR flexibles
     });
     addFormats(this.ajv);
-    
+
     this.initialized = false;
     this.schemas = new Map();
     this.parseStats = {
@@ -27,18 +27,18 @@ class YamlParserService extends IService {
       successfulParses: 0,
       errors: 0,
       warnings: 0,
-      averageParseTime: 0
+      averageParseTime: 0,
     };
   }
 
   async initialize() {
     if (this.initialized) return;
-    
+
     this.logger.info('Initialisation du YamlParserService');
-    
+
     // Charger les schémas de validation prédéfinis
     await this.loadDefaultSchemas();
-    
+
     this.initialized = true;
     this.logger.info('YamlParserService initialisé avec succès');
   }
@@ -52,13 +52,13 @@ class YamlParserService extends IService {
    */
   async parseYaml(content, options = {}) {
     const startTime = Date.now();
-    
+
     try {
       const {
         schema = null,
         validateSchema = true,
         allowDuplicateKeys = false,
-        filename = 'unknown'
+        filename = 'unknown',
       } = options;
 
       // Configuration du parser YAML
@@ -67,7 +67,7 @@ class YamlParserService extends IService {
         onWarning: (warning) => {
           this.parseStats.warnings++;
           this.logger.warn(`YAML warning in ${filename}`, { warning: warning.message });
-        }
+        },
       };
 
       // Parser le YAML
@@ -80,7 +80,7 @@ class YamlParserService extends IService {
           original: error,
           line: error.mark?.line,
           column: error.mark?.column,
-          snippet: this.extractErrorSnippet(content, error.mark)
+          snippet: this.extractErrorSnippet(content, error.mark),
         });
       }
 
@@ -88,7 +88,10 @@ class YamlParserService extends IService {
       if (validateSchema && schema) {
         const validationResult = await this.validateAgainstSchema(parsed, schema, filename);
         if (!validationResult.valid) {
-          throw new YamlValidationError(`Validation failed for ${filename}`, validationResult.errors);
+          throw new YamlValidationError(
+            `Validation failed for ${filename}`,
+            validationResult.errors
+          );
         }
       }
 
@@ -102,10 +105,9 @@ class YamlParserService extends IService {
           filename,
           parseTime,
           size: content.length,
-          valid: true
-        }
+          valid: true,
+        },
       };
-
     } catch (error) {
       this.updateStats(Date.now() - startTime, false);
       throw error;
@@ -120,31 +122,31 @@ class YamlParserService extends IService {
       concurrency = this.config.get('parsing.concurrency', 10),
       schema = null,
       validateSchema = true,
-      failFast = false
+      failFast = false,
     } = options;
 
     this.logger.info(`Parsing de ${files.length} fichiers YAML avec concurrence ${concurrency}`);
-    
+
     const results = [];
     const errors = [];
 
     // Traitement par batch pour contrôler la concurrence
     for (let i = 0; i < files.length; i += concurrency) {
       const batch = files.slice(i, i + concurrency);
-      
+
       const batchPromises = batch.map(async (file) => {
         try {
           const result = await this.parseYaml(file.content, {
             ...options,
             filename: file.path,
             schema,
-            validateSchema
+            validateSchema,
           });
-          
+
           return {
             file: file.path,
             success: true,
-            result
+            result,
           };
         } catch (error) {
           const errorResult = {
@@ -153,14 +155,14 @@ class YamlParserService extends IService {
             error: {
               message: error.message,
               type: error.constructor.name,
-              details: error.details || {}
-            }
+              details: error.details || {},
+            },
           };
 
           if (failFast) {
             throw error;
           }
-          
+
           errors.push(errorResult);
           return errorResult;
         }
@@ -170,21 +172,24 @@ class YamlParserService extends IService {
       results.push(...batchResults);
 
       // Log de progression
-      this.logger.info(`Batch ${Math.floor(i/concurrency) + 1}/${Math.ceil(files.length/concurrency)} terminé`, {
-        processed: Math.min(i + concurrency, files.length),
-        total: files.length,
-        errors: errors.length
-      });
+      this.logger.info(
+        `Batch ${Math.floor(i / concurrency) + 1}/${Math.ceil(files.length / concurrency)} terminé`,
+        {
+          processed: Math.min(i + concurrency, files.length),
+          total: files.length,
+          errors: errors.length,
+        }
+      );
     }
 
     return {
       results,
       stats: {
         total: files.length,
-        successful: results.filter(r => r.success).length,
+        successful: results.filter((r) => r.success).length,
         failed: errors.length,
-        errors
-      }
+        errors,
+      },
     };
   }
 
@@ -193,7 +198,7 @@ class YamlParserService extends IService {
    */
   async validateAgainstSchema(data, schemaName, filename = 'unknown') {
     const schema = this.schemas.get(schemaName);
-    
+
     if (!schema) {
       throw new Error(`Schéma '${schemaName}' non trouvé`);
     }
@@ -202,11 +207,11 @@ class YamlParserService extends IService {
     const valid = validate(data);
 
     if (!valid) {
-      const errors = validate.errors.map(error => ({
+      const errors = validate.errors.map((error) => ({
         path: error.instancePath,
         message: error.message,
         value: error.data,
-        schema: error.schemaPath
+        schema: error.schemaPath,
       }));
 
       return { valid: false, errors };
@@ -245,8 +250,8 @@ class YamlParserService extends IService {
           type: 'object',
           properties: {
             level: { type: 'string', enum: ['A', 'AA', 'AAA'] },
-            guidelines: { type: 'array', items: { type: 'string' } }
-          }
+            guidelines: { type: 'array', items: { type: 'string' } },
+          },
         },
         variants: {
           type: 'array',
@@ -254,18 +259,18 @@ class YamlParserService extends IService {
             type: 'object',
             properties: {
               name: { type: 'string' },
-              description: { type: 'string' }
+              description: { type: 'string' },
             },
-            required: ['name']
-          }
+            required: ['name'],
+          },
         },
         dependencies: {
           type: 'array',
-          items: { type: 'string' }
-        }
+          items: { type: 'string' },
+        },
       },
       required: ['name', 'category'],
-      additionalProperties: true
+      additionalProperties: true,
     };
 
     // Schéma pour la configuration DSFR
@@ -273,27 +278,27 @@ class YamlParserService extends IService {
       type: 'object',
       properties: {
         theme: {
-          type: 'object',  
+          type: 'object',
           properties: {
             primary: { type: 'string', pattern: '^#[0-9A-Fa-f]{6}$' },
-            secondary: { type: 'string', pattern: '^#[0-9A-Fa-f]{6}$' }
-          }
+            secondary: { type: 'string', pattern: '^#[0-9A-Fa-f]{6}$' },
+          },
         },
         breakpoints: {
           type: 'object',
           patternProperties: {
-            '^(xs|sm|md|lg|xl)$': { type: 'string' }
-          }
-        }
-      }
+            '^(xs|sm|md|lg|xl)$': { type: 'string' },
+          },
+        },
+      },
     };
 
     // Enregistrer les schémas
     this.registerSchema('dsfr-component', componentSchema);
     this.registerSchema('dsfr-config', configSchema);
 
-    this.logger.info('Schémas par défaut chargés', { 
-      schemas: Array.from(this.schemas.keys()) 
+    this.logger.info('Schémas par défaut chargés', {
+      schemas: Array.from(this.schemas.keys()),
     });
   }
 
@@ -314,8 +319,8 @@ class YamlParserService extends IService {
       lines: lines.slice(start, end).map((line, i) => ({
         number: start + i + 1,
         content: line,
-        error: start + i === errorLine
-      }))
+        error: start + i === errorLine,
+      })),
     };
   }
 
@@ -324,7 +329,7 @@ class YamlParserService extends IService {
    */
   updateStats(parseTime, success) {
     this.parseStats.totalFiles++;
-    
+
     if (success) {
       this.parseStats.successfulParses++;
     } else {
@@ -333,9 +338,10 @@ class YamlParserService extends IService {
 
     // Calcul de la moyenne mobile pour le temps de parsing
     const alpha = 0.1; // Facteur de lissage
-    this.parseStats.averageParseTime = this.parseStats.averageParseTime === 0 
-      ? parseTime 
-      : (alpha * parseTime) + ((1 - alpha) * this.parseStats.averageParseTime);
+    this.parseStats.averageParseTime =
+      this.parseStats.averageParseTime === 0
+        ? parseTime
+        : alpha * parseTime + (1 - alpha) * this.parseStats.averageParseTime;
   }
 
   /**
@@ -344,10 +350,11 @@ class YamlParserService extends IService {
   getStats() {
     return {
       ...this.parseStats,
-      successRate: this.parseStats.totalFiles > 0 
-        ? (this.parseStats.successfulParses / this.parseStats.totalFiles * 100).toFixed(2) + '%'
-        : '0%',
-      averageParseTime: Math.round(this.parseStats.averageParseTime) + 'ms'
+      successRate:
+        this.parseStats.totalFiles > 0
+          ? ((this.parseStats.successfulParses / this.parseStats.totalFiles) * 100).toFixed(2) + '%'
+          : '0%',
+      averageParseTime: Math.round(this.parseStats.averageParseTime) + 'ms',
     };
   }
 
@@ -360,7 +367,7 @@ class YamlParserService extends IService {
       successfulParses: 0,
       errors: 0,
       warnings: 0,
-      averageParseTime: 0
+      averageParseTime: 0,
     };
   }
 
@@ -393,8 +400,8 @@ class YamlValidationError extends Error {
   }
 }
 
-module.exports = { 
-  YamlParserService, 
-  YamlParseError, 
-  YamlValidationError 
+module.exports = {
+  YamlParserService,
+  YamlParseError,
+  YamlValidationError,
 };

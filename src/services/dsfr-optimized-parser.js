@@ -20,22 +20,29 @@ class DSFROptimizedParser {
 
   async parseSourceFiles() {
     console.log('📦 Parsing du code source DSFR (version optimisée)...');
-    
+
     try {
       // Charger l'index des fichiers
       this.fileIndex = JSON.parse(await fs.readFile(this.indexFile, 'utf-8'));
       console.log(`📂 ${this.fileIndex.totalFiles} fichiers à traiter`);
-      
+
       // Traiter les fichiers par catégorie
-      const categories = ['components', 'core', 'utilities', 'analytics', 'examples', 'documentation', 'other'];
-      
+      const categories = [
+        'components',
+        'core',
+        'utilities',
+        'analytics',
+        'examples',
+        'documentation',
+        'other',
+      ];
+
       for (const category of categories) {
         await this.processCategory(category);
       }
-      
+
       console.log(`\n✅ Parsing terminé - ${this.processedFiles} fichiers traités`);
       this.displayStats();
-      
     } catch (error) {
       console.error('❌ Erreur lors du parsing:', error);
       throw error;
@@ -44,42 +51,45 @@ class DSFROptimizedParser {
 
   async processCategory(category) {
     const categoryPath = path.join(this.sourceDir, category);
-    
+
     try {
       const files = await fs.readdir(categoryPath);
-      const actualFiles = files.filter(f => !f.endsWith('.meta.json') && f !== 'index.json' && !f.startsWith('.'));
-      
+      const actualFiles = files.filter(
+        (f) => !f.endsWith('.meta.json') && f !== 'index.json' && !f.startsWith('.')
+      );
+
       if (actualFiles.length === 0) {
         console.log(`⚠️  Catégorie ${category} vide`);
         return;
       }
-      
+
       console.log(`\n⚙️  Traitement de ${category}: ${actualFiles.length} fichiers`);
-      
+
       let processedCount = 0;
       const batchSize = 50; // Traiter par lots pour optimiser la performance
-      
+
       for (let i = 0; i < actualFiles.length; i += batchSize) {
         const batch = actualFiles.slice(i, i + batchSize);
-        
-        await Promise.all(batch.map(async (file) => {
-          try {
-            await this.processFile(categoryPath, file);
-            processedCount++;
-          } catch (error) {
-            console.error(`❌ Erreur avec ${file}: ${error.message}`);
-          }
-        }));
-        
+
+        await Promise.all(
+          batch.map(async (file) => {
+            try {
+              await this.processFile(categoryPath, file);
+              processedCount++;
+            } catch (error) {
+              console.error(`❌ Erreur avec ${file}: ${error.message}`);
+            }
+          })
+        );
+
         // Afficher la progression
         if (processedCount % 100 === 0) {
           process.stdout.write(`\r   ✓ ${processedCount} fichiers traités...`);
         }
       }
-      
+
       console.log(`\r   ✓ ${processedCount} fichiers traités dans ${category}`);
       this.processedFiles += processedCount;
-      
     } catch (error) {
       console.warn(`⚠️  Erreur avec la catégorie ${category}: ${error.message}`);
     }
@@ -88,11 +98,11 @@ class DSFROptimizedParser {
   async processFile(categoryPath, fileName) {
     const filePath = path.join(categoryPath, fileName);
     const metaPath = filePath + '.meta.json';
-    
+
     try {
       // Lire le contenu du fichier
       const content = await fs.readFile(filePath, 'utf-8');
-      
+
       // Lire les métadonnées si elles existent
       let originalPath;
       try {
@@ -102,11 +112,10 @@ class DSFROptimizedParser {
         // Si pas de métadonnées, reconstruire le chemin depuis le nom
         originalPath = fileName.replace(/__/g, '/');
       }
-      
+
       // Déterminer le type de section et traiter
       const sectionType = this.detectSectionType(originalPath);
       await this.processSection(sectionType, originalPath, content);
-      
     } catch (error) {
       throw new Error(`Impossible de lire ${fileName}: ${error.message}`);
     }
@@ -125,42 +134,42 @@ class DSFROptimizedParser {
     if (filePath.includes('.scss')) return 'style';
     if (filePath.includes('.js')) return 'script';
     if (filePath.includes('.yml') || filePath.includes('.yaml')) return 'config';
-    
+
     return 'other';
   }
 
   async processSection(type, filePath, content) {
     const fileName = path.basename(filePath);
-    
+
     switch (type) {
       case 'component':
         await this.processComponent(filePath, content);
         break;
-        
+
       case 'core':
         await this.processCore(filePath, content);
         break;
-        
+
       case 'utility':
         await this.processUtility(filePath, content);
         break;
-        
+
       case 'analytics':
         await this.processAnalytics(filePath, content);
         break;
-        
+
       case 'example':
         await this.processExample(filePath, content);
         break;
-        
+
       case 'schema':
         await this.processSchema(filePath, content);
         break;
-        
+
       case 'documentation':
         await this.processDocumentation(filePath, content);
         break;
-        
+
       case 'style':
       case 'script':
       case 'config':
@@ -173,9 +182,9 @@ class DSFROptimizedParser {
     // Extraire le nom du composant
     const match = filePath.match(/component\/([^\/]+)\//);
     if (!match) return;
-    
+
     const componentName = match[1];
-    
+
     if (!this.components.has(componentName)) {
       this.components.set(componentName, {
         name: componentName,
@@ -185,13 +194,13 @@ class DSFROptimizedParser {
         schema: null,
         styles: {},
         scripts: {},
-        templates: {}
+        templates: {},
       });
     }
-    
+
     const component = this.components.get(componentName);
     const fileName = path.basename(filePath);
-    
+
     // Classifier le fichier
     if (filePath.endsWith('.scss')) {
       const styleType = this.getStyleType(filePath);
@@ -209,27 +218,27 @@ class DSFROptimizedParser {
     } else if (filePath.includes('/example/')) {
       component.examples.push({
         path: filePath,
-        content: content
+        content: content,
       });
     }
-    
+
     component.files[fileName] = content;
   }
 
   async processCore(filePath, content) {
     const moduleName = this.extractModuleName(filePath, 'core');
-    
+
     if (!this.coreModules.has(moduleName)) {
       this.coreModules.set(moduleName, {
         name: moduleName,
         files: {},
-        documentation: ''
+        documentation: '',
       });
     }
-    
+
     const module = this.coreModules.get(moduleName);
     module.files[path.basename(filePath)] = content;
-    
+
     if (filePath.endsWith('.md')) {
       module.documentation = content;
     }
@@ -237,18 +246,18 @@ class DSFROptimizedParser {
 
   async processUtility(filePath, content) {
     const utilityName = this.extractModuleName(filePath, 'utility');
-    
+
     if (!this.utilities.has(utilityName)) {
       this.utilities.set(utilityName, {
         name: utilityName,
         files: {},
-        documentation: ''
+        documentation: '',
       });
     }
-    
+
     const utility = this.utilities.get(utilityName);
     utility.files[path.basename(filePath)] = content;
-    
+
     if (filePath.endsWith('.md')) {
       utility.documentation = content;
     }
@@ -258,7 +267,7 @@ class DSFROptimizedParser {
     const fileName = path.basename(filePath);
     this.analytics.set(fileName, {
       path: filePath,
-      content: content
+      content: content,
     });
   }
 
@@ -270,7 +279,7 @@ class DSFROptimizedParser {
       this.examples.set(filePath, {
         component: componentName,
         path: filePath,
-        content: content
+        content: content,
       });
     }
   }
@@ -279,7 +288,7 @@ class DSFROptimizedParser {
     const componentName = this.extractComponentFromPath(filePath);
     this.schemas.set(componentName, {
       path: filePath,
-      content: this.parseYAML(content)
+      content: this.parseYAML(content),
     });
   }
 
@@ -287,7 +296,7 @@ class DSFROptimizedParser {
     const docName = path.basename(filePath, '.md');
     this.documentation.set(docName, {
       path: filePath,
-      content: content
+      content: content,
     });
   }
 
@@ -321,15 +330,15 @@ class DSFROptimizedParser {
     const result = {};
     const lines = content.split('\n');
     let currentKey = null;
-    let currentIndent = 0;
-    
+    const currentIndent = 0;
+
     for (const line of lines) {
       const trimmed = line.trim();
       if (!trimmed || trimmed.startsWith('#')) continue;
-      
+
       const indent = line.search(/\S/);
       const match = trimmed.match(/^([^:]+):\s*(.*)$/);
-      
+
       if (match) {
         const [, key, value] = match;
         if (indent === 0) {
@@ -343,7 +352,7 @@ class DSFROptimizedParser {
         }
       }
     }
-    
+
     return result;
   }
 
@@ -356,7 +365,7 @@ class DSFROptimizedParser {
     console.log(`   - Exemples: ${this.examples.size}`);
     console.log(`   - Schémas: ${this.schemas.size}`);
     console.log(`   - Documentation: ${this.documentation.size}`);
-    
+
     // Afficher quelques composants avec détails
     if (this.components.size > 0) {
       console.log('\n📋 Détails de quelques composants:');
@@ -394,8 +403,7 @@ class DSFROptimizedParser {
   }
 
   getExamplesForComponent(componentName) {
-    return Array.from(this.examples.values())
-      .filter(ex => ex.component === componentName);
+    return Array.from(this.examples.values()).filter((ex) => ex.component === componentName);
   }
 
   getDocumentation(name) {
@@ -408,22 +416,22 @@ class DSFROptimizedParser {
       components: {
         count: this.components.size,
         list: this.getComponentList(),
-        details: {}
+        details: {},
       },
       coreModules: {
         count: this.coreModules.size,
-        list: Array.from(this.coreModules.keys())
+        list: Array.from(this.coreModules.keys()),
       },
       utilities: {
         count: this.utilities.size,
-        list: Array.from(this.utilities.keys())
+        list: Array.from(this.utilities.keys()),
       },
       analytics: this.analytics.size,
       examples: this.examples.size,
       documentation: this.documentation.size,
-      generatedAt: new Date().toISOString()
+      generatedAt: new Date().toISOString(),
     };
-    
+
     // Ajouter les détails des composants
     for (const [name, comp] of this.components) {
       summary.components.details[name] = {
@@ -433,13 +441,13 @@ class DSFROptimizedParser {
         templates: Object.keys(comp.templates).length,
         hasDocumentation: !!comp.documentation,
         hasSchema: !!comp.schema,
-        examplesCount: comp.examples.length
+        examplesCount: comp.examples.length,
       };
     }
-    
+
     const summaryPath = path.join(this.sourceDir, 'parsing-summary.json');
     await fs.writeFile(summaryPath, JSON.stringify(summary, null, 2));
-    
+
     console.log(`\n📄 Résumé exporté dans: ${summaryPath}`);
     return summary;
   }

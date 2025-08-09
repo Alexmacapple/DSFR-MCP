@@ -14,7 +14,7 @@ class AccessibilityService {
         'alt-required': {
           level: 'A',
           description: 'Toute image doit avoir un attribut alt',
-          check: (element) => element.hasAttribute('alt')
+          check: (element) => element.hasAttribute('alt'),
         },
         'decorative-alt': {
           level: 'A',
@@ -24,10 +24,10 @@ class AccessibilityService {
               return element.getAttribute('alt') === '';
             }
             return true;
-          }
-        }
+          },
+        },
       },
-      
+
       forms: {
         'label-association': {
           level: 'A',
@@ -36,30 +36,32 @@ class AccessibilityService {
             const id = element.getAttribute('id');
             if (!id) return false;
             return !!document.querySelector(`label[for="${id}"]`);
-          }
+          },
         },
         'required-indication': {
           level: 'AA',
           description: 'Les champs obligatoires doivent être clairement indiqués',
           check: (element) => {
             if (element.hasAttribute('required')) {
-              return element.hasAttribute('aria-required') || 
-                     element.getAttribute('aria-label')?.includes('obligatoire');
+              return (
+                element.hasAttribute('aria-required') ||
+                element.getAttribute('aria-label')?.includes('obligatoire')
+              );
             }
             return true;
-          }
-        }
+          },
+        },
       },
-      
+
       navigation: {
         'skip-links': {
           level: 'A',
-          description: 'Présence de liens d\'évitement',
+          description: "Présence de liens d'évitement",
           check: (document) => {
             return !!document.querySelector('a[href="#main"], a[href="#content"]');
-          }
+          },
         },
-        'landmarks': {
+        landmarks: {
           level: 'AA',
           description: 'Utilisation correcte des landmarks ARIA',
           check: (document) => {
@@ -68,10 +70,10 @@ class AccessibilityService {
             const header = document.querySelector('header, [role="banner"]');
             const footer = document.querySelector('footer, [role="contentinfo"]');
             return !!(main || nav || header || footer);
-          }
-        }
+          },
+        },
       },
-      
+
       contrast: {
         'color-contrast': {
           level: 'AA',
@@ -79,9 +81,9 @@ class AccessibilityService {
           check: () => {
             // Note: vérification complexe, retourne une suggestion
             return null;
-          }
-        }
-      }
+          },
+        },
+      },
     };
   }
 
@@ -92,7 +94,7 @@ class AccessibilityService {
       failed: [],
       warnings: [],
       suggestions: [],
-      score: 100
+      score: 100,
     };
 
     try {
@@ -101,19 +103,19 @@ class AccessibilityService {
 
       // Vérifier les images
       this.checkImages(document, results);
-      
+
       // Vérifier les formulaires
       this.checkForms(document, results);
-      
+
       // Vérifier la navigation
       this.checkNavigation(document, results);
-      
+
       // Vérifier la structure
       this.checkStructure(document, results);
-      
+
       // Vérifier les tableaux
       this.checkTables(document, results);
-      
+
       // Ajouter des suggestions si demandé
       if (include_suggestions) {
         this.addSuggestions(document, results);
@@ -121,75 +123,76 @@ class AccessibilityService {
 
       // Calculer le score
       results.score = this.calculateScore(results);
-
     } catch (error) {
       results.failed.push({
         rule: 'parse-error',
-        message: `Erreur lors de l'analyse : ${error.message}`
+        message: `Erreur lors de l'analyse : ${error.message}`,
       });
     }
 
     return {
-      content: [{
-        type: 'text',
-        text: this.formatResults(results)
-      }]
+      content: [
+        {
+          type: 'text',
+          text: this.formatResults(results),
+        },
+      ],
     };
   }
 
   checkImages(document, results) {
     const images = document.querySelectorAll('img');
-    
-    images.forEach(img => {
+
+    images.forEach((img) => {
       // Vérifier l'attribut alt
       if (!img.hasAttribute('alt')) {
         results.failed.push({
           rule: 'img-alt',
           element: `<img src="${img.src || 'unknown'}">`,
           message: 'Image sans attribut alt',
-          level: 'A'
+          level: 'A',
         });
       }
-      
+
       // Vérifier les images décoratives
       if (img.getAttribute('role') === 'presentation' && img.getAttribute('alt') !== '') {
         results.warnings.push({
           rule: 'img-decorative',
           element: `<img src="${img.src || 'unknown'}">`,
           message: 'Image décorative avec un alt non vide',
-          level: 'A'
+          level: 'A',
         });
       }
     });
-    
+
     if (images.length === 0) {
       results.passed.push({
         rule: 'img-presence',
-        message: 'Aucune image à vérifier'
+        message: 'Aucune image à vérifier',
       });
     }
   }
 
   checkForms(document, results) {
     const formInputs = document.querySelectorAll('input:not([type="hidden"]), select, textarea');
-    
-    formInputs.forEach(input => {
+
+    formInputs.forEach((input) => {
       const id = input.getAttribute('id');
       const type = input.getAttribute('type') || 'text';
-      
+
       // Vérifier l'association avec un label
       if (id) {
         const label = document.querySelector(`label[for="${id}"]`);
         if (!label) {
           const ariaLabel = input.getAttribute('aria-label');
           const ariaLabelledby = input.getAttribute('aria-labelledby');
-          
+
           if (!ariaLabel && !ariaLabelledby) {
             results.failed.push({
               rule: 'form-label',
               element: `<${input.tagName.toLowerCase()} id="${id}" type="${type}">`,
               message: 'Champ de formulaire sans label associé',
-              level: 'A'
+              level: 'A',
             });
           }
         }
@@ -198,10 +201,10 @@ class AccessibilityService {
           rule: 'form-id',
           element: `<${input.tagName.toLowerCase()} type="${type}">`,
           message: 'Champ de formulaire sans attribut id',
-          level: 'A'
+          level: 'A',
         });
       }
-      
+
       // Vérifier l'indication des champs obligatoires
       if (input.hasAttribute('required')) {
         if (!input.hasAttribute('aria-required')) {
@@ -209,7 +212,7 @@ class AccessibilityService {
             rule: 'form-required',
             element: `<${input.tagName.toLowerCase()} id="${id || 'unknown'}">`,
             message: 'Champ obligatoire sans aria-required="true"',
-            level: 'AA'
+            level: 'AA',
           });
         }
       }
@@ -219,45 +222,44 @@ class AccessibilityService {
   checkNavigation(document, results) {
     // Vérifier les liens d'évitement
     const skipLinks = document.querySelectorAll('a[href^="#"]');
-    const hasSkipToMain = Array.from(skipLinks).some(link => 
-      link.getAttribute('href') === '#main' || 
-      link.getAttribute('href') === '#content'
+    const hasSkipToMain = Array.from(skipLinks).some(
+      (link) => link.getAttribute('href') === '#main' || link.getAttribute('href') === '#content'
     );
-    
+
     if (!hasSkipToMain) {
       results.warnings.push({
         rule: 'nav-skip-links',
-        message: 'Aucun lien d\'évitement vers le contenu principal trouvé',
-        level: 'A'
+        message: "Aucun lien d'évitement vers le contenu principal trouvé",
+        level: 'A',
       });
     }
-    
+
     // Vérifier les landmarks
     const landmarks = {
       main: document.querySelector('main, [role="main"]'),
       nav: document.querySelector('nav, [role="navigation"]'),
       header: document.querySelector('header, [role="banner"]'),
-      footer: document.querySelector('footer, [role="contentinfo"]')
+      footer: document.querySelector('footer, [role="contentinfo"]'),
     };
-    
+
     if (!landmarks.main) {
       results.failed.push({
         rule: 'landmark-main',
         message: 'Aucune balise <main> ou role="main" trouvée',
-        level: 'A'
+        level: 'A',
       });
     }
-    
+
     // Vérifier l'ordre de tabulation
     const tabbableElements = document.querySelectorAll('[tabindex]');
-    tabbableElements.forEach(el => {
+    tabbableElements.forEach((el) => {
       const tabindex = parseInt(el.getAttribute('tabindex'));
       if (tabindex > 0) {
         results.warnings.push({
           rule: 'nav-tabindex',
           element: el.tagName.toLowerCase(),
           message: `Éviter tabindex="${tabindex}" positif, utiliser l'ordre naturel du DOM`,
-          level: 'AA'
+          level: 'AA',
         });
       }
     });
@@ -268,75 +270,75 @@ class AccessibilityService {
     const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
     let previousLevel = 0;
     let h1Count = 0;
-    
+
     headings.forEach((heading, index) => {
       const level = parseInt(heading.tagName.charAt(1));
-      
+
       if (level === 1) {
         h1Count++;
         if (h1Count > 1) {
           results.warnings.push({
             rule: 'heading-h1-unique',
             message: 'Plusieurs balises H1 trouvées',
-            level: 'AA'
+            level: 'AA',
           });
         }
       }
-      
+
       if (previousLevel > 0 && level > previousLevel + 1) {
         results.failed.push({
           rule: 'heading-hierarchy',
           message: `Saut dans la hiérarchie : H${previousLevel} vers H${level}`,
-          level: 'A'
+          level: 'A',
         });
       }
-      
+
       previousLevel = level;
     });
-    
+
     if (h1Count === 0) {
       results.failed.push({
         rule: 'heading-h1-missing',
         message: 'Aucune balise H1 trouvée',
-        level: 'A'
+        level: 'A',
       });
     }
   }
 
   checkTables(document, results) {
     const tables = document.querySelectorAll('table');
-    
-    tables.forEach(table => {
+
+    tables.forEach((table) => {
       // Vérifier la présence d'un caption ou aria-label
       const caption = table.querySelector('caption');
       const ariaLabel = table.getAttribute('aria-label');
       const ariaLabelledby = table.getAttribute('aria-labelledby');
-      
+
       if (!caption && !ariaLabel && !ariaLabelledby) {
         results.warnings.push({
           rule: 'table-caption',
           message: 'Tableau sans caption ni aria-label',
-          level: 'A'
+          level: 'A',
         });
       }
-      
+
       // Vérifier les en-têtes de tableau
       const ths = table.querySelectorAll('th');
       if (ths.length === 0) {
         results.failed.push({
           rule: 'table-headers',
-          message: 'Tableau sans cellules d\'en-tête <th>',
-          level: 'A'
+          message: "Tableau sans cellules d'en-tête <th>",
+          level: 'A',
         });
       }
-      
+
       // Vérifier l'attribut scope sur les th
-      ths.forEach(th => {
+      ths.forEach((th) => {
         if (!th.hasAttribute('scope')) {
           results.warnings.push({
             rule: 'table-scope',
-            message: 'Cellule d\'en-tête <th> sans attribut scope',
-            level: 'A'
+            message: "Cellule d'en-tête <th> sans attribut scope",
+            level: 'A',
           });
         }
       });
@@ -347,44 +349,45 @@ class AccessibilityService {
     // Suggestions générales DSFR
     results.suggestions.push({
       category: 'DSFR',
-      message: 'Utiliser les composants DSFR garantit une meilleure accessibilité de base'
+      message: 'Utiliser les composants DSFR garantit une meilleure accessibilité de base',
     });
-    
+
     // Vérifier l'utilisation des classes DSFR
     const buttons = document.querySelectorAll('button:not(.fr-btn)');
     if (buttons.length > 0) {
       results.suggestions.push({
         category: 'DSFR',
-        message: `${buttons.length} bouton(s) sans classe DSFR .fr-btn`
+        message: `${buttons.length} bouton(s) sans classe DSFR .fr-btn`,
       });
     }
-    
+
     // Contraste
     results.suggestions.push({
       category: 'Contraste',
-      message: 'Vérifier manuellement les ratios de contraste (4.5:1 minimum pour le texte normal, 3:1 pour le texte large)'
+      message:
+        'Vérifier manuellement les ratios de contraste (4.5:1 minimum pour le texte normal, 3:1 pour le texte large)',
     });
-    
+
     // Tests avec lecteur d'écran
     results.suggestions.push({
       category: 'Tests',
-      message: 'Tester avec un lecteur d\'écran (NVDA, JAWS, VoiceOver)'
+      message: "Tester avec un lecteur d'écran (NVDA, JAWS, VoiceOver)",
     });
-    
+
     // Navigation clavier
     results.suggestions.push({
       category: 'Navigation',
-      message: 'Vérifier que tous les éléments interactifs sont accessibles au clavier'
+      message: 'Vérifier que tous les éléments interactifs sont accessibles au clavier',
     });
   }
 
   calculateScore(results) {
     const totalChecks = results.passed.length + results.failed.length + results.warnings.length;
     if (totalChecks === 0) return 100;
-    
+
     const failedWeight = results.failed.length * 10;
     const warningWeight = results.warnings.length * 3;
-    
+
     const score = Math.max(0, 100 - failedWeight - warningWeight);
     return Math.round(score);
   }
@@ -393,10 +396,10 @@ class AccessibilityService {
     let output = `# Rapport d'accessibilité RGAA\n\n`;
     output += `**Niveau vérifié** : ${results.level}\n`;
     output += `**Score global** : ${results.score}/100\n\n`;
-    
+
     if (results.failed.length > 0) {
       output += `## Erreurs critiques (${results.failed.length})\n\n`;
-      results.failed.forEach(item => {
+      results.failed.forEach((item) => {
         output += `### ${item.rule}\n`;
         output += `- **Niveau RGAA** : ${item.level}\n`;
         output += `- **Message** : ${item.message}\n`;
@@ -406,44 +409,44 @@ class AccessibilityService {
         output += '\n';
       });
     }
-    
+
     if (results.warnings.length > 0) {
       output += `## Avertissements (${results.warnings.length})\n\n`;
-      results.warnings.forEach(item => {
+      results.warnings.forEach((item) => {
         output += `- **${item.rule}** : ${item.message}`;
         if (item.level) output += ` (Niveau ${item.level})`;
         output += '\n';
       });
       output += '\n';
     }
-    
+
     if (results.passed.length > 0) {
       output += `## Tests réussis (${results.passed.length})\n\n`;
-      results.passed.forEach(item => {
+      results.passed.forEach((item) => {
         output += `- ${item.message}\n`;
       });
       output += '\n';
     }
-    
+
     if (results.suggestions.length > 0) {
       output += `## Suggestions d'amélioration\n\n`;
-      results.suggestions.forEach(suggestion => {
+      results.suggestions.forEach((suggestion) => {
         output += `- **${suggestion.category}** : ${suggestion.message}\n`;
       });
       output += '\n';
     }
-    
+
     // Recommandations finales
     output += `## Recommandations\n\n`;
     if (results.score < 50) {
       output += `**Attention** : Le score d'accessibilité est faible. Des améliorations importantes sont nécessaires.\n\n`;
     }
-    
+
     output += `1. Corriger toutes les erreurs critiques (niveau A)\n`;
     output += `2. Traiter les avertissements pour atteindre le niveau AA\n`;
     output += `3. Tester avec de vrais utilisateurs et assistances techniques\n`;
     output += `4. Utiliser les composants DSFR qui intègrent l'accessibilité\n`;
-    
+
     return output;
   }
 }

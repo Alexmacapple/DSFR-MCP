@@ -17,45 +17,59 @@ class GeneratorService {
 
   async generateComponent({ component_type, framework = 'vanilla', options = {} }) {
     await this.initialize();
-    
+
     const component = this.sourceParser.getComponent(component_type);
-    
+
     if (!component) {
       // Essayer de générer un composant basique même s'il n'est pas trouvé
       const basicComponent = this.createBasicComponentStructure(component_type);
       return {
-        content: [{
-          type: 'text',
-          text: this.generateAdvancedComponent(basicComponent, framework, options, component_type)
-        }]
+        content: [
+          {
+            type: 'text',
+            text: this.generateAdvancedComponent(
+              basicComponent,
+              framework,
+              options,
+              component_type
+            ),
+          },
+        ],
       };
     }
 
-    const generatedCode = this.generateAdvancedComponent(component, framework, options, component_type);
+    const generatedCode = this.generateAdvancedComponent(
+      component,
+      framework,
+      options,
+      component_type
+    );
 
     return {
-      content: [{
-        type: 'text',
-        text: generatedCode
-      }]
+      content: [
+        {
+          type: 'text',
+          text: generatedCode,
+        },
+      ],
     };
   }
 
   generateAdvancedComponent(component, framework, options, componentType) {
     let output = `# Composant DSFR avancé : ${componentType}\n\n`;
-    
+
     // Informations sur le composant
     output += '## Informations\n\n';
     output += `- **Type**: ${componentType}\n`;
     output += `- **Framework**: ${framework}\n`;
     output += `- **Version DSFR**: 1.14.0\n`;
     output += `- **Statut**: ${component.name ? 'Disponible' : 'Généré automatiquement'}\n\n`;
-    
+
     // Variantes disponibles
     if (options.variant || this.getAvailableVariants(componentType).length > 0) {
       output += '## Variantes disponibles\n\n';
       const variants = this.getAvailableVariants(componentType);
-      variants.forEach(variant => {
+      variants.forEach((variant) => {
         output += `- **${variant.name}**: ${variant.description}\n`;
       });
       output += '\n';
@@ -82,16 +96,16 @@ class GeneratorService {
 
     // Guide d'accessibilité
     output += this.generateAccessibilityGuide(componentType);
-    
+
     // Exemples d'utilisation
     output += this.generateUsageExamples(componentType, framework, options);
-    
+
     return output;
   }
 
   generateVanillaComponentAdvanced(component, options, componentType) {
     let output = '## HTML Structure\n\n';
-    
+
     // Template HTML amélioré
     const htmlTemplate = this.getAdvancedTemplate(componentType, options);
     output += '```html\n';
@@ -104,7 +118,7 @@ class GeneratorService {
     output += '```scss\n';
     output += `// Import du composant DSFR\n`;
     output += `@import "@gouvfr/dsfr/dist/component/${componentType}/${componentType}.css";\n\n`;
-    
+
     // CSS personnalisé selon les options
     if (options.custom_styles) {
       output += '// Styles personnalisés\n';
@@ -133,38 +147,38 @@ class GeneratorService {
 
   generateReactComponentAdvanced(component, options, componentType) {
     const componentNamePascal = this.toPascalCase(componentType);
-    
+
     let output = '## Composant React TypeScript\n\n';
     output += '```tsx\n';
     output += `import React, { useState, useCallback, useEffect } from 'react';\n`;
     output += `import '@gouvfr/dsfr/dist/component/${componentType}/${componentType}.css';\n\n`;
-    
+
     // Interface TypeScript
     output += `interface ${componentNamePascal}Props {\n`;
     const props = this.getComponentProps(componentType, options);
-    props.forEach(prop => {
+    props.forEach((prop) => {
       output += `  ${prop.name}${prop.optional ? '?' : ''}: ${prop.type};\n`;
     });
     output += `  className?: string;\n`;
     output += `  children?: React.ReactNode;\n`;
     output += `}\n\n`;
-    
+
     // Composant principal
     output += `const ${componentNamePascal}: React.FC<${componentNamePascal}Props> = ({\n`;
-    props.forEach(prop => {
+    props.forEach((prop) => {
       output += `  ${prop.name}${prop.defaultValue ? ` = ${prop.defaultValue}` : ''},\n`;
     });
     output += `  className = '',\n`;
     output += `  children,\n`;
     output += `  ...props\n`;
     output += `}) => {\n`;
-    
+
     // Hooks et state management
     if (this.requiresState(componentType)) {
       output += `  const [isActive, setIsActive] = useState(false);\n`;
       output += `  const [isLoading, setIsLoading] = useState(false);\n\n`;
     }
-    
+
     // Event handlers
     output += `  const handleClick = useCallback((event: React.MouseEvent) => {\n`;
     output += `    // Gérer les interactions\n`;
@@ -172,82 +186,82 @@ class GeneratorService {
       output += `    ${options.onClick}?.(event);\n`;
     }
     output += `  }, [${options.onClick ? options.onClick : ''}]);\n\n`;
-    
+
     // Effects
     output += `  useEffect(() => {\n`;
     output += `    // Initialisation du composant DSFR\n`;
     output += `    // Chargement des scripts nécessaires\n`;
     output += `  }, []);\n\n`;
-    
+
     // Render
     const htmlTemplate = this.getAdvancedTemplate(componentType, options);
     const jsxTemplate = this.htmlToJSXAdvanced(htmlTemplate, '  ', { hasButtons: true });
-    
+
     output += `  return (\n`;
     output += `    <div className={\`fr-${componentType} \${className}\`} {...props}>\n`;
     output += jsxTemplate;
     output += `\n    </div>\n`;
     output += `  );\n`;
     output += `};\n\n`;
-    
+
     // Display name et export
     output += `${componentNamePascal}.displayName = '${componentNamePascal}';\n\n`;
     output += `export default ${componentNamePascal};\n`;
     output += '```\n\n';
-    
+
     return output;
   }
 
   generateVueComponentAdvanced(component, options, componentType) {
     const componentNamePascal = this.toPascalCase(componentType);
-    
+
     let output = '## Composant Vue 3 avec Composition API\n\n';
     output += '```vue\n';
     output += '<template>\n';
-    
+
     // Template Vue avec directives
     let template = this.getAdvancedTemplate(componentType, options);
     template = template.replace(/onclick=/g, '@click=');
     template = template.replace(/Titre de la carte/g, '{{ title }}');
     template = template.replace(/Description/g, '{{ description }}');
-    
+
     output += `  <div :class="componentClass" v-bind="$attrs">\n`;
     output += this.indentHTML(template, '    ');
     output += `\n  </div>\n`;
     output += '</template>\n\n';
-    
+
     // Script avec Composition API
     output += '<script setup lang="ts">\n';
     output += `import { ref, computed, onMounted } from 'vue';\n\n`;
-    
+
     // Props
     output += `interface Props {\n`;
     const props = this.getComponentProps(componentType, options);
-    props.forEach(prop => {
+    props.forEach((prop) => {
       output += `  ${prop.name}${prop.optional ? '?' : ''}: ${prop.type};\n`;
     });
     output += `}\n\n`;
-    
+
     output += `const props = withDefaults(defineProps<Props>(), {\n`;
-    props.forEach(prop => {
+    props.forEach((prop) => {
       if (prop.defaultValue) {
         output += `  ${prop.name}: ${prop.defaultValue},\n`;
       }
     });
     output += `});\n\n`;
-    
+
     // Emits
     output += `const emit = defineEmits<{\n`;
     output += `  click: [event: MouseEvent];\n`;
     output += `  change: [value: any];\n`;
     output += `}>();\n\n`;
-    
+
     // Reactive state
     if (this.requiresState(componentType)) {
       output += `const isActive = ref(false);\n`;
       output += `const isLoading = ref(false);\n\n`;
     }
-    
+
     // Computed properties
     output += `const componentClass = computed(() => [\n`;
     output += `  \`fr-${componentType}\`,\n`;
@@ -256,19 +270,19 @@ class GeneratorService {
     output += `    'fr-${componentType}--loading': isLoading.value,\n`;
     output += `  }\n`;
     output += `]);\n\n`;
-    
+
     // Methods
     output += `const handleClick = (event: MouseEvent) => {\n`;
     output += `  emit('click', event);\n`;
     output += `};\n\n`;
-    
+
     // Lifecycle
     output += `onMounted(() => {\n`;
     output += `  // Initialisation du composant\n`;
     output += `});\n`;
-    
+
     output += '</script>\n\n';
-    
+
     // Styles
     output += '<style scoped>\n';
     output += `@import "@gouvfr/dsfr/dist/component/${componentType}/${componentType}.css";\n\n`;
@@ -278,23 +292,23 @@ class GeneratorService {
     output += `}\n`;
     output += '</style>\n';
     output += '```\n\n';
-    
+
     return output;
   }
 
   generateAngularComponentAdvanced(component, options, componentType) {
     const componentNamePascal = this.toPascalCase(componentType);
     const kebabName = this.toKebabCase(componentType);
-    
+
     let output = '## Composant Angular avec TypeScript\n\n';
-    
+
     // Component TypeScript
     output += '### Component\n\n';
     output += '```typescript\n';
     output += `import { Component, Input, Output, EventEmitter, OnInit, OnDestroy } from '@angular/core';\n`;
     output += `import { Subject } from 'rxjs';\n`;
     output += `import { takeUntil } from 'rxjs/operators';\n\n`;
-    
+
     output += `@Component({\n`;
     output += `  selector: 'dsfr-${kebabName}',\n`;
     output += `  templateUrl: './${kebabName}.component.html',\n`;
@@ -305,17 +319,17 @@ class GeneratorService {
     output += `  }\n`;
     output += `})\n`;
     output += `export class ${componentNamePascal}Component implements OnInit, OnDestroy {\n`;
-    
+
     // Inputs
     const props = this.getComponentProps(componentType, options);
-    props.forEach(prop => {
+    props.forEach((prop) => {
       output += `  @Input() ${prop.name}: ${prop.type}${prop.defaultValue ? ` = ${prop.defaultValue}` : ''};\n`;
     });
-    
+
     // Outputs
     output += `  @Output() click = new EventEmitter<MouseEvent>();\n`;
     output += `  @Output() change = new EventEmitter<any>();\n\n`;
-    
+
     // Properties
     output += `  private destroy$ = new Subject<void>();\n`;
     if (this.requiresState(componentType)) {
@@ -323,7 +337,7 @@ class GeneratorService {
       output += `  isLoading = false;\n`;
     }
     output += `\n`;
-    
+
     // Getters
     output += `  get hostClasses(): string {\n`;
     output += `    return [\n`;
@@ -332,33 +346,33 @@ class GeneratorService {
     output += `      this.isLoading ? \`fr-${componentType}--loading\` : ''\n`;
     output += `    ].filter(Boolean).join(' ');\n`;
     output += `  }\n\n`;
-    
+
     output += `  get role(): string {\n`;
     output += `    return '${this.getComponentRole(componentType)}';\n`;
     output += `  }\n\n`;
-    
+
     // Lifecycle methods
     output += `  ngOnInit(): void {\n`;
     output += `    // Initialisation du composant\n`;
     output += `  }\n\n`;
-    
+
     output += `  ngOnDestroy(): void {\n`;
     output += `    this.destroy$.next();\n`;
     output += `    this.destroy$.complete();\n`;
     output += `  }\n\n`;
-    
+
     // Event handlers
     output += `  onClick(event: MouseEvent): void {\n`;
     output += `    this.click.emit(event);\n`;
     output += `  }\n\n`;
-    
+
     output += `  onChange(value: any): void {\n`;
     output += `    this.change.emit(value);\n`;
     output += `  }\n`;
-    
+
     output += `}\n`;
     output += '```\n\n';
-    
+
     // Template
     output += '### Template HTML\n\n';
     output += '```html\n';
@@ -367,20 +381,20 @@ class GeneratorService {
       .replace(/onclick="handleClick\(\$event\)"/g, '(click)="onClick($event)"')
       .replace(/Titre de la carte/g, '{{ title }}')
       .replace(/Description/g, '{{ description }}');
-    
+
     output += angularTemplate;
     output += '\n```\n\n';
-    
+
     return output;
   }
 
   generateVanillaComponent(component, options) {
     let output = `# Composant DSFR : ${component.name}\n\n`;
-    
+
     // HTML de base
     output += `## HTML\n\n`;
     output += '```html\n';
-    
+
     // Chercher un exemple HTML
     if (component.examples.length > 0) {
       const example = component.examples[0];
@@ -388,7 +402,7 @@ class GeneratorService {
     } else {
       output += this.generateDefaultHTML(component.name, options);
     }
-    
+
     output += '\n```\n\n';
 
     // CSS nécessaire
@@ -422,23 +436,23 @@ class GeneratorService {
 
   generateReactComponent(component, options) {
     let output = `# Composant React DSFR : ${component.name}\n\n`;
-    
+
     const componentNamePascal = this.toPascalCase(component.name);
-    
+
     output += '```jsx\n';
     output += `import React from 'react';\n`;
     output += `import '@gouvfr/dsfr/dist/component/${component.name}/${component.name}.css';\n\n`;
-    
+
     output += `const ${componentNamePascal} = (${this.generatePropsSignature(options)}) => {\n`;
     output += `  return (\n`;
-    
+
     // Convertir l'exemple HTML en JSX
     if (component.examples.length > 0) {
       output += this.htmlToJSX(component.examples[0].content, '    ');
     } else {
       output += this.generateDefaultJSX(component.name, options, '    ');
     }
-    
+
     output += `\n  );\n`;
     output += `};\n\n`;
     output += `export default ${componentNamePascal};\n`;
@@ -452,21 +466,21 @@ class GeneratorService {
 
   generateVueComponent(component, options) {
     let output = `# Composant Vue DSFR : ${component.name}\n\n`;
-    
+
     const componentNamePascal = this.toPascalCase(component.name);
-    
+
     output += '```vue\n';
     output += '<template>\n';
-    
+
     // Template
     if (component.examples.length > 0) {
       output += this.indentHTML(component.examples[0].content, '  ');
     } else {
       output += this.generateDefaultHTML(component.name, options, '  ');
     }
-    
+
     output += '\n</template>\n\n';
-    
+
     // Script
     output += '<script>\n';
     output += 'export default {\n';
@@ -476,7 +490,7 @@ class GeneratorService {
     output += '  }\n';
     output += '}\n';
     output += '</script>\n\n';
-    
+
     // Style
     output += '<style scoped>\n';
     output += `@import "@gouvfr/dsfr/dist/component/${component.name}/${component.name}.css";\n`;
@@ -488,15 +502,15 @@ class GeneratorService {
 
   generateAngularComponent(component, options) {
     let output = `# Composant Angular DSFR : ${component.name}\n\n`;
-    
+
     const componentNamePascal = this.toPascalCase(component.name);
     const componentNameKebab = component.name;
-    
+
     // TypeScript Component
     output += '## Component TypeScript\n\n';
     output += '```typescript\n';
     output += `import { Component, Input } from '@angular/core';\n\n`;
-    
+
     output += `@Component({\n`;
     output += `  selector: 'dsfr-${componentNameKebab}',\n`;
     output += `  templateUrl: './${componentNameKebab}.component.html',\n`;
@@ -506,7 +520,7 @@ class GeneratorService {
     output += this.generateAngularInputs(options);
     output += `}\n`;
     output += '```\n\n';
-    
+
     // Template HTML
     output += '## Template HTML\n\n';
     output += '```html\n';
@@ -516,7 +530,7 @@ class GeneratorService {
       output += this.generateDefaultHTML(component.name, options);
     }
     output += '\n```\n\n';
-    
+
     // Styles SCSS
     output += '## Styles SCSS\n\n';
     output += '```scss\n';
@@ -528,14 +542,14 @@ class GeneratorService {
 
   async createTheme({ theme_name, primary_color, secondary_color, custom_variables = {} }) {
     let output = `# Thème DSFR personnalisé : ${theme_name}\n\n`;
-    
+
     // Génération des variables de couleur avancées
     const colorPalette = this.generateColorPalette(primary_color, secondary_color);
-    
+
     output += '## Variables CSS principales\n\n';
     output += '```css\n';
     output += ':root {\n';
-    
+
     // Couleurs système DSFR
     if (primary_color) {
       output += `  /* Couleur principale */\n`;
@@ -545,14 +559,14 @@ class GeneratorService {
       output += `  --blue-france-200: ${colorPalette.primary.light};\n`;
       output += `  --blue-france-150: ${colorPalette.primary.lighter};\n\n`;
     }
-    
+
     if (secondary_color) {
       output += `  /* Couleur secondaire */\n`;
       output += `  --red-marianne-main: ${secondary_color};\n`;
       output += `  --red-marianne-425: ${this.adjustColor(secondary_color, -0.3)};\n`;
       output += `  --red-marianne-300: ${this.adjustColor(secondary_color, 0.2)};\n\n`;
     }
-    
+
     // Palette de gris harmonisée
     output += `  /* Palette de gris harmonisée */\n`;
     output += `  --grey-1000: #161616;\n`;
@@ -565,14 +579,14 @@ class GeneratorService {
     output += `  --grey-200: #e5e5e5;\n`;
     output += `  --grey-150: #f0f0f0;\n`;
     output += `  --grey-100: #f6f6f6;\n\n`;
-    
+
     // Variables typographiques
     output += `  /* Typographie personnalisée */\n`;
     output += `  --font-family-primary: 'Marianne', system-ui, sans-serif;\n`;
     output += `  --font-family-secondary: 'Spectral', serif;\n`;
     output += `  --text-title-blue-france: var(--blue-france-main);\n`;
     output += `  --text-action-high-blue-france: var(--blue-france-main);\n\n`;
-    
+
     // Espacements et dimensions
     output += `  /* Espacements et dimensions */\n`;
     output += `  --spacing-xs: 0.25rem;\n`;
@@ -581,7 +595,7 @@ class GeneratorService {
     output += `  --spacing-lg: 1.5rem;\n`;
     output += `  --spacing-xl: 2rem;\n`;
     output += `  --spacing-2xl: 3rem;\n\n`;
-    
+
     // Variables personnalisées
     if (Object.keys(custom_variables).length > 0) {
       output += `  /* Variables personnalisées */\n`;
@@ -590,10 +604,10 @@ class GeneratorService {
       }
       output += '\n';
     }
-    
+
     output += '}\n';
     output += '```\n\n';
-    
+
     // Mode sombre
     output += '## Mode sombre\n\n';
     output += '```css\n';
@@ -609,7 +623,7 @@ class GeneratorService {
     }
     output += '}\n';
     output += '```\n\n';
-    
+
     // SCSS pour personnalisation avancée
     output += '## SCSS complet avec mixins\n\n';
     output += '```scss\n';
@@ -619,7 +633,7 @@ class GeneratorService {
       output += `$blue-france-sun: ${colorPalette.primary.light};\n`;
       output += `$blue-france-moon: ${colorPalette.primary.dark};\n`;
     }
-    
+
     output += '\n// Mixins utilitaires\n';
     output += '@mixin button-variant($bg-color, $text-color: white) {\n';
     output += '  background-color: $bg-color;\n';
@@ -631,16 +645,16 @@ class GeneratorService {
     output += '    border-color: darken($bg-color, 10%);\n';
     output += '  }\n';
     output += '}\n\n';
-    
+
     output += '@mixin focus-style($color: $blue-france) {\n';
     output += '  outline: 2px solid $color;\n';
     output += '  outline-offset: 2px;\n';
     output += '}\n\n';
-    
+
     output += '// Import DSFR avec variables personnalisées\n';
     output += '@import "@gouvfr/dsfr/dist/core/core";\n';
     output += '@import "@gouvfr/dsfr/dist/dsfr";\n\n';
-    
+
     output += '// Classe de thème principale\n';
     output += `.theme-${theme_name} {\n`;
     output += '  // Application des variables personnalisées\n';
@@ -651,13 +665,13 @@ class GeneratorService {
       output += `    @include button-variant(${primary_color});\n`;
       output += '  }\n';
     }
-    
+
     output += '  \n';
     output += '  // Focus personnalisé\n';
     output += '  *:focus {\n';
     output += '    @include focus-style();\n';
     output += '  }\n';
-    
+
     output += '  \n';
     output += '  // Typographie enrichie\n';
     output += '  .fr-h1, h1 {\n';
@@ -665,10 +679,10 @@ class GeneratorService {
     output += '    font-weight: 700;\n';
     output += '    line-height: 1.2;\n';
     output += '  }\n';
-    
+
     output += '}\n';
     output += '```\n\n';
-    
+
     // Configuration JavaScript
     output += '## Configuration JavaScript\n\n';
     output += '```javascript\n';
@@ -688,7 +702,7 @@ class GeneratorService {
     output += `    toggle: true\n`;
     output += `  }\n`;
     output += `};\n\n`;
-    
+
     output += '// Fonction pour basculer le mode sombre\n';
     output += 'function toggleDarkMode() {\n';
     output += '  const html = document.documentElement;\n';
@@ -697,7 +711,7 @@ class GeneratorService {
     output += '  html.setAttribute("data-theme", newTheme);\n';
     output += '  localStorage.setItem("theme", newTheme);\n';
     output += '}\n\n';
-    
+
     output += '// Initialisation du thème au chargement\n';
     output += 'document.addEventListener("DOMContentLoaded", () => {\n';
     output += '  const savedTheme = localStorage.getItem("theme") || "light";\n';
@@ -705,15 +719,15 @@ class GeneratorService {
     output += `  document.body.classList.add("theme-${theme_name}");\n`;
     output += '});\n';
     output += '```\n\n';
-    
+
     // Instructions d'utilisation détaillées
-    output += '## Guide d\'installation\n\n';
+    output += "## Guide d'installation\n\n";
     output += '### 1. Installation des fichiers\n\n';
     output += `Créez les fichiers suivants dans votre projet :\n\n`;
     output += `- \`themes/${theme_name}/${theme_name}.scss\` - Variables et styles SCSS\n`;
     output += `- \`themes/${theme_name}/${theme_name}.css\` - Variables CSS compilées\n`;
     output += `- \`themes/${theme_name}/${theme_name}.js\` - Configuration JavaScript\n\n`;
-    
+
     output += '### 2. Intégration HTML\n\n';
     output += '```html\n';
     output += '<!DOCTYPE html>\n';
@@ -738,7 +752,7 @@ class GeneratorService {
     output += '</body>\n';
     output += '</html>\n';
     output += '```\n\n';
-    
+
     output += '### 3. Utilisation avec un framework\n\n';
     output += '#### React\n';
     output += '```jsx\n';
@@ -755,7 +769,7 @@ class GeneratorService {
     output += '  );\n';
     output += '}\n';
     output += '```\n\n';
-    
+
     output += '#### Vue.js\n';
     output += '```vue\n';
     output += '<template>\n';
@@ -774,7 +788,7 @@ class GeneratorService {
     output += `@import './themes/${theme_name}/${theme_name}.css';\n`;
     output += '</style>\n';
     output += '```\n\n';
-    
+
     // Validation et tests
     output += '## Tests et validation\n\n';
     output += '### Contraste et accessibilité\n\n';
@@ -785,20 +799,22 @@ class GeneratorService {
       output += `- Contraste avec noir: ${contrastInfo.blackContrast}\n`;
       output += `- Recommandation: ${contrastInfo.recommendation}\n\n`;
     }
-    
+
     output += '### Checklist de validation\n\n';
     output += '- [ ] Contraste suffisant (minimum 4.5:1 pour le texte normal)\n';
     output += '- [ ] Thème fonctionne en mode sombre\n';
     output += '- [ ] Compatible avec tous les composants DSFR\n';
     output += '- [ ] Testé sur différents navigateurs\n';
     output += '- [ ] Validation W3C des CSS\n';
-    output += '- [ ] Test d\'accessibilité avec lecteur d\'écran\n\n';
-    
+    output += "- [ ] Test d'accessibilité avec lecteur d'écran\n\n";
+
     return {
-      content: [{
-        type: 'text',
-        text: output
-      }]
+      content: [
+        {
+          type: 'text',
+          text: output,
+        },
+      ],
     };
   }
 
@@ -806,9 +822,9 @@ class GeneratorService {
     // Validation et nettoyage du code HTML
     const cleanedHtml = this.cleanHTMLExample(html_code);
     const analysis = this.analyzeHtmlStructure(cleanedHtml);
-    
+
     let output = `# Conversion avancée vers ${target_framework}\n\n`;
-    
+
     // Analyse préliminaire
     output += '## Analyse du code source\n\n';
     output += `- **Boutons détectés**: ${analysis.hasButtons ? 'Oui' : 'Non'}\n`;
@@ -817,16 +833,16 @@ class GeneratorService {
     output += `- **Accordéons**: ${analysis.hasAccordions ? 'Oui' : 'Non'}\n`;
     output += `- **Onglets**: ${analysis.hasTabs ? 'Oui' : 'Non'}\n`;
     output += `- **Éléments interactifs**: ${analysis.hasInteractiveElements ? 'Oui' : 'Non'}\n\n`;
-    
+
     // Recommandations spécifiques au framework
     output += '## Recommandations\n\n';
     switch (target_framework) {
       case 'react':
-        output += '- Utilisez les hooks React pour gérer l\'état local\n';
+        output += "- Utilisez les hooks React pour gérer l'état local\n";
         output += '- Implémentez PropTypes pour la validation des props\n';
-        output += '- Considérez l\'utilisation de React.memo() pour l\'optimisation\n';
+        output += "- Considérez l'utilisation de React.memo() pour l'optimisation\n";
         if (analysis.hasInteractiveElements) {
-          output += '- Utilisez useCallback() pour les gestionnaires d\'événements\n';
+          output += "- Utilisez useCallback() pour les gestionnaires d'événements\n";
         }
         break;
       case 'vue':
@@ -835,13 +851,13 @@ class GeneratorService {
         output += '- Utilisez les directives Vue pour la manipulation du DOM\n';
         break;
       case 'angular':
-        output += '- Implémentez OnInit pour l\'initialisation\n';
+        output += "- Implémentez OnInit pour l'initialisation\n";
         output += '- Utilisez les Output() pour la communication parent-enfant\n';
-        output += '- Considérez l\'injection de dépendances pour les services\n';
+        output += "- Considérez l'injection de dépendances pour les services\n";
         break;
     }
     output += '\n';
-    
+
     // Conversion avancée
     switch (target_framework) {
       case 'react':
@@ -855,17 +871,19 @@ class GeneratorService {
         break;
       default:
         return {
-          content: [{
-            type: 'text',
-            text: `Framework cible "${target_framework}" non supporté. Frameworks disponibles: react, vue, angular.`
-          }]
+          content: [
+            {
+              type: 'text',
+              text: `Framework cible "${target_framework}" non supporté. Frameworks disponibles: react, vue, angular.`,
+            },
+          ],
         };
     }
-    
+
     // Guide de test
     output += '\n## Guide de test\n\n';
     output += '### Tests unitaires\n\n';
-    
+
     switch (target_framework) {
       case 'react':
         output += '```jsx\n';
@@ -888,7 +906,7 @@ class GeneratorService {
         }
         output += '```\n\n';
         break;
-        
+
       case 'vue':
         output += '```javascript\n';
         output += `import { mount } from '@vue/test-utils';\n`;
@@ -908,7 +926,7 @@ class GeneratorService {
         output += `});\n`;
         output += '```\n\n';
         break;
-        
+
       case 'angular':
         output += '```typescript\n';
         output += `import { ComponentFixture, TestBed } from '@angular/core/testing';\n`;
@@ -938,21 +956,22 @@ class GeneratorService {
         output += '```\n\n';
         break;
     }
-    
+
     // Bonnes pratiques
     output += '### Bonnes pratiques\n\n';
-    output += '1. **Accessibilité**: Vérifiez que tous les éléments interactifs sont accessibles au clavier\n';
+    output +=
+      '1. **Accessibilité**: Vérifiez que tous les éléments interactifs sont accessibles au clavier\n';
     output += '2. **Performance**: Implémentez la mémorisation pour les composants coûteux\n';
     output += '3. **Tests**: Couvrez au minimum 80% du code avec des tests\n';
     output += '4. **Documentation**: Documentez les props et les événements\n';
     output += '5. **DSFR**: Respectez les guidelines du DSFR pour la cohérence\n\n';
-    
+
     // Déploiement
     output += '### Intégration dans un projet existant\n\n';
     output += '```bash\n';
     output += '# Installation des dépendances DSFR\n';
     output += 'npm install @gouvfr/dsfr\n\n';
-    
+
     switch (target_framework) {
       case 'react':
         output += '# Dépendances React supplémentaires\n';
@@ -969,12 +988,14 @@ class GeneratorService {
         break;
     }
     output += '```\n';
-    
+
     return {
-      content: [{
-        type: 'text',
-        text: output
-      }]
+      content: [
+        {
+          type: 'text',
+          text: output,
+        },
+      ],
     };
   }
 
@@ -984,7 +1005,7 @@ class GeneratorService {
     // Nettoyer l'exemple HTML des numéros de ligne et formatage
     return html
       .split('\n')
-      .map(line => line.replace(/^\d+\|/, ''))
+      .map((line) => line.replace(/^\d+\|/, ''))
       .join('\n')
       .trim();
   }
@@ -992,14 +1013,17 @@ class GeneratorService {
   generateDefaultHTML(componentName, options) {
     // Générer un HTML par défaut basé sur le nom du composant
     const templates = {
-      'button': '<button class="fr-btn">Bouton</button>',
-      'alert': '<div class="fr-alert fr-alert--info" role="alert">\n  <p class="fr-alert__title">Titre de l\'alerte</p>\n  <p>Message d\'information</p>\n</div>',
-      'card': '<div class="fr-card">\n  <div class="fr-card__body">\n    <div class="fr-card__content">\n      <h3 class="fr-card__title">Titre de la carte</h3>\n      <p class="fr-card__desc">Description</p>\n    </div>\n  </div>\n</div>',
-      'badge': '<span class="fr-badge">Badge</span>',
-      'tag': '<span class="fr-tag">Tag</span>'
+      button: '<button class="fr-btn">Bouton</button>',
+      alert:
+        '<div class="fr-alert fr-alert--info" role="alert">\n  <p class="fr-alert__title">Titre de l\'alerte</p>\n  <p>Message d\'information</p>\n</div>',
+      card: '<div class="fr-card">\n  <div class="fr-card__body">\n    <div class="fr-card__content">\n      <h3 class="fr-card__title">Titre de la carte</h3>\n      <p class="fr-card__desc">Description</p>\n    </div>\n  </div>\n</div>',
+      badge: '<span class="fr-badge">Badge</span>',
+      tag: '<span class="fr-tag">Tag</span>',
     };
-    
-    return templates[componentName] || `<div class="fr-${componentName}">Contenu du composant</div>`;
+
+    return (
+      templates[componentName] || `<div class="fr-${componentName}">Contenu du composant</div>`
+    );
   }
 
   htmlToJSX(html, indent = '') {
@@ -1011,7 +1035,7 @@ class GeneratorService {
       .replace(/<!--/g, '{/*')
       .replace(/-->/g, '*/}')
       .split('\n')
-      .map(line => indent + line)
+      .map((line) => indent + line)
       .join('\n');
   }
 
@@ -1021,13 +1045,16 @@ class GeneratorService {
   }
 
   indentHTML(html, indent) {
-    return html.split('\n').map(line => indent + line).join('\n');
+    return html
+      .split('\n')
+      .map((line) => indent + line)
+      .join('\n');
   }
 
   toPascalCase(str) {
     return str
       .split('-')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join('');
   }
 
@@ -1041,73 +1068,74 @@ class GeneratorService {
     let output = '## Props\n\n';
     output += '| Prop | Type | Description | Défaut |\n';
     output += '|------|------|-------------|--------|\n';
-    
+
     // Props basiques communes
     output += '| className | string | Classes CSS additionnelles | - |\n';
-    output += '| id | string | ID unique de l\'élément | - |\n';
-    
+    output += "| id | string | ID unique de l'élément | - |\n";
+
     // Props spécifiques selon le composant
     if (component.name === 'button') {
-      output += '| variant | string | Variante du bouton (primary, secondary, tertiary) | primary |\n';
+      output +=
+        '| variant | string | Variante du bouton (primary, secondary, tertiary) | primary |\n';
       output += '| size | string | Taille du bouton (sm, md, lg) | md |\n';
       output += '| disabled | boolean | État désactivé | false |\n';
     }
-    
+
     return output;
   }
 
   generateVueProps(options) {
     let props = '    className: String,\n';
     props += '    id: String,\n';
-    
+
     // Ajouter des props selon les options
     for (const [key, value] of Object.entries(options)) {
-      const type = typeof value === 'boolean' ? 'Boolean' : 
-                   typeof value === 'number' ? 'Number' : 'String';
+      const type =
+        typeof value === 'boolean' ? 'Boolean' : typeof value === 'number' ? 'Number' : 'String';
       props += `    ${key}: ${type},\n`;
     }
-    
+
     return props;
   }
 
   generateAngularInputs(options) {
-    let inputs = '  @Input() className: string = \'\';\n';
-    inputs += '  @Input() id: string = \'\';\n';
-    
+    let inputs = "  @Input() className: string = '';\n";
+    inputs += "  @Input() id: string = '';\n";
+
     for (const [key, value] of Object.entries(options)) {
-      const type = typeof value === 'boolean' ? 'boolean' : 
-                   typeof value === 'number' ? 'number' : 'string';
+      const type =
+        typeof value === 'boolean' ? 'boolean' : typeof value === 'number' ? 'number' : 'string';
       inputs += `  @Input() ${key}: ${type} = ${JSON.stringify(value)};\n`;
     }
-    
+
     return inputs;
   }
 
   generateOptionsSection(schema) {
     let output = '## Options disponibles\n\n';
-    
+
     // Parser le schéma pour extraire les options
     if (schema && typeof schema === 'object') {
       output += '| Option | Valeurs | Description |\n';
       output += '|--------|---------|-------------|\n';
-      
+
       // Exemple d'options communes
       output += '| variant | primary, secondary, tertiary | Style visuel du composant |\n';
       output += '| size | sm, md, lg | Taille du composant |\n';
-      output += '| icon | Nom de l\'icône | Icône à afficher |\n';
+      output += "| icon | Nom de l'icône | Icône à afficher |\n";
     }
-    
+
     output += '\n';
     return output;
   }
 
   convertToReact(html, componentName) {
     const jsx = this.htmlToJSX(html);
-    
+
     let output = '```jsx\n';
     output += `import React from 'react';\n`;
     output += `import '@gouvfr/dsfr/dist/dsfr.css';\n\n`;
-    
+
     output += `const ${componentName} = () => {\n`;
     output += '  return (\n';
     output += this.indentHTML(jsx, '    ');
@@ -1115,7 +1143,7 @@ class GeneratorService {
     output += '};\n\n';
     output += `export default ${componentName};\n`;
     output += '```\n';
-    
+
     return output;
   }
 
@@ -1124,18 +1152,18 @@ class GeneratorService {
     output += '<template>\n';
     output += this.indentHTML(html, '  ');
     output += '\n</template>\n\n';
-    
+
     output += '<script>\n';
     output += 'export default {\n';
     output += `  name: '${componentName}'\n`;
     output += '}\n';
     output += '</script>\n\n';
-    
+
     output += '<style scoped>\n';
     output += '@import "@gouvfr/dsfr/dist/dsfr.css";\n';
     output += '</style>\n';
     output += '```\n';
-    
+
     return output;
   }
 
@@ -1144,11 +1172,11 @@ class GeneratorService {
       .replace(/([A-Z])/g, '-$1')
       .toLowerCase()
       .replace(/^-/, '');
-    
+
     let output = '## Component TypeScript\n\n';
     output += '```typescript\n';
     output += `import { Component } from '@angular/core';\n\n`;
-    
+
     output += '@Component({\n';
     output += `  selector: 'app-${kebabName}',\n`;
     output += `  templateUrl: './${kebabName}.component.html',\n`;
@@ -1156,17 +1184,17 @@ class GeneratorService {
     output += '})\n';
     output += `export class ${componentName}Component { }\n`;
     output += '```\n\n';
-    
+
     output += '## Template HTML\n\n';
     output += '```html\n';
     output += html;
     output += '\n```\n\n';
-    
+
     output += '## Styles SCSS\n\n';
     output += '```scss\n';
     output += '@import "@gouvfr/dsfr/dist/dsfr";\n';
     output += '```\n';
-    
+
     return output;
   }
 
@@ -1183,15 +1211,17 @@ class GeneratorService {
         light: this.adjustColor(primaryColor, 0.2),
         main: primaryColor,
         dark: this.adjustColor(primaryColor, -0.2),
-        darker: this.adjustColor(primaryColor, -0.4)
+        darker: this.adjustColor(primaryColor, -0.4),
       },
-      secondary: secondaryColor ? {
-        lighter: this.adjustColor(secondaryColor, 0.4),
-        light: this.adjustColor(secondaryColor, 0.2),
-        main: secondaryColor,
-        dark: this.adjustColor(secondaryColor, -0.2),
-        darker: this.adjustColor(secondaryColor, -0.4)
-      } : {}
+      secondary: secondaryColor
+        ? {
+            lighter: this.adjustColor(secondaryColor, 0.4),
+            light: this.adjustColor(secondaryColor, 0.2),
+            main: secondaryColor,
+            dark: this.adjustColor(secondaryColor, -0.2),
+            darker: this.adjustColor(secondaryColor, -0.4),
+          }
+        : {},
     };
   }
 
@@ -1204,9 +1234,7 @@ class GeneratorService {
 
     // Ajustement de luminosité
     const adjust = (val) => {
-      const adjusted = amount > 0 
-        ? val + (255 - val) * amount 
-        : val + val * amount;
+      const adjusted = amount > 0 ? val + (255 - val) * amount : val + val * amount;
       return Math.round(Math.max(0, Math.min(255, adjusted)));
     };
 
@@ -1241,7 +1269,7 @@ class GeneratorService {
     return {
       whiteContrast: whiteContrast.toFixed(2),
       blackContrast: blackContrast.toFixed(2),
-      recommendation: whiteContrast >= 4.5 ? 'Texte blanc recommandé' : 'Texte noir recommandé'
+      recommendation: whiteContrast >= 4.5 ? 'Texte blanc recommandé' : 'Texte noir recommandé',
     };
   }
 
@@ -1250,23 +1278,23 @@ class GeneratorService {
   convertToReactAdvanced(html, componentName) {
     // Analyse du HTML pour extraire les composants
     const analysis = this.analyzeHtmlStructure(html);
-    
+
     let output = '```jsx\n';
     output += `import React from 'react';\n`;
     output += `import PropTypes from 'prop-types';\n`;
     output += `import '@gouvfr/dsfr/dist/dsfr.css';\n\n`;
-    
+
     // Génération des props basées sur l'analyse
     const props = this.extractPropsFromHtml(html);
     const propsSignature = props.length > 0 ? `{ ${props.join(', ')} }` : 'props';
-    
+
     output += `const ${componentName} = (${propsSignature}) => {\n`;
-    
+
     // Hooks et état local si nécessaire
     if (analysis.hasInteractiveElements) {
       output += `  const [isOpen, setIsOpen] = React.useState(false);\n\n`;
     }
-    
+
     // Gestionnaires d'événements
     if (analysis.hasButtons) {
       output += `  const handleClick = (event) => {\n`;
@@ -1274,33 +1302,33 @@ class GeneratorService {
       output += `    console.log('Button clicked:', event);\n`;
       output += `  };\n\n`;
     }
-    
+
     output += `  return (\n`;
     output += this.htmlToJSXAdvanced(html, '    ', analysis);
     output += `\n  );\n`;
     output += `};\n\n`;
-    
+
     // PropTypes
     if (props.length > 0) {
       output += `${componentName}.propTypes = {\n`;
-      props.forEach(prop => {
+      props.forEach((prop) => {
         output += `  ${prop}: PropTypes.string,\n`;
       });
       output += `};\n\n`;
     }
-    
+
     // Valeurs par défaut
     if (props.length > 0) {
       output += `${componentName}.defaultProps = {\n`;
-      props.forEach(prop => {
+      props.forEach((prop) => {
         output += `  ${prop}: '',\n`;
       });
       output += `};\n\n`;
     }
-    
+
     output += `export default ${componentName};\n`;
     output += '```\n\n';
-    
+
     // Documentation d'utilisation
     output += '### Utilisation\n\n';
     output += '```jsx\n';
@@ -1310,7 +1338,7 @@ class GeneratorService {
     output += `    <${componentName}`;
     if (props.length > 0) {
       output += '\n';
-      props.forEach(prop => {
+      props.forEach((prop) => {
         output += `      ${prop}="valeur"\n`;
       });
       output += '    ';
@@ -1319,27 +1347,27 @@ class GeneratorService {
     output += '  );\n';
     output += '}\n';
     output += '```\n';
-    
+
     return output;
   }
 
   convertToVueAdvanced(html, componentName) {
     const analysis = this.analyzeHtmlStructure(html);
     const props = this.extractPropsFromHtml(html);
-    
+
     let output = '```vue\n';
     output += '<template>\n';
     output += this.htmlToVueTemplate(html, '  ', analysis);
     output += '\n</template>\n\n';
-    
+
     output += '<script>\n';
     output += 'export default {\n';
     output += `  name: '${componentName}',\n`;
-    
+
     // Props
     if (props.length > 0) {
       output += '  props: {\n';
-      props.forEach(prop => {
+      props.forEach((prop) => {
         output += `    ${prop}: {\n`;
         output += `      type: String,\n`;
         output += `      default: ''\n`;
@@ -1347,7 +1375,7 @@ class GeneratorService {
       });
       output += '  },\n';
     }
-    
+
     // Data
     if (analysis.hasInteractiveElements) {
       output += '  data() {\n';
@@ -1356,7 +1384,7 @@ class GeneratorService {
       output += '    };\n';
       output += '  },\n';
     }
-    
+
     // Methods
     if (analysis.hasButtons) {
       output += '  methods: {\n';
@@ -1365,20 +1393,20 @@ class GeneratorService {
       output += '    }\n';
       output += '  },\n';
     }
-    
+
     // Lifecycle
     output += '  mounted() {\n';
     output += '    // Initialisation des composants DSFR si nécessaire\n';
     output += '  }\n';
-    
+
     output += '}\n';
     output += '</script>\n\n';
-    
+
     output += '<style scoped>\n';
     output += '@import "@gouvfr/dsfr/dist/dsfr.css";\n';
     output += '</style>\n';
     output += '```\n';
-    
+
     return output;
   }
 
@@ -1386,56 +1414,56 @@ class GeneratorService {
     const analysis = this.analyzeHtmlStructure(html);
     const props = this.extractPropsFromHtml(html);
     const kebabName = this.toKebabCase(componentName);
-    
+
     let output = '## Component TypeScript\n\n';
     output += '```typescript\n';
     output += `import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n`;
-    
+
     output += '@Component({\n';
     output += `  selector: 'dsfr-${kebabName}',\n`;
     output += `  templateUrl: './${kebabName}.component.html',\n`;
     output += `  styleUrls: ['./${kebabName}.component.scss']\n`;
     output += '})\n';
     output += `export class ${componentName}Component {\n`;
-    
+
     // Inputs
-    props.forEach(prop => {
+    props.forEach((prop) => {
       output += `  @Input() ${prop}: string = '';\n`;
     });
-    
+
     // Outputs
     if (analysis.hasButtons) {
       output += `  @Output() buttonClick = new EventEmitter<Event>();\n\n`;
     }
-    
+
     // Properties
     if (analysis.hasInteractiveElements) {
       output += `  isOpen = false;\n\n`;
     }
-    
+
     // Methods
     if (analysis.hasButtons) {
       output += `  onButtonClick(event: Event) {\n`;
       output += `    this.buttonClick.emit(event);\n`;
       output += `  }\n\n`;
     }
-    
+
     output += '}\n';
     output += '```\n\n';
-    
+
     // Template
     output += '## Template HTML\n\n';
     output += '```html\n';
     output += this.htmlToAngularTemplate(html, analysis);
     output += '\n```\n\n';
-    
+
     // Module
     output += '## Module Declaration\n\n';
     output += '```typescript\n';
     output += `import { NgModule } from '@angular/core';\n`;
     output += `import { CommonModule } from '@angular/common';\n`;
     output += `import { ${componentName}Component } from './${kebabName}.component';\n\n`;
-    
+
     output += '@NgModule({\n';
     output += '  declarations: [\n';
     output += `    ${componentName}Component\n`;
@@ -1449,7 +1477,7 @@ class GeneratorService {
     output += '})\n';
     output += `export class ${componentName}Module { }\n`;
     output += '```\n';
-    
+
     return output;
   }
 
@@ -1460,32 +1488,33 @@ class GeneratorService {
       hasModals: html.includes('fr-modal'),
       hasAccordions: html.includes('fr-accordion'),
       hasTabs: html.includes('fr-tabs'),
-      hasInteractiveElements: html.includes('fr-btn') || html.includes('fr-modal') || html.includes('fr-accordion')
+      hasInteractiveElements:
+        html.includes('fr-btn') || html.includes('fr-modal') || html.includes('fr-accordion'),
     };
   }
 
   extractPropsFromHtml(html) {
     const props = [];
-    
+
     // Extraire les attributs class dynamiques
     const classMatches = html.match(/class="[^"]*\{[^}]*\}[^"]*"/g);
     if (classMatches) {
       props.push('className');
     }
-    
+
     // Extraire les titres, labels, etc.
     if (html.includes('fr-btn')) {
       props.push('label');
     }
-    
+
     if (html.includes('<h') || html.includes('fr-card__title')) {
       props.push('title');
     }
-    
+
     if (html.includes('fr-card__desc') || html.includes('<p')) {
       props.push('description');
     }
-    
+
     return [...new Set(props)]; // Dédoublonner
   }
 
@@ -1496,49 +1525,55 @@ class GeneratorService {
       .replace(/tabindex=/g, 'tabIndex=')
       .replace(/<!--/g, '{/*')
       .replace(/-->/g, '*/}');
-    
+
     // Remplacer les événements
     if (analysis.hasButtons) {
       jsx = jsx.replace(/<button([^>]*)>/g, '<button$1 onClick={handleClick}>');
     }
-    
+
     // Ajouter des props dynamiques
     jsx = jsx.replace(/Titre de la carte/g, '{title || "Titre de la carte"}');
     jsx = jsx.replace(/Description/g, '{description || "Description"}');
     jsx = jsx.replace(/Libellé bouton/g, '{label || "Libellé bouton"}');
-    
-    return jsx.split('\n').map(line => indent + line).join('\n');
+
+    return jsx
+      .split('\n')
+      .map((line) => indent + line)
+      .join('\n');
   }
 
   htmlToVueTemplate(html, indent, analysis) {
     let template = html;
-    
+
     // Remplacer les événements
     if (analysis.hasButtons) {
       template = template.replace(/<button([^>]*)>/g, '<button$1 @click="handleClick">');
     }
-    
+
     // Ajouter des props dynamiques avec syntaxe Vue
     template = template.replace(/Titre de la carte/g, '{{ title || "Titre de la carte" }}');
     template = template.replace(/Description/g, '{{ description || "Description" }}');
     template = template.replace(/Libellé bouton/g, '{{ label || "Libellé bouton" }}');
-    
-    return template.split('\n').map(line => indent + line).join('\n');
+
+    return template
+      .split('\n')
+      .map((line) => indent + line)
+      .join('\n');
   }
 
   htmlToAngularTemplate(html, analysis) {
     let template = html;
-    
+
     // Remplacer les événements
     if (analysis.hasButtons) {
       template = template.replace(/<button([^>]*)>/g, '<button$1 (click)="onButtonClick($event)">');
     }
-    
+
     // Ajouter des props dynamiques avec syntaxe Angular
     template = template.replace(/Titre de la carte/g, '{{ title || "Titre de la carte" }}');
     template = template.replace(/Description/g, '{{ description || "Description" }}');
     template = template.replace(/Libellé bouton/g, '{{ label || "Libellé bouton" }}');
-    
+
     return template;
   }
 
@@ -1555,63 +1590,63 @@ class GeneratorService {
     return {
       name: componentType,
       type: 'component',
-      examples: [{
-        content: this.getAdvancedTemplate(componentType, {})
-      }],
+      examples: [
+        {
+          content: this.getAdvancedTemplate(componentType, {}),
+        },
+      ],
       documentation: `Composant ${componentType} généré automatiquement`,
-      scripts: this.requiresJavaScript(componentType) ? { main: 'component.js' } : {}
+      scripts: this.requiresJavaScript(componentType) ? { main: 'component.js' } : {},
     };
   }
 
   getAvailableVariants(componentType) {
     const variants = {
-      'button': [
+      button: [
         { name: 'primary', description: 'Bouton principal (action importante)' },
         { name: 'secondary', description: 'Bouton secondaire (action moins importante)' },
         { name: 'tertiary', description: 'Bouton tertiaire (action optionnelle)' },
-        { name: 'tertiary-no-outline', description: 'Bouton tertiaire sans contour' }
+        { name: 'tertiary-no-outline', description: 'Bouton tertiaire sans contour' },
       ],
-      'alert': [
+      alert: [
         { name: 'info', description: 'Information neutre' },
         { name: 'success', description: 'Message de succès' },
         { name: 'warning', description: 'Avertissement' },
-        { name: 'error', description: 'Message d\'erreur' }
+        { name: 'error', description: "Message d'erreur" },
       ],
-      'card': [
+      card: [
         { name: 'default', description: 'Carte standard' },
         { name: 'horizontal', description: 'Carte horizontale' },
         { name: 'download', description: 'Carte de téléchargement' },
-        { name: 'grey', description: 'Carte avec fond gris' }
+        { name: 'grey', description: 'Carte avec fond gris' },
       ],
-      'badge': [
+      badge: [
         { name: 'info', description: 'Badge informatif' },
         { name: 'success', description: 'Badge de succès' },
-        { name: 'warning', description: 'Badge d\'avertissement' },
-        { name: 'error', description: 'Badge d\'erreur' },
-        { name: 'new', description: 'Badge nouveau' }
-      ]
+        { name: 'warning', description: "Badge d'avertissement" },
+        { name: 'error', description: "Badge d'erreur" },
+        { name: 'new', description: 'Badge nouveau' },
+      ],
     };
-    
-    return variants[componentType] || [
-      { name: 'default', description: 'Variante par défaut' }
-    ];
+
+    return variants[componentType] || [{ name: 'default', description: 'Variante par défaut' }];
   }
 
   getAdvancedTemplate(componentType, options) {
     const templates = {
-      'button': this.getButtonTemplate(options),
-      'alert': this.getAlertTemplate(options),
-      'card': this.getCardTemplate(options),
-      'badge': this.getBadgeTemplate(options),
-      'input': this.getInputTemplate(options),
-      'modal': this.getModalTemplate(options),
-      'accordion': this.getAccordionTemplate(options),
-      'breadcrumb': this.getBreadcrumbTemplate(options),
-      'navigation': this.getNavigationTemplate(options),
-      'header': this.getHeaderTemplate(options),
-      'footer': this.getFooterTemplate(options)
+      button: this.getButtonTemplate(options),
+      alert: this.getAlertTemplate(options),
+      card: this.getCardTemplate(options),
+      badge: this.getBadgeTemplate(options),
+      input: this.getInputTemplate(options),
+      modal: this.getModalTemplate(options),
+      accordion: this.getAccordionTemplate(options),
+      breadcrumb: this.getBreadcrumbTemplate(options),
+      navigation: this.getNavigationTemplate(options),
+      header: this.getHeaderTemplate(options),
+      footer: this.getFooterTemplate(options),
     };
-    
+
     return templates[componentType] || this.getGenericTemplate(componentType, options);
   }
 
@@ -1620,18 +1655,18 @@ class GeneratorService {
     const size = options.size || '';
     const icon = options.icon || '';
     const iconPosition = options.icon_position || 'left';
-    
-    let classes = ['fr-btn'];
+
+    const classes = ['fr-btn'];
     if (variant !== 'primary') classes.push(`fr-btn--${variant}`);
     if (size) classes.push(`fr-btn--${size}`);
     if (icon) {
       classes.push(`fr-icon-${icon}`);
       classes.push(`fr-btn--icon-${iconPosition}`);
     }
-    
+
     const disabled = options.disabled ? ' disabled' : '';
     const label = options.label || 'Libellé bouton';
-    
+
     return `<button type="button" class="${classes.join(' ')}"${disabled} onclick="handleClick($event)">
   ${label}
 </button>`;
@@ -1639,21 +1674,21 @@ class GeneratorService {
 
   getAlertTemplate(options) {
     const variant = options.variant || 'info';
-    const title = options.title || 'Titre de l\'alerte';
-    const description = options.description || 'Description de l\'alerte';
+    const title = options.title || "Titre de l'alerte";
+    const description = options.description || "Description de l'alerte";
     const closable = options.closable || false;
-    
+
     let template = `<div class="fr-alert fr-alert--${variant}" role="alert">
   <p class="fr-alert__title">${title}</p>
   <p>${description}</p>`;
-    
+
     if (closable) {
       template += `
   <button class="fr-btn--close fr-btn" title="Fermer l'alerte" onclick="handleClose($event)">
     Fermer
   </button>`;
     }
-    
+
     template += '\n</div>';
     return template;
   }
@@ -1664,12 +1699,12 @@ class GeneratorService {
     const imageUrl = options.image_url || '';
     const linkUrl = options.link_url || '#';
     const variant = options.variant || 'default';
-    
-    let classes = ['fr-card'];
+
+    const classes = ['fr-card'];
     if (variant !== 'default') classes.push(`fr-card--${variant}`);
-    
+
     let template = `<div class="${classes.join(' ')}">`;
-    
+
     if (imageUrl) {
       template += `
   <div class="fr-card__header">
@@ -1678,7 +1713,7 @@ class GeneratorService {
     </div>
   </div>`;
     }
-    
+
     template += `
   <div class="fr-card__body">
     <div class="fr-card__content">
@@ -1689,7 +1724,7 @@ class GeneratorService {
     </div>
   </div>
 </div>`;
-    
+
     return template;
   }
 
@@ -1697,7 +1732,7 @@ class GeneratorService {
     const variant = options.variant || 'info';
     const label = options.label || 'Badge';
     const small = options.small ? ' fr-badge--sm' : '';
-    
+
     return `<span class="fr-badge fr-badge--${variant}${small}">${label}</span>`;
   }
 
@@ -1709,25 +1744,25 @@ class GeneratorService {
     const disabled = options.disabled ? ' disabled' : '';
     const error = options.error || '';
     const hint = options.hint || '';
-    
+
     let template = `<div class="fr-input-group${error ? ' fr-input-group--error' : ''}">
   <label class="fr-label" for="input-example">
     ${label}${required ? ' *' : ''}`;
-    
+
     if (hint) {
       template += `
     <span class="fr-hint-text">${hint}</span>`;
     }
-    
+
     template += `
   </label>
   <input class="fr-input${error ? ' fr-input--error' : ''}" type="${type}" id="input-example" placeholder="${placeholder}"${required}${disabled}>`;
-    
+
     if (error) {
       template += `
   <p class="fr-error-text">${error}</p>`;
     }
-    
+
     template += '\n</div>';
     return template;
   }
@@ -1736,10 +1771,10 @@ class GeneratorService {
     const title = options.title || 'Titre de la modale';
     const content = options.content || 'Contenu de la modale';
     const size = options.size || '';
-    
-    let classes = ['fr-modal'];
+
+    const classes = ['fr-modal'];
     if (size) classes.push(`fr-modal--${size}`);
-    
+
     return `<dialog id="modal-example" class="${classes.join(' ')}" role="dialog" aria-labelledby="modal-title">
   <div class="fr-container fr-container--fluid fr-container-md">
     <div class="fr-grid-row fr-grid-row--center">
@@ -1776,9 +1811,9 @@ class GeneratorService {
   }
 
   getAccordionTemplate(options) {
-    const title = options.title || 'Titre de l\'accordéon';
-    const content = options.content || 'Contenu de l\'accordéon';
-    
+    const title = options.title || "Titre de l'accordéon";
+    const content = options.content || "Contenu de l'accordéon";
+
     return `<section class="fr-accordion">
   <h3 class="fr-accordion__title">
     <button class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-example" onclick="handleToggle($event)">
@@ -1797,16 +1832,16 @@ class GeneratorService {
     const items = options.items || [
       { label: 'Accueil', url: '/' },
       { label: 'Section', url: '/section' },
-      { label: 'Page courante', url: '', current: true }
+      { label: 'Page courante', url: '', current: true },
     ];
-    
+
     let template = `<nav role="navigation" class="fr-breadcrumb" aria-label="vous êtes ici :">
   <button class="fr-breadcrumb__btn" aria-expanded="false" aria-controls="breadcrumb-example" onclick="handleToggle($event)">
     Voir le fil d'Ariane
   </button>
   <div class="fr-collapse" id="breadcrumb-example">
     <ol class="fr-breadcrumb__list">`;
-    
+
     items.forEach((item, index) => {
       if (item.current) {
         template += `
@@ -1820,12 +1855,12 @@ class GeneratorService {
       </li>`;
       }
     });
-    
+
     template += `
     </ol>
   </div>
 </nav>`;
-    
+
     return template;
   }
 
@@ -1833,13 +1868,13 @@ class GeneratorService {
     const items = options.items || [
       { label: 'Accueil', url: '/', current: true },
       { label: 'Services', url: '/services' },
-      { label: 'Contact', url: '/contact' }
+      { label: 'Contact', url: '/contact' },
     ];
-    
+
     let template = `<nav class="fr-nav" role="navigation" aria-label="Menu principal">
   <ul class="fr-nav__list">`;
-    
-    items.forEach(item => {
+
+    items.forEach((item) => {
       template += `
     <li class="fr-nav__item">
       <a class="fr-nav__link${item.current ? ' fr-nav__link--active' : ''}" href="${item.url}"${item.current ? ' aria-current="page"' : ''}>
@@ -1847,18 +1882,18 @@ class GeneratorService {
       </a>
     </li>`;
     });
-    
+
     template += `
   </ul>
 </nav>`;
-    
+
     return template;
   }
 
   getHeaderTemplate(options) {
     const serviceName = options.service_name || 'Nom du service';
     const tagline = options.tagline || 'Baseline du service';
-    
+
     return `<header role="banner" class="fr-header">
   <div class="fr-header__body">
     <div class="fr-container">
@@ -1887,7 +1922,7 @@ class GeneratorService {
 
   getFooterTemplate(options) {
     const serviceName = options.service_name || 'Nom du service';
-    
+
     return `<footer class="fr-footer" role="contentinfo">
   <div class="fr-container">
     <div class="fr-footer__body">
@@ -1928,39 +1963,59 @@ class GeneratorService {
   getComponentProps(componentType, options) {
     const commonProps = [
       { name: 'id', type: 'string', optional: true, defaultValue: null },
-      { name: 'className', type: 'string', optional: true, defaultValue: "''" }
+      { name: 'className', type: 'string', optional: true, defaultValue: "''" },
     ];
-    
+
     const specificProps = {
-      'button': [
+      button: [
         { name: 'label', type: 'string', optional: false, defaultValue: "'Bouton'" },
-        { name: 'variant', type: "'primary' | 'secondary' | 'tertiary'", optional: true, defaultValue: "'primary'" },
+        {
+          name: 'variant',
+          type: "'primary' | 'secondary' | 'tertiary'",
+          optional: true,
+          defaultValue: "'primary'",
+        },
         { name: 'size', type: "'sm' | 'lg'", optional: true, defaultValue: null },
         { name: 'disabled', type: 'boolean', optional: true, defaultValue: 'false' },
-        { name: 'onClick', type: '(event: MouseEvent) => void', optional: true, defaultValue: null }
+        {
+          name: 'onClick',
+          type: '(event: MouseEvent) => void',
+          optional: true,
+          defaultValue: null,
+        },
       ],
-      'alert': [
+      alert: [
         { name: 'title', type: 'string', optional: false, defaultValue: "'Titre'" },
         { name: 'description', type: 'string', optional: true, defaultValue: null },
-        { name: 'variant', type: "'info' | 'success' | 'warning' | 'error'", optional: true, defaultValue: "'info'" },
-        { name: 'closable', type: 'boolean', optional: true, defaultValue: 'false' }
+        {
+          name: 'variant',
+          type: "'info' | 'success' | 'warning' | 'error'",
+          optional: true,
+          defaultValue: "'info'",
+        },
+        { name: 'closable', type: 'boolean', optional: true, defaultValue: 'false' },
       ],
-      'card': [
+      card: [
         { name: 'title', type: 'string', optional: false, defaultValue: "'Titre'" },
         { name: 'description', type: 'string', optional: true, defaultValue: null },
         { name: 'imageUrl', type: 'string', optional: true, defaultValue: null },
-        { name: 'linkUrl', type: 'string', optional: true, defaultValue: "'#'" }
+        { name: 'linkUrl', type: 'string', optional: true, defaultValue: "'#'" },
       ],
-      'input': [
+      input: [
         { name: 'label', type: 'string', optional: false, defaultValue: "'Libellé'" },
-        { name: 'type', type: "'text' | 'email' | 'password' | 'tel'", optional: true, defaultValue: "'text'" },
+        {
+          name: 'type',
+          type: "'text' | 'email' | 'password' | 'tel'",
+          optional: true,
+          defaultValue: "'text'",
+        },
         { name: 'placeholder', type: 'string', optional: true, defaultValue: null },
         { name: 'required', type: 'boolean', optional: true, defaultValue: 'false' },
         { name: 'disabled', type: 'boolean', optional: true, defaultValue: 'false' },
-        { name: 'error', type: 'string', optional: true, defaultValue: null }
-      ]
+        { name: 'error', type: 'string', optional: true, defaultValue: null },
+      ],
     };
-    
+
     return [...commonProps, ...(specificProps[componentType] || [])];
   }
 
@@ -1976,20 +2031,20 @@ class GeneratorService {
 
   getComponentRole(componentType) {
     const roles = {
-      'button': 'button',
-      'modal': 'dialog',
-      'alert': 'alert',
-      'navigation': 'navigation',
-      'breadcrumb': 'navigation',
-      'input': 'textbox',
-      'select': 'combobox'
+      button: 'button',
+      modal: 'dialog',
+      alert: 'alert',
+      navigation: 'navigation',
+      breadcrumb: 'navigation',
+      input: 'textbox',
+      select: 'combobox',
     };
     return roles[componentType] || 'region';
   }
 
   generateJavaScriptForComponent(componentType, options) {
     const templates = {
-      'modal': `// Gestion de la modale
+      modal: `// Gestion de la modale
 function handleOpen() {
   const modal = document.getElementById('modal-example');
   modal.showModal();
@@ -2012,7 +2067,7 @@ function handleCancel(event) {
   handleClose();
 }`,
 
-      'accordion': `// Gestion de l'accordéon
+      accordion: `// Gestion de l'accordéon
 function handleToggle(event) {
   const button = event.target;
   const isExpanded = button.getAttribute('aria-expanded') === 'true';
@@ -2022,7 +2077,7 @@ function handleToggle(event) {
   collapse.classList.toggle('fr-collapse--expanded');
 }`,
 
-      'breadcrumb': `// Gestion du fil d'Ariane
+      breadcrumb: `// Gestion du fil d'Ariane
 function handleToggle(event) {
   const button = event.target;
   const isExpanded = button.getAttribute('aria-expanded') === 'true';
@@ -2030,62 +2085,65 @@ function handleToggle(event) {
   
   const collapse = document.getElementById(button.getAttribute('aria-controls'));
   collapse.classList.toggle('fr-collapse--expanded');
-}`
+}`,
     };
-    
-    return templates[componentType] || `// Gestion des événements pour ${componentType}
+
+    return (
+      templates[componentType] ||
+      `// Gestion des événements pour ${componentType}
 function handleClick(event) {
   console.log('${componentType} clicked:', event);
-}`;
+}`
+    );
   }
 
   generateAccessibilityGuide(componentType) {
-    let output = '\n## Guide d\'accessibilité\n\n';
-    
+    let output = "\n## Guide d'accessibilité\n\n";
+
     const guidelines = {
-      'button': [
+      button: [
         'Utilisez des libellés explicites et descriptifs',
         'Assurez-vous que les boutons sont accessibles au clavier',
         'Utilisez `aria-pressed` pour les boutons à bascule',
-        'Respectez un contraste minimum de 4.5:1'
+        'Respectez un contraste minimum de 4.5:1',
       ],
-      'modal': [
-        'Gérez le focus lors de l\'ouverture et fermeture',
-        'Piégez le focus à l\'intérieur de la modale',
+      modal: [
+        "Gérez le focus lors de l'ouverture et fermeture",
+        "Piégez le focus à l'intérieur de la modale",
         'Utilisez `aria-labelledby` et `aria-describedby`',
-        'Permettez la fermeture avec Échap'
+        'Permettez la fermeture avec Échap',
       ],
-      'input': [
+      input: [
         'Associez toujours un label au champ',
-        'Utilisez `aria-describedby` pour les messages d\'aide',
+        "Utilisez `aria-describedby` pour les messages d'aide",
         'Marquez les champs obligatoires avec `required`',
-        'Fournissez des messages d\'erreur explicites'
-      ]
+        "Fournissez des messages d'erreur explicites",
+      ],
     };
-    
+
     const componentGuidelines = guidelines[componentType] || [
       'Respectez les standards WCAG 2.1 AA',
-      'Testez avec un lecteur d\'écran',
+      "Testez avec un lecteur d'écran",
       'Assurez-vous de la navigation au clavier',
-      'Vérifiez le contraste des couleurs'
+      'Vérifiez le contraste des couleurs',
     ];
-    
-    componentGuidelines.forEach(guideline => {
+
+    componentGuidelines.forEach((guideline) => {
       output += `- ${guideline}\n`;
     });
-    
+
     output += '\n### Tests recommandés\n\n';
-    output += '- Test avec lecteur d\'écran (NVDA, JAWS, VoiceOver)\n';
+    output += "- Test avec lecteur d'écran (NVDA, JAWS, VoiceOver)\n";
     output += '- Navigation complète au clavier\n';
     output += '- Validation automatisée (axe-core)\n';
     output += '- Test de contraste (Colour Contrast Analyser)\n\n';
-    
+
     return output;
   }
 
   generateUsageExamples(componentType, framework, options) {
-    let output = '\n## Exemples d\'utilisation\n\n';
-    
+    let output = "\n## Exemples d'utilisation\n\n";
+
     switch (framework) {
       case 'vanilla':
         output += '### Intégration HTML simple\n\n';
@@ -2105,7 +2163,7 @@ function handleClick(event) {
         output += '</html>\n';
         output += '```\n\n';
         break;
-        
+
       case 'react':
         output += '### Utilisation dans une application React\n\n';
         output += '```jsx\n';
@@ -2114,31 +2172,31 @@ function handleClick(event) {
         output += '  return (\n';
         output += '    <div className="App">\n';
         output += `      <${this.toPascalCase(componentType)}\n`;
-        
+
         const props = this.getComponentProps(componentType, options);
-        props.slice(0, 3).forEach(prop => {
+        props.slice(0, 3).forEach((prop) => {
           output += `        ${prop.name}="${prop.defaultValue || 'valeur'}"\n`;
         });
-        
+
         output += '      />\n';
         output += '    </div>\n';
         output += '  );\n';
         output += '}\n';
         output += '```\n\n';
         break;
-        
+
       case 'vue':
         output += '### Utilisation dans une application Vue\n\n';
         output += '```vue\n';
         output += '<template>\n';
         output += '  <div id="app">\n';
         output += `    <${this.toPascalCase(componentType)}\n`;
-        
+
         const vueProps = this.getComponentProps(componentType, options);
-        vueProps.slice(0, 3).forEach(prop => {
+        vueProps.slice(0, 3).forEach((prop) => {
           output += `      :${prop.name}="${prop.defaultValue || 'value'}"\n`;
         });
-        
+
         output += '    />\n';
         output += '  </div>\n';
         output += '</template>\n\n';
@@ -2152,23 +2210,23 @@ function handleClick(event) {
         output += '</script>\n';
         output += '```\n\n';
         break;
-        
+
       case 'angular':
         output += '### Utilisation dans une application Angular\n\n';
         output += '```html\n';
         output += `<dsfr-${this.toKebabCase(componentType)}\n`;
-        
+
         const ngProps = this.getComponentProps(componentType, options);
-        ngProps.slice(0, 3).forEach(prop => {
+        ngProps.slice(0, 3).forEach((prop) => {
           output += `  [${prop.name}]="${prop.defaultValue || 'value'}"\n`;
         });
-        
+
         output += '  (click)="onComponentClick($event)">\n';
         output += `</dsfr-${this.toKebabCase(componentType)}>\n`;
         output += '```\n\n';
         break;
     }
-    
+
     return output;
   }
 
@@ -2181,7 +2239,7 @@ function handleClick(event) {
     include_design_tokens = false,
     template_style = 'standard',
     custom_branding = {},
-    filters = {}
+    filters = {},
   }) {
     // Initialiser le service de documentation si nécessaire
     if (!this.docService) {
@@ -2196,20 +2254,20 @@ function handleClick(event) {
         format: export_format,
         style: template_style,
         version: '1.4.0',
-        total_components: 0
+        total_components: 0,
       },
       branding: {
         title: custom_branding.title || 'Documentation DSFR',
         logo_url: custom_branding.logo_url || null,
         footer_text: custom_branding.footer_text || 'Généré avec DSFR-MCP',
-        primary_color: custom_branding.primary_color || '#000091'
+        primary_color: custom_branding.primary_color || '#000091',
       },
       content: {
         introduction: this.generateIntroduction(template_style),
         components: [],
         design_tokens: include_design_tokens ? this.generateDesignTokens() : null,
-        appendix: this.generateAppendix(include_accessibility)
-      }
+        appendix: this.generateAppendix(include_accessibility),
+      },
     };
 
     // Obtenir la liste des composants à exporter
@@ -2218,10 +2276,11 @@ function handleClick(event) {
 
     // Générer la documentation pour chaque composant
     for (const componentId of componentList) {
-      const componentDoc = await this.generateComponentDocumentation(
-        componentId, 
-        { include_examples, include_accessibility, template_style }
-      );
+      const componentDoc = await this.generateComponentDocumentation(componentId, {
+        include_examples,
+        include_accessibility,
+        template_style,
+      });
       exportData.content.components.push(componentDoc);
     }
 
@@ -2229,20 +2288,42 @@ function handleClick(event) {
     const formattedOutput = await this.formatExportOutput(exportData, export_format);
 
     return {
-      content: [{
-        type: 'text',
-        text: formattedOutput
-      }]
+      content: [
+        {
+          type: 'text',
+          text: formattedOutput,
+        },
+      ],
     };
   }
 
   async getComponentsToExport(components, filters) {
     // Liste par défaut des composants DSFR
     const allComponents = [
-      'button', 'input', 'select', 'textarea', 'checkbox', 'radio',
-      'accordion', 'alert', 'badge', 'breadcrumb', 'card', 'header',
-      'footer', 'modal', 'navigation', 'pagination', 'sidemenu',
-      'stepper', 'summary', 'table', 'tabs', 'tag', 'tile', 'tooltip'
+      'button',
+      'input',
+      'select',
+      'textarea',
+      'checkbox',
+      'radio',
+      'accordion',
+      'alert',
+      'badge',
+      'breadcrumb',
+      'card',
+      'header',
+      'footer',
+      'modal',
+      'navigation',
+      'pagination',
+      'sidemenu',
+      'stepper',
+      'summary',
+      'table',
+      'tabs',
+      'tag',
+      'tile',
+      'tooltip',
     ];
 
     let selectedComponents = components.length > 0 ? components : allComponents;
@@ -2250,20 +2331,20 @@ function handleClick(event) {
     // Appliquer les filtres
     if (filters.categories && filters.categories.length > 0) {
       const categoryMap = {
-        'core': ['button', 'input', 'select', 'textarea'],
-        'component': ['accordion', 'alert', 'badge', 'card', 'modal', 'tabs'],
-        'layout': ['header', 'footer', 'navigation', 'breadcrumb'],
-        'utility': ['tag', 'tooltip', 'stepper', 'pagination']
+        core: ['button', 'input', 'select', 'textarea'],
+        component: ['accordion', 'alert', 'badge', 'card', 'modal', 'tabs'],
+        layout: ['header', 'footer', 'navigation', 'breadcrumb'],
+        utility: ['tag', 'tooltip', 'stepper', 'pagination'],
       };
 
       const allowedComponents = [];
-      filters.categories.forEach(category => {
+      filters.categories.forEach((category) => {
         if (categoryMap[category]) {
           allowedComponents.push(...categoryMap[category]);
         }
       });
 
-      selectedComponents = selectedComponents.filter(comp => allowedComponents.includes(comp));
+      selectedComponents = selectedComponents.filter((comp) => allowedComponents.includes(comp));
     }
 
     return selectedComponents.sort();
@@ -2273,13 +2354,13 @@ function handleClick(event) {
     const intros = {
       minimal: {
         title: 'Guide DSFR',
-        content: 'Documentation des composants du Système de Design de l\'État Français.'
+        content: "Documentation des composants du Système de Design de l'État Français.",
       },
       standard: {
-        title: 'Documentation DSFR - Système de Design de l\'État',
+        title: "Documentation DSFR - Système de Design de l'État",
         content: `Ce guide présente l'ensemble des composants du Système de Design de l'État Français (DSFR).
 
-Le DSFR est la traduction concrète de l'identité de l'État conçue pour favoriser l'adoption d'une expérience numérique accessible, cohérente et harmonisée pour toutes les démarches numériques de l'État.`
+Le DSFR est la traduction concrète de l'identité de l'État conçue pour favoriser l'adoption d'une expérience numérique accessible, cohérente et harmonisée pour toutes les démarches numériques de l'État.`,
       },
       detailed: {
         title: 'Documentation Complète DSFR',
@@ -2298,8 +2379,8 @@ Le Système de Design de l'État Français (DSFR) est un ensemble cohérent de c
 
 ## Utilisation
 
-Cette documentation présente chaque composant avec ses variantes, ses règles d'usage et ses exemples d'implémentation.`
-      }
+Cette documentation présente chaque composant avec ses variantes, ses règles d'usage et ses exemples d'implémentation.`,
+      },
     };
 
     return intros[style] || intros.standard;
@@ -2312,7 +2393,7 @@ Cette documentation présente chaque composant avec ses variantes, ses règles d
     const baseDoc = await this.docService.generateDSFRComponent(componentId, {
       include_examples,
       include_accessibility,
-      detailed: template_style === 'detailed'
+      detailed: template_style === 'detailed',
     });
 
     // Parser le contenu markdown pour extraire les sections
@@ -2324,7 +2405,7 @@ Cette documentation présente chaque composant avec ses variantes, ses règles d
       category: this.getComponentCategory(componentId),
       sections: sections,
       examples: include_examples ? this.generateComponentExamples(componentId) : [],
-      accessibility: include_accessibility ? this.generateAccessibilityInfo(componentId) : null
+      accessibility: include_accessibility ? this.generateAccessibilityInfo(componentId) : null,
     };
   }
 
@@ -2334,7 +2415,7 @@ Cette documentation présente chaque composant avec ses variantes, ses règles d
     let currentSection = '';
     let currentContent = [];
 
-    lines.forEach(line => {
+    lines.forEach((line) => {
       if (line.startsWith('## ')) {
         // Sauvegarder la section précédente
         if (currentSection && currentContent.length > 0) {
@@ -2361,22 +2442,24 @@ Cette documentation présente chaque composant avec ses variantes, ses règles d
       {
         title: 'Exemple de base',
         framework: 'html',
-        code: this.getBasicExample(componentId)
+        code: this.getBasicExample(componentId),
       },
       {
         title: 'Avec variations',
         framework: 'html',
-        code: this.getVariationExample(componentId)
-      }
+        code: this.getVariationExample(componentId),
+      },
     ];
   }
 
   getBasicExample(componentId) {
     const examples = {
       button: '<button class="fr-btn">Bouton</button>',
-      input: '<div class="fr-input-group">\n  <label class="fr-label" for="input">Libellé</label>\n  <input class="fr-input" type="text" id="input" name="input">\n</div>',
-      alert: '<div class="fr-alert fr-alert--info">\n  <h3 class="fr-alert__title">Information</h3>\n  <p>Message d\'information</p>\n</div>',
-      card: '<div class="fr-card">\n  <div class="fr-card__body">\n    <div class="fr-card__content">\n      <h3 class="fr-card__title">Titre de la carte</h3>\n      <p class="fr-card__desc">Description de la carte</p>\n    </div>\n  </div>\n</div>'
+      input:
+        '<div class="fr-input-group">\n  <label class="fr-label" for="input">Libellé</label>\n  <input class="fr-input" type="text" id="input" name="input">\n</div>',
+      alert:
+        '<div class="fr-alert fr-alert--info">\n  <h3 class="fr-alert__title">Information</h3>\n  <p>Message d\'information</p>\n</div>',
+      card: '<div class="fr-card">\n  <div class="fr-card__body">\n    <div class="fr-card__content">\n      <h3 class="fr-card__title">Titre de la carte</h3>\n      <p class="fr-card__desc">Description de la carte</p>\n    </div>\n  </div>\n</div>',
     };
 
     return examples[componentId] || `<div class="fr-${componentId}">Exemple ${componentId}</div>`;
@@ -2384,9 +2467,12 @@ Cette documentation présente chaque composant avec ses variantes, ses règles d
 
   getVariationExample(componentId) {
     const variations = {
-      button: '<button class="fr-btn fr-btn--secondary">Secondaire</button>\n<button class="fr-btn fr-btn--tertiary">Tertiaire</button>',
-      alert: '<div class="fr-alert fr-alert--success">\n  <h3 class="fr-alert__title">Succès</h3>\n  <p>Opération réussie</p>\n</div>',
-      badge: '<span class="fr-badge fr-badge--info">Info</span>\n<span class="fr-badge fr-badge--success">Succès</span>'
+      button:
+        '<button class="fr-btn fr-btn--secondary">Secondaire</button>\n<button class="fr-btn fr-btn--tertiary">Tertiaire</button>',
+      alert:
+        '<div class="fr-alert fr-alert--success">\n  <h3 class="fr-alert__title">Succès</h3>\n  <p>Opération réussie</p>\n</div>',
+      badge:
+        '<span class="fr-badge fr-badge--info">Info</span>\n<span class="fr-badge fr-badge--success">Succès</span>',
     };
 
     return variations[componentId] || this.getBasicExample(componentId);
@@ -2397,20 +2483,22 @@ Cette documentation présente chaque composant avec ses variantes, ses règles d
       button: {
         requirements: ['Texte descriptif', 'États focus/hover/active', 'Navigation clavier'],
         aria_attributes: ['aria-label', 'aria-describedby'],
-        keyboard_navigation: 'Espace, Entrée pour activer'
+        keyboard_navigation: 'Espace, Entrée pour activer',
       },
       input: {
-        requirements: ['Label associé', 'Messages d\'erreur', 'Instructions'],
+        requirements: ['Label associé', "Messages d'erreur", 'Instructions'],
         aria_attributes: ['aria-describedby', 'aria-invalid', 'aria-required'],
-        keyboard_navigation: 'Tab pour naviguer, Entrée pour valider'
-      }
+        keyboard_navigation: 'Tab pour naviguer, Entrée pour valider',
+      },
     };
 
-    return accessibilityData[componentId] || {
-      requirements: ['Navigation clavier', 'Contraste suffisant'],
-      aria_attributes: [],
-      keyboard_navigation: 'Tab pour naviguer'
-    };
+    return (
+      accessibilityData[componentId] || {
+        requirements: ['Navigation clavier', 'Contraste suffisant'],
+        aria_attributes: [],
+        keyboard_navigation: 'Tab pour naviguer',
+      }
+    );
   }
 
   generateDesignTokens() {
@@ -2419,46 +2507,49 @@ Cette documentation présente chaque composant avec ses variantes, ses règles d
         primary: {
           'blue-france': '#000091',
           'blue-france-sun': '#1212FF',
-          'blue-france-main': '#6A6AF4'
+          'blue-france-main': '#6A6AF4',
         },
         functional: {
-          'success': '#18753C',
-          'warning': '#B34000',
-          'error': '#CE0500',
-          'info': '#0063CB'
-        }
+          success: '#18753C',
+          warning: '#B34000',
+          error: '#CE0500',
+          info: '#0063CB',
+        },
       },
       spacing: {
-        'xs': '0.25rem',
-        'sm': '0.5rem',
-        'md': '1rem',
-        'lg': '1.5rem',
-        'xl': '2rem'
+        xs: '0.25rem',
+        sm: '0.5rem',
+        md: '1rem',
+        lg: '1.5rem',
+        xl: '2rem',
       },
       typography: {
         'font-family': 'Marianne, system-ui, sans-serif',
         'font-size-sm': '0.875rem',
         'font-size-md': '1rem',
-        'font-size-lg': '1.125rem'
-      }
+        'font-size-lg': '1.125rem',
+      },
     };
   }
 
   generateAppendix(includeAccessibility) {
-    let appendix = {
+    const appendix = {
       resources: {
         title: 'Ressources utiles',
         links: [
           { title: 'Site officiel DSFR', url: 'https://www.systeme-de-design.gouv.fr/' },
           { title: 'GitHub DSFR', url: 'https://github.com/GouvernementFR/dsfr' },
-          { title: 'Documentation technique', url: 'https://www.systeme-de-design.gouv.fr/utilisation-et-organisation/developpeurs/' }
-        ]
-      }
+          {
+            title: 'Documentation technique',
+            url: 'https://www.systeme-de-design.gouv.fr/utilisation-et-organisation/developpeurs/',
+          },
+        ],
+      },
     };
 
     if (includeAccessibility) {
       appendix.accessibility = {
-        title: 'Guide d\'accessibilité',
+        title: "Guide d'accessibilité",
         content: `## Principes d'accessibilité DSFR
 
 ### Conformité RGAA
@@ -2473,7 +2564,7 @@ Tous les composants DSFR respectent les critères du RGAA 4.1 (niveau AA).
 ### Outils utiles
 - aXe DevTools pour les tests automatisés
 - NVDA/JAWS pour les tests utilisateur
-- Colour Contrast Analyser pour les contrastes`
+- Colour Contrast Analyser pour les contrastes`,
       };
     }
 
@@ -2497,7 +2588,7 @@ Tous les composants DSFR respectent les critères du RGAA 4.1 (niveau AA).
 
   formatMarkdown(exportData) {
     let output = `# ${exportData.branding.title}\n\n`;
-    
+
     // Introduction
     if (exportData.content.introduction.content) {
       output += exportData.content.introduction.content + '\n\n';
@@ -2518,9 +2609,9 @@ Tous les composants DSFR respectent les critères du RGAA 4.1 (niveau AA).
     }
 
     // Composants
-    exportData.content.components.forEach(component => {
+    exportData.content.components.forEach((component) => {
       output += `## ${component.name} {#${component.id}}\n\n`;
-      
+
       if (component.sections.description) {
         output += component.sections.description + '\n\n';
       }
@@ -2528,7 +2619,7 @@ Tous les composants DSFR respectent les critères du RGAA 4.1 (niveau AA).
       // Exemples
       if (component.examples && component.examples.length > 0) {
         output += '### Exemples\n\n';
-        component.examples.forEach(example => {
+        component.examples.forEach((example) => {
           output += `#### ${example.title}\n\n`;
           output += '```' + example.framework + '\n';
           output += example.code + '\n';
@@ -2581,23 +2672,23 @@ Tous les composants DSFR respectent les critères du RGAA 4.1 (niveau AA).
 <body>`;
 
     html += `<h1>${exportData.branding.title}</h1>`;
-    
+
     if (exportData.content.introduction.content) {
       html += `<div class="introduction">${this.markdownToHTML(exportData.content.introduction.content)}</div>`;
     }
 
     // Composants
-    exportData.content.components.forEach(component => {
+    exportData.content.components.forEach((component) => {
       html += `<div class="component" id="${component.id}">`;
       html += `<h2>${component.name}</h2>`;
-      
+
       if (component.sections.description) {
         html += this.markdownToHTML(component.sections.description);
       }
 
       if (component.examples && component.examples.length > 0) {
         html += '<h3>Exemples</h3>';
-        component.examples.forEach(example => {
+        component.examples.forEach((example) => {
           html += `<h4>${example.title}</h4>`;
           html += `<pre><code>${this.escapeHTML(example.code)}</code></pre>`;
         });
@@ -2619,7 +2710,7 @@ Tous les composants DSFR respectent les critères du RGAA 4.1 (niveau AA).
   formatPDFReady(exportData) {
     // Format optimisé pour conversion PDF
     let output = this.formatHTML(exportData);
-    
+
     // Ajouter des styles PDF-friendly
     const pdfStyles = `
     @media print {
@@ -2629,17 +2720,17 @@ Tous les composants DSFR respectent les critères du RGAA 4.1 (niveau AA).
       pre { font-size: 10pt; }
     }
     `;
-    
+
     output = output.replace('</style>', pdfStyles + '</style>');
     return output;
   }
 
   formatDesignTokensMarkdown(tokens) {
     let output = '';
-    
+
     Object.entries(tokens).forEach(([category, values]) => {
       output += `### ${category.charAt(0).toUpperCase() + category.slice(1)}\n\n`;
-      
+
       Object.entries(values).forEach(([key, value]) => {
         if (typeof value === 'object') {
           output += `**${key}** :\n`;
@@ -2652,28 +2743,28 @@ Tous les composants DSFR respectent les critères du RGAA 4.1 (niveau AA).
       });
       output += '\n';
     });
-    
+
     return output;
   }
 
   formatAppendixMarkdown(appendix) {
     let output = '## Annexes\n\n';
-    
+
     Object.entries(appendix).forEach(([key, section]) => {
       output += `### ${section.title}\n\n`;
-      
+
       if (section.content) {
         output += section.content + '\n\n';
       }
-      
+
       if (section.links) {
-        section.links.forEach(link => {
+        section.links.forEach((link) => {
           output += `- [${link.title}](${link.url})\n`;
         });
         output += '\n';
       }
     });
-    
+
     return output;
   }
 
@@ -2702,30 +2793,30 @@ Tous les composants DSFR respectent les critères du RGAA 4.1 (niveau AA).
 
   getComponentDisplayName(componentId) {
     const names = {
-      'button': 'Bouton',
-      'input': 'Champ de saisie',
-      'select': 'Liste déroulante',
-      'textarea': 'Zone de texte',
-      'checkbox': 'Case à cocher',
-      'radio': 'Bouton radio',
-      'accordion': 'Accordéon',
-      'alert': 'Alerte',
-      'badge': 'Badge',
-      'breadcrumb': 'Fil d\'Ariane',
-      'card': 'Carte',
-      'header': 'En-tête',
-      'footer': 'Pied de page',
-      'modal': 'Modale',
-      'navigation': 'Navigation',
-      'pagination': 'Pagination',
-      'sidemenu': 'Menu latéral',
-      'stepper': 'Indicateur d\'étapes',
-      'summary': 'Sommaire',
-      'table': 'Tableau',
-      'tabs': 'Onglets',
-      'tag': 'Tag',
-      'tile': 'Tuile',
-      'tooltip': 'Info-bulle'
+      button: 'Bouton',
+      input: 'Champ de saisie',
+      select: 'Liste déroulante',
+      textarea: 'Zone de texte',
+      checkbox: 'Case à cocher',
+      radio: 'Bouton radio',
+      accordion: 'Accordéon',
+      alert: 'Alerte',
+      badge: 'Badge',
+      breadcrumb: "Fil d'Ariane",
+      card: 'Carte',
+      header: 'En-tête',
+      footer: 'Pied de page',
+      modal: 'Modale',
+      navigation: 'Navigation',
+      pagination: 'Pagination',
+      sidemenu: 'Menu latéral',
+      stepper: "Indicateur d'étapes",
+      summary: 'Sommaire',
+      table: 'Tableau',
+      tabs: 'Onglets',
+      tag: 'Tag',
+      tile: 'Tuile',
+      tooltip: 'Info-bulle',
     };
 
     return names[componentId] || componentId.charAt(0).toUpperCase() + componentId.slice(1);
@@ -2733,26 +2824,26 @@ Tous les composants DSFR respectent les critères du RGAA 4.1 (niveau AA).
 
   getComponentCategory(componentId) {
     const categories = {
-      'button': 'core',
-      'input': 'core',
-      'select': 'core',
-      'textarea': 'core',
-      'checkbox': 'core',
-      'radio': 'core',
-      'accordion': 'component',
-      'alert': 'component',
-      'badge': 'component',
-      'card': 'component',
-      'modal': 'component',
-      'tabs': 'component',
-      'header': 'layout',
-      'footer': 'layout',
-      'navigation': 'layout',
-      'breadcrumb': 'layout',
-      'tag': 'utility',
-      'tooltip': 'utility',
-      'stepper': 'utility',
-      'pagination': 'utility'
+      button: 'core',
+      input: 'core',
+      select: 'core',
+      textarea: 'core',
+      checkbox: 'core',
+      radio: 'core',
+      accordion: 'component',
+      alert: 'component',
+      badge: 'component',
+      card: 'component',
+      modal: 'component',
+      tabs: 'component',
+      header: 'layout',
+      footer: 'layout',
+      navigation: 'layout',
+      breadcrumb: 'layout',
+      tag: 'utility',
+      tooltip: 'utility',
+      stepper: 'utility',
+      pagination: 'utility',
     };
 
     return categories[componentId] || 'component';

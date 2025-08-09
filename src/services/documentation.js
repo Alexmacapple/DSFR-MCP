@@ -33,7 +33,7 @@ class DocumentationService {
 
   async initialize() {
     if (this.initialized) return;
-    
+
     // Pas de console.log - MCP nécessite du JSON pur sur stdout
     await this.indexDocumentation();
     this.initialized = true;
@@ -41,26 +41,26 @@ class DocumentationService {
 
   async indexDocumentation() {
     const fichesPath = path.resolve(config.paths.fiches);
-    
+
     try {
       const files = await fs.readdir(fichesPath);
-      const mdFiles = files.filter(f => f.endsWith('.md'));
-      
+      const mdFiles = files.filter((f) => f.endsWith('.md'));
+
       for (const file of mdFiles) {
         const filePath = path.join(fichesPath, file);
         const content = await fs.readFile(filePath, 'utf-8');
-        
+
         // Extraire les métadonnées du fichier
         const doc = this.parseDocument(file, content);
         this.documents.push(doc);
-        
+
         // Catégoriser le document
         this.categorizeDocument(doc);
       }
-      
+
       // Créer l'index de recherche
       this.createSearchIndex();
-      
+
       // Pas de console.log - MCP nécessite du JSON pur sur stdout
     } catch (error) {
       // Ne pas écrire sur stderr/stdout pour éviter de corrompre le protocole JSON-RPC
@@ -75,10 +75,10 @@ class DocumentationService {
     let title = '';
     let markdownContent = '';
     let inMarkdown = false;
-    
+
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i];
-      
+
       if (line.startsWith('URL:') && lines[i + 1]) {
         url = lines[i + 1].trim();
       } else if (line.startsWith('Title:') && lines[i + 1]) {
@@ -89,17 +89,17 @@ class DocumentationService {
         break;
       }
     }
-    
+
     // Déterminer la catégorie et le type
     const category = this.detectCategory(filename, title, markdownContent);
     const componentType = this.detectComponentType(filename, title, markdownContent);
-    
+
     // Extraire les exemples de code
     const codeExamples = this.extractCodeExamples(markdownContent);
-    
+
     // Générer des tags
     const tags = this.generateTags(title, markdownContent);
-    
+
     return {
       id: filename.replace('.md', ''),
       filename,
@@ -113,34 +113,34 @@ class DocumentationService {
       tags,
       metadata: {
         lastModified: new Date().toISOString(),
-        wordCount: markdownContent.split(/\s+/).length
-      }
+        wordCount: markdownContent.split(/\s+/).length,
+      },
     };
   }
 
   detectCategory(filename, title, content) {
     const lowerTitle = title.toLowerCase();
     const lowerContent = content.toLowerCase();
-    
+
     if (filename.includes('fondamentaux') || lowerTitle.includes('fondamentaux')) return 'core';
     if (filename.includes('outils-d-analyse') || lowerTitle.includes('analyse')) return 'analytics';
     if (lowerTitle.includes('modèle') || lowerTitle.includes('page')) return 'layout';
     if (lowerTitle.includes('utilitaire')) return 'utility';
     if (lowerTitle.includes('couleur') && lowerTitle.includes('combinaison')) return 'scheme';
-    
+
     // Par défaut, considérer comme composant
     return 'component';
   }
 
   detectComponentType(filename, title, content) {
     const lowerTitle = title.toLowerCase();
-    
+
     if (lowerTitle.includes('formulaire') || lowerTitle.includes('champ')) return 'form';
     if (lowerTitle.includes('navigation') || lowerTitle.includes('menu')) return 'navigation';
     if (lowerTitle.includes('alerte') || lowerTitle.includes('message')) return 'feedback';
     if (lowerTitle.includes('carte') || lowerTitle.includes('tuile')) return 'content';
     if (lowerTitle.includes('mise en page') || lowerTitle.includes('grille')) return 'layout';
-    
+
     return 'utility';
   }
 
@@ -148,34 +148,47 @@ class DocumentationService {
     const codeBlocks = [];
     const codeRegex = /```(?:html|css|javascript|jsx|vue)?\n([\s\S]*?)```/g;
     let match;
-    
+
     while ((match = codeRegex.exec(markdown)) !== null) {
       codeBlocks.push({
         code: match[1].trim(),
-        language: match[0].split('\n')[0].replace('```', '') || 'html'
+        language: match[0].split('\n')[0].replace('```', '') || 'html',
       });
     }
-    
+
     return codeBlocks;
   }
 
   generateTags(title, content) {
     const tags = new Set();
     const keywords = [
-      'bouton', 'formulaire', 'navigation', 'carte', 'alerte', 'modal',
-      'accordéon', 'tableau', 'liste', 'lien', 'icône', 'badge',
-      'accessibilité', 'responsive', 'mobile', 'desktop'
+      'bouton',
+      'formulaire',
+      'navigation',
+      'carte',
+      'alerte',
+      'modal',
+      'accordéon',
+      'tableau',
+      'liste',
+      'lien',
+      'icône',
+      'badge',
+      'accessibilité',
+      'responsive',
+      'mobile',
+      'desktop',
     ];
-    
+
     const lowerTitle = title.toLowerCase();
     const lowerContent = content.toLowerCase();
-    
-    keywords.forEach(keyword => {
+
+    keywords.forEach((keyword) => {
       if (lowerTitle.includes(keyword) || lowerContent.includes(keyword)) {
         tags.add(keyword);
       }
     });
-    
+
     return Array.from(tags);
   }
 
@@ -185,13 +198,13 @@ class DocumentationService {
       this.categories.set(doc.category, []);
     }
     this.categories.get(doc.category).push(doc);
-    
+
     // Si c'est un composant, l'ajouter à la map des composants
     if (doc.category === 'component') {
       const componentName = this.extractComponentName(doc.title);
       this.componentsMap.set(componentName, doc);
     }
-    
+
     // Si c'est un pattern, l'ajouter à la map des patterns
     if (doc.category === 'layout') {
       const patternName = this.extractPatternName(doc.title);
@@ -217,9 +230,9 @@ class DocumentationService {
     const options = {
       keys: ['title', 'content', 'tags'],
       threshold: 0.3,
-      includeScore: true
+      includeScore: true,
     };
-    
+
     this.searchIndex = new Fuse(this.documents, options);
   }
 
@@ -227,30 +240,32 @@ class DocumentationService {
 
   async searchComponents({ query, category, limit = 10 }) {
     await this.initialize();
-    
+
     let results = this.documents;
-    
+
     // Filtrer par catégorie si spécifiée
     if (category) {
-      results = results.filter(doc => doc.category === category);
+      results = results.filter((doc) => doc.category === category);
     }
-    
+
     // Recherche avec Fuse.js
     if (query) {
       const searchResults = this.searchIndex.search(query);
       results = searchResults
-        .map(result => result.item)
-        .filter(item => !category || item.category === category);
+        .map((result) => result.item)
+        .filter((item) => !category || item.category === category);
     }
-    
+
     // Limiter les résultats
     results = results.slice(0, limit);
-    
+
     return {
-      content: [{
-        type: 'text',
-        text: this.formatSearchResults(results, query)
-      }]
+      content: [
+        {
+          type: 'text',
+          text: this.formatSearchResults(results, query),
+        },
+      ],
     };
   }
 
@@ -258,50 +273,58 @@ class DocumentationService {
     if (results.length === 0) {
       return `Aucun résultat trouvé pour "${query}".`;
     }
-    
+
     let output = `# Résultats de recherche pour "${query}"\n\n`;
     output += `Trouvé ${results.length} résultat(s) :\n\n`;
-    
+
     results.forEach((doc, index) => {
       output += `## ${index + 1}. ${doc.title}\n`;
       output += `- **Catégorie** : ${config.categories[doc.category]?.name || doc.category}\n`;
       output += `- **Type** : ${doc.componentType}\n`;
       output += `- **Tags** : ${doc.tags.join(', ') || 'Aucun'}\n`;
       output += `- **URL** : ${doc.url}\n`;
-      
+
       // Extrait du contenu
       const excerpt = doc.content.substring(0, 200).replace(/\n/g, ' ') + '...';
       output += `- **Aperçu** : ${excerpt}\n\n`;
     });
-    
+
     return output;
   }
 
-  async getComponentDetails({ component_name, include_examples = true, include_accessibility = true }) {
+  async getComponentDetails({
+    component_name,
+    include_examples = true,
+    include_accessibility = true,
+  }) {
     await this.initialize();
-    
+
     // Rechercher le composant
-    const component = this.componentsMap.get(component_name.toLowerCase()) ||
-                     this.documents.find(doc => 
-                       doc.title.toLowerCase().includes(component_name.toLowerCase()) ||
-                       doc.filename.toLowerCase().includes(component_name.toLowerCase())
-                     );
-    
+    const component =
+      this.componentsMap.get(component_name.toLowerCase()) ||
+      this.documents.find(
+        (doc) =>
+          doc.title.toLowerCase().includes(component_name.toLowerCase()) ||
+          doc.filename.toLowerCase().includes(component_name.toLowerCase())
+      );
+
     if (!component) {
       return {
-        content: [{
-          type: 'text',
-          text: `Composant "${component_name}" non trouvé.`
-        }]
+        content: [
+          {
+            type: 'text',
+            text: `Composant "${component_name}" non trouvé.`,
+          },
+        ],
       };
     }
-    
+
     let output = `# ${component.title}\n\n`;
     output += `**URL source** : ${component.url}\n\n`;
-    
+
     // Contenu principal
     output += `## Description\n\n${component.content}\n\n`;
-    
+
     // Exemples de code
     if (include_examples && component.codeExamples.length > 0) {
       output += `## Exemples de code\n\n`;
@@ -312,90 +335,100 @@ class DocumentationService {
         output += '```\n\n';
       });
     }
-    
+
     // Informations d'accessibilité
     if (include_accessibility) {
       output += `## Accessibilité\n\n`;
       output += this.extractAccessibilityInfo(component.content);
     }
-    
+
     return {
-      content: [{
-        type: 'text',
-        text: output
-      }]
+      content: [
+        {
+          type: 'text',
+          text: output,
+        },
+      ],
     };
   }
 
   extractAccessibilityInfo(content) {
     const accessibilityKeywords = [
-      'aria', 'role', 'accessibilité', 'rgaa', 'wcag',
-      'contraste', 'navigation clavier', 'lecteur d\'écran'
+      'aria',
+      'role',
+      'accessibilité',
+      'rgaa',
+      'wcag',
+      'contraste',
+      'navigation clavier',
+      "lecteur d'écran",
     ];
-    
+
     const lines = content.split('\n');
     const relevantLines = [];
-    
-    lines.forEach(line => {
+
+    lines.forEach((line) => {
       const lowerLine = line.toLowerCase();
-      if (accessibilityKeywords.some(keyword => lowerLine.includes(keyword))) {
+      if (accessibilityKeywords.some((keyword) => lowerLine.includes(keyword))) {
         relevantLines.push(line);
       }
     });
-    
+
     if (relevantLines.length === 0) {
-      return 'Aucune information spécifique d\'accessibilité trouvée dans la documentation.';
+      return "Aucune information spécifique d'accessibilité trouvée dans la documentation.";
     }
-    
+
     return relevantLines.join('\n');
   }
 
   async listCategories() {
     await this.initialize();
-    
+
     let output = '# Catégories DSFR disponibles\n\n';
-    
+
     for (const [key, details] of Object.entries(config.categories)) {
       const docs = this.categories.get(key) || [];
       output += `## ${details.name} (${key})\n`;
       output += `${details.description}\n`;
       output += `**${docs.length} document(s)**\n\n`;
     }
-    
+
     return {
-      content: [{
-        type: 'text',
-        text: output
-      }]
+      content: [
+        {
+          type: 'text',
+          text: output,
+        },
+      ],
     };
   }
 
   async searchPatterns({ query, pattern_type }) {
     await this.initialize();
-    
+
     let patterns = Array.from(this.patternsMap.values());
-    
+
     // Filtrer par type si spécifié
     if (pattern_type) {
-      patterns = patterns.filter(p => 
-        p.title.toLowerCase().includes(pattern_type.toLowerCase())
-      );
+      patterns = patterns.filter((p) => p.title.toLowerCase().includes(pattern_type.toLowerCase()));
     }
-    
+
     // Rechercher
     if (query) {
       const fuse = new Fuse(patterns, {
         keys: ['title', 'content'],
-        threshold: 0.3
+        threshold: 0.3,
       });
-      patterns = fuse.search(query).map(r => r.item);
+      patterns = fuse.search(query).map((r) => r.item);
     }
-    
+
     return {
-      content: [{
-        type: 'text',
-        text: this.formatPatternResults(patterns, query)
-      }]
+      content: [
+        {
+          type: 'text',
+          text: this.formatPatternResults(patterns, query),
+        },
+      ],
     };
   }
 
@@ -403,65 +436,66 @@ class DocumentationService {
     if (patterns.length === 0) {
       return `Aucun pattern trouvé pour "${query}".`;
     }
-    
+
     let output = `# Patterns trouvés pour "${query}"\n\n`;
-    
+
     patterns.forEach((pattern, index) => {
       output += `## ${index + 1}. ${pattern.title}\n`;
       output += `- **URL** : ${pattern.url}\n\n`;
     });
-    
+
     return output;
   }
 
   async getIcons({ category, search }) {
     await this.initialize();
-    
+
     // Rechercher les documents d'icônes
-    const iconDocs = this.documents.filter(doc => 
-      doc.title.toLowerCase().includes('icône') || 
-      doc.title.toLowerCase().includes('icon')
+    const iconDocs = this.documents.filter(
+      (doc) => doc.title.toLowerCase().includes('icône') || doc.title.toLowerCase().includes('icon')
     );
-    
+
     let output = '# Icônes DSFR\n\n';
-    
+
     if (category) {
       output += `## Catégorie : ${category}\n\n`;
     }
-    
-    iconDocs.forEach(doc => {
+
+    iconDocs.forEach((doc) => {
       if (!category || doc.title.toLowerCase().includes(category.toLowerCase())) {
         output += `### ${doc.title}\n`;
         output += `URL : ${doc.url}\n\n`;
       }
     });
-    
+
     return {
-      content: [{
-        type: 'text',
-        text: output
-      }]
+      content: [
+        {
+          type: 'text',
+          text: output,
+        },
+      ],
     };
   }
 
   async getColors({ include_utilities = true, format = 'hex' }) {
     await this.initialize();
-    
+
     // Rechercher les documents de couleurs
-    const colorDocs = this.documents.filter(doc => 
-      doc.title.toLowerCase().includes('couleur') ||
-      doc.title.toLowerCase().includes('color')
+    const colorDocs = this.documents.filter(
+      (doc) =>
+        doc.title.toLowerCase().includes('couleur') || doc.title.toLowerCase().includes('color')
     );
-    
+
     let output = '# Palette de couleurs DSFR\n\n';
-    
+
     // Couleurs principales DSFR
     output += '## Couleurs principales\n\n';
     output += '- **Bleu France** : #000091\n';
     output += '- **Blanc** : #FFFFFF\n';
     output += '- **Rouge Marianne** : #E1000F\n';
     output += '- **Gris** : #666666\n\n';
-    
+
     if (include_utilities) {
       output += '## Classes utilitaires de couleur\n\n';
       output += '- `.fr-background--blue-france` : Fond bleu France\n';
@@ -469,18 +503,20 @@ class DocumentationService {
       output += '- `.fr-background--alt` : Fond alternatif\n';
       output += '- `.fr-text--alt` : Texte alternatif\n\n';
     }
-    
+
     // Ajouter les références aux documents
     output += '## Documentation détaillée\n\n';
-    colorDocs.forEach(doc => {
+    colorDocs.forEach((doc) => {
       output += `- [${doc.title}](${doc.url})\n`;
     });
-    
+
     return {
-      content: [{
-        type: 'text',
-        text: output
-      }]
+      content: [
+        {
+          type: 'text',
+          text: output,
+        },
+      ],
     };
   }
 
@@ -497,13 +533,13 @@ class DocumentationService {
    * @param {boolean} params.check_best_practices - Vérifier les bonnes pratiques
    * @returns {Object} Analyse détaillée de l'utilisation DSFR
    */
-  async analyzeUsage({ 
-    source_code, 
-    project_type = 'auto-detect', 
+  async analyzeUsage({
+    source_code,
+    project_type = 'auto-detect',
     analysis_depth = 'detailed',
     include_recommendations = true,
     include_usage_stats = true,
-    check_best_practices = true
+    check_best_practices = true,
   }) {
     await this.initialize();
 
@@ -516,21 +552,27 @@ class DocumentationService {
       project_info: {
         detected_type: project_type,
         code_length: source_code.length,
-        analysis_timestamp: new Date().toISOString()
+        analysis_timestamp: new Date().toISOString(),
       },
       dsfr_usage: this.analyzeDsfrUsage(source_code),
       components_analysis: this.analyzeComponents(source_code),
       accessibility_analysis: this.analyzeAccessibility(source_code),
-      best_practices: check_best_practices ? this.analyzeBestPractices(source_code, project_type) : null,
+      best_practices: check_best_practices
+        ? this.analyzeBestPractices(source_code, project_type)
+        : null,
       usage_statistics: include_usage_stats ? this.calculateUsageStats(source_code) : null,
-      recommendations: include_recommendations ? this.generateUsageRecommendations(source_code, project_type) : []
+      recommendations: include_recommendations
+        ? this.generateUsageRecommendations(source_code, project_type)
+        : [],
     };
 
     return {
-      content: [{
-        type: 'text',
-        text: this.formatAnalysisResults(analysis, analysis_depth)
-      }]
+      content: [
+        {
+          type: 'text',
+          text: this.formatAnalysisResults(analysis, analysis_depth),
+        },
+      ],
     };
   }
 
@@ -544,18 +586,16 @@ class DocumentationService {
       react: [/import\s+React/, /from\s+['"]react['"]/, /jsx/, /\.jsx/, /useState/, /useEffect/],
       vue: [/<template>/, /<script>/, /\.vue/, /import\s+.*from\s+['"]vue['"]/, /v-if/, /v-for/],
       angular: [/@Component/, /@Injectable/, /import.*@angular/, /ngOnInit/, /\.component\.ts/],
-      vanilla: [/document\./, /getElementById/, /querySelector/, /addEventListener/]
+      vanilla: [/document\./, /getElementById/, /querySelector/, /addEventListener/],
     };
 
     const scores = {};
-    
+
     for (const [type, patterns] of Object.entries(indicators)) {
-      scores[type] = patterns.reduce((score, pattern) => 
-        score + (pattern.test(code) ? 1 : 0), 0
-      );
+      scores[type] = patterns.reduce((score, pattern) => score + (pattern.test(code) ? 1 : 0), 0);
     }
 
-    return Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+    return Object.keys(scores).reduce((a, b) => (scores[a] > scores[b] ? a : b));
   }
 
   /**
@@ -566,14 +606,14 @@ class DocumentationService {
   analyzeDsfrUsage(code) {
     const dsfrClasses = this.extractDsfrClasses(code);
     const dsfrComponents = this.extractDsfrComponents(code);
-    
+
     return {
       classes_found: dsfrClasses,
       classes_count: dsfrClasses.length,
       components_identified: dsfrComponents,
       components_count: dsfrComponents.length,
       dsfr_coverage: this.calculateDsfrCoverage(dsfrClasses, dsfrComponents),
-      potential_issues: this.identifyPotentialIssues(code, dsfrClasses)
+      potential_issues: this.identifyPotentialIssues(code, dsfrClasses),
     };
   }
 
@@ -585,9 +625,9 @@ class DocumentationService {
   extractDsfrClasses(code) {
     const dsfrClassPattern = /\b(fr-[a-zA-Z0-9_-]+)\b/g;
     const matches = [...code.matchAll(dsfrClassPattern)];
-    
+
     // Déduplication et tri
-    const uniqueClasses = [...new Set(matches.map(match => match[1]))];
+    const uniqueClasses = [...new Set(matches.map((match) => match[1]))];
     return uniqueClasses.sort();
   }
 
@@ -620,17 +660,17 @@ class DocumentationService {
       tabs: /fr-tabs/,
       tag: /fr-tag/,
       tile: /fr-tile/,
-      tooltip: /fr-tooltip/
+      tooltip: /fr-tooltip/,
     };
 
     const foundComponents = [];
-    
+
     for (const [component, pattern] of Object.entries(componentPatterns)) {
       if (pattern.test(code)) {
         foundComponents.push({
           name: component,
           pattern: pattern.source,
-          occurrences: (code.match(pattern) || []).length
+          occurrences: (code.match(pattern) || []).length,
         });
       }
     }
@@ -647,11 +687,14 @@ class DocumentationService {
   calculateDsfrCoverage(classes, components) {
     const totalDsfrClasses = 300; // Estimation du nombre total de classes DSFR
     const totalDsfrComponents = 25; // Nombre de composants principaux
-    
+
     return {
       class_coverage_percent: Math.min(100, Math.round((classes.length / totalDsfrClasses) * 100)),
-      component_coverage_percent: Math.min(100, Math.round((components.length / totalDsfrComponents) * 100)),
-      overall_adoption_level: this.calculateAdoptionLevel(classes.length, components.length)
+      component_coverage_percent: Math.min(
+        100,
+        Math.round((components.length / totalDsfrComponents) * 100)
+      ),
+      overall_adoption_level: this.calculateAdoptionLevel(classes.length, components.length),
     };
   }
 
@@ -662,8 +705,8 @@ class DocumentationService {
    * @returns {string} Niveau d'adoption
    */
   calculateAdoptionLevel(classCount, componentCount) {
-    const score = classCount + (componentCount * 3); // Les composants comptent plus
-    
+    const score = classCount + componentCount * 3; // Les composants comptent plus
+
     if (score >= 50) return 'Expert';
     if (score >= 25) return 'Avancé';
     if (score >= 10) return 'Intermédiaire';
@@ -681,16 +724,16 @@ class DocumentationService {
     const issues = [];
 
     // Vérifier les classes obsolètes ou mal écrites
-    const potentialTypos = dsfrClasses.filter(cls => 
-      cls.includes('--') && !cls.match(/^fr-[a-z]+--[a-z0-9-]+$/)
+    const potentialTypos = dsfrClasses.filter(
+      (cls) => cls.includes('--') && !cls.match(/^fr-[a-z]+--[a-z0-9-]+$/)
     );
-    
+
     if (potentialTypos.length > 0) {
       issues.push({
         type: 'typos',
         severity: 'medium',
         description: 'Classes DSFR potentiellement mal écrites détectées',
-        details: potentialTypos
+        details: potentialTypos,
       });
     }
 
@@ -700,22 +743,20 @@ class DocumentationService {
         type: 'css-override',
         severity: 'high',
         description: 'Utilisation de !important détectée - peut interférer avec DSFR',
-        count: (code.match(/!important/g) || []).length
+        count: (code.match(/!important/g) || []).length,
       });
     }
 
     // Vérifier les classes Bootstrap ou autres frameworks
     const competitorFrameworks = ['bootstrap', 'bs-', 'material', 'mui-', 'ant-'];
-    const foundCompetitors = competitorFrameworks.filter(fw => 
-      code.toLowerCase().includes(fw)
-    );
-    
+    const foundCompetitors = competitorFrameworks.filter((fw) => code.toLowerCase().includes(fw));
+
     if (foundCompetitors.length > 0) {
       issues.push({
         type: 'framework-conflict',
         severity: 'high',
         description: 'Frameworks CSS concurrents détectés',
-        frameworks: foundCompetitors
+        frameworks: foundCompetitors,
       });
     }
 
@@ -734,7 +775,7 @@ class DocumentationService {
       alt_attributes: (code.match(/alt=/g) || []).length,
       role_attributes: (code.match(/role=/g) || []).length,
       tabindex_usage: (code.match(/tabindex/g) || []).length,
-      semantic_elements: this.countSemanticElements(code)
+      semantic_elements: this.countSemanticElements(code),
     };
 
     const accessibilityScore = this.calculateAccessibilityScore(accessibilityFeatures);
@@ -743,7 +784,7 @@ class DocumentationService {
       features: accessibilityFeatures,
       score: accessibilityScore,
       level: this.getAccessibilityLevel(accessibilityScore),
-      suggestions: this.getAccessibilitySuggestions(accessibilityFeatures, code)
+      suggestions: this.getAccessibilitySuggestions(accessibilityFeatures, code),
     };
   }
 
@@ -754,8 +795,9 @@ class DocumentationService {
    */
   countSemanticElements(code) {
     const semanticTags = ['header', 'nav', 'main', 'section', 'article', 'aside', 'footer'];
-    return semanticTags.reduce((count, tag) => 
-      count + (code.match(new RegExp(`<${tag}`, 'g')) || []).length, 0
+    return semanticTags.reduce(
+      (count, tag) => count + (code.match(new RegExp(`<${tag}`, 'g')) || []).length,
+      0
     );
   }
 
@@ -770,7 +812,7 @@ class DocumentationService {
       aria_describedby: 15,
       alt_attributes: 25,
       role_attributes: 10,
-      semantic_elements: 30
+      semantic_elements: 30,
     };
 
     let score = 0;
@@ -810,11 +852,11 @@ class DocumentationService {
     }
 
     if (features.aria_labels < 2) {
-      suggestions.push('Utiliser plus d\'aria-label pour les éléments interactifs');
+      suggestions.push("Utiliser plus d'aria-label pour les éléments interactifs");
     }
 
     if (features.semantic_elements < 3) {
-      suggestions.push('Utiliser plus d\'éléments HTML5 sémantiques (header, nav, main, etc.)');
+      suggestions.push("Utiliser plus d'éléments HTML5 sémantiques (header, nav, main, etc.)");
     }
 
     return suggestions;
@@ -831,13 +873,13 @@ class DocumentationService {
       css_organization: this.checkCssOrganization(code),
       component_structure: this.checkComponentStructure(code, projectType),
       performance: this.checkPerformance(code),
-      maintainability: this.checkMaintainability(code)
+      maintainability: this.checkMaintainability(code),
     };
 
     return {
       practices,
       overall_score: this.calculateBestPracticesScore(practices),
-      recommendations: this.getBestPracticesRecommendations(practices)
+      recommendations: this.getBestPracticesRecommendations(practices),
     };
   }
 
@@ -852,7 +894,7 @@ class DocumentationService {
       total_characters: code.length,
       css_classes_total: (code.match(/class=/g) || []).length,
       dsfr_vs_custom_ratio: this.calculateDsfrRatio(code),
-      complexity_score: this.calculateComplexityScore(code)
+      complexity_score: this.calculateComplexityScore(code),
     };
 
     return stats;
@@ -869,14 +911,14 @@ class DocumentationService {
 
     // Recommandations basées sur l'analyse
     const dsfrClasses = this.extractDsfrClasses(code);
-    
+
     if (dsfrClasses.length < 5) {
       recommendations.push({
         priority: 'high',
         category: 'adoption',
-        title: 'Augmenter l\'utilisation du DSFR',
-        description: 'Votre projet utilise peu de classes DSFR. Considérez migrer plus d\'éléments.',
-        action: 'Remplacer les styles CSS custom par les classes utilitaires DSFR'
+        title: "Augmenter l'utilisation du DSFR",
+        description: "Votre projet utilise peu de classes DSFR. Considérez migrer plus d'éléments.",
+        action: 'Remplacer les styles CSS custom par les classes utilitaires DSFR',
       });
     }
 
@@ -885,8 +927,8 @@ class DocumentationService {
         priority: 'medium',
         category: 'layout',
         title: 'Utiliser le système de grille DSFR',
-        description: 'Le conteneur DSFR (.fr-container) n\'est pas utilisé.',
-        action: 'Ajouter .fr-container pour structurer vos pages'
+        description: "Le conteneur DSFR (.fr-container) n'est pas utilisé.",
+        action: 'Ajouter .fr-container pour structurer vos pages',
       });
     }
 
@@ -896,7 +938,7 @@ class DocumentationService {
         category: 'integration',
         title: 'Utiliser le package DSFR React officiel',
         description: 'Pour React, il existe un package officiel avec des composants prêts.',
-        action: 'npm install @gouvfr/dsfr-react'
+        action: 'npm install @gouvfr/dsfr-react',
       });
     }
 
@@ -910,7 +952,7 @@ class DocumentationService {
    * @returns {string} Rapport formaté
    */
   formatAnalysisResults(analysis, depth) {
-    let output = '# 📊 Analyse d\'utilisation DSFR\n\n';
+    let output = "# 📊 Analyse d'utilisation DSFR\n\n";
 
     // Informations du projet
     output += `## 🔍 Informations du projet\n\n`;
@@ -940,7 +982,7 @@ class DocumentationService {
       // Composants identifiés
       if (analysis.dsfr_usage.components_identified.length > 0) {
         output += `### Composants DSFR identifiés\n\n`;
-        analysis.dsfr_usage.components_identified.forEach(comp => {
+        analysis.dsfr_usage.components_identified.forEach((comp) => {
           output += `- **${comp.name}** : ${comp.occurrences} occurrence(s)\n`;
         });
         output += '\n';
@@ -950,10 +992,10 @@ class DocumentationService {
     // Accessibilité
     output += `## ♿ Accessibilité\n\n`;
     output += `- **Score d'accessibilité** : ${analysis.accessibility_analysis.score}/100 (${analysis.accessibility_analysis.level})\n`;
-    
+
     if (analysis.accessibility_analysis.suggestions.length > 0) {
       output += `- **Suggestions** :\n`;
-      analysis.accessibility_analysis.suggestions.forEach(suggestion => {
+      analysis.accessibility_analysis.suggestions.forEach((suggestion) => {
         output += `  - ${suggestion}\n`;
       });
     }
@@ -962,7 +1004,7 @@ class DocumentationService {
     // Problèmes potentiels
     if (analysis.dsfr_usage.potential_issues.length > 0) {
       output += `## ⚠️ Problèmes potentiels\n\n`;
-      analysis.dsfr_usage.potential_issues.forEach(issue => {
+      analysis.dsfr_usage.potential_issues.forEach((issue) => {
         output += `- **${issue.type}** (${issue.severity}) : ${issue.description}\n`;
       });
       output += '\n';
@@ -994,14 +1036,30 @@ class DocumentationService {
   }
 
   // Méthodes utilitaires pour les analyses (implémentation simplifiée)
-  checkCssOrganization(code) { return { score: 75, issues: [] }; }
-  checkComponentStructure(code, type) { return { score: 80, suggestions: [] }; }
-  checkPerformance(code) { return { score: 70, optimizations: [] }; }
-  checkMaintainability(code) { return { score: 85, improvements: [] }; }
-  calculateBestPracticesScore(practices) { return 78; }
-  getBestPracticesRecommendations(practices) { return []; }
-  calculateDsfrRatio(code) { return 0.6; }
-  calculateComplexityScore(code) { return Math.min(100, Math.floor(code.length / 100)); }
+  checkCssOrganization(code) {
+    return { score: 75, issues: [] };
+  }
+  checkComponentStructure(code, type) {
+    return { score: 80, suggestions: [] };
+  }
+  checkPerformance(code) {
+    return { score: 70, optimizations: [] };
+  }
+  checkMaintainability(code) {
+    return { score: 85, improvements: [] };
+  }
+  calculateBestPracticesScore(practices) {
+    return 78;
+  }
+  getBestPracticesRecommendations(practices) {
+    return [];
+  }
+  calculateDsfrRatio(code) {
+    return 0.6;
+  }
+  calculateComplexityScore(code) {
+    return Math.min(100, Math.floor(code.length / 100));
+  }
 
   // 🆕 Phase 3.1 - Comparaison de versions DSFR
   async compareVersions({
@@ -1010,7 +1068,7 @@ class DocumentationService {
     comparison_scope = ['components', 'breaking-changes', 'new-features'],
     include_migration_guide = true,
     include_code_examples = true,
-    output_format = 'detailed'
+    output_format = 'detailed',
   }) {
     await this.initialize();
 
@@ -1025,18 +1083,20 @@ class DocumentationService {
         components: {
           added: [],
           modified: [],
-          removed: []
+          removed: [],
         },
         styles: {
           added: [],
           modified: [],
-          removed: []
+          removed: [],
         },
         accessibility: [],
-        icons: []
+        icons: [],
       },
-      migration_guide: include_migration_guide ? this.generateMigrationGuide(version_from, version_to) : null,
-      compatibility_score: 0
+      migration_guide: include_migration_guide
+        ? this.generateMigrationGuide(version_from, version_to)
+        : null,
+      compatibility_score: 0,
     };
 
     // Analyser les changements selon le scope demandé
@@ -1070,21 +1130,23 @@ class DocumentationService {
     comparison.compatibility_score = this.calculateCompatibilityScore(comparison);
 
     return {
-      content: [{
-        type: 'text',
-        text: this.formatVersionComparison(comparison, output_format, include_code_examples)
-      }]
+      content: [
+        {
+          type: 'text',
+          text: this.formatVersionComparison(comparison, output_format, include_code_examples),
+        },
+      ],
     };
   }
 
   analyzeComponentChanges(versionFrom, versionTo, comparison) {
     // Simulation de l'analyse des composants (en réalité, cela nécessiterait une base de données des versions)
     const componentChanges = this.getComponentChangesData(versionFrom, versionTo);
-    
+
     comparison.changes.components = {
       added: componentChanges.added || [],
       modified: componentChanges.modified || [],
-      removed: componentChanges.removed || []
+      removed: componentChanges.removed || [],
     };
   }
 
@@ -1123,38 +1185,54 @@ class DocumentationService {
     const versionData = {
       '1.13.0_to_1.14.0': {
         added: [
-          { name: 'fr-stepper', description: 'Nouveau composant indicateur d\'étapes', category: 'navigation' },
-          { name: 'fr-summary', description: 'Composant sommaire amélioré', category: 'navigation' }
+          {
+            name: 'fr-stepper',
+            description: "Nouveau composant indicateur d'étapes",
+            category: 'navigation',
+          },
+          {
+            name: 'fr-summary',
+            description: 'Composant sommaire amélioré',
+            category: 'navigation',
+          },
         ],
         modified: [
-          { 
-            name: 'fr-button', 
+          {
+            name: 'fr-button',
             description: 'Nouvelles variantes de couleur ajoutées',
-            changes: ['Nouvelle classe fr-btn--tertiary-no-outline', 'Améliorations accessibilité']
+            changes: ['Nouvelle classe fr-btn--tertiary-no-outline', 'Améliorations accessibilité'],
           },
           {
             name: 'fr-card',
             description: 'Structure HTML simplifiée',
-            changes: ['Nouveau markup optionnel', 'Meilleure gestion des images']
-          }
+            changes: ['Nouveau markup optionnel', 'Meilleure gestion des images'],
+          },
         ],
-        removed: []
+        removed: [],
       },
       '1.14.0_to_1.15.0': {
         added: [
-          { name: 'fr-consent-manager', description: 'Gestionnaire de consentement intégré', category: 'utility' }
+          {
+            name: 'fr-consent-manager',
+            description: 'Gestionnaire de consentement intégré',
+            category: 'utility',
+          },
         ],
         modified: [
           {
             name: 'fr-modal',
-            description: 'Améliorations d\'accessibilité et performance',
-            changes: ['Gestion du focus améliorée', 'Nouvelles options de personnalisation']
-          }
+            description: "Améliorations d'accessibilité et performance",
+            changes: ['Gestion du focus améliorée', 'Nouvelles options de personnalisation'],
+          },
         ],
         removed: [
-          { name: 'fr-legacy-grid', description: 'Ancien système de grille supprimé', replacement: 'fr-grid-row' }
-        ]
-      }
+          {
+            name: 'fr-legacy-grid',
+            description: 'Ancien système de grille supprimé',
+            replacement: 'fr-grid-row',
+          },
+        ],
+      },
     };
 
     const key = `${from}_to_${to}`;
@@ -1170,18 +1248,18 @@ class DocumentationService {
           new_class: 'fr-btn--secondary',
           impact: 'high',
           description: 'La classe fr-btn--outline a été renommée en fr-btn--secondary',
-          migration: 'Remplacer toutes les occurrences de fr-btn--outline par fr-btn--secondary'
-        }
+          migration: 'Remplacer toutes les occurrences de fr-btn--outline par fr-btn--secondary',
+        },
       ],
       '1.14.0_to_1.15.0': [
         {
           type: 'markup_structure',
           component: 'fr-accordion',
-          description: 'Structure HTML de l\'accordéon modifiée',
+          description: "Structure HTML de l'accordéon modifiée",
           impact: 'medium',
-          migration: 'Mettre à jour la structure selon la nouvelle documentation'
-        }
-      ]
+          migration: 'Mettre à jour la structure selon la nouvelle documentation',
+        },
+      ],
     };
 
     const key = `${from}_to_${to}`;
@@ -1195,14 +1273,14 @@ class DocumentationService {
           name: 'Variables CSS personnalisables',
           description: 'Nouvelles variables CSS pour personnaliser les couleurs du thème',
           category: 'theming',
-          example: '--fr-background-color-custom: #f0f0f0;'
+          example: '--fr-background-color-custom: #f0f0f0;',
         },
         {
           name: 'Support du mode sombre automatique',
           description: 'Détection automatique de la préférence utilisateur',
-          category: 'accessibility'
-        }
-      ]
+          category: 'accessibility',
+        },
+      ],
     };
 
     const key = `${from}_to_${to}`;
@@ -1216,9 +1294,9 @@ class DocumentationService {
           feature: 'fr-legacy-button',
           replacement: 'fr-btn',
           removal_version: '2.0.0',
-          description: 'Ancien système de boutons déprécié'
-        }
-      ]
+          description: 'Ancien système de boutons déprécié',
+        },
+      ],
     };
 
     const key = `${from}_to_${to}`;
@@ -1235,9 +1313,9 @@ class DocumentationService {
         {
           improvement: 'Contrast ratios améliorés',
           description: 'Tous les composants respectent maintenant WCAG 2.1 AA',
-          impact: 'Meilleure accessibilité pour les utilisateurs malvoyants'
-        }
-      ]
+          impact: 'Meilleure accessibilité pour les utilisateurs malvoyants',
+        },
+      ],
     };
 
     const key = `${from}_to_${to}`;
@@ -1260,8 +1338,8 @@ class DocumentationService {
           actions: [
             'git checkout -b migration-dsfr-' + to,
             'Tester le projet actuel',
-            'Documenter les personnalisations existantes'
-          ]
+            'Documenter les personnalisations existantes',
+          ],
         },
         {
           step: 2,
@@ -1270,8 +1348,8 @@ class DocumentationService {
           actions: [
             'npm update @gouvfr/dsfr@' + to,
             'Vérifier les dépendances compatibles',
-            'Mettre à jour les imports CSS/JS'
-          ]
+            'Mettre à jour les imports CSS/JS',
+          ],
         },
         {
           step: 3,
@@ -1280,63 +1358,73 @@ class DocumentationService {
           actions: [
             'Identifier les composants affectés',
             'Appliquer les changements breaking',
-            'Tester chaque composant modifié'
-          ]
+            'Tester chaque composant modifié',
+          ],
         },
         {
           step: 4,
           title: 'Tests et validation',
           description: 'Valider la migration et corriger les problèmes',
           actions: [
-            'Tester l\'ensemble du projet',
-            'Vérifier l\'accessibilité',
-            'Valider la compatibilité navigateurs'
-          ]
-        }
+            "Tester l'ensemble du projet",
+            "Vérifier l'accessibilité",
+            'Valider la compatibilité navigateurs',
+          ],
+        },
       ],
       common_issues: [
         {
           issue: 'Classes CSS non reconnues',
-          solution: 'Vérifier la liste des classes dépréciées et utiliser les nouvelles'
+          solution: 'Vérifier la liste des classes dépréciées et utiliser les nouvelles',
         },
         {
           issue: 'Problèmes de mise en page',
-          solution: 'Revoir les modifications du système de grille'
-        }
-      ]
+          solution: 'Revoir les modifications du système de grille',
+        },
+      ],
     };
   }
 
   calculateCompatibilityScore(comparison) {
     let score = 100;
-    
+
     // Déduire des points selon l'impact des changements
-    comparison.changes.breaking_changes.forEach(change => {
+    comparison.changes.breaking_changes.forEach((change) => {
       switch (change.impact) {
-        case 'high': score -= 15; break;
-        case 'medium': score -= 8; break;
-        case 'low': score -= 3; break;
+        case 'high':
+          score -= 15;
+          break;
+        case 'medium':
+          score -= 8;
+          break;
+        case 'low':
+          score -= 3;
+          break;
       }
     });
 
     // Bonus pour les nouvelles fonctionnalités
     score += comparison.changes.new_features.length * 2;
-    
+
     return Math.max(0, Math.min(100, score));
   }
 
   formatVersionComparison(comparison, format, includeExamples) {
     let output = `# 🔄 Comparaison DSFR ${comparison.versions.from} → ${comparison.versions.to}\n\n`;
-    
+
     // Résumé exécutif
     output += `## 📊 Résumé\n\n`;
     output += `- **Score de compatibilité** : ${comparison.compatibility_score}/100\n`;
     output += `- **Changements critiques** : ${comparison.changes.breaking_changes.length}\n`;
     output += `- **Nouvelles fonctionnalités** : ${comparison.changes.new_features.length}\n`;
     output += `- **Composants affectés** : ${comparison.changes.components.modified.length}\n`;
-    
-    const migrationComplexity = comparison.compatibility_score > 80 ? 'Facile' : 
-                                comparison.compatibility_score > 60 ? 'Modérée' : 'Complexe';
+
+    const migrationComplexity =
+      comparison.compatibility_score > 80
+        ? 'Facile'
+        : comparison.compatibility_score > 60
+          ? 'Modérée'
+          : 'Complexe';
     output += `- **Complexité de migration** : ${migrationComplexity}\n\n`;
 
     if (format === 'summary') {
@@ -1349,18 +1437,24 @@ class DocumentationService {
       comparison.changes.breaking_changes.forEach((change, index) => {
         const impactEmoji = { high: '🔴', medium: '🟠', low: '🟡' };
         output += `### ${index + 1}. ${change.description} ${impactEmoji[change.impact] || '📋'}\n\n`;
-        
+
         if (change.old_class && change.new_class) {
           output += `**Migration** : \`${change.old_class}\` → \`${change.new_class}\`\n\n`;
         }
-        
+
         output += `**Action requise** : ${change.migration}\n\n`;
-        
+
         if (includeExamples && change.old_class) {
-          output += '**Avant** :\n```html\n<button class="' + change.old_class + '">Bouton</button>\n```\n\n';
-          output += '**Après** :\n```html\n<button class="' + change.new_class + '">Bouton</button>\n```\n\n';
+          output +=
+            '**Avant** :\n```html\n<button class="' +
+            change.old_class +
+            '">Bouton</button>\n```\n\n';
+          output +=
+            '**Après** :\n```html\n<button class="' +
+            change.new_class +
+            '">Bouton</button>\n```\n\n';
         }
-        
+
         output += '---\n\n';
       });
     }
@@ -1387,7 +1481,7 @@ class DocumentationService {
         output += `${component.description}\n\n`;
         if (component.changes && component.changes.length > 0) {
           output += `**Changements** :\n`;
-          component.changes.forEach(change => {
+          component.changes.forEach((change) => {
             output += `- ${change}\n`;
           });
           output += '\n';
@@ -1412,12 +1506,12 @@ class DocumentationService {
     if (comparison.migration_guide && format !== 'checklist') {
       output += `## 📋 Guide de migration\n\n`;
       output += `**Temps estimé** : ${comparison.migration_guide.estimated_time}\n\n`;
-      
-      comparison.migration_guide.steps.forEach(step => {
+
+      comparison.migration_guide.steps.forEach((step) => {
         output += `### Étape ${step.step}: ${step.title}\n\n`;
         output += `${step.description}\n\n`;
         output += `**Actions** :\n`;
-        step.actions.forEach(action => {
+        step.actions.forEach((action) => {
           output += `- ${action}\n`;
         });
         output += '\n';
@@ -1426,7 +1520,7 @@ class DocumentationService {
       // Problèmes courants
       if (comparison.migration_guide.common_issues.length > 0) {
         output += `### Problèmes courants\n\n`;
-        comparison.migration_guide.common_issues.forEach(issue => {
+        comparison.migration_guide.common_issues.forEach((issue) => {
           output += `**${issue.issue}** : ${issue.solution}\n\n`;
         });
       }
@@ -1437,7 +1531,7 @@ class DocumentationService {
       output += `## ✅ Checklist de migration\n\n`;
       output += `- [ ] Créer une branche de migration\n`;
       output += `- [ ] Mettre à jour les dépendances DSFR\n`;
-      comparison.changes.breaking_changes.forEach(change => {
+      comparison.changes.breaking_changes.forEach((change) => {
         output += `- [ ] ${change.migration}\n`;
       });
       output += `- [ ] Tester tous les composants\n`;
@@ -1447,7 +1541,7 @@ class DocumentationService {
 
     output += `---\n\n`;
     output += `*Comparaison générée par DSFR-MCP v1.4.0 le ${new Date().toLocaleDateString('fr-FR')}*`;
-    
+
     return output;
   }
 }

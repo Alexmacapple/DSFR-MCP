@@ -10,17 +10,17 @@ class OptimizedGeneratorService {
     // Cache des templates avec TTL de 1 heure
     this.templateCache = new LRUCache({
       max: 500,
-      ttl: 1000 * 60 * 60 // 1 heure
+      ttl: 1000 * 60 * 60, // 1 heure
     });
-    
+
     // Templates précalculés pour les composants les plus fréquents
     this.precompiledTemplates = this.initializePrecompiledTemplates();
-    
+
     // Métriques de performance
     this.metrics = {
       cacheHits: 0,
       cacheMisses: 0,
-      generationTime: []
+      generationTime: [],
     };
 
     // Pré-chauffage du cache au démarrage
@@ -94,7 +94,7 @@ export const DSFRSecondaryButton: React.FC<SecondaryButtonProps> = ({
   );
 };
 
-export default DSFRSecondaryButton;`
+export default DSFRSecondaryButton;`,
         },
         form: `import React, { useState } from 'react';
 
@@ -190,7 +190,7 @@ export const DSFRCard: React.FC<DSFRCardProps> = ({
   return CardContent;
 };
 
-export default DSFRCard;`
+export default DSFRCard;`,
       },
       vue: {
         button: `<template>
@@ -309,7 +309,7 @@ const handleSubmit = () => {
     emit('submit', inputValue.value);
   }
 };
-</script>`
+</script>`,
       },
       angular: {
         button: `import { Component, Input, Output, EventEmitter } from '@angular/core';
@@ -412,90 +412,93 @@ export class DSFRFormComponent {
       this.submit.emit(this.dsfrForm.value.mainField);
     }
   }
-}`
-      }
+}`,
+      },
     };
   }
 
   async generateComponent(args) {
     const startTime = performance.now();
-    
+
     try {
-      const {
-        component_type = 'button',
-        framework = 'react',
-        options = {}
-      } = args;
+      const { component_type = 'button', framework = 'react', options = {} } = args;
 
       // Génération de la clé de cache
       const cacheKey = this.generateCacheKey(component_type, framework, options);
-      
+
       // Vérifier le cache en premier
       if (this.templateCache.has(cacheKey)) {
         this.metrics.cacheHits++;
         const endTime = performance.now();
         this.metrics.generationTime.push(endTime - startTime);
-        
+
         // Cache HIT - log supprimé pour compatibilité MCP
-        
+
         return {
-          content: [{
-            type: 'text',
-            text: this.templateCache.get(cacheKey)
-          }]
+          content: [
+            {
+              type: 'text',
+              text: this.templateCache.get(cacheKey),
+            },
+          ],
         };
       }
 
       // Cache MISS - génération nécessaire
       this.metrics.cacheMisses++;
-      
+
       // Utiliser les templates précalculés si disponibles
       const precompiled = this.getPrecompiledTemplate(component_type, framework, options);
       if (precompiled) {
         // Personnaliser le template précalculé si nécessaire
         const customizedCode = this.customizeTemplate(precompiled, options);
-        
+
         // Mettre en cache
         this.templateCache.set(cacheKey, customizedCode);
-        
+
         const endTime = performance.now();
         this.metrics.generationTime.push(endTime - startTime);
-        
+
         // Template précalculé - log supprimé pour compatibilité MCP
-        
+
         return {
-          content: [{
-            type: 'text',
-            text: customizedCode
-          }]
+          content: [
+            {
+              type: 'text',
+              text: customizedCode,
+            },
+          ],
         };
       }
 
       // Génération complète (fallback)
       const generatedCode = await this.generateFromScratch(component_type, framework, options);
-      
+
       // Mettre en cache
       this.templateCache.set(cacheKey, generatedCode);
-      
+
       const endTime = performance.now();
       this.metrics.generationTime.push(endTime - startTime);
-      
-      // Génération complète - log supprimé pour compatibilité MCP
-      
-      return {
-        content: [{
-          type: 'text',
-          text: generatedCode
-        }]
-      };
 
+      // Génération complète - log supprimé pour compatibilité MCP
+
+      return {
+        content: [
+          {
+            type: 'text',
+            text: generatedCode,
+          },
+        ],
+      };
     } catch (error) {
       // Erreur générateur - log supprimé pour compatibilité MCP
       return {
-        content: [{
-          type: 'text',
-          text: `⚠️ Erreur de génération: ${error.message}\n\nCode de base ${args.component_type || 'button'} ${args.framework || 'React'}:\n\n\`\`\`${this.getFileExtension(args.framework)}\n${this.getBasicFallback(args.component_type, args.framework)}\n\`\`\``
-        }]
+        content: [
+          {
+            type: 'text',
+            text: `⚠️ Erreur de génération: ${error.message}\n\nCode de base ${args.component_type || 'button'} ${args.framework || 'React'}:\n\n\`\`\`${this.getFileExtension(args.framework)}\n${this.getBasicFallback(args.component_type, args.framework)}\n\`\`\``,
+          },
+        ],
       };
     }
   }
@@ -508,26 +511,29 @@ export class DSFRFormComponent {
   getPrecompiledTemplate(componentType, framework, options) {
     const templates = this.precompiledTemplates[framework];
     if (!templates) return null;
-    
+
     if (componentType === 'button' && options.variant) {
       return templates.button[options.variant] || templates.button.primary;
     }
-    
+
     return templates[componentType] || null;
   }
 
   customizeTemplate(template, options) {
     let customized = template;
-    
+
     // Remplacement des variables communes
     if (options.componentName) {
       customized = customized.replace(/DSFR\w+/g, options.componentName);
     }
-    
+
     if (options.className) {
-      customized = customized.replace(/className=\{[^}]+\}/g, `className={\`\${baseClasses} ${options.className}\`}`);
+      customized = customized.replace(
+        /className=\{[^}]+\}/g,
+        `className={\`\${baseClasses} ${options.className}\`}`
+      );
     }
-    
+
     return customized;
   }
 
@@ -559,7 +565,7 @@ ${this.getBasicFallback(componentType, framework)}
   <div className="fr-component" {...props}>
     {/* Contenu du composant */}
   </div>
-);`
+);`,
       },
       vue: {
         button: `<template>
@@ -571,7 +577,7 @@ ${this.getBasicFallback(componentType, framework)}
   <div class="fr-component">
     <!-- Contenu du composant -->
   </div>
-</template>`
+</template>`,
       },
       angular: {
         button: `@Component({
@@ -581,11 +587,13 @@ export class ButtonComponent {}`,
         default: `@Component({
   template: '<div class="fr-component"><ng-content></ng-content></div>'
 })
-export class ComponentClass {}`
-      }
+export class ComponentClass {}`,
+      },
     };
 
-    return fallbacks[framework]?.[componentType] || fallbacks[framework]?.default || 'export default {};';
+    return (
+      fallbacks[framework]?.[componentType] || fallbacks[framework]?.default || 'export default {};'
+    );
   }
 
   getFileExtension(framework) {
@@ -593,22 +601,24 @@ export class ComponentClass {}`
       react: 'tsx',
       vue: 'vue',
       angular: 'ts',
-      vanilla: 'js'
+      vanilla: 'js',
     };
     return extensions[framework] || 'js';
   }
 
   // Méthode pour obtenir les métriques
   getMetrics() {
-    const avgTime = this.metrics.generationTime.length > 0 
-      ? this.metrics.generationTime.reduce((a, b) => a + b) / this.metrics.generationTime.length
-      : 0;
+    const avgTime =
+      this.metrics.generationTime.length > 0
+        ? this.metrics.generationTime.reduce((a, b) => a + b) / this.metrics.generationTime.length
+        : 0;
 
     return {
-      cacheHitRate: (this.metrics.cacheHits / (this.metrics.cacheHits + this.metrics.cacheMisses)) * 100,
+      cacheHitRate:
+        (this.metrics.cacheHits / (this.metrics.cacheHits + this.metrics.cacheMisses)) * 100,
       averageGenerationTime: avgTime,
       totalRequests: this.metrics.cacheHits + this.metrics.cacheMisses,
-      cacheSize: this.templateCache.size
+      cacheSize: this.templateCache.size,
     };
   }
 
@@ -619,11 +629,11 @@ export class ComponentClass {}`
       { component_type: 'button', framework: 'vue' },
       { component_type: 'button', framework: 'angular' },
       { component_type: 'form', framework: 'react' },
-      { component_type: 'card', framework: 'react' }
+      { component_type: 'card', framework: 'react' },
     ];
 
     // Pré-chauffage du cache - log supprimé pour compatibilité MCP
-    
+
     frequentComponents.forEach(({ component_type, framework }) => {
       const precompiled = this.getPrecompiledTemplate(component_type, framework, {});
       if (precompiled) {
@@ -641,7 +651,7 @@ export class ComponentClass {}`
     this.metrics = {
       cacheHits: 0,
       cacheMisses: 0,
-      generationTime: []
+      generationTime: [],
     };
     // Cache vidé - log supprimé pour compatibilité MCP
   }

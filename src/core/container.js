@@ -17,7 +17,7 @@ class Container {
     this.services.set(name, {
       type: 'singleton',
       factory,
-      instance: null
+      instance: null,
     });
     return this;
   }
@@ -28,7 +28,7 @@ class Container {
   registerTransient(name, factory) {
     this.services.set(name, {
       type: 'transient',
-      factory
+      factory,
     });
     return this;
   }
@@ -39,7 +39,7 @@ class Container {
   registerValue(name, value) {
     this.services.set(name, {
       type: 'value',
-      value
+      value,
     });
     return this;
   }
@@ -49,7 +49,7 @@ class Container {
    */
   resolve(name) {
     const service = this.services.get(name);
-    
+
     if (!service) {
       throw new Error(`Service "${name}" non trouvé dans le container`);
     }
@@ -98,7 +98,7 @@ class Container {
         }
       }
     }
-    
+
     this.services.clear();
     this.singletons.clear();
     this.factories.clear();

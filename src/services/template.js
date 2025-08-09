@@ -11,55 +11,57 @@ class TemplateService {
       'page-connexion': {
         name: 'Page de connexion',
         description: 'Template de page de connexion avec formulaire',
-        generate: (options) => this.generateLoginPage(options)
+        generate: (options) => this.generateLoginPage(options),
       },
       'page-inscription': {
-        name: 'Page d\'inscription',
-        description: 'Template de page d\'inscription avec formulaire complet',
-        generate: (options) => this.generateSignupPage(options)
+        name: "Page d'inscription",
+        description: "Template de page d'inscription avec formulaire complet",
+        generate: (options) => this.generateSignupPage(options),
       },
       'page-erreur-404': {
-        name: 'Page d\'erreur 404',
-        description: 'Page d\'erreur 404 - Page non trouvée',
-        generate: (options) => this.generateError404Page(options)
+        name: "Page d'erreur 404",
+        description: "Page d'erreur 404 - Page non trouvée",
+        generate: (options) => this.generateError404Page(options),
       },
       'page-erreur-500': {
-        name: 'Page d\'erreur 500',
-        description: 'Page d\'erreur 500 - Erreur serveur',
-        generate: (options) => this.generateError500Page(options)
+        name: "Page d'erreur 500",
+        description: "Page d'erreur 500 - Erreur serveur",
+        generate: (options) => this.generateError500Page(options),
       },
       'formulaire-contact': {
         name: 'Formulaire de contact',
         description: 'Formulaire de contact complet avec validation',
-        generate: (options) => this.generateContactForm(options)
+        generate: (options) => this.generateContactForm(options),
       },
       'tableau-donnees': {
         name: 'Tableau de données',
         description: 'Tableau de données responsive avec tri et pagination',
-        generate: (options) => this.generateDataTable(options)
+        generate: (options) => this.generateDataTable(options),
       },
       'page-recherche': {
         name: 'Page de recherche',
         description: 'Page de recherche avec filtres et résultats',
-        generate: (options) => this.generateSearchPage(options)
+        generate: (options) => this.generateSearchPage(options),
       },
-      'dashboard': {
+      dashboard: {
         name: 'Tableau de bord',
         description: 'Dashboard avec statistiques et graphiques',
-        generate: (options) => this.generateDashboard(options)
-      }
+        generate: (options) => this.generateDashboard(options),
+      },
     };
   }
 
   async generateTemplate({ template_name, framework = 'vanilla', customizations = {} }) {
     const template = this.templates[template_name];
-    
+
     if (!template) {
       return {
-        content: [{
-          type: 'text',
-          text: `Template "${template_name}" non trouvé. Templates disponibles : ${Object.keys(this.templates).join(', ')}`
-        }]
+        content: [
+          {
+            type: 'text',
+            text: `Template "${template_name}" non trouvé. Templates disponibles : ${Object.keys(this.templates).join(', ')}`,
+          },
+        ],
       };
     }
 
@@ -83,10 +85,12 @@ class TemplateService {
     }
 
     return {
-      content: [{
-        type: 'text',
-        text: output
-      }]
+      content: [
+        {
+          type: 'text',
+          text: output,
+        },
+      ],
     };
   }
 
@@ -94,7 +98,7 @@ class TemplateService {
 
   generateLoginPage(options = {}) {
     const { title = 'Connexion', showRememberMe = true, showForgotPassword = true } = options;
-    
+
     return `
 <div class="fr-container fr-mt-6w">
   <div class="fr-grid-row fr-grid-row--center">
@@ -118,7 +122,9 @@ class TemplateService {
           ${showForgotPassword ? '<a class="fr-link fr-link--sm" href="/forgot-password">Mot de passe oublié ?</a>' : ''}
         </div>
         
-        ${showRememberMe ? `
+        ${
+          showRememberMe
+            ? `
         <div class="fr-form-group">
           <div class="fr-checkbox-group">
             <input type="checkbox" id="remember-me" name="remember-me">
@@ -127,7 +133,9 @@ class TemplateService {
             </label>
           </div>
         </div>
-        ` : ''}
+        `
+            : ''
+        }
         
         <div class="fr-form-group">
           <button class="fr-btn" type="submit">
@@ -149,7 +157,7 @@ class TemplateService {
 
   generateSignupPage(options = {}) {
     const { title = 'Créer un compte', includeTerms = true } = options;
-    
+
     return `
 <div class="fr-container fr-mt-6w">
   <div class="fr-grid-row fr-grid-row--center">
@@ -216,7 +224,9 @@ class TemplateService {
           </div>
         </fieldset>
         
-        ${includeTerms ? `
+        ${
+          includeTerms
+            ? `
         <div class="fr-form-group fr-mt-3w">
           <div class="fr-checkbox-group">
             <input type="checkbox" id="accept-terms" name="accept-terms" required>
@@ -225,7 +235,9 @@ class TemplateService {
             </label>
           </div>
         </div>
-        ` : ''}
+        `
+            : ''
+        }
         
         <div class="fr-form-group">
           <button class="fr-btn" type="submit">
@@ -246,8 +258,9 @@ class TemplateService {
   }
 
   generateError404Page(options = {}) {
-    const { title = 'Page non trouvée', message = 'La page que vous cherchez est introuvable.' } = options;
-    
+    const { title = 'Page non trouvée', message = 'La page que vous cherchez est introuvable.' } =
+      options;
+
     return `
 <div class="fr-container">
   <div class="fr-my-7w fr-mt-md-12w fr-mb-md-10w fr-grid-row fr-grid-row--center">
@@ -276,8 +289,9 @@ class TemplateService {
   }
 
   generateError500Page(options = {}) {
-    const { title = 'Erreur inattendue', message = 'Une erreur inattendue s\'est produite.' } = options;
-    
+    const { title = 'Erreur inattendue', message = "Une erreur inattendue s'est produite." } =
+      options;
+
     return `
 <div class="fr-container">
   <div class="fr-my-7w fr-mt-md-12w fr-mb-md-10w fr-grid-row fr-grid-row--center">
@@ -307,7 +321,7 @@ class TemplateService {
 
   generateContactForm(options = {}) {
     const { title = 'Nous contacter', includePhone = true, includeSubject = true } = options;
-    
+
     return `
 <div class="fr-container fr-mt-6w">
   <div class="fr-grid-row">
@@ -343,7 +357,9 @@ class TemplateService {
           <input class="fr-input" type="email" id="email" name="email" required>
         </div>
         
-        ${includePhone ? `
+        ${
+          includePhone
+            ? `
         <div class="fr-form-group">
           <label class="fr-label" for="phone">
             Téléphone
@@ -351,9 +367,13 @@ class TemplateService {
           </label>
           <input class="fr-input" type="tel" id="phone" name="phone">
         </div>
-        ` : ''}
+        `
+            : ''
+        }
         
-        ${includeSubject ? `
+        ${
+          includeSubject
+            ? `
         <div class="fr-form-group">
           <label class="fr-label" for="subject">
             Objet de votre demande
@@ -366,7 +386,9 @@ class TemplateService {
             <option value="other">Autre</option>
           </select>
         </div>
-        ` : ''}
+        `
+            : ''
+        }
         
         <div class="fr-form-group">
           <label class="fr-label" for="message">
@@ -411,12 +433,14 @@ class TemplateService {
 
   generateDataTable(options = {}) {
     const { title = 'Tableau de données', sortable = true, searchable = true } = options;
-    
+
     return `
 <div class="fr-container fr-mt-6w">
   <h1>${title}</h1>
   
-  ${searchable ? `
+  ${
+    searchable
+      ? `
   <div class="fr-search-bar" id="search" role="search">
     <label class="fr-label" for="search-input">
       Rechercher dans le tableau
@@ -426,7 +450,9 @@ class TemplateService {
       Rechercher
     </button>
   </div>
-  ` : ''}
+  `
+      : ''
+  }
   
   <div class="fr-table" id="table">
     <table>
@@ -525,11 +551,13 @@ class TemplateService {
 
   generateSearchPage(options = {}) {
     const { title = 'Recherche', showFilters = true } = options;
-    
+
     return `
 <div class="fr-container fr-mt-6w">
   <div class="fr-grid-row fr-grid-row--gutters">
-    ${showFilters ? `
+    ${
+      showFilters
+        ? `
     <div class="fr-col-12 fr-col-md-3">
       <nav class="fr-sidemenu" aria-label="Filtres de recherche">
         <div class="fr-sidemenu__inner">
@@ -586,7 +614,9 @@ class TemplateService {
         </div>
       </nav>
     </div>
-    ` : ''}
+    `
+        : ''
+    }
     
     <div class="fr-col-12 ${showFilters ? 'fr-col-md-9' : ''}">
       <h1>${title}</h1>
@@ -692,12 +722,14 @@ class TemplateService {
 
   generateDashboard(options = {}) {
     const { title = 'Tableau de bord', showStats = true, showChart = true } = options;
-    
+
     return `
 <div class="fr-container fr-mt-6w">
   <h1>${title}</h1>
   
-  ${showStats ? `
+  ${
+    showStats
+      ? `
   <div class="fr-grid-row fr-grid-row--gutters fr-mb-3w">
     <div class="fr-col-12 fr-col-md-3">
       <div class="fr-card">
@@ -755,7 +787,9 @@ class TemplateService {
       </div>
     </div>
   </div>
-  ` : ''}
+  `
+      : ''
+  }
   
   <div class="fr-grid-row fr-grid-row--gutters">
     <div class="fr-col-12 fr-col-md-8">
@@ -763,14 +797,18 @@ class TemplateService {
         <div class="fr-card__body">
           <div class="fr-card__content">
             <h3 class="fr-card__title">Activité récente</h3>
-            ${showChart ? `
+            ${
+              showChart
+                ? `
             <div class="fr-callout fr-callout--brown-caramel">
               <p class="fr-callout__text">
                 Emplacement pour un graphique ou diagramme.
                 Intégrez votre solution de visualisation préférée (Chart.js, D3.js, etc.)
               </p>
             </div>
-            ` : ''}
+            `
+                : ''
+            }
             
             <div class="fr-table fr-table--no-scroll">
               <table>
@@ -895,7 +933,7 @@ class TemplateService {
 
   wrapInReactTemplate(content, templateName, options) {
     const componentName = this.toPascalCase(templateName);
-    
+
     return `## Composant React\n\n\`\`\`jsx
 import React from 'react';
 import '@gouvfr/dsfr/dist/dsfr.css';
@@ -937,7 +975,7 @@ function App() {
 
   wrapInVueTemplate(content, templateName, options) {
     const componentName = this.toPascalCase(templateName);
-    
+
     return `## Composant Vue\n\n\`\`\`vue
 <template>
   <div>
@@ -981,7 +1019,7 @@ npm install @gouvfr/dsfr
   wrapInAngularTemplate(content, templateName, options) {
     const componentName = this.toPascalCase(templateName);
     const kebabName = templateName;
-    
+
     return `## Composant Angular\n\n### TypeScript\n\`\`\`typescript
 import { Component } from '@angular/core';
 
@@ -1154,13 +1192,16 @@ export class AppModule { }
   }
 
   indentHTML(html, indent) {
-    return html.split('\n').map(line => indent + line).join('\n');
+    return html
+      .split('\n')
+      .map((line) => indent + line)
+      .join('\n');
   }
 
   toPascalCase(str) {
     return str
       .split('-')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join('');
   }
 }

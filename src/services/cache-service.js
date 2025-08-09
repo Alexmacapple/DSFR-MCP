@@ -12,7 +12,7 @@ class CacheService extends ICacheService {
     super();
     this.config = config;
     this.logger = logger;
-    
+
     // Cache en mémoire
     this.memoryCache = new Map();
     this.cacheStats = {
@@ -21,15 +21,16 @@ class CacheService extends ICacheService {
       sets: 0,
       deletes: 0,
       evictions: 0,
-      memoryUsage: 0
+      memoryUsage: 0,
     };
-    
+
     // Configuration
     this.maxMemorySize = config.cache?.maxMemorySize || 50 * 1024 * 1024; // 50MB
     this.defaultTTL = config.cache?.defaultTTL || 30 * 60 * 1000; // 30 minutes
     this.cleanupInterval = config.cache?.cleanupInterval || 5 * 60 * 1000; // 5 minutes
-    this.persistentCachePath = config.cache?.persistentPath || path.join(config.paths.data, 'cache');
-    
+    this.persistentCachePath =
+      config.cache?.persistentPath || path.join(config.paths.data, 'cache');
+
     // État interne
     this.initialized = false;
     this.cleanupTimer = null;
@@ -40,25 +41,24 @@ class CacheService extends ICacheService {
     if (this.initialized) return;
 
     this.logger.info('Initialisation du CacheService');
-    
+
     try {
       // Créer le dossier de cache persistant si nécessaire
       await this.ensureCacheDirectory();
-      
+
       // Charger le cache persistant
       await this.loadPersistentCache();
-      
+
       // Démarrer le nettoyage périodique
       this.startCleanupTimer();
-      
+
       this.initialized = true;
       this.logger.info('CacheService initialisé', {
         memoryCache: this.memoryCache.size,
-        maxMemorySize: this.formatBytes(this.maxMemorySize)
+        maxMemorySize: this.formatBytes(this.maxMemorySize),
       });
-      
     } catch (error) {
-      this.logger.error('Erreur lors de l\'initialisation du CacheService', error);
+      this.logger.error("Erreur lors de l'initialisation du CacheService", error);
       throw error;
     }
   }
@@ -69,12 +69,12 @@ class CacheService extends ICacheService {
 
   async get(key) {
     const entry = this.memoryCache.get(key);
-    
+
     if (!entry) {
       this.cacheStats.misses++;
       return null;
     }
-    
+
     // Vérifier l'expiration
     if (this.isExpired(entry)) {
       this.memoryCache.delete(key);
@@ -82,18 +82,17 @@ class CacheService extends ICacheService {
       this.updateMemoryUsage();
       return null;
     }
-    
+
     // Mettre à jour l'accès
     entry.lastAccessed = Date.now();
     entry.accessCount++;
-    
+
     this.cacheStats.hits++;
-    
+
     // Décompresser si nécessaire
-    let rawValue = this.compressionEnabled && entry.compressed
-      ? this.decompress(entry.value)
-      : entry.value;
-    
+    const rawValue =
+      this.compressionEnabled && entry.compressed ? this.decompress(entry.value) : entry.value;
+
     // Désérialiser JSON
     try {
       return JSON.parse(rawValue);
@@ -106,12 +105,12 @@ class CacheService extends ICacheService {
   async set(key, value, ttl = null) {
     const now = Date.now();
     const expiresAt = ttl ? now + ttl : now + this.defaultTTL;
-    
+
     // Calculer la taille approximative
     const serialized = JSON.stringify(value);
     let finalValue = serialized;
     let compressed = false;
-    
+
     // Compression si activée et si la valeur est assez grande
     if (this.compressionEnabled && serialized.length > 1024) {
       try {
@@ -121,7 +120,7 @@ class CacheService extends ICacheService {
         this.logger.warn('Erreur lors de la compression', { key, error: error.message });
       }
     }
-    
+
     const entry = {
       value: finalValue,
       compressed,
@@ -129,16 +128,16 @@ class CacheService extends ICacheService {
       createdAt: now,
       lastAccessed: now,
       accessCount: 0,
-      size: finalValue.length
+      size: finalValue.length,
     };
-    
+
     // Vérifier l'espace disponible et faire de la place si nécessaire
     await this.ensureMemorySpace(entry.size);
-    
+
     this.memoryCache.set(key, entry);
     this.cacheStats.sets++;
     this.updateMemoryUsage();
-    
+
     // Sauvegarder en cache persistant pour les clés importantes
     if (this.shouldPersist(key)) {
       await this.saveToPersistentCache(key, entry);
@@ -147,15 +146,15 @@ class CacheService extends ICacheService {
 
   async delete(key) {
     const deleted = this.memoryCache.delete(key);
-    
+
     if (deleted) {
       this.cacheStats.deletes++;
       this.updateMemoryUsage();
     }
-    
+
     // Supprimer du cache persistant aussi
     await this.deleteFromPersistentCache(key);
-    
+
     return deleted;
   }
 
@@ -169,13 +168,13 @@ class CacheService extends ICacheService {
       // Supprimer les clés correspondant au pattern
       const keysToDelete = [];
       const regex = new RegExp(pattern.replace(/\*/g, '.*'));
-      
+
       for (const key of this.memoryCache.keys()) {
         if (regex.test(key)) {
           keysToDelete.push(key);
         }
       }
-      
+
       for (const key of keysToDelete) {
         await this.delete(key);
       }
@@ -188,16 +187,15 @@ class CacheService extends ICacheService {
       entries: this.memoryCache.size,
       memoryUsageFormatted: this.formatBytes(this.cacheStats.memoryUsage),
       hitRate: this.cacheStats.hits / (this.cacheStats.hits + this.cacheStats.misses) || 0,
-      averageEntrySize: this.memoryCache.size > 0 
-        ? this.cacheStats.memoryUsage / this.memoryCache.size 
-        : 0
+      averageEntrySize:
+        this.memoryCache.size > 0 ? this.cacheStats.memoryUsage / this.memoryCache.size : 0,
     };
   }
 
   /**
    * Méthodes privées
    */
-  
+
   isExpired(entry) {
     return Date.now() > entry.expiresAt;
   }
@@ -207,39 +205,41 @@ class CacheService extends ICacheService {
     if (this.cacheStats.memoryUsage + requiredSize <= this.maxMemorySize) {
       return;
     }
-    
-    this.logger.info('Nettoyage du cache pour libérer de l\'espace', {
+
+    this.logger.info("Nettoyage du cache pour libérer de l'espace", {
       current: this.formatBytes(this.cacheStats.memoryUsage),
       required: this.formatBytes(requiredSize),
-      max: this.formatBytes(this.maxMemorySize)
+      max: this.formatBytes(this.maxMemorySize),
     });
-    
+
     // Stratégie LRU : supprimer les entrées les moins récemment utilisées
     const entries = Array.from(this.memoryCache.entries())
       .map(([key, value]) => ({ key, ...value }))
       .sort((a, b) => a.lastAccessed - b.lastAccessed);
-    
+
     let freedSpace = 0;
     const keysToDelete = [];
-    
+
     for (const entry of entries) {
       keysToDelete.push(entry.key);
       freedSpace += entry.size;
-      
+
       if (this.cacheStats.memoryUsage - freedSpace + requiredSize <= this.maxMemorySize) {
         break;
       }
     }
-    
+
     // Supprimer les entrées sélectionnées
     for (const key of keysToDelete) {
       this.memoryCache.delete(key);
       this.cacheStats.evictions++;
     }
-    
+
     this.updateMemoryUsage();
-    
-    this.logger.info(`${keysToDelete.length} entrées supprimées, ${this.formatBytes(freedSpace)} libérés`);
+
+    this.logger.info(
+      `${keysToDelete.length} entrées supprimées, ${this.formatBytes(freedSpace)} libérés`
+    );
   }
 
   updateMemoryUsage() {
@@ -278,15 +278,15 @@ class CacheService extends ICacheService {
   async loadPersistentCache() {
     try {
       const files = await fs.readdir(this.persistentCachePath);
-      const cacheFiles = files.filter(f => f.endsWith('.cache.json'));
-      
+      const cacheFiles = files.filter((f) => f.endsWith('.cache.json'));
+
       let loadedCount = 0;
       for (const file of cacheFiles) {
         try {
           const filePath = path.join(this.persistentCachePath, file);
           const data = await fs.readFile(filePath, 'utf8');
           const { key, entry } = JSON.parse(data);
-          
+
           // Vérifier si l'entrée n'est pas expirée
           if (!this.isExpired(entry)) {
             this.memoryCache.set(key, entry);
@@ -299,12 +299,11 @@ class CacheService extends ICacheService {
           this.logger.warn(`Erreur lors du chargement de ${file}`, { error: error.message });
         }
       }
-      
+
       if (loadedCount > 0) {
         this.updateMemoryUsage();
         this.logger.info(`${loadedCount} entrées chargées depuis le cache persistant`);
       }
-      
     } catch (error) {
       if (error.code !== 'ENOENT') {
         this.logger.warn('Erreur lors du chargement du cache persistant', { error: error.message });
@@ -317,12 +316,12 @@ class CacheService extends ICacheService {
       const filename = this.sanitizeKey(key) + '.cache.json';
       const filePath = path.join(this.persistentCachePath, filename);
       const data = JSON.stringify({ key, entry });
-      
+
       await fs.writeFile(filePath, data, 'utf8');
     } catch (error) {
-      this.logger.warn('Erreur lors de la sauvegarde en cache persistant', { 
-        key, 
-        error: error.message 
+      this.logger.warn('Erreur lors de la sauvegarde en cache persistant', {
+        key,
+        error: error.message,
       });
     }
   }
@@ -335,9 +334,9 @@ class CacheService extends ICacheService {
     } catch (error) {
       // Ignore si le fichier n'existe pas
       if (error.code !== 'ENOENT') {
-        this.logger.warn('Erreur lors de la suppression du cache persistant', { 
-          key, 
-          error: error.message 
+        this.logger.warn('Erreur lors de la suppression du cache persistant', {
+          key,
+          error: error.message,
         });
       }
     }
@@ -346,14 +345,12 @@ class CacheService extends ICacheService {
   async clearPersistentCache() {
     try {
       const files = await fs.readdir(this.persistentCachePath);
-      const cacheFiles = files.filter(f => f.endsWith('.cache.json'));
-      
+      const cacheFiles = files.filter((f) => f.endsWith('.cache.json'));
+
       await Promise.all(
-        cacheFiles.map(file => 
-          fs.unlink(path.join(this.persistentCachePath, file))
-        )
+        cacheFiles.map((file) => fs.unlink(path.join(this.persistentCachePath, file)))
       );
-      
+
       this.logger.info(`${cacheFiles.length} fichiers de cache persistant supprimés`);
     } catch (error) {
       this.logger.warn('Erreur lors du nettoyage du cache persistant', { error: error.message });
@@ -373,29 +370,29 @@ class CacheService extends ICacheService {
   async cleanup() {
     const before = this.memoryCache.size;
     let expired = 0;
-    
+
     for (const [key, entry] of this.memoryCache.entries()) {
       if (this.isExpired(entry)) {
         this.memoryCache.delete(key);
         expired++;
       }
     }
-    
+
     if (expired > 0) {
       this.cacheStats.evictions += expired;
       this.updateMemoryUsage();
-      
+
       this.logger.debug(`Nettoyage automatique: ${expired} entrées expirées supprimées`);
     }
   }
 
   formatBytes(bytes) {
     if (bytes === 0) return '0 B';
-    
+
     const k = 1024;
     const sizes = ['B', 'KB', 'MB', 'GB'];
     const i = Math.floor(Math.log(bytes) / Math.log(k));
-    
+
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
   }
 
@@ -404,21 +401,22 @@ class CacheService extends ICacheService {
       clearInterval(this.cleanupTimer);
       this.cleanupTimer = null;
     }
-    
+
     // Sauvegarder les données importantes avant de fermer
-    const importantKeys = Array.from(this.memoryCache.keys())
-      .filter(key => this.shouldPersist(key));
-    
+    const importantKeys = Array.from(this.memoryCache.keys()).filter((key) =>
+      this.shouldPersist(key)
+    );
+
     for (const key of importantKeys) {
       const entry = this.memoryCache.get(key);
       if (entry) {
         await this.saveToPersistentCache(key, entry);
       }
     }
-    
+
     this.memoryCache.clear();
     this.initialized = false;
-    
+
     this.logger.info('CacheService fermé');
   }
 }

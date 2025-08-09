@@ -15,18 +15,18 @@ class LoggerService extends ILoggerService {
       error: 0,
       warn: 1,
       info: 2,
-      debug: 3
+      debug: 3,
     };
-    
+
     this.currentLevel = this.levels[config?.get('logging.level') || 'info'];
     this.format = config?.get('logging.format') || 'json';
     this.logToFile = config?.get('logging.file') || false;
     this.logToConsole = config?.get('logging.console') || false; // Désactivé par défaut pour MCP
-    
+
     this.initialized = false;
     this.logBuffer = [];
     this.logFile = null;
-    
+
     if (this.logToFile) {
       this.logFile = path.join(config?.get('paths.data') || './data', 'logs', 'dsfr-mcp.log');
     }
@@ -46,7 +46,7 @@ class LoggerService extends ILoggerService {
     }
 
     this.initialized = true;
-    
+
     // Écrire les logs en buffer
     if (this.logBuffer.length > 0) {
       for (const entry of this.logBuffer) {
@@ -54,12 +54,12 @@ class LoggerService extends ILoggerService {
       }
       this.logBuffer = [];
     }
-    
+
     this.info('LoggerService initialisé', {
       level: Object.keys(this.levels)[this.currentLevel],
       format: this.format,
       file: !!this.logToFile,
-      console: this.logToConsole
+      console: this.logToConsole,
     });
   }
 
@@ -72,13 +72,15 @@ class LoggerService extends ILoggerService {
   }
 
   error(message, error = null, meta = {}) {
-    const errorMeta = error ? {
-      name: error.name,
-      message: error.message,
-      stack: error.stack,
-      ...meta
-    } : meta;
-    
+    const errorMeta = error
+      ? {
+          name: error.name,
+          message: error.message,
+          stack: error.stack,
+          ...meta,
+        }
+      : meta;
+
     this.log('error', message, errorMeta);
   }
 
@@ -93,7 +95,7 @@ class LoggerService extends ILoggerService {
   /**
    * Méthodes privées
    */
-  
+
   log(level, message, meta = {}) {
     if (this.levels[level] > this.currentLevel) {
       return; // Level trop bas, ignorer
@@ -104,7 +106,7 @@ class LoggerService extends ILoggerService {
       level,
       message,
       meta,
-      pid: process.pid
+      pid: process.pid,
     };
 
     if (!this.initialized) {
@@ -146,19 +148,17 @@ class LoggerService extends ILoggerService {
     if (this.format === 'json') {
       return JSON.stringify(entry);
     }
-    
+
     // Format texte simple
-    const metaStr = Object.keys(entry.meta).length > 0 
-      ? ' ' + JSON.stringify(entry.meta)
-      : '';
-    
+    const metaStr = Object.keys(entry.meta).length > 0 ? ' ' + JSON.stringify(entry.meta) : '';
+
     return `${entry.timestamp} [${entry.level.toUpperCase()}] ${entry.message}${metaStr}`;
   }
 
   /**
    * Méthodes utilitaires
    */
-  
+
   setLevel(level) {
     if (this.levels[level] !== undefined) {
       this.currentLevel = this.levels[level];
@@ -174,16 +174,14 @@ class LoggerService extends ILoggerService {
     try {
       const content = await fs.readFile(this.logFile, 'utf8');
       const lines = content.trim().split('\n');
-      
-      return lines
-        .slice(-count)
-        .map(line => {
-          try {
-            return JSON.parse(line);
-          } catch {
-            return { message: line, level: 'info', timestamp: new Date().toISOString() };
-          }
-        });
+
+      return lines.slice(-count).map((line) => {
+        try {
+          return JSON.parse(line);
+        } catch {
+          return { message: line, level: 'info', timestamp: new Date().toISOString() };
+        }
+      });
     } catch (error) {
       return [];
     }
@@ -195,7 +193,7 @@ class LoggerService extends ILoggerService {
         await fs.writeFile(this.logFile, '', 'utf8');
         this.info('Logs effacés');
       } catch (error) {
-        this.error('Erreur lors de l\'effacement des logs', error);
+        this.error("Erreur lors de l'effacement des logs", error);
       }
     }
   }
@@ -208,14 +206,14 @@ class LoggerService extends ILoggerService {
     try {
       const stats = await fs.stat(this.logFile);
       const maxSize = 10 * 1024 * 1024; // 10MB
-      
+
       if (stats.size > maxSize) {
         const rotatedFile = this.logFile + '.' + Date.now();
         await fs.rename(this.logFile, rotatedFile);
-        
-        this.info('Logs pivotés', { 
-          oldFile: rotatedFile, 
-          size: stats.size 
+
+        this.info('Logs pivotés', {
+          oldFile: rotatedFile,
+          size: stats.size,
         });
       }
     } catch (error) {
@@ -230,7 +228,7 @@ class LoggerService extends ILoggerService {
         await this.writeLog(entry);
       }
     }
-    
+
     this.initialized = false;
     this.info('LoggerService fermé');
   }
