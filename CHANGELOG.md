@@ -5,6 +5,42 @@ Tous les changements notables de ce projet seront documentés dans ce fichier.
 Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/),
 et ce projet adhère au [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.0] - 2025-08-09
+
+### 🎯 Version Stable de Référence
+
+> **Point de référence fixe** - Cette version marque la première version stable officielle du projet DSFR-MCP avec toutes ses fonctionnalités essentielles.
+
+#### ✨ Fonctionnalités Principales
+- **Serveur MCP production** complet avec 15+ outils fonctionnels
+- **Support Docker** robuste avec conteneurs de développement et production
+- **Architecture modulaire** optimisée avec injection de dépendances
+- **Recherche avancée** avec indexation intelligente et cache persistant
+- **Documentation exhaustive** avec guides d'installation et d'utilisation
+
+#### 🔧 Outils MCP Disponibles
+- `get_dsfr_component` : Récupération de composants DSFR avec exemples
+- `search_dsfr_components` : Recherche avancée avec filtres
+- `get_design_tokens` : Accès aux tokens de design système
+- `validate_accessibility` : Validation de conformité d'accessibilité
+- `generate_dsfr_component` : Génération assistée de composants
+- Et 10+ autres outils spécialisés
+
+#### 📦 Installation & Déploiement
+- **Docker Compose** : Installation en une commande
+- **Scripts automatiques** : Configuration Claude Desktop multi-OS
+- **Volumes persistants** : Données conservées entre redémarrages
+- **Health checks** : Monitoring automatique des services
+
+#### 🎯 Jalon Stable
+Cette version constitue un **point de référence immuable** pour :
+- Retour à une version stable connue
+- Base pour les développements futurs  
+- Démonstration complète des capacités du projet
+- Documentation de référence
+
+---
+
 ## [1.4.1] - 2025-08-06
 
 ### 🚀 Docker MCP Production - Déploiement Robuste

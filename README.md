@@ -34,6 +34,7 @@ Serveur MCP (Model Context Protocol) complet pour le Système de Design de l'Ét
 - [Tests](#-tests)
 - [Contribution](#-contribution)
 - [Support](#-support)
+- [Changelog](#changelog)
 - [Licence](#-licence)
 
 ## 🔧 Installation
@@ -422,6 +423,14 @@ Les contributions sont les bienvenues ! Veuillez suivre ces étapes :
 - [ ] `npm test` passe sans erreur
 - [ ] Configuration MCP correcte
 - [ ] Claude Desktop redémarré
+
+## 📝 Changelog
+
+Consultez le [CHANGELOG.md](CHANGELOG.md) pour voir toutes les modifications, améliorations et corrections de ce projet.
+
+### Versions importantes
+- **[v1.0.0](https://github.com/Alexmacapple/DSFR-MCP/releases/tag/v1.0.0)** - Version stable de référence
+- **v1.4.1** - Version courante avec Docker production
 
 ## 📜 Licence
 
