@@ -374,7 +374,7 @@ class GeneratorService {
     output += '```\n\n';
 
     // Template
-    output += '### Template HTML\n\n';
+    output += '## Template HTML\n\n';
     output += '```html\n';
     const template = this.getAdvancedTemplate(componentType, options);
     const angularTemplate = template
@@ -383,6 +383,12 @@ class GeneratorService {
       .replace(/Description/g, '{{ description }}');
 
     output += angularTemplate;
+    output += '\n```\n\n';
+
+    // Styles SCSS
+    output += '## Styles SCSS\n\n';
+    output += '```scss\n';
+    output += `@import "@gouvfr/dsfr/dist/component/${componentType}/${componentType}";\n`;
     output += '\n```\n\n';
 
     return output;
@@ -465,7 +471,7 @@ class GeneratorService {
   }
 
   generateVueComponent(component, options) {
-    let output = `# Composant Vue DSFR : ${component.name}\n\n`;
+    let output = `# Composant Vue DSFR : ${component.name}\n`;
 
     const componentNamePascal = this.toPascalCase(component.name);
 
@@ -1007,7 +1013,10 @@ class GeneratorService {
       .split('\n')
       .map((line) => line.replace(/^\d+\|/, ''))
       .join('\n')
-      .trim();
+      .trim()
+      .replace(/>\s+</g, '><')
+      .replace(/>\s+/g, '>')
+      .replace(/\s+</g, '<');
   }
 
   generateDefaultHTML(componentName, options) {
@@ -1648,6 +1657,15 @@ class GeneratorService {
     };
 
     return templates[componentType] || this.getGenericTemplate(componentType, options);
+  }
+
+  convertClassesToFramework(html, framework) {
+    const classConversions = {
+      react: (html) => html.replace(/class="/g, 'className="'),
+      vue: (html) => html,
+      angular: (html) => html,
+    };
+    return classConversions[framework] ? classConversions[framework](html) : html;
   }
 
   getButtonTemplate(options) {
