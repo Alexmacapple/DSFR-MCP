@@ -155,7 +155,7 @@ class DSFRSourceParser {
 
   async processComponent(filePath, content) {
     // Extraire le nom du composant
-    const match = filePath.match(/component\/([^\/]+)\//);
+    const match = filePath.match(/component\/([^/]+)\//);
     if (!match) return;
 
     const componentName = match[1];
@@ -243,7 +243,7 @@ class DSFRSourceParser {
 
   async processExample(filePath, content) {
     // Extraire le nom du composant depuis le chemin d'exemple
-    const match = filePath.match(/example\/component\/([^\/]+)\//);
+    const match = filePath.match(/example\/component\/([^/]+)\//);
     if (match) {
       const componentName = match[1];
       this.examples.set(filePath, {
@@ -277,7 +277,7 @@ class DSFRSourceParser {
   }
 
   extractComponentFromPath(filePath) {
-    const match = filePath.match(/component\/([^\/]+)\//);
+    const match = filePath.match(/component\/([^/]+)\//);
     return match ? match[1] : 'unknown';
   }
 

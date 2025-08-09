@@ -42,30 +42,25 @@ class DocumentationService {
   async indexDocumentation() {
     const fichesPath = path.resolve(config.paths.fiches);
 
-    try {
-      const files = await fs.readdir(fichesPath);
-      const mdFiles = files.filter((f) => f.endsWith('.md'));
+    const files = await fs.readdir(fichesPath);
+    const mdFiles = files.filter((f) => f.endsWith('.md'));
 
-      for (const file of mdFiles) {
-        const filePath = path.join(fichesPath, file);
-        const content = await fs.readFile(filePath, 'utf-8');
+    for (const file of mdFiles) {
+      const filePath = path.join(fichesPath, file);
+      const content = await fs.readFile(filePath, 'utf-8');
 
-        // Extraire les métadonnées du fichier
-        const doc = this.parseDocument(file, content);
-        this.documents.push(doc);
+      // Extraire les métadonnées du fichier
+      const doc = this.parseDocument(file, content);
+      this.documents.push(doc);
 
-        // Catégoriser le document
-        this.categorizeDocument(doc);
-      }
-
-      // Créer l'index de recherche
-      this.createSearchIndex();
-
-      // Pas de console.log - MCP nécessite du JSON pur sur stdout
-    } catch (error) {
-      // Ne pas écrire sur stderr/stdout pour éviter de corrompre le protocole JSON-RPC
-      throw error;
+      // Catégoriser le document
+      this.categorizeDocument(doc);
     }
+
+    // Créer l'index de recherche
+    this.createSearchIndex();
+
+    // Pas de console.log - MCP nécessite du JSON pur sur stdout
   }
 
   parseDocument(filename, content) {

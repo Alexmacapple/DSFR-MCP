@@ -20,64 +20,60 @@ class DSFRSourceParser {
   async parseSourceFiles() {
     // Pas de console.log - MCP nécessite du JSON pur sur stdout
 
-    try {
-      // Charger l'index des fichiers
-      this.fileIndex = JSON.parse(await fs.readFile(this.indexFile, 'utf-8'));
+    // Charger l'index des fichiers
+    this.fileIndex = JSON.parse(await fs.readFile(this.indexFile, 'utf-8'));
 
-      // Traiter les fichiers par catégorie
-      const categories = [
-        'components',
-        'core',
-        'utilities',
-        'analytics',
-        'examples',
-        'documentation',
-        'other',
-      ];
+    // Traiter les fichiers par catégorie
+    const categories = [
+      'components',
+      'core',
+      'utilities',
+      'analytics',
+      'examples',
+      'documentation',
+      'other',
+    ];
 
-      for (const category of categories) {
-        const categoryPath = path.join(this.sourceDir, category);
+    for (const category of categories) {
+      const categoryPath = path.join(this.sourceDir, category);
 
-        try {
-          const files = await fs.readdir(categoryPath);
+      try {
+        const files = await fs.readdir(categoryPath);
 
-          let processedCount = 0;
-          for (const file of files) {
-            if (file === '.DS_Store' || file.startsWith('.')) continue;
+        let processedCount = 0;
+        for (const file of files) {
+          if (file === '.DS_Store' || file.startsWith('.')) continue;
 
-            // Skip le fichier index s'il existe
-            if (file === 'index.json') continue;
+          // Skip le fichier index s'il existe
+          if (file === 'index.json') continue;
 
-            const filePath = path.join(categoryPath, file);
-            const stats = await fs.stat(filePath);
+          const filePath = path.join(categoryPath, file);
+          const stats = await fs.stat(filePath);
 
-            if (stats.isFile()) {
-              // Si c'est un fichier .meta.json, récupérer les métadonnées
-              if (file.endsWith('.meta.json')) {
-                const metadata = JSON.parse(await fs.readFile(filePath, 'utf-8'));
-                const contentFileName = file.replace('.meta.json', '');
-                const contentFilePath = path.join(categoryPath, contentFileName);
+          if (stats.isFile()) {
+            // Si c'est un fichier .meta.json, récupérer les métadonnées
+            if (file.endsWith('.meta.json')) {
+              const metadata = JSON.parse(await fs.readFile(filePath, 'utf-8'));
+              const contentFileName = file.replace('.meta.json', '');
+              const contentFilePath = path.join(categoryPath, contentFileName);
 
-                // Vérifier si le fichier de contenu existe
-                try {
-                  const fileContent = await fs.readFile(contentFilePath, 'utf-8');
-                  const originalPath = metadata.originalPath;
-                  const sectionType = this.detectSectionType(originalPath);
+              // Vérifier si le fichier de contenu existe
+              try {
+                const fileContent = await fs.readFile(contentFilePath, 'utf-8');
+                const originalPath = metadata.originalPath;
+                const sectionType = this.detectSectionType(originalPath);
 
-                  await this.processSection(sectionType, originalPath, fileContent);
-                  processedCount++;
-                } catch (err) {
-                  // Ignorer silencieusement les fichiers manquants
-                }
+                await this.processSection(sectionType, originalPath, fileContent);
+                processedCount++;
+              } catch (err) {
+                // Ignorer silencieusement les fichiers manquants
               }
             }
           }
-        } catch (error) {
-          // Ignorer silencieusement les catégories manquantes
         }
+      } catch (error) {
+        // Ignorer silencieusement les catégories manquantes
       }
-    } catch (error) {
-      throw error;
     }
   }
 
@@ -146,7 +142,7 @@ class DSFRSourceParser {
 
   async processComponent(filePath, content) {
     // Extraire le nom du composant
-    const match = filePath.match(/component\/([^\/]+)\//);
+    const match = filePath.match(/component\/([^/]+)\//);
     if (!match) return;
 
     const componentName = match[1];
@@ -240,7 +236,7 @@ class DSFRSourceParser {
   }
 
   async processExample(filePath, content) {
-    const componentMatch = filePath.match(/component\/([^\/]+)\//);
+    const componentMatch = filePath.match(/component\/([^/]+)\//);
     if (componentMatch) {
       const componentName = componentMatch[1];
       if (!this.examples.has(componentName)) {
@@ -254,7 +250,7 @@ class DSFRSourceParser {
   }
 
   async processSchema(filePath, content) {
-    const componentMatch = filePath.match(/component\/([^\/]+)\//);
+    const componentMatch = filePath.match(/component\/([^/]+)\//);
     if (componentMatch) {
       const componentName = componentMatch[1];
       this.schemas.set(componentName, this.parseYAML(content));

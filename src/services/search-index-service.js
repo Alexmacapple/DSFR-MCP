@@ -401,10 +401,11 @@ class SearchIndexService extends IService {
           return multiplier * docA.title.localeCompare(docB.title);
         case 'category':
           return multiplier * docA.category.localeCompare(docB.category);
-        case 'date':
+        case 'date': {
           const dateA = new Date(docA.indexed);
           const dateB = new Date(docB.indexed);
           return multiplier * (dateB - dateA);
+        }
         default:
           return 0;
       }

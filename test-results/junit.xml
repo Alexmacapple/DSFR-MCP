@@ -1,131 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="131" failures="26" errors="0" time="2.299">
-  <testsuite name="InputSchemas" errors="0" failures="0" skipped="0" timestamp="2025-08-09T18:44:04" time="0.372" tests="27">
-    <testcase classname="InputSchemas constructor should initialize with all schemas" name="InputSchemas constructor should initialize with all schemas" time="0.016">
+<testsuites name="jest tests" tests="131" failures="23" errors="0" time="2.375">
+  <testsuite name="InputSchemas" errors="0" failures="0" skipped="0" timestamp="2025-08-09T20:44:41" time="0.36" tests="27">
+    <testcase classname="InputSchemas constructor should initialize with all schemas" name="InputSchemas constructor should initialize with all schemas" time="0.027">
     </testcase>
-    <testcase classname="InputSchemas validate search_dsfr_components should validate valid search parameters" name="InputSchemas validate search_dsfr_components should validate valid search parameters" time="0.007">
+    <testcase classname="InputSchemas validate search_dsfr_components should validate valid search parameters" name="InputSchemas validate search_dsfr_components should validate valid search parameters" time="0.014">
     </testcase>
-    <testcase classname="InputSchemas validate search_dsfr_components should require query parameter" name="InputSchemas validate search_dsfr_components should require query parameter" time="0.006">
+    <testcase classname="InputSchemas validate search_dsfr_components should require query parameter" name="InputSchemas validate search_dsfr_components should require query parameter" time="0.01">
     </testcase>
-    <testcase classname="InputSchemas validate search_dsfr_components should validate category enum" name="InputSchemas validate search_dsfr_components should validate category enum" time="0.01">
+    <testcase classname="InputSchemas validate search_dsfr_components should validate category enum" name="InputSchemas validate search_dsfr_components should validate category enum" time="0.005">
     </testcase>
-    <testcase classname="InputSchemas validate search_dsfr_components should validate limit bounds" name="InputSchemas validate search_dsfr_components should validate limit bounds" time="0.005">
+    <testcase classname="InputSchemas validate search_dsfr_components should validate limit bounds" name="InputSchemas validate search_dsfr_components should validate limit bounds" time="0.006">
     </testcase>
-    <testcase classname="InputSchemas validate search_dsfr_components should apply default limit" name="InputSchemas validate search_dsfr_components should apply default limit" time="0.004">
+    <testcase classname="InputSchemas validate search_dsfr_components should apply default limit" name="InputSchemas validate search_dsfr_components should apply default limit" time="0.008">
     </testcase>
-    <testcase classname="InputSchemas validate validate_dsfr_html should validate valid HTML validation parameters" name="InputSchemas validate validate_dsfr_html should validate valid HTML validation parameters" time="0.006">
+    <testcase classname="InputSchemas validate validate_dsfr_html should validate valid HTML validation parameters" name="InputSchemas validate validate_dsfr_html should validate valid HTML validation parameters" time="0.005">
     </testcase>
     <testcase classname="InputSchemas validate validate_dsfr_html should require html_code parameter" name="InputSchemas validate validate_dsfr_html should require html_code parameter" time="0.005">
     </testcase>
-    <testcase classname="InputSchemas validate validate_dsfr_html should validate HTML code length" name="InputSchemas validate validate_dsfr_html should validate HTML code length" time="0.005">
+    <testcase classname="InputSchemas validate validate_dsfr_html should validate HTML code length" name="InputSchemas validate validate_dsfr_html should validate HTML code length" time="0.007">
     </testcase>
-    <testcase classname="InputSchemas validate validate_dsfr_html should apply default boolean values" name="InputSchemas validate validate_dsfr_html should apply default boolean values" time="0.005">
+    <testcase classname="InputSchemas validate validate_dsfr_html should apply default boolean values" name="InputSchemas validate validate_dsfr_html should apply default boolean values" time="0.008">
     </testcase>
     <testcase classname="InputSchemas validate check_accessibility should validate accessibility check parameters" name="InputSchemas validate check_accessibility should validate accessibility check parameters" time="0.005">
     </testcase>
-    <testcase classname="InputSchemas validate check_accessibility should validate RGAA level enum" name="InputSchemas validate check_accessibility should validate RGAA level enum" time="0.007">
+    <testcase classname="InputSchemas validate check_accessibility should validate RGAA level enum" name="InputSchemas validate check_accessibility should validate RGAA level enum" time="0.003">
     </testcase>
-    <testcase classname="InputSchemas validate generate_dsfr_component should validate component generation parameters" name="InputSchemas validate generate_dsfr_component should validate component generation parameters" time="0.008">
+    <testcase classname="InputSchemas validate generate_dsfr_component should validate component generation parameters" name="InputSchemas validate generate_dsfr_component should validate component generation parameters" time="0.003">
     </testcase>
-    <testcase classname="InputSchemas validate generate_dsfr_component should validate component type pattern" name="InputSchemas validate generate_dsfr_component should validate component type pattern" time="0.012">
+    <testcase classname="InputSchemas validate generate_dsfr_component should validate component type pattern" name="InputSchemas validate generate_dsfr_component should validate component type pattern" time="0.006">
     </testcase>
-    <testcase classname="InputSchemas validate generate_dsfr_component should validate framework enum" name="InputSchemas validate generate_dsfr_component should validate framework enum" time="0.006">
+    <testcase classname="InputSchemas validate generate_dsfr_component should validate framework enum" name="InputSchemas validate generate_dsfr_component should validate framework enum" time="0.009">
     </testcase>
     <testcase classname="InputSchemas validate create_dsfr_theme should validate theme creation parameters" name="InputSchemas validate create_dsfr_theme should validate theme creation parameters" time="0.009">
     </testcase>
-    <testcase classname="InputSchemas validate create_dsfr_theme should validate color format" name="InputSchemas validate create_dsfr_theme should validate color format" time="0.009">
+    <testcase classname="InputSchemas validate create_dsfr_theme should validate color format" name="InputSchemas validate create_dsfr_theme should validate color format" time="0.005">
     </testcase>
-    <testcase classname="InputSchemas validate create_dsfr_theme should validate CSS variable names" name="InputSchemas validate create_dsfr_theme should validate CSS variable names" time="0.008">
+    <testcase classname="InputSchemas validate create_dsfr_theme should validate CSS variable names" name="InputSchemas validate create_dsfr_theme should validate CSS variable names" time="0.006">
     </testcase>
-    <testcase classname="InputSchemas validate convert_to_framework should validate framework conversion parameters" name="InputSchemas validate convert_to_framework should validate framework conversion parameters" time="0.008">
+    <testcase classname="InputSchemas validate convert_to_framework should validate framework conversion parameters" name="InputSchemas validate convert_to_framework should validate framework conversion parameters" time="0.003">
     </testcase>
-    <testcase classname="InputSchemas validate convert_to_framework should validate PascalCase component name" name="InputSchemas validate convert_to_framework should validate PascalCase component name" time="0.007">
+    <testcase classname="InputSchemas validate convert_to_framework should validate PascalCase component name" name="InputSchemas validate convert_to_framework should validate PascalCase component name" time="0.004">
     </testcase>
-    <testcase classname="InputSchemas sanitizeParams should trim string parameters" name="InputSchemas sanitizeParams should trim string parameters" time="0.004">
+    <testcase classname="InputSchemas sanitizeParams should trim string parameters" name="InputSchemas sanitizeParams should trim string parameters" time="0.005">
     </testcase>
-    <testcase classname="InputSchemas sanitizeParams should apply default values" name="InputSchemas sanitizeParams should apply default values" time="0.003">
+    <testcase classname="InputSchemas sanitizeParams should apply default values" name="InputSchemas sanitizeParams should apply default values" time="0.005">
     </testcase>
-    <testcase classname="InputSchemas sanitizeParams should not override provided values" name="InputSchemas sanitizeParams should not override provided values" time="0.005">
+    <testcase classname="InputSchemas sanitizeParams should not override provided values" name="InputSchemas sanitizeParams should not override provided values" time="0.003">
     </testcase>
-    <testcase classname="InputSchemas getSchema should return schema for valid tool" name="InputSchemas getSchema should return schema for valid tool" time="0.004">
+    <testcase classname="InputSchemas getSchema should return schema for valid tool" name="InputSchemas getSchema should return schema for valid tool" time="0.003">
     </testcase>
     <testcase classname="InputSchemas getSchema should return null for invalid tool" name="InputSchemas getSchema should return null for invalid tool" time="0.002">
     </testcase>
-    <testcase classname="InputSchemas getAvailableTools should return list of all available tools" name="InputSchemas getAvailableTools should return list of all available tools" time="0.004">
+    <testcase classname="InputSchemas getAvailableTools should return list of all available tools" name="InputSchemas getAvailableTools should return list of all available tools" time="0.002">
     </testcase>
     <testcase classname="InputSchemas unknown tool validation should handle validation for unknown tool" name="InputSchemas unknown tool validation should handle validation for unknown tool" time="0.004">
     </testcase>
   </testsuite>
-  <testsuite name="InputValidatorService" errors="0" failures="0" skipped="0" timestamp="2025-08-09T18:44:04" time="0.393" tests="32">
-    <testcase classname="InputValidatorService constructor should initialize with input schemas" name="InputValidatorService constructor should initialize with input schemas" time="0.02">
+  <testsuite name="InputValidatorService" errors="0" failures="0" skipped="0" timestamp="2025-08-09T20:44:41" time="0.393" tests="32">
+    <testcase classname="InputValidatorService constructor should initialize with input schemas" name="InputValidatorService constructor should initialize with input schemas" time="0.022">
     </testcase>
-    <testcase classname="InputValidatorService validateAndSanitize should validate and sanitize valid search parameters" name="InputValidatorService validateAndSanitize should validate and sanitize valid search parameters" time="0.009">
+    <testcase classname="InputValidatorService validateAndSanitize should validate and sanitize valid search parameters" name="InputValidatorService validateAndSanitize should validate and sanitize valid search parameters" time="0.012">
     </testcase>
-    <testcase classname="InputValidatorService validateAndSanitize should throw error for invalid parameters" name="InputValidatorService validateAndSanitize should throw error for invalid parameters" time="0.01">
+    <testcase classname="InputValidatorService validateAndSanitize should throw error for invalid parameters" name="InputValidatorService validateAndSanitize should throw error for invalid parameters" time="0.013">
     </testcase>
-    <testcase classname="InputValidatorService validateAndSanitize should apply default values" name="InputValidatorService validateAndSanitize should apply default values" time="0.006">
+    <testcase classname="InputValidatorService validateAndSanitize should apply default values" name="InputValidatorService validateAndSanitize should apply default values" time="0.007">
     </testcase>
     <testcase classname="InputValidatorService sanitizeSearchQuery should sanitize search query properly" name="InputValidatorService sanitizeSearchQuery should sanitize search query properly" time="0.006">
     </testcase>
-    <testcase classname="InputValidatorService sanitizeHtmlCode should remove script tags" name="InputValidatorService sanitizeHtmlCode should remove script tags" time="0.005">
+    <testcase classname="InputValidatorService sanitizeHtmlCode should remove script tags" name="InputValidatorService sanitizeHtmlCode should remove script tags" time="0.004">
     </testcase>
-    <testcase classname="InputValidatorService sanitizeHtmlCode should remove javascript: protocols" name="InputValidatorService sanitizeHtmlCode should remove javascript: protocols" time="0.005">
+    <testcase classname="InputValidatorService sanitizeHtmlCode should remove javascript: protocols" name="InputValidatorService sanitizeHtmlCode should remove javascript: protocols" time="0.006">
     </testcase>
     <testcase classname="InputValidatorService sanitizeHtmlCode should remove event handlers" name="InputValidatorService sanitizeHtmlCode should remove event handlers" time="0.005">
     </testcase>
-    <testcase classname="InputValidatorService sanitizeHtmlCode should normalize whitespace" name="InputValidatorService sanitizeHtmlCode should normalize whitespace" time="0.003">
+    <testcase classname="InputValidatorService sanitizeHtmlCode should normalize whitespace" name="InputValidatorService sanitizeHtmlCode should normalize whitespace" time="0.005">
     </testcase>
-    <testcase classname="InputValidatorService normalizeColor should add # prefix if missing" name="InputValidatorService normalizeColor should add # prefix if missing" time="0.005">
+    <testcase classname="InputValidatorService normalizeColor should add # prefix if missing" name="InputValidatorService normalizeColor should add # prefix if missing" time="0.007">
     </testcase>
-    <testcase classname="InputValidatorService normalizeColor should convert to uppercase" name="InputValidatorService normalizeColor should convert to uppercase" time="0.003">
+    <testcase classname="InputValidatorService normalizeColor should convert to uppercase" name="InputValidatorService normalizeColor should convert to uppercase" time="0.009">
     </testcase>
-    <testcase classname="InputValidatorService normalizeColor should handle colors that already have # prefix" name="InputValidatorService normalizeColor should handle colors that already have # prefix" time="0.003">
+    <testcase classname="InputValidatorService normalizeColor should handle colors that already have # prefix" name="InputValidatorService normalizeColor should handle colors that already have # prefix" time="0.004">
     </testcase>
-    <testcase classname="InputValidatorService normalizePascalCase should convert kebab-case to PascalCase" name="InputValidatorService normalizePascalCase should convert kebab-case to PascalCase" time="0.003">
+    <testcase classname="InputValidatorService normalizePascalCase should convert kebab-case to PascalCase" name="InputValidatorService normalizePascalCase should convert kebab-case to PascalCase" time="0.005">
     </testcase>
-    <testcase classname="InputValidatorService normalizePascalCase should convert snake_case to PascalCase" name="InputValidatorService normalizePascalCase should convert snake_case to PascalCase" time="0.007">
+    <testcase classname="InputValidatorService normalizePascalCase should convert snake_case to PascalCase" name="InputValidatorService normalizePascalCase should convert snake_case to PascalCase" time="0.004">
     </testcase>
-    <testcase classname="InputValidatorService normalizePascalCase should handle spaces" name="InputValidatorService normalizePascalCase should handle spaces" time="0.003">
+    <testcase classname="InputValidatorService normalizePascalCase should handle spaces" name="InputValidatorService normalizePascalCase should handle spaces" time="0.004">
     </testcase>
-    <testcase classname="InputValidatorService normalizePascalCase should handle mixed separators" name="InputValidatorService normalizePascalCase should handle mixed separators" time="0.003">
+    <testcase classname="InputValidatorService normalizePascalCase should handle mixed separators" name="InputValidatorService normalizePascalCase should handle mixed separators" time="0.005">
     </testcase>
-    <testcase classname="InputValidatorService additionalSanitization should sanitize search_dsfr_components parameters" name="InputValidatorService additionalSanitization should sanitize search_dsfr_components parameters" time="0.006">
+    <testcase classname="InputValidatorService additionalSanitization should sanitize search_dsfr_components parameters" name="InputValidatorService additionalSanitization should sanitize search_dsfr_components parameters" time="0.005">
     </testcase>
-    <testcase classname="InputValidatorService additionalSanitization should sanitize validate_dsfr_html parameters" name="InputValidatorService additionalSanitization should sanitize validate_dsfr_html parameters" time="0.006">
+    <testcase classname="InputValidatorService additionalSanitization should sanitize validate_dsfr_html parameters" name="InputValidatorService additionalSanitization should sanitize validate_dsfr_html parameters" time="0.005">
     </testcase>
-    <testcase classname="InputValidatorService additionalSanitization should sanitize generate_dsfr_component parameters" name="InputValidatorService additionalSanitization should sanitize generate_dsfr_component parameters" time="0.009">
+    <testcase classname="InputValidatorService additionalSanitization should sanitize generate_dsfr_component parameters" name="InputValidatorService additionalSanitization should sanitize generate_dsfr_component parameters" time="0.003">
     </testcase>
-    <testcase classname="InputValidatorService additionalSanitization should sanitize create_dsfr_theme parameters" name="InputValidatorService additionalSanitization should sanitize create_dsfr_theme parameters" time="0.009">
+    <testcase classname="InputValidatorService additionalSanitization should sanitize create_dsfr_theme parameters" name="InputValidatorService additionalSanitization should sanitize create_dsfr_theme parameters" time="0.007">
     </testcase>
-    <testcase classname="InputValidatorService additionalSanitization should sanitize convert_to_framework parameters" name="InputValidatorService additionalSanitization should sanitize convert_to_framework parameters" time="0.007">
+    <testcase classname="InputValidatorService additionalSanitization should sanitize convert_to_framework parameters" name="InputValidatorService additionalSanitization should sanitize convert_to_framework parameters" time="0.004">
     </testcase>
-    <testcase classname="InputValidatorService validateCommonParams should validate normal parameters" name="InputValidatorService validateCommonParams should validate normal parameters" time="0.006">
+    <testcase classname="InputValidatorService validateCommonParams should validate normal parameters" name="InputValidatorService validateCommonParams should validate normal parameters" time="0.004">
     </testcase>
-    <testcase classname="InputValidatorService validateCommonParams should reject non-object parameters" name="InputValidatorService validateCommonParams should reject non-object parameters" time="0.009">
+    <testcase classname="InputValidatorService validateCommonParams should reject non-object parameters" name="InputValidatorService validateCommonParams should reject non-object parameters" time="0.003">
     </testcase>
-    <testcase classname="InputValidatorService validateCommonParams should reject oversized parameters" name="InputValidatorService validateCommonParams should reject oversized parameters" time="0.007">
+    <testcase classname="InputValidatorService validateCommonParams should reject oversized parameters" name="InputValidatorService validateCommonParams should reject oversized parameters" time="0.003">
     </testcase>
     <testcase classname="InputValidatorService createErrorResponse should create properly formatted error response" name="InputValidatorService createErrorResponse should create properly formatted error response" time="0.006">
     </testcase>
     <testcase classname="InputValidatorService validateRequiredParams should validate required parameters" name="InputValidatorService validateRequiredParams should validate required parameters" time="0.003">
     </testcase>
-    <testcase classname="InputValidatorService validateRequiredParams should detect missing required parameters" name="InputValidatorService validateRequiredParams should detect missing required parameters" time="0.003">
+    <testcase classname="InputValidatorService validateRequiredParams should detect missing required parameters" name="InputValidatorService validateRequiredParams should detect missing required parameters" time="0.004">
     </testcase>
     <testcase classname="InputValidatorService validateRequiredParams should detect empty string as missing" name="InputValidatorService validateRequiredParams should detect empty string as missing" time="0.003">
     </testcase>
-    <testcase classname="InputValidatorService validateStringLimits should validate string length limits" name="InputValidatorService validateStringLimits should validate string length limits" time="0.003">
+    <testcase classname="InputValidatorService validateStringLimits should validate string length limits" name="InputValidatorService validateStringLimits should validate string length limits" time="0.004">
     </testcase>
-    <testcase classname="InputValidatorService validateStringLimits should detect strings that are too short" name="InputValidatorService validateStringLimits should detect strings that are too short" time="0.004">
+    <testcase classname="InputValidatorService validateStringLimits should detect strings that are too short" name="InputValidatorService validateStringLimits should detect strings that are too short" time="0.003">
     </testcase>
-    <testcase classname="InputValidatorService validateStringLimits should detect strings that are too long" name="InputValidatorService validateStringLimits should detect strings that are too long" time="0.004">
+    <testcase classname="InputValidatorService validateStringLimits should detect strings that are too long" name="InputValidatorService validateStringLimits should detect strings that are too long" time="0.003">
     </testcase>
     <testcase classname="InputValidatorService getAvailableTools should return list of available tools with schemas" name="InputValidatorService getAvailableTools should return list of available tools with schemas" time="0.004">
     </testcase>
   </testsuite>
-  <testsuite name="ValidationService" errors="0" failures="3" skipped="0" timestamp="2025-08-09T18:44:04" time="0.644" tests="18">
+  <testsuite name="ValidationService" errors="0" failures="3" skipped="0" timestamp="2025-08-09T20:44:41" time="0.613" tests="18">
     <testcase classname="ValidationService constructor should initialize DSFR classes and semantic rules" name="ValidationService constructor should initialize DSFR classes and semantic rules" time="0.002">
     </testcase>
-    <testcase classname="ValidationService validateHTML should validate simple valid HTML" name="ValidationService validateHTML should validate simple valid HTML" time="0.03">
+    <testcase classname="ValidationService validateHTML should validate simple valid HTML" name="ValidationService validateHTML should validate simple valid HTML" time="0.034">
       <failure>Error: expect(received).toBe(expected) // Object.is equality
 
 Expected: true
@@ -133,9 +133,9 @@ Received: false
     at Object.&lt;anonymous&gt; (/Users/alex/Desktop/MCP-DSFR/test/unit/services/validation.test.js:33:28)
     at processTicksAndRejections (node:internal/process/task_queues:105:5)</failure>
     </testcase>
-    <testcase classname="ValidationService validateHTML should detect DSFR class errors in strict mode" name="ValidationService validateHTML should detect DSFR class errors in strict mode" time="0.004">
+    <testcase classname="ValidationService validateHTML should detect DSFR class errors in strict mode" name="ValidationService validateHTML should detect DSFR class errors in strict mode" time="0.005">
     </testcase>
-    <testcase classname="ValidationService validateHTML should validate form elements with proper attributes" name="ValidationService validateHTML should validate form elements with proper attributes" time="0.006">
+    <testcase classname="ValidationService validateHTML should validate form elements with proper attributes" name="ValidationService validateHTML should validate form elements with proper attributes" time="0.008">
       <failure>Error: expect(received).toBe(expected) // Object.is equality
 
 Expected: true
@@ -145,7 +145,7 @@ Received: false
     </testcase>
     <testcase classname="ValidationService validateHTML should detect missing required attributes on form elements" name="ValidationService validateHTML should detect missing required attributes on form elements" time="0.004">
     </testcase>
-    <testcase classname="ValidationService validateHTML should validate image alt attributes" name="ValidationService validateHTML should validate image alt attributes" time="0.003">
+    <testcase classname="ValidationService validateHTML should validate image alt attributes" name="ValidationService validateHTML should validate image alt attributes" time="0.004">
       <failure>Error: expect(received).toBe(expected) // Object.is equality
 
 Expected: true
@@ -153,17 +153,17 @@ Received: false
     at Object.&lt;anonymous&gt; (/Users/alex/Desktop/MCP-DSFR/test/unit/services/validation.test.js:110:28)
     at processTicksAndRejections (node:internal/process/task_queues:105:5)</failure>
     </testcase>
-    <testcase classname="ValidationService validateHTML should detect missing alt attributes on images" name="ValidationService validateHTML should detect missing alt attributes on images" time="0.003">
+    <testcase classname="ValidationService validateHTML should detect missing alt attributes on images" name="ValidationService validateHTML should detect missing alt attributes on images" time="0.004">
     </testcase>
     <testcase classname="ValidationService validateHTML should handle malformed HTML gracefully" name="ValidationService validateHTML should handle malformed HTML gracefully" time="0.004">
     </testcase>
     <testcase classname="ValidationService validateHTML should skip accessibility checks when disabled" name="ValidationService validateHTML should skip accessibility checks when disabled" time="0.003">
     </testcase>
-    <testcase classname="ValidationService validateHTML should skip semantic checks when disabled" name="ValidationService validateHTML should skip semantic checks when disabled" time="0.004">
+    <testcase classname="ValidationService validateHTML should skip semantic checks when disabled" name="ValidationService validateHTML should skip semantic checks when disabled" time="0.003">
     </testcase>
     <testcase classname="ValidationService validateDSFRClasses should recognize valid DSFR button classes" name="ValidationService validateDSFRClasses should recognize valid DSFR button classes" time="0">
     </testcase>
-    <testcase classname="ValidationService validateDSFRClasses should recognize valid DSFR grid classes" name="ValidationService validateDSFRClasses should recognize valid DSFR grid classes" time="0">
+    <testcase classname="ValidationService validateDSFRClasses should recognize valid DSFR grid classes" name="ValidationService validateDSFRClasses should recognize valid DSFR grid classes" time="0.001">
     </testcase>
     <testcase classname="ValidationService calculateScore should calculate a perfect score for no errors" name="ValidationService calculateScore should calculate a perfect score for no errors" time="0">
     </testcase>
@@ -173,15 +173,15 @@ Received: false
     </testcase>
     <testcase classname="ValidationService initializeDSFRClasses should include comprehensive button classes" name="ValidationService initializeDSFRClasses should include comprehensive button classes" time="0">
     </testcase>
-    <testcase classname="ValidationService initializeSemanticRules should initialize page structure rules" name="ValidationService initializeSemanticRules should initialize page structure rules" time="0.001">
+    <testcase classname="ValidationService initializeSemanticRules should initialize page structure rules" name="ValidationService initializeSemanticRules should initialize page structure rules" time="0">
     </testcase>
-    <testcase classname="ValidationService initializeSemanticRules should initialize form validation rules" name="ValidationService initializeSemanticRules should initialize form validation rules" time="0">
+    <testcase classname="ValidationService initializeSemanticRules should initialize form validation rules" name="ValidationService initializeSemanticRules should initialize form validation rules" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="AccessibilityService" errors="0" failures="13" skipped="0" timestamp="2025-08-09T18:44:04" time="0.675" tests="19">
+  <testsuite name="AccessibilityService" errors="0" failures="13" skipped="0" timestamp="2025-08-09T20:44:41" time="0.649" tests="19">
     <testcase classname="AccessibilityService constructor should initialize RGAA rules" name="AccessibilityService constructor should initialize RGAA rules" time="0.002">
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should validate accessible HTML successfully" name="AccessibilityService checkAccessibility should validate accessible HTML successfully" time="0.032">
+    <testcase classname="AccessibilityService checkAccessibility should validate accessible HTML successfully" name="AccessibilityService checkAccessibility should validate accessible HTML successfully" time="0.036">
       <failure>Error: expect(received).toBe(expected) // Object.is equality
 
 Expected: &quot;AA&quot;
@@ -189,12 +189,12 @@ Received: undefined
     at Object.&lt;anonymous&gt; (/Users/alex/Desktop/MCP-DSFR/test/unit/services/accessibility.test.js:40:28)
     at processTicksAndRejections (node:internal/process/task_queues:105:5)</failure>
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should detect missing alt attributes on images" name="AccessibilityService checkAccessibility should detect missing alt attributes on images" time="0.005">
+    <testcase classname="AccessibilityService checkAccessibility should detect missing alt attributes on images" name="AccessibilityService checkAccessibility should detect missing alt attributes on images" time="0.004">
       <failure>TypeError: Cannot read properties of undefined (reading &apos;length&apos;)
     at Object.&lt;anonymous&gt; (/Users/alex/Desktop/MCP-DSFR/test/unit/services/accessibility.test.js:59:28)
     at processTicksAndRejections (node:internal/process/task_queues:105:5)</failure>
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should validate decorative images with empty alt" name="AccessibilityService checkAccessibility should validate decorative images with empty alt" time="0.003">
+    <testcase classname="AccessibilityService checkAccessibility should validate decorative images with empty alt" name="AccessibilityService checkAccessibility should validate decorative images with empty alt" time="0.005">
       <failure>Error: expect(received).toHaveLength(expected)
 
 Matcher error: received value must have a length property whose value must be a number
@@ -203,17 +203,17 @@ Received has value: undefined
     at Object.&lt;anonymous&gt; (/Users/alex/Desktop/MCP-DSFR/test/unit/services/accessibility.test.js:77:29)
     at processTicksAndRejections (node:internal/process/task_queues:105:5)</failure>
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should detect missing form labels" name="AccessibilityService checkAccessibility should detect missing form labels" time="0.003">
+    <testcase classname="AccessibilityService checkAccessibility should detect missing form labels" name="AccessibilityService checkAccessibility should detect missing form labels" time="0.004">
       <failure>TypeError: Cannot read properties of undefined (reading &apos;length&apos;)
     at Object.&lt;anonymous&gt; (/Users/alex/Desktop/MCP-DSFR/test/unit/services/accessibility.test.js:94:28)
     at processTicksAndRejections (node:internal/process/task_queues:105:5)</failure>
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should validate proper form label association" name="AccessibilityService checkAccessibility should validate proper form label association" time="0.004">
+    <testcase classname="AccessibilityService checkAccessibility should validate proper form label association" name="AccessibilityService checkAccessibility should validate proper form label association" time="0.003">
       <failure>TypeError: Cannot read properties of undefined (reading &apos;some&apos;)
     at Object.&lt;anonymous&gt; (/Users/alex/Desktop/MCP-DSFR/test/unit/services/accessibility.test.js:112:28)
     at processTicksAndRejections (node:internal/process/task_queues:105:5)</failure>
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should check for required field indicators" name="AccessibilityService checkAccessibility should check for required field indicators" time="0.003">
+    <testcase classname="AccessibilityService checkAccessibility should check for required field indicators" name="AccessibilityService checkAccessibility should check for required field indicators" time="0.004">
       <failure>TypeError: Cannot read properties of undefined (reading &apos;some&apos;)
     at Object.&lt;anonymous&gt; (/Users/alex/Desktop/MCP-DSFR/test/unit/services/accessibility.test.js:128:28)
     at processTicksAndRejections (node:internal/process/task_queues:105:5)</failure>
@@ -223,22 +223,22 @@ Received has value: undefined
     at Object.&lt;anonymous&gt; (/Users/alex/Desktop/MCP-DSFR/test/unit/services/accessibility.test.js:144:28)
     at processTicksAndRejections (node:internal/process/task_queues:105:5)</failure>
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should validate skip links presence" name="AccessibilityService checkAccessibility should validate skip links presence" time="0.005">
+    <testcase classname="AccessibilityService checkAccessibility should validate skip links presence" name="AccessibilityService checkAccessibility should validate skip links presence" time="0.004">
       <failure>TypeError: Cannot read properties of undefined (reading &apos;some&apos;)
     at Object.&lt;anonymous&gt; (/Users/alex/Desktop/MCP-DSFR/test/unit/services/accessibility.test.js:161:28)
     at processTicksAndRejections (node:internal/process/task_queues:105:5)</failure>
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should detect missing skip links" name="AccessibilityService checkAccessibility should detect missing skip links" time="0.004">
+    <testcase classname="AccessibilityService checkAccessibility should detect missing skip links" name="AccessibilityService checkAccessibility should detect missing skip links" time="0.005">
       <failure>TypeError: Cannot read properties of undefined (reading &apos;some&apos;)
     at Object.&lt;anonymous&gt; (/Users/alex/Desktop/MCP-DSFR/test/unit/services/accessibility.test.js:177:28)
     at processTicksAndRejections (node:internal/process/task_queues:105:5)</failure>
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should validate ARIA landmarks" name="AccessibilityService checkAccessibility should validate ARIA landmarks" time="0.003">
+    <testcase classname="AccessibilityService checkAccessibility should validate ARIA landmarks" name="AccessibilityService checkAccessibility should validate ARIA landmarks" time="0.004">
       <failure>TypeError: Cannot read properties of undefined (reading &apos;some&apos;)
     at Object.&lt;anonymous&gt; (/Users/alex/Desktop/MCP-DSFR/test/unit/services/accessibility.test.js:193:28)
     at processTicksAndRejections (node:internal/process/task_queues:105:5)</failure>
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should work with different RGAA levels" name="AccessibilityService checkAccessibility should work with different RGAA levels" time="0.005">
+    <testcase classname="AccessibilityService checkAccessibility should work with different RGAA levels" name="AccessibilityService checkAccessibility should work with different RGAA levels" time="0.008">
       <failure>Error: expect(received).toBe(expected) // Object.is equality
 
 Expected: &quot;A&quot;
@@ -253,7 +253,7 @@ Received: undefined
     at Object.&lt;anonymous&gt; (/Users/alex/Desktop/MCP-DSFR/test/unit/services/accessibility.test.js:231:34)
     at processTicksAndRejections (node:internal/process/task_queues:105:5)</failure>
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should handle malformed HTML gracefully" name="AccessibilityService checkAccessibility should handle malformed HTML gracefully" time="0.002">
+    <testcase classname="AccessibilityService checkAccessibility should handle malformed HTML gracefully" name="AccessibilityService checkAccessibility should handle malformed HTML gracefully" time="0.003">
       <failure>Error: expect(received).toBeDefined()
 
 Received: undefined
@@ -262,7 +262,7 @@ Received: undefined
     </testcase>
     <testcase classname="AccessibilityService initializeRGAARules should initialize image accessibility rules" name="AccessibilityService initializeRGAARules should initialize image accessibility rules" time="0">
     </testcase>
-    <testcase classname="AccessibilityService initializeRGAARules should initialize form accessibility rules" name="AccessibilityService initializeRGAARules should initialize form accessibility rules" time="0">
+    <testcase classname="AccessibilityService initializeRGAARules should initialize form accessibility rules" name="AccessibilityService initializeRGAARules should initialize form accessibility rules" time="0.001">
     </testcase>
     <testcase classname="AccessibilityService initializeRGAARules should initialize navigation accessibility rules" name="AccessibilityService initializeRGAARules should initialize navigation accessibility rules" time="0">
     </testcase>
@@ -271,8 +271,8 @@ Received: undefined
     <testcase classname="AccessibilityService RGAA rule validation functions should validate decorative alt rule correctly" name="AccessibilityService RGAA rule validation functions should validate decorative alt rule correctly" time="0">
     </testcase>
   </testsuite>
-  <testsuite name="DocumentationService" errors="0" failures="2" skipped="0" timestamp="2025-08-09T18:44:04" time="0.987" tests="11">
-    <testcase classname="DocumentationService initialize should initialize the service successfully" name="DocumentationService initialize should initialize the service successfully" time="0.209">
+  <testsuite name="DocumentationService" errors="0" failures="2" skipped="0" timestamp="2025-08-09T20:44:41" time="0.994" tests="11">
+    <testcase classname="DocumentationService initialize should initialize the service successfully" name="DocumentationService initialize should initialize the service successfully" time="0.216">
       <failure>Error: expect(received).toHaveLength(expected)
 
 Expected length: 2
@@ -282,7 +282,7 @@ Received array:  [[Object], [Object], [Object], [Object], [Object], [Object], [O
     </testcase>
     <testcase classname="DocumentationService initialize should not re-initialize if already initialized" name="DocumentationService initialize should not re-initialize if already initialized" time="0">
     </testcase>
-    <testcase classname="DocumentationService initialize should handle errors during initialization" name="DocumentationService initialize should handle errors during initialization" time="0.093">
+    <testcase classname="DocumentationService initialize should handle errors during initialization" name="DocumentationService initialize should handle errors during initialization" time="0.095">
       <failure>Error: expect(received).rejects.toThrow()
 
 Received promise resolved instead of rejected
@@ -308,23 +308,23 @@ Resolved to value: undefined
     </testcase>
     <testcase classname="DocumentationService parseDocument should extract code examples from markdown" name="DocumentationService parseDocument should extract code examples from markdown" time="0">
     </testcase>
-    <testcase classname="DocumentationService searchComponents should search components by query" name="DocumentationService searchComponents should search components by query" time="0.087">
+    <testcase classname="DocumentationService searchComponents should search components by query" name="DocumentationService searchComponents should search components by query" time="0.111">
     </testcase>
-    <testcase classname="DocumentationService searchComponents should filter by category" name="DocumentationService searchComponents should filter by category" time="0.084">
+    <testcase classname="DocumentationService searchComponents should filter by category" name="DocumentationService searchComponents should filter by category" time="0.083">
     </testcase>
-    <testcase classname="DocumentationService searchComponents should limit results" name="DocumentationService searchComponents should limit results" time="0.074">
+    <testcase classname="DocumentationService searchComponents should limit results" name="DocumentationService searchComponents should limit results" time="0.073">
     </testcase>
-    <testcase classname="DocumentationService getComponentDetails should get component details" name="DocumentationService getComponentDetails should get component details" time="0.069">
+    <testcase classname="DocumentationService getComponentDetails should get component details" name="DocumentationService getComponentDetails should get component details" time="0.065">
     </testcase>
-    <testcase classname="DocumentationService getComponentDetails should handle non-existent component" name="DocumentationService getComponentDetails should handle non-existent component" time="0.074">
+    <testcase classname="DocumentationService getComponentDetails should handle non-existent component" name="DocumentationService getComponentDetails should handle non-existent component" time="0.073">
     </testcase>
     <testcase classname="DocumentationService listCategories should list all categories with counts" name="DocumentationService listCategories should list all categories with counts" time="0.076">
     </testcase>
   </testsuite>
-  <testsuite name="GeneratorService" errors="0" failures="8" skipped="0" timestamp="2025-08-09T18:44:04" time="2.183" tests="24">
-    <testcase classname="GeneratorService constructor should initialize with source parser" name="GeneratorService constructor should initialize with source parser" time="0.004">
+  <testsuite name="GeneratorService" errors="0" failures="5" skipped="0" timestamp="2025-08-09T20:44:41" time="2.268" tests="24">
+    <testcase classname="GeneratorService constructor should initialize with source parser" name="GeneratorService constructor should initialize with source parser" time="0.002">
     </testcase>
-    <testcase classname="GeneratorService initialize should initialize the source parser" name="GeneratorService initialize should initialize the source parser" time="0.596">
+    <testcase classname="GeneratorService initialize should initialize the source parser" name="GeneratorService initialize should initialize the source parser" time="0.644">
       <failure>Error: expect(jest.fn()).toHaveBeenCalledTimes(expected)
 
 Expected number of calls: 1
@@ -333,7 +333,7 @@ Received number of calls: 0
     </testcase>
     <testcase classname="GeneratorService initialize should not re-initialize if already initialized" name="GeneratorService initialize should not re-initialize if already initialized" time="0">
     </testcase>
-    <testcase classname="GeneratorService generateComponent should generate vanilla component successfully" name="GeneratorService generateComponent should generate vanilla component successfully" time="0.213">
+    <testcase classname="GeneratorService generateComponent should generate vanilla component successfully" name="GeneratorService generateComponent should generate vanilla component successfully" time="0.224">
       <failure>Error: expect(received).toContain(expected) // indexOf
 
 Expected substring: &quot;Composant DSFR : button&quot;
@@ -392,13 +392,13 @@ Received string:    &quot;# Composant DSFR avancé : button·
 &quot;
     at Object.&lt;anonymous&gt; (/Users/alex/Desktop/MCP-DSFR/test/unit/services/generator.test.js:88:38)</failure>
     </testcase>
-    <testcase classname="GeneratorService generateComponent should generate React component" name="GeneratorService generateComponent should generate React component" time="0.194">
+    <testcase classname="GeneratorService generateComponent should generate React component" name="GeneratorService generateComponent should generate React component" time="0.196">
     </testcase>
-    <testcase classname="GeneratorService generateComponent should generate Vue component" name="GeneratorService generateComponent should generate Vue component" time="0.198">
+    <testcase classname="GeneratorService generateComponent should generate Vue component" name="GeneratorService generateComponent should generate Vue component" time="0.202">
     </testcase>
-    <testcase classname="GeneratorService generateComponent should generate Angular component" name="GeneratorService generateComponent should generate Angular component" time="0.194">
+    <testcase classname="GeneratorService generateComponent should generate Angular component" name="GeneratorService generateComponent should generate Angular component" time="0.196">
     </testcase>
-    <testcase classname="GeneratorService generateComponent should handle non-existent component" name="GeneratorService generateComponent should handle non-existent component" time="0.197">
+    <testcase classname="GeneratorService generateComponent should handle non-existent component" name="GeneratorService generateComponent should handle non-existent component" time="0.201">
       <failure>Error: expect(received).toContain(expected) // indexOf
 
 Expected substring: &quot;Composant \&quot;non-existent\&quot; non trouvé&quot;
@@ -456,17 +456,17 @@ Received string:    &quot;# Composant DSFR avancé : non-existent·
     </testcase>
     <testcase classname="GeneratorService generateComponent should handle unsupported framework" name="GeneratorService generateComponent should handle unsupported framework" time="0.197">
     </testcase>
-    <testcase classname="GeneratorService generateComponent should use default framework when not specified" name="GeneratorService generateComponent should use default framework when not specified" time="0.194">
+    <testcase classname="GeneratorService generateComponent should use default framework when not specified" name="GeneratorService generateComponent should use default framework when not specified" time="0.197">
     </testcase>
     <testcase classname="GeneratorService generateVanillaComponent should generate HTML section" name="GeneratorService generateVanillaComponent should generate HTML section" time="0">
     </testcase>
     <testcase classname="GeneratorService generateVanillaComponent should generate CSS import section" name="GeneratorService generateVanillaComponent should generate CSS import section" time="0">
     </testcase>
-    <testcase classname="GeneratorService generateVanillaComponent should include JavaScript section for interactive components" name="GeneratorService generateVanillaComponent should include JavaScript section for interactive components" time="0">
+    <testcase classname="GeneratorService generateVanillaComponent should include JavaScript section for interactive components" name="GeneratorService generateVanillaComponent should include JavaScript section for interactive components" time="0.001">
     </testcase>
     <testcase classname="GeneratorService generateVanillaComponent should handle components without examples" name="GeneratorService generateVanillaComponent should handle components without examples" time="0">
     </testcase>
-    <testcase classname="GeneratorService generateReactComponent should generate React component structure" name="GeneratorService generateReactComponent should generate React component structure" time="0.001">
+    <testcase classname="GeneratorService generateReactComponent should generate React component structure" name="GeneratorService generateReactComponent should generate React component structure" time="0">
     </testcase>
     <testcase classname="GeneratorService generateReactComponent should handle component options" name="GeneratorService generateReactComponent should handle component options" time="0">
     </testcase>
@@ -474,7 +474,7 @@ Received string:    &quot;# Composant DSFR avancé : non-existent·
       <failure>Error: expect(received).toContain(expected) // indexOf
 
 Expected substring: &quot;# Composant Vue.js DSFR : button&quot;
-Received string:    &quot;# Composant Vue DSFR : button·
+Received string:    &quot;# Composant Vue DSFR : button
 ```vue
 &lt;template&gt;
   &lt;button class=\&quot;fr-btn\&quot;&gt;Click&lt;/button&gt;
@@ -552,68 +552,17 @@ export class ButtonComponent {
     at runTest (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-runner/build/runTest.js:444:34)
     at Object.worker (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-runner/build/testWorker.js:106:12)</failure>
     </testcase>
-    <testcase classname="GeneratorService cleanHTMLExample should clean HTML example code" name="GeneratorService cleanHTMLExample should clean HTML example code" time="0.001">
-      <failure>Error: expect(received).toBe(expected) // Object.is equality
-
-Expected: &quot;&lt;button class=\&quot;fr-btn\&quot;&gt;Test&lt;/button&gt;&quot;
-Received: &quot;&lt;button class=\&quot;fr-btn\&quot;&gt;  Test  &lt;/button&gt;&quot;
-    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/MCP-DSFR/test/unit/services/generator.test.js:323:22)
-    at Promise.then.completed (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-circus/build/utils.js:298:28)
-    at new Promise (&lt;anonymous&gt;)
-    at callAsyncCircusFn (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-circus/build/utils.js:231:10)
-    at _callCircusTest (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-circus/build/run.js:316:40)
-    at _runTest (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-circus/build/run.js:252:3)
-    at _runTestsForDescribeBlock (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-circus/build/run.js:126:9)
-    at _runTestsForDescribeBlock (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-circus/build/run.js:121:9)
-    at _runTestsForDescribeBlock (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-circus/build/run.js:121:9)
-    at run (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-circus/build/run.js:71:3)
-    at runAndTransformResultsToJestFormat (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
-    at jestAdapter (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
-    at runTestInternal (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-runner/build/runTest.js:367:16)
-    at runTest (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-runner/build/runTest.js:444:34)
-    at Object.worker (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-runner/build/testWorker.js:106:12)</failure>
+    <testcase classname="GeneratorService cleanHTMLExample should clean HTML example code" name="GeneratorService cleanHTMLExample should clean HTML example code" time="0">
     </testcase>
     <testcase classname="GeneratorService cleanHTMLExample should handle multiline HTML" name="GeneratorService cleanHTMLExample should handle multiline HTML" time="0">
     </testcase>
-    <testcase classname="GeneratorService generateDefaultHTML should generate default HTML for known components" name="GeneratorService generateDefaultHTML should generate default HTML for known components" time="0.001">
+    <testcase classname="GeneratorService generateDefaultHTML should generate default HTML for known components" name="GeneratorService generateDefaultHTML should generate default HTML for known components" time="0">
     </testcase>
     <testcase classname="GeneratorService generateDefaultHTML should handle unknown components" name="GeneratorService generateDefaultHTML should handle unknown components" time="0">
     </testcase>
     <testcase classname="GeneratorService convertClassesToFramework should convert CSS classes for React" name="GeneratorService convertClassesToFramework should convert CSS classes for React" time="0">
-      <failure>TypeError: service.convertClassesToFramework is not a function
-    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/MCP-DSFR/test/unit/services/generator.test.js:371:30)
-    at Promise.then.completed (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-circus/build/utils.js:298:28)
-    at new Promise (&lt;anonymous&gt;)
-    at callAsyncCircusFn (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-circus/build/utils.js:231:10)
-    at _callCircusTest (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-circus/build/run.js:316:40)
-    at _runTest (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-circus/build/run.js:252:3)
-    at _runTestsForDescribeBlock (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-circus/build/run.js:126:9)
-    at _runTestsForDescribeBlock (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-circus/build/run.js:121:9)
-    at _runTestsForDescribeBlock (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-circus/build/run.js:121:9)
-    at run (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-circus/build/run.js:71:3)
-    at runAndTransformResultsToJestFormat (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
-    at jestAdapter (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
-    at runTestInternal (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-runner/build/runTest.js:367:16)
-    at runTest (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-runner/build/runTest.js:444:34)
-    at Object.worker (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-runner/build/testWorker.js:106:12)</failure>
     </testcase>
     <testcase classname="GeneratorService convertClassesToFramework should handle Vue.js class binding" name="GeneratorService convertClassesToFramework should handle Vue.js class binding" time="0">
-      <failure>TypeError: service.convertClassesToFramework is not a function
-    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/MCP-DSFR/test/unit/services/generator.test.js:382:30)
-    at Promise.then.completed (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-circus/build/utils.js:298:28)
-    at new Promise (&lt;anonymous&gt;)
-    at callAsyncCircusFn (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-circus/build/utils.js:231:10)
-    at _callCircusTest (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-circus/build/run.js:316:40)
-    at _runTest (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-circus/build/run.js:252:3)
-    at _runTestsForDescribeBlock (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-circus/build/run.js:126:9)
-    at _runTestsForDescribeBlock (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-circus/build/run.js:121:9)
-    at _runTestsForDescribeBlock (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-circus/build/run.js:121:9)
-    at run (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-circus/build/run.js:71:3)
-    at runAndTransformResultsToJestFormat (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
-    at jestAdapter (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
-    at runTestInternal (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-runner/build/runTest.js:367:16)
-    at runTest (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-runner/build/runTest.js:444:34)
-    at Object.worker (/Users/alex/Desktop/MCP-DSFR/node_modules/jest-runner/build/testWorker.js:106:12)</failure>
     </testcase>
   </testsuite>
 </testsuites>

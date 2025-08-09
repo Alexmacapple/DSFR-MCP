@@ -2182,7 +2182,7 @@ function handleClick(event) {
         output += '```\n\n';
         break;
 
-      case 'react':
+      case 'react': {
         output += '### Utilisation dans une application React\n\n';
         output += '```jsx\n';
         output += `import ${this.toPascalCase(componentType)} from './components/${this.toPascalCase(componentType)}';\n\n`;
@@ -2202,8 +2202,9 @@ function handleClick(event) {
         output += '}\n';
         output += '```\n\n';
         break;
+      }
 
-      case 'vue':
+      case 'vue': {
         output += '### Utilisation dans une application Vue\n\n';
         output += '```vue\n';
         output += '<template>\n';
@@ -2228,8 +2229,9 @@ function handleClick(event) {
         output += '</script>\n';
         output += '```\n\n';
         break;
+      }
 
-      case 'angular':
+      case 'angular': {
         output += '### Utilisation dans une application Angular\n\n';
         output += '```html\n';
         output += `<dsfr-${this.toKebabCase(componentType)}\n`;
@@ -2243,6 +2245,7 @@ function handleClick(event) {
         output += `</dsfr-${this.toKebabCase(componentType)}>\n`;
         output += '```\n\n';
         break;
+      }
     }
 
     return output;
