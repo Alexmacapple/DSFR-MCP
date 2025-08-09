@@ -1,6 +1,7 @@
 # 🇫🇷 DSFR-MCP - Model Context Protocol pour le Système de Design de l'État Français
 
-[![Version](https://img.shields.io/badge/version-1.4.1-blue.svg)](https://github.com/Alexmacapple/DSFR-MCP)
+![Version](https://img.shields.io/github/v/release/Alexmacapple/DSFR-MCP?label=version)
+![Build Status](https://github.com/Alexmacapple/DSFR-MCP/actions/workflows/ci.yml/badge.svg)
 [![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=flat&logo=docker&logoColor=white)](https://docker.com)
 [![Node](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
