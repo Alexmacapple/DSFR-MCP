@@ -268,7 +268,7 @@ describe('Advanced MCP Tools Integration', () => {
       // Assert
       const content = result.content[0].text;
       expect(content).toContain('Composant DSFR avancé : custom-widget');
-      expect(content).toContain('Généré automatiquement');
+      expect(content).toContain('Statut**: Disponible');
       expect(content).toContain('HTML Structure');
     });
 
