@@ -489,7 +489,7 @@ class DocumentationServiceV2 extends IService {
     return output;
   }
 
-  formatColorResults(results, includeUtilities, format) {
+  formatColorResults(results, includeUtilities) {
     let output = '# Palette de couleurs DSFR\\n\\n';
 
     // Couleurs principales DSFR

@@ -822,7 +822,7 @@ class ValidationService {
     });
   }
 
-  suggestBestPracticesImprovements(document, improvements, includeExamples) {
+  suggestBestPracticesImprovements(document, improvements) {
     // Classes CSS avec !important dans style inline
     const elementsWithImportant = document.querySelectorAll('*[style*="!important"]');
     elementsWithImportant.forEach((element, index) => {

@@ -332,7 +332,7 @@ class AccessibilityService {
     let previousLevel = 0;
     let h1Count = 0;
 
-    headings.forEach((heading, index) => {
+    headings.forEach((heading) => {
       const level = parseInt(heading.tagName.charAt(1));
 
       if (level === 1) {

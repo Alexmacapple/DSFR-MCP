@@ -465,7 +465,7 @@ class DSFRParserV2 extends IService {
 
     // Convertir toutes les données traitées en documents indexables
     for (const [category, items] of Object.entries(this.processedData)) {
-      for (const [id, item] of items) {
+      for (const [, item] of items) {
         const doc = this.convertToSearchDocument(item, category);
         if (doc) {
           documents.push(doc);
@@ -541,7 +541,7 @@ class DSFRParserV2 extends IService {
     return validExtensions.includes(ext) && !filename.startsWith('.');
   }
 
-  determineFileType(extension, filePath) {
+  determineFileType(extension) {
     const typeMap = {
       '.yml': 'yaml',
       '.yaml': 'yaml',

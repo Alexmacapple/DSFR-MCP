@@ -537,7 +537,7 @@ export class DSFRFormComponent {
     return customized;
   }
 
-  async generateFromScratch(componentType, framework, options) {
+  async generateFromScratch(componentType, framework) {
     // Fallback simple pour les cas non gérés
     const baseTemplate = `// Composant ${componentType} ${framework}
 // Généré automatiquement par DSFR-MCP

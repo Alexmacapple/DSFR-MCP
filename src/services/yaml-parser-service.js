@@ -54,12 +54,7 @@ class YamlParserService extends IService {
     const startTime = Date.now();
 
     try {
-      const {
-        schema = null,
-        validateSchema = true,
-        allowDuplicateKeys = false,
-        filename = 'unknown',
-      } = options;
+      const { schema = null, validateSchema = true, filename = 'unknown' } = options;
 
       // Configuration du parser YAML
       const yamlOptions = {
@@ -196,7 +191,7 @@ class YamlParserService extends IService {
   /**
    * Valide des données contre un schéma JSON Schema
    */
-  async validateAgainstSchema(data, schemaName, filename = 'unknown') {
+  async validateAgainstSchema(data, schemaName) {
     const schema = this.schemas.get(schemaName);
 
     if (!schema) {

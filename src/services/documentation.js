@@ -68,7 +68,6 @@ class DocumentationService {
     let url = '';
     let title = '';
     let markdownContent = '';
-    let inMarkdown = false;
 
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i];
@@ -78,7 +77,6 @@ class DocumentationService {
       } else if (line.startsWith('Title:') && lines[i + 1]) {
         title = lines[i + 1].trim();
       } else if (line.startsWith('Markdown:')) {
-        inMarkdown = true;
         markdownContent = lines.slice(i + 1).join('\n');
         break;
       }
@@ -112,9 +110,8 @@ class DocumentationService {
     };
   }
 
-  detectCategory(filename, title, content) {
+  detectCategory(filename, title) {
     const lowerTitle = title.toLowerCase();
-    const lowerContent = content.toLowerCase();
 
     if (filename.includes('fondamentaux') || lowerTitle.includes('fondamentaux')) return 'core';
     if (filename.includes('outils-d-analyse') || lowerTitle.includes('analyse')) return 'analytics';
@@ -126,7 +123,7 @@ class DocumentationService {
     return 'component';
   }
 
-  detectComponentType(filename, title, content) {
+  detectComponentType(filename, title) {
     const lowerTitle = title.toLowerCase();
 
     if (lowerTitle.includes('formulaire') || lowerTitle.includes('champ')) return 'form';
@@ -441,7 +438,7 @@ class DocumentationService {
     return output;
   }
 
-  async getIcons({ category, search }) {
+  async getIcons({ category }) {
     await this.initialize();
 
     // Rechercher les documents d'icônes
@@ -472,7 +469,7 @@ class DocumentationService {
     };
   }
 
-  async getColors({ include_utilities = true, format = 'hex' }) {
+  async getColors({ include_utilities = true }) {
     await this.initialize();
 
     // Rechercher les documents de couleurs
@@ -1030,25 +1027,25 @@ class DocumentationService {
   }
 
   // Méthodes utilitaires pour les analyses (implémentation simplifiée)
-  checkCssOrganization(code) {
+  checkCssOrganization() {
     return { score: 75, issues: [] };
   }
-  checkComponentStructure(code, type) {
+  checkComponentStructure() {
     return { score: 80, suggestions: [] };
   }
-  checkPerformance(code) {
+  checkPerformance() {
     return { score: 70, optimizations: [] };
   }
-  checkMaintainability(code) {
+  checkMaintainability() {
     return { score: 85, improvements: [] };
   }
-  calculateBestPracticesScore(practices) {
+  calculateBestPracticesScore() {
     return 78;
   }
-  getBestPracticesRecommendations(practices) {
+  getBestPracticesRecommendations() {
     return [];
   }
-  calculateDsfrRatio(code) {
+  calculateDsfrRatio() {
     return 0.6;
   }
   calculateComplexityScore(code) {
@@ -1297,7 +1294,7 @@ class DocumentationService {
     return deprecated[key] || [];
   }
 
-  getStyleChangesData(from, to) {
+  getStyleChangesData() {
     return { added: [], modified: [], removed: [] }; // Simplifié pour l'exemple
   }
 
@@ -1316,7 +1313,7 @@ class DocumentationService {
     return accessibilityChanges[key] || [];
   }
 
-  getIconChangesData(from, to) {
+  getIconChangesData() {
     return []; // Simplifié pour l'exemple
   }
 

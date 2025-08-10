@@ -368,7 +368,6 @@ class CacheService extends ICacheService {
   }
 
   async cleanup() {
-    const before = this.memoryCache.size;
     let expired = 0;
 
     for (const [key, entry] of this.memoryCache.entries()) {

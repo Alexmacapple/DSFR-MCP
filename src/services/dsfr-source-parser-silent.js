@@ -40,7 +40,6 @@ class DSFRSourceParser {
       try {
         const files = await fs.readdir(categoryPath);
 
-        let processedCount = 0;
         for (const file of files) {
           if (file === '.DS_Store' || file.startsWith('.')) continue;
 
@@ -64,7 +63,6 @@ class DSFRSourceParser {
                 const sectionType = this.detectSectionType(originalPath);
 
                 await this.processSection(sectionType, originalPath, fileContent);
-                processedCount++;
               } catch (err) {
                 // Ignorer silencieusement les fichiers manquants
               }
@@ -100,9 +98,6 @@ class DSFRSourceParser {
   }
 
   async processSection(type, filePath, content) {
-    const fileName = path.basename(filePath);
-    const dirName = path.dirname(filePath);
-
     switch (type) {
       case 'component':
         await this.processComponent(filePath, content);

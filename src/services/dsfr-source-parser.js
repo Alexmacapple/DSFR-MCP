@@ -113,9 +113,6 @@ class DSFRSourceParser {
   }
 
   async processSection(type, filePath, content) {
-    const fileName = path.basename(filePath);
-    const dirName = path.dirname(filePath);
-
     switch (type) {
       case 'component':
         await this.processComponent(filePath, content);

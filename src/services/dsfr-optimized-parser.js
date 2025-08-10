@@ -139,8 +139,6 @@ class DSFROptimizedParser {
   }
 
   async processSection(type, filePath, content) {
-    const fileName = path.basename(filePath);
-
     switch (type) {
       case 'component':
         await this.processComponent(filePath, content);

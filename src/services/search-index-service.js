@@ -568,7 +568,7 @@ class SearchIndexService extends IService {
 
   calculateIndexSize() {
     let size = 0;
-    for (const [name, index] of this.indexes) {
+    for (const [, index] of this.indexes) {
       size += JSON.stringify(index.getIndex().docs).length;
     }
     return size;

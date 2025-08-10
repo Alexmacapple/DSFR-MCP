@@ -211,9 +211,7 @@ class GeneratorService {
     return output;
   }
 
-  generateVueComponentAdvanced(component, options, componentType) {
-    const componentNamePascal = this.toPascalCase(componentType);
-
+  generateVueComponentAdvanced(_component, options, componentType) {
     let output = '## Composant Vue 3 avec Composition API\n\n';
     output += '```vue\n';
     output += '<template>\n';
@@ -1018,7 +1016,7 @@ class GeneratorService {
       .replace(/\s+</g, '<');
   }
 
-  generateDefaultHTML(componentName, options) {
+  generateDefaultHTML(componentName) {
     // Générer un HTML par défaut basé sur le nom du composant
     const templates = {
       button: '<button class="fr-btn">Bouton</button>',
@@ -1072,7 +1070,7 @@ class GeneratorService {
     return `{ ${props.join(', ')} }`;
   }
 
-  generatePropsDocumentation(component, options) {
+  generatePropsDocumentation(component) {
     let output = '## Props\n\n';
     output += '| Prop | Type | Description | Défaut |\n';
     output += '|------|------|-------------|--------|\n';
@@ -1859,7 +1857,7 @@ class GeneratorService {
   <div class="fr-collapse" id="breadcrumb-example">
     <ol class="fr-breadcrumb__list">`;
 
-    items.forEach((item, index) => {
+    items.forEach((item) => {
       if (item.current) {
         template += `
       <li>
@@ -1977,7 +1975,7 @@ class GeneratorService {
 </div>`;
   }
 
-  getComponentProps(componentType, options) {
+  getComponentProps(componentType) {
     const commonProps = [
       { name: 'id', type: 'string', optional: true, defaultValue: null },
       { name: 'className', type: 'string', optional: true, defaultValue: "''" },
@@ -2059,7 +2057,7 @@ class GeneratorService {
     return roles[componentType] || 'region';
   }
 
-  generateJavaScriptForComponent(componentType, options) {
+  generateJavaScriptForComponent(componentType) {
     const templates = {
       modal: `// Gestion de la modale
 function handleOpen() {
@@ -2770,7 +2768,7 @@ Tous les composants DSFR respectent les critères du RGAA 4.1 (niveau AA).
   formatAppendixMarkdown(appendix) {
     let output = '## Annexes\n\n';
 
-    Object.entries(appendix).forEach(([key, section]) => {
+    Object.entries(appendix).forEach(([, section]) => {
       output += `### ${section.title}\n\n`;
 
       if (section.content) {

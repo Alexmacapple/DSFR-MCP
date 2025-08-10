@@ -930,7 +930,7 @@ class TemplateService {
 4. Personnalisez selon vos besoins`;
   }
 
-  wrapInReactTemplate(content, templateName, options) {
+  wrapInReactTemplate(content, templateName) {
     const componentName = this.toPascalCase(templateName);
 
     return `## Composant React\n\n\`\`\`jsx
@@ -972,7 +972,7 @@ function App() {
 \`\`\``;
   }
 
-  wrapInVueTemplate(content, templateName, options) {
+  wrapInVueTemplate(content, templateName) {
     const componentName = this.toPascalCase(templateName);
 
     return `## Composant Vue\n\n\`\`\`vue
@@ -1015,7 +1015,7 @@ npm install @gouvfr/dsfr
 \`\`\``;
   }
 
-  wrapInAngularTemplate(content, templateName, options) {
+  wrapInAngularTemplate(content, templateName) {
     const componentName = this.toPascalCase(templateName);
     const kebabName = templateName;
 
