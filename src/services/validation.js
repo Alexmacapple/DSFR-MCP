@@ -1,6 +1,5 @@
 // Service de validation DSFR
 const { JSDOM } = require('jsdom');
-const config = require('../config');
 
 class ValidationService {
   constructor() {

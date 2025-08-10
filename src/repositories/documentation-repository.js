@@ -5,7 +5,6 @@
 
 const fs = require('fs').promises;
 const path = require('path');
-const matter = require('gray-matter');
 const Fuse = require('fuse.js');
 const { IDataRepository } = require('../core/interfaces');
 

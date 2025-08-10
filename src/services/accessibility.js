@@ -1,6 +1,5 @@
 // Service de vérification d'accessibilité RGAA
 const { JSDOM } = require('jsdom');
-const config = require('../config');
 
 class AccessibilityService {
   constructor() {
@@ -302,7 +301,7 @@ class AccessibilityService {
     }
 
     // Vérifier les autres landmarks
-    Object.keys(landmarks).forEach(landmarkType => {
+    Object.keys(landmarks).forEach((landmarkType) => {
       if (landmarks[landmarkType] && landmarkType !== 'main') {
         results.passed.push({
           rule: `landmark-${landmarkType}`,

@@ -1,6 +1,5 @@
 // Service de génération de composants et thèmes DSFR
 const DSFRSourceParser = require('./dsfr-source-parser-silent');
-const config = require('../config');
 
 class GeneratorService {
   constructor() {

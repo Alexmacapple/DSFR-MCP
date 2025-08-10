@@ -11,7 +11,6 @@
 // Service de gestion de la documentation DSFR
 const fs = require('fs').promises;
 const path = require('path');
-const matter = require('gray-matter');
 const Fuse = require('fuse.js');
 const marked = require('marked');
 const config = require('../config');

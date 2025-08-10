@@ -1,5 +1,4 @@
 // Service de génération de templates DSFR
-const config = require('../config');
 
 class TemplateService {
   constructor() {

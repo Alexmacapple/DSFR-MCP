@@ -17,7 +17,6 @@ const isMCPMode =
   process.env.MCP_CLIENT ||
   (!process.stdin.isTTY && process.stdin.readable);
 const logError = isMCPMode ? () => {} : console.error;
-const logInfo = isMCPMode ? () => {} : console.log;
 
 // Imports des configurations et services avec gestion d'erreur
 let config,
