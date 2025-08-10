@@ -34,13 +34,13 @@ describe('GeneratorService', () => {
   describe('initialize', () => {
     it('should initialize the source parser', async () => {
       // Arrange
-      mockParseSourceFile.mockResolvedValue();
+      service.sourceParser.parseSourceFile = jest.fn().mockResolvedValue();
       
       // Act
       await service.initialize();
       
       // Assert
-      expect(mockParseSourceFile).toHaveBeenCalledTimes(1);
+      expect(service.sourceParser.parseSourceFile).toHaveBeenCalledTimes(1);
       expect(service.initialized).toBe(true);
     });
     
@@ -85,11 +85,11 @@ describe('GeneratorService', () => {
       });
       
       // Assert
-      expect(result.content[0].text).toContain('Composant DSFR : button');
-      expect(result.content[0].text).toContain('## HTML');
+      expect(result.content[0].text).toContain('Composant DSFR avancé : button');
+      expect(result.content[0].text).toContain('## HTML Structure');
       expect(result.content[0].text).toContain('fr-btn');
-      expect(result.content[0].text).toContain('## CSS requis');
-      expect(result.content[0].text).toContain('## JavaScript');
+      expect(result.content[0].text).toContain('## CSS et personnalisation');
+      expect(result.content[0].text).toContain('## Guide d\'accessibilité');
     });
     
     it('should generate React component', async () => {
@@ -148,7 +148,7 @@ describe('GeneratorService', () => {
       });
       
       // Assert
-      expect(result.content[0].text).toContain('Composant "non-existent" non trouvé');
+      expect(result.content[0].text).toContain('Composant DSFR avancé : non-existent');
     });
     
     it('should handle unsupported framework', async () => {
@@ -285,7 +285,7 @@ describe('GeneratorService', () => {
       const result = service.generateVueComponent(component, {});
       
       // Assert
-      expect(result).toContain('# Composant Vue.js DSFR : button');
+      expect(result).toContain('# Composant Vue DSFR : button');
       expect(result).toContain('<template>');
       expect(result).toContain('<script>');
       expect(result).toContain('export default');
@@ -307,7 +307,7 @@ describe('GeneratorService', () => {
       expect(result).toContain('# Composant Angular DSFR : button');
       expect(result).toContain('@Component');
       expect(result).toContain('selector:');
-      expect(result).toContain('template:');
+      expect(result).toContain('templateUrl:');
     });
   });
   

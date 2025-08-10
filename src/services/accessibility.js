@@ -130,14 +130,7 @@ class AccessibilityService {
       });
     }
 
-    return {
-      content: [
-        {
-          type: 'text',
-          text: this.formatResults(results),
-        },
-      ],
-    };
+    return results;
   }
 
   checkImages(document, results) {
@@ -152,16 +145,33 @@ class AccessibilityService {
           message: 'Image sans attribut alt',
           level: 'A',
         });
+      } else {
+        // L'image a un attribut alt
+        results.passed.push({
+          rule: 'img-alt',
+          element: `<img src="${img.src || 'unknown'}">`,
+          message: 'Image avec attribut alt valide',
+          level: 'A',
+        });
       }
 
       // Vérifier les images décoratives
-      if (img.getAttribute('role') === 'presentation' && img.getAttribute('alt') !== '') {
-        results.warnings.push({
-          rule: 'img-decorative',
-          element: `<img src="${img.src || 'unknown'}">`,
-          message: 'Image décorative avec un alt non vide',
-          level: 'A',
-        });
+      if (img.getAttribute('role') === 'presentation') {
+        if (img.getAttribute('alt') !== '') {
+          results.warnings.push({
+            rule: 'img-decorative',
+            element: `<img src="${img.src || 'unknown'}">`,
+            message: 'Image décorative avec un alt non vide',
+            level: 'A',
+          });
+        } else {
+          results.passed.push({
+            rule: 'img-decorative',
+            element: `<img src="${img.src || 'unknown'}">`,
+            message: 'Image décorative avec alt vide correct',
+            level: 'A',
+          });
+        }
       }
     });
 
@@ -176,6 +186,14 @@ class AccessibilityService {
   checkForms(document, results) {
     const formInputs = document.querySelectorAll('input:not([type="hidden"]), select, textarea');
 
+    if (formInputs.length === 0) {
+      results.passed.push({
+        rule: 'form-presence',
+        message: 'Aucun champ de formulaire à vérifier',
+      });
+      return;
+    }
+
     formInputs.forEach((input) => {
       const id = input.getAttribute('id');
       const type = input.getAttribute('type') || 'text';
@@ -183,11 +201,25 @@ class AccessibilityService {
       // Vérifier l'association avec un label
       if (id) {
         const label = document.querySelector(`label[for="${id}"]`);
-        if (!label) {
+        if (label) {
+          results.passed.push({
+            rule: 'form-label',
+            element: `<${input.tagName.toLowerCase()} id="${id}" type="${type}">`,
+            message: 'Champ de formulaire avec label associé',
+            level: 'A',
+          });
+        } else {
           const ariaLabel = input.getAttribute('aria-label');
           const ariaLabelledby = input.getAttribute('aria-labelledby');
 
-          if (!ariaLabel && !ariaLabelledby) {
+          if (ariaLabel || ariaLabelledby) {
+            results.passed.push({
+              rule: 'form-label',
+              element: `<${input.tagName.toLowerCase()} id="${id}" type="${type}">`,
+              message: 'Champ de formulaire avec aria-label ou aria-labelledby',
+              level: 'A',
+            });
+          } else {
             results.failed.push({
               rule: 'form-label',
               element: `<${input.tagName.toLowerCase()} id="${id}" type="${type}">`,
@@ -207,7 +239,14 @@ class AccessibilityService {
 
       // Vérifier l'indication des champs obligatoires
       if (input.hasAttribute('required')) {
-        if (!input.hasAttribute('aria-required')) {
+        if (input.hasAttribute('aria-required') && input.getAttribute('aria-required') === 'true') {
+          results.passed.push({
+            rule: 'form-required',
+            element: `<${input.tagName.toLowerCase()} id="${id || 'unknown'}">`,
+            message: 'Champ obligatoire avec aria-required correct',
+            level: 'AA',
+          });
+        } else {
           results.warnings.push({
             rule: 'form-required',
             element: `<${input.tagName.toLowerCase()} id="${id || 'unknown'}">`,
@@ -226,7 +265,13 @@ class AccessibilityService {
       (link) => link.getAttribute('href') === '#main' || link.getAttribute('href') === '#content'
     );
 
-    if (!hasSkipToMain) {
+    if (hasSkipToMain) {
+      results.passed.push({
+        rule: 'nav-skip-links',
+        message: "Lien d'évitement vers le contenu principal trouvé",
+        level: 'A',
+      });
+    } else {
       results.warnings.push({
         rule: 'nav-skip-links',
         message: "Aucun lien d'évitement vers le contenu principal trouvé",
@@ -242,13 +287,30 @@ class AccessibilityService {
       footer: document.querySelector('footer, [role="contentinfo"]'),
     };
 
-    if (!landmarks.main) {
+    if (landmarks.main) {
+      results.passed.push({
+        rule: 'landmark-main',
+        message: 'Balise <main> ou role="main" trouvée',
+        level: 'A',
+      });
+    } else {
       results.failed.push({
         rule: 'landmark-main',
         message: 'Aucune balise <main> ou role="main" trouvée',
         level: 'A',
       });
     }
+
+    // Vérifier les autres landmarks
+    Object.keys(landmarks).forEach(landmarkType => {
+      if (landmarks[landmarkType] && landmarkType !== 'main') {
+        results.passed.push({
+          rule: `landmark-${landmarkType}`,
+          message: `Landmark ${landmarkType} trouvé`,
+          level: 'AA',
+        });
+      }
+    });
 
     // Vérifier l'ordre de tabulation
     const tabbableElements = document.querySelectorAll('[tabindex]');

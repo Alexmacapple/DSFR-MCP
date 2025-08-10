@@ -276,7 +276,7 @@ class DocumentationService {
       output += `## ${index + 1}. ${doc.title}\n`;
       output += `- **Catégorie** : ${config.categories[doc.category]?.name || doc.category}\n`;
       output += `- **Type** : ${doc.componentType}\n`;
-      output += `- **Tags** : ${doc.tags.join(', ') || 'Aucun'}\n`;
+      output += `- **Tags** : ${doc.tags ? doc.tags.join(', ') : 'Aucun'}\n`;
       output += `- **URL** : ${doc.url}\n`;
 
       // Extrait du contenu

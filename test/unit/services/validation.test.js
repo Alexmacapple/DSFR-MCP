@@ -20,10 +20,31 @@ describe('ValidationService', () => {
     it('should validate simple valid HTML', async () => {
       // Arrange
       const validHTML = `
-        <div class="fr-container">
-          <h1 class="fr-h1">Titre</h1>
-          <p>Contenu</p>
-        </div>
+        <!DOCTYPE html>
+        <html lang="fr">
+        <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <title>Test</title>
+        </head>
+        <body>
+          <header>
+            <div class="fr-container">
+              <h1 class="fr-h1">Titre</h1>
+            </div>
+          </header>
+          <main>
+            <div class="fr-container">
+              <p>Contenu</p>
+            </div>
+          </main>
+          <footer>
+            <div class="fr-container">
+              <p>Footer</p>
+            </div>
+          </footer>
+        </body>
+        </html>
       `;
       
       // Act
@@ -58,13 +79,31 @@ describe('ValidationService', () => {
     it('should validate form elements with proper attributes', async () => {
       // Arrange
       const formHTML = `
-        <form>
-          <div class="fr-form-group">
-            <label class="fr-label" for="email">Email</label>
-            <input class="fr-input" type="email" id="email" name="email" />
-          </div>
-          <button class="fr-btn" type="submit">Envoyer</button>
-        </form>
+        <!DOCTYPE html>
+        <html lang="fr">
+        <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <title>Test</title>
+        </head>
+        <body>
+          <header>
+            <h1>Formulaire</h1>
+          </header>
+          <main>
+            <form>
+              <div class="fr-form-group">
+                <label class="fr-label" for="email">Email</label>
+                <input class="fr-input" type="email" id="email" name="email" />
+              </div>
+              <button class="fr-btn" type="submit">Envoyer</button>
+            </form>
+          </main>
+          <footer>
+            <p>Footer</p>
+          </footer>
+        </body>
+        </html>
       `;
       
       // Act
@@ -97,10 +136,28 @@ describe('ValidationService', () => {
     it('should validate image alt attributes', async () => {
       // Arrange
       const imageHTML = `
-        <div class="fr-container">
-          <img src="test.jpg" alt="Description de l'image" />
-          <img src="decorative.jpg" alt="" />
-        </div>
+        <!DOCTYPE html>
+        <html lang="fr">
+        <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <title>Test</title>
+        </head>
+        <body>
+          <header>
+            <h1>Images</h1>
+          </header>
+          <main>
+            <div class="fr-container">
+              <img src="test.jpg" alt="Description de l'image" />
+              <img src="decorative.jpg" alt="" />
+            </div>
+          </main>
+          <footer>
+            <p>Footer</p>
+          </footer>
+        </body>
+        </html>
       `;
       
       // Act
