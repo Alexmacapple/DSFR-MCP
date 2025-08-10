@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="199" failures="2" errors="0" time="2.672">
-  <testsuite name="Architecture V2 - Core Components" errors="0" failures="0" skipped="0" timestamp="2025-08-10T10:36:44" time="0.29" tests="25">
-    <testcase classname="Architecture V2 - Core Components Container DI should create and resolve singletons" name="Architecture V2 - Core Components Container DI should create and resolve singletons" time="0.005">
+<testsuites name="jest tests" tests="199" failures="2" errors="0" time="3.105">
+  <testsuite name="Architecture V2 - Core Components" errors="0" failures="0" skipped="0" timestamp="2025-08-10T12:14:12" time="0.306" tests="25">
+    <testcase classname="Architecture V2 - Core Components Container DI should create and resolve singletons" name="Architecture V2 - Core Components Container DI should create and resolve singletons" time="0.004">
     </testcase>
-    <testcase classname="Architecture V2 - Core Components Container DI should create transient services" name="Architecture V2 - Core Components Container DI should create transient services" time="0.001">
+    <testcase classname="Architecture V2 - Core Components Container DI should create transient services" name="Architecture V2 - Core Components Container DI should create transient services" time="0">
     </testcase>
     <testcase classname="Architecture V2 - Core Components Container DI should handle values" name="Architecture V2 - Core Components Container DI should handle values" time="0.001">
     </testcase>
@@ -15,9 +15,9 @@
     </testcase>
     <testcase classname="Architecture V2 - Core Components ConfigService should load default configuration" name="Architecture V2 - Core Components ConfigService should load default configuration" time="0.001">
     </testcase>
-    <testcase classname="Architecture V2 - Core Components ConfigService should handle nested keys" name="Architecture V2 - Core Components ConfigService should handle nested keys" time="0">
+    <testcase classname="Architecture V2 - Core Components ConfigService should handle nested keys" name="Architecture V2 - Core Components ConfigService should handle nested keys" time="0.001">
     </testcase>
-    <testcase classname="Architecture V2 - Core Components ConfigService should return default values" name="Architecture V2 - Core Components ConfigService should return default values" time="0.001">
+    <testcase classname="Architecture V2 - Core Components ConfigService should return default values" name="Architecture V2 - Core Components ConfigService should return default values" time="0">
     </testcase>
     <testcase classname="Architecture V2 - Core Components ConfigService should set and get values" name="Architecture V2 - Core Components ConfigService should set and get values" time="0">
     </testcase>
@@ -25,213 +25,213 @@
     </testcase>
     <testcase classname="Architecture V2 - Core Components ConfigService should merge configurations" name="Architecture V2 - Core Components ConfigService should merge configurations" time="0">
     </testcase>
-    <testcase classname="Architecture V2 - Core Components LoggerService should create logger with config" name="Architecture V2 - Core Components LoggerService should create logger with config" time="0.001">
+    <testcase classname="Architecture V2 - Core Components LoggerService should create logger with config" name="Architecture V2 - Core Components LoggerService should create logger with config" time="0">
     </testcase>
     <testcase classname="Architecture V2 - Core Components LoggerService should log different levels" name="Architecture V2 - Core Components LoggerService should log different levels" time="0.002">
     </testcase>
     <testcase classname="Architecture V2 - Core Components LoggerService should format logs correctly" name="Architecture V2 - Core Components LoggerService should format logs correctly" time="0">
     </testcase>
-    <testcase classname="Architecture V2 - Core Components LoggerService should handle log levels" name="Architecture V2 - Core Components LoggerService should handle log levels" time="0">
+    <testcase classname="Architecture V2 - Core Components LoggerService should handle log levels" name="Architecture V2 - Core Components LoggerService should handle log levels" time="0.001">
     </testcase>
-    <testcase classname="Architecture V2 - Core Components CacheService should store and retrieve values" name="Architecture V2 - Core Components CacheService should store and retrieve values" time="0.001">
+    <testcase classname="Architecture V2 - Core Components CacheService should store and retrieve values" name="Architecture V2 - Core Components CacheService should store and retrieve values" time="0">
     </testcase>
     <testcase classname="Architecture V2 - Core Components CacheService should handle TTL" name="Architecture V2 - Core Components CacheService should handle TTL" time="0.016">
     </testcase>
-    <testcase classname="Architecture V2 - Core Components CacheService should delete values" name="Architecture V2 - Core Components CacheService should delete values" time="0.001">
+    <testcase classname="Architecture V2 - Core Components CacheService should delete values" name="Architecture V2 - Core Components CacheService should delete values" time="0.002">
     </testcase>
-    <testcase classname="Architecture V2 - Core Components CacheService should clear cache" name="Architecture V2 - Core Components CacheService should clear cache" time="0.001">
+    <testcase classname="Architecture V2 - Core Components CacheService should clear cache" name="Architecture V2 - Core Components CacheService should clear cache" time="0">
     </testcase>
     <testcase classname="Architecture V2 - Core Components CacheService should provide statistics" name="Architecture V2 - Core Components CacheService should provide statistics" time="0.001">
     </testcase>
-    <testcase classname="Architecture V2 - Core Components CacheService should handle compression" name="Architecture V2 - Core Components CacheService should handle compression" time="0">
+    <testcase classname="Architecture V2 - Core Components CacheService should handle compression" name="Architecture V2 - Core Components CacheService should handle compression" time="0.001">
     </testcase>
-    <testcase classname="Architecture V2 - Core Components CacheService should format bytes correctly" name="Architecture V2 - Core Components CacheService should format bytes correctly" time="0.001">
+    <testcase classname="Architecture V2 - Core Components CacheService should format bytes correctly" name="Architecture V2 - Core Components CacheService should format bytes correctly" time="0">
     </testcase>
-    <testcase classname="Architecture V2 - Core Components Performance Tests should initialize services quickly" name="Architecture V2 - Core Components Performance Tests should initialize services quickly" time="0.01">
+    <testcase classname="Architecture V2 - Core Components Performance Tests should initialize services quickly" name="Architecture V2 - Core Components Performance Tests should initialize services quickly" time="0.002">
     </testcase>
     <testcase classname="Architecture V2 - Core Components Performance Tests should handle multiple concurrent cache operations" name="Architecture V2 - Core Components Performance Tests should handle multiple concurrent cache operations" time="0.002">
     </testcase>
   </testsuite>
-  <testsuite name="Parser DSFR V2 - Performance et fonctionnalités" errors="0" failures="0" skipped="0" timestamp="2025-08-10T10:36:44" time="0.237" tests="18">
-    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should parse valid YAML content" name="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should parse valid YAML content" time="0.002">
+  <testsuite name="Parser DSFR V2 - Performance et fonctionnalités" errors="0" failures="0" skipped="0" timestamp="2025-08-10T12:14:12" time="0.22" tests="18">
+    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should parse valid YAML content" name="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should parse valid YAML content" time="0.007">
     </testcase>
-    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should handle YAML parsing errors gracefully" name="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should handle YAML parsing errors gracefully" time="0.003">
+    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should handle YAML parsing errors gracefully" name="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should handle YAML parsing errors gracefully" time="0.014">
     </testcase>
     <testcase classname="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should validate against DSFR component schema" name="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should validate against DSFR component schema" time="0">
     </testcase>
-    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should process multiple files in parallel" name="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should process multiple files in parallel" time="0.002">
+    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should process multiple files in parallel" name="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should process multiple files in parallel" time="0.003">
     </testcase>
-    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should provide parsing statistics" name="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should provide parsing statistics" time="0">
+    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should provide parsing statistics" name="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should provide parsing statistics" time="0.001">
     </testcase>
-    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should add documents to search index" name="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should add documents to search index" time="0.002">
+    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should add documents to search index" name="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should add documents to search index" time="0.001">
     </testcase>
-    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should perform fuzzy search" name="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should perform fuzzy search" time="0.002">
+    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should perform fuzzy search" name="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should perform fuzzy search" time="0.003">
     </testcase>
-    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should filter by facets" name="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should filter by facets" time="0.001">
+    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should filter by facets" name="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should filter by facets" time="0.002">
     </testcase>
     <testcase classname="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should provide pagination" name="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should provide pagination" time="0.001">
     </testcase>
-    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should sort results by different criteria" name="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should sort results by different criteria" time="0.009">
+    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should sort results by different criteria" name="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should sort results by different criteria" time="0.006">
     </testcase>
-    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should calculate facets correctly" name="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should calculate facets correctly" time="0.002">
+    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should calculate facets correctly" name="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should calculate facets correctly" time="0.001">
     </testcase>
-    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should provide search performance metrics" name="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should provide search performance metrics" time="0.005">
+    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should provide search performance metrics" name="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should provide search performance metrics" time="0.002">
     </testcase>
-    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités Performance Tests should achieve 5x performance improvement over V1" name="Parser DSFR V2 - Performance et fonctionnalités Performance Tests should achieve 5x performance improvement over V1" time="0.002">
+    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités Performance Tests should achieve 5x performance improvement over V1" name="Parser DSFR V2 - Performance et fonctionnalités Performance Tests should achieve 5x performance improvement over V1" time="0.003">
     </testcase>
     <testcase classname="Parser DSFR V2 - Performance et fonctionnalités Performance Tests should handle concurrent parsing efficiently" name="Parser DSFR V2 - Performance et fonctionnalités Performance Tests should handle concurrent parsing efficiently" time="0.003">
     </testcase>
-    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités Performance Tests should maintain performance with large datasets" name="Parser DSFR V2 - Performance et fonctionnalités Performance Tests should maintain performance with large datasets" time="0.005">
+    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités Performance Tests should maintain performance with large datasets" name="Parser DSFR V2 - Performance et fonctionnalités Performance Tests should maintain performance with large datasets" time="0.004">
     </testcase>
     <testcase classname="Parser DSFR V2 - Performance et fonctionnalités Integration Tests should integrate all services correctly" name="Parser DSFR V2 - Performance et fonctionnalités Integration Tests should integrate all services correctly" time="0.001">
     </testcase>
-    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités Integration Tests should handle errors gracefully across services" name="Parser DSFR V2 - Performance et fonctionnalités Integration Tests should handle errors gracefully across services" time="0.007">
+    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités Integration Tests should handle errors gracefully across services" name="Parser DSFR V2 - Performance et fonctionnalités Integration Tests should handle errors gracefully across services" time="0.004">
     </testcase>
-    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités Integration Tests should provide comprehensive statistics" name="Parser DSFR V2 - Performance et fonctionnalités Integration Tests should provide comprehensive statistics" time="0.001">
-    </testcase>
-  </testsuite>
-  <testsuite name="InputValidatorService" errors="0" failures="0" skipped="0" timestamp="2025-08-10T10:36:44" time="0.675" tests="32">
-    <testcase classname="InputValidatorService constructor should initialize with input schemas" name="InputValidatorService constructor should initialize with input schemas" time="0.024">
-    </testcase>
-    <testcase classname="InputValidatorService validateAndSanitize should validate and sanitize valid search parameters" name="InputValidatorService validateAndSanitize should validate and sanitize valid search parameters" time="0.01">
-    </testcase>
-    <testcase classname="InputValidatorService validateAndSanitize should throw error for invalid parameters" name="InputValidatorService validateAndSanitize should throw error for invalid parameters" time="0.012">
-    </testcase>
-    <testcase classname="InputValidatorService validateAndSanitize should apply default values" name="InputValidatorService validateAndSanitize should apply default values" time="0.014">
-    </testcase>
-    <testcase classname="InputValidatorService sanitizeSearchQuery should sanitize search query properly" name="InputValidatorService sanitizeSearchQuery should sanitize search query properly" time="0.014">
-    </testcase>
-    <testcase classname="InputValidatorService sanitizeHtmlCode should remove script tags" name="InputValidatorService sanitizeHtmlCode should remove script tags" time="0.013">
-    </testcase>
-    <testcase classname="InputValidatorService sanitizeHtmlCode should remove javascript: protocols" name="InputValidatorService sanitizeHtmlCode should remove javascript: protocols" time="0.004">
-    </testcase>
-    <testcase classname="InputValidatorService sanitizeHtmlCode should remove event handlers" name="InputValidatorService sanitizeHtmlCode should remove event handlers" time="0.005">
-    </testcase>
-    <testcase classname="InputValidatorService sanitizeHtmlCode should normalize whitespace" name="InputValidatorService sanitizeHtmlCode should normalize whitespace" time="0.006">
-    </testcase>
-    <testcase classname="InputValidatorService normalizeColor should add # prefix if missing" name="InputValidatorService normalizeColor should add # prefix if missing" time="0.009">
-    </testcase>
-    <testcase classname="InputValidatorService normalizeColor should convert to uppercase" name="InputValidatorService normalizeColor should convert to uppercase" time="0.01">
-    </testcase>
-    <testcase classname="InputValidatorService normalizeColor should handle colors that already have # prefix" name="InputValidatorService normalizeColor should handle colors that already have # prefix" time="0.016">
-    </testcase>
-    <testcase classname="InputValidatorService normalizePascalCase should convert kebab-case to PascalCase" name="InputValidatorService normalizePascalCase should convert kebab-case to PascalCase" time="0.009">
-    </testcase>
-    <testcase classname="InputValidatorService normalizePascalCase should convert snake_case to PascalCase" name="InputValidatorService normalizePascalCase should convert snake_case to PascalCase" time="0.011">
-    </testcase>
-    <testcase classname="InputValidatorService normalizePascalCase should handle spaces" name="InputValidatorService normalizePascalCase should handle spaces" time="0.012">
-    </testcase>
-    <testcase classname="InputValidatorService normalizePascalCase should handle mixed separators" name="InputValidatorService normalizePascalCase should handle mixed separators" time="0.018">
-    </testcase>
-    <testcase classname="InputValidatorService additionalSanitization should sanitize search_dsfr_components parameters" name="InputValidatorService additionalSanitization should sanitize search_dsfr_components parameters" time="0.006">
-    </testcase>
-    <testcase classname="InputValidatorService additionalSanitization should sanitize validate_dsfr_html parameters" name="InputValidatorService additionalSanitization should sanitize validate_dsfr_html parameters" time="0.007">
-    </testcase>
-    <testcase classname="InputValidatorService additionalSanitization should sanitize generate_dsfr_component parameters" name="InputValidatorService additionalSanitization should sanitize generate_dsfr_component parameters" time="0.004">
-    </testcase>
-    <testcase classname="InputValidatorService additionalSanitization should sanitize create_dsfr_theme parameters" name="InputValidatorService additionalSanitization should sanitize create_dsfr_theme parameters" time="0.007">
-    </testcase>
-    <testcase classname="InputValidatorService additionalSanitization should sanitize convert_to_framework parameters" name="InputValidatorService additionalSanitization should sanitize convert_to_framework parameters" time="0.006">
-    </testcase>
-    <testcase classname="InputValidatorService validateCommonParams should validate normal parameters" name="InputValidatorService validateCommonParams should validate normal parameters" time="0.004">
-    </testcase>
-    <testcase classname="InputValidatorService validateCommonParams should reject non-object parameters" name="InputValidatorService validateCommonParams should reject non-object parameters" time="0.004">
-    </testcase>
-    <testcase classname="InputValidatorService validateCommonParams should reject oversized parameters" name="InputValidatorService validateCommonParams should reject oversized parameters" time="0.007">
-    </testcase>
-    <testcase classname="InputValidatorService createErrorResponse should create properly formatted error response" name="InputValidatorService createErrorResponse should create properly formatted error response" time="0.019">
-    </testcase>
-    <testcase classname="InputValidatorService validateRequiredParams should validate required parameters" name="InputValidatorService validateRequiredParams should validate required parameters" time="0.015">
-    </testcase>
-    <testcase classname="InputValidatorService validateRequiredParams should detect missing required parameters" name="InputValidatorService validateRequiredParams should detect missing required parameters" time="0.03">
-    </testcase>
-    <testcase classname="InputValidatorService validateRequiredParams should detect empty string as missing" name="InputValidatorService validateRequiredParams should detect empty string as missing" time="0.06">
-    </testcase>
-    <testcase classname="InputValidatorService validateStringLimits should validate string length limits" name="InputValidatorService validateStringLimits should validate string length limits" time="0.009">
-    </testcase>
-    <testcase classname="InputValidatorService validateStringLimits should detect strings that are too short" name="InputValidatorService validateStringLimits should detect strings that are too short" time="0.013">
-    </testcase>
-    <testcase classname="InputValidatorService validateStringLimits should detect strings that are too long" name="InputValidatorService validateStringLimits should detect strings that are too long" time="0.009">
-    </testcase>
-    <testcase classname="InputValidatorService getAvailableTools should return list of available tools with schemas" name="InputValidatorService getAvailableTools should return list of available tools with schemas" time="0.008">
+    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités Integration Tests should provide comprehensive statistics" name="Parser DSFR V2 - Performance et fonctionnalités Integration Tests should provide comprehensive statistics" time="0">
     </testcase>
   </testsuite>
-  <testsuite name="InputSchemas" errors="0" failures="0" skipped="0" timestamp="2025-08-10T10:36:44" time="0.691" tests="27">
-    <testcase classname="InputSchemas constructor should initialize with all schemas" name="InputSchemas constructor should initialize with all schemas" time="0.029">
+  <testsuite name="InputSchemas" errors="0" failures="0" skipped="0" timestamp="2025-08-10T12:14:12" time="0.615" tests="27">
+    <testcase classname="InputSchemas constructor should initialize with all schemas" name="InputSchemas constructor should initialize with all schemas" time="0.027">
     </testcase>
-    <testcase classname="InputSchemas validate search_dsfr_components should validate valid search parameters" name="InputSchemas validate search_dsfr_components should validate valid search parameters" time="0.024">
+    <testcase classname="InputSchemas validate search_dsfr_components should validate valid search parameters" name="InputSchemas validate search_dsfr_components should validate valid search parameters" time="0.013">
     </testcase>
-    <testcase classname="InputSchemas validate search_dsfr_components should require query parameter" name="InputSchemas validate search_dsfr_components should require query parameter" time="0.046">
+    <testcase classname="InputSchemas validate search_dsfr_components should require query parameter" name="InputSchemas validate search_dsfr_components should require query parameter" time="0.009">
     </testcase>
-    <testcase classname="InputSchemas validate search_dsfr_components should validate category enum" name="InputSchemas validate search_dsfr_components should validate category enum" time="0.03">
+    <testcase classname="InputSchemas validate search_dsfr_components should validate category enum" name="InputSchemas validate search_dsfr_components should validate category enum" time="0.008">
     </testcase>
-    <testcase classname="InputSchemas validate search_dsfr_components should validate limit bounds" name="InputSchemas validate search_dsfr_components should validate limit bounds" time="0.009">
+    <testcase classname="InputSchemas validate search_dsfr_components should validate limit bounds" name="InputSchemas validate search_dsfr_components should validate limit bounds" time="0.015">
     </testcase>
-    <testcase classname="InputSchemas validate search_dsfr_components should apply default limit" name="InputSchemas validate search_dsfr_components should apply default limit" time="0.007">
+    <testcase classname="InputSchemas validate search_dsfr_components should apply default limit" name="InputSchemas validate search_dsfr_components should apply default limit" time="0.008">
     </testcase>
-    <testcase classname="InputSchemas validate validate_dsfr_html should validate valid HTML validation parameters" name="InputSchemas validate validate_dsfr_html should validate valid HTML validation parameters" time="0.015">
+    <testcase classname="InputSchemas validate validate_dsfr_html should validate valid HTML validation parameters" name="InputSchemas validate validate_dsfr_html should validate valid HTML validation parameters" time="0.006">
     </testcase>
     <testcase classname="InputSchemas validate validate_dsfr_html should require html_code parameter" name="InputSchemas validate validate_dsfr_html should require html_code parameter" time="0.008">
     </testcase>
-    <testcase classname="InputSchemas validate validate_dsfr_html should validate HTML code length" name="InputSchemas validate validate_dsfr_html should validate HTML code length" time="0.004">
+    <testcase classname="InputSchemas validate validate_dsfr_html should validate HTML code length" name="InputSchemas validate validate_dsfr_html should validate HTML code length" time="0.009">
     </testcase>
-    <testcase classname="InputSchemas validate validate_dsfr_html should apply default boolean values" name="InputSchemas validate validate_dsfr_html should apply default boolean values" time="0.014">
+    <testcase classname="InputSchemas validate validate_dsfr_html should apply default boolean values" name="InputSchemas validate validate_dsfr_html should apply default boolean values" time="0.009">
     </testcase>
-    <testcase classname="InputSchemas validate check_accessibility should validate accessibility check parameters" name="InputSchemas validate check_accessibility should validate accessibility check parameters" time="0.01">
+    <testcase classname="InputSchemas validate check_accessibility should validate accessibility check parameters" name="InputSchemas validate check_accessibility should validate accessibility check parameters" time="0.008">
     </testcase>
-    <testcase classname="InputSchemas validate check_accessibility should validate RGAA level enum" name="InputSchemas validate check_accessibility should validate RGAA level enum" time="0.004">
+    <testcase classname="InputSchemas validate check_accessibility should validate RGAA level enum" name="InputSchemas validate check_accessibility should validate RGAA level enum" time="0.005">
     </testcase>
-    <testcase classname="InputSchemas validate generate_dsfr_component should validate component generation parameters" name="InputSchemas validate generate_dsfr_component should validate component generation parameters" time="0.005">
+    <testcase classname="InputSchemas validate generate_dsfr_component should validate component generation parameters" name="InputSchemas validate generate_dsfr_component should validate component generation parameters" time="0.011">
     </testcase>
-    <testcase classname="InputSchemas validate generate_dsfr_component should validate component type pattern" name="InputSchemas validate generate_dsfr_component should validate component type pattern" time="0.005">
+    <testcase classname="InputSchemas validate generate_dsfr_component should validate component type pattern" name="InputSchemas validate generate_dsfr_component should validate component type pattern" time="0.016">
     </testcase>
-    <testcase classname="InputSchemas validate generate_dsfr_component should validate framework enum" name="InputSchemas validate generate_dsfr_component should validate framework enum" time="0.012">
+    <testcase classname="InputSchemas validate generate_dsfr_component should validate framework enum" name="InputSchemas validate generate_dsfr_component should validate framework enum" time="0.022">
     </testcase>
-    <testcase classname="InputSchemas validate create_dsfr_theme should validate theme creation parameters" name="InputSchemas validate create_dsfr_theme should validate theme creation parameters" time="0.039">
+    <testcase classname="InputSchemas validate create_dsfr_theme should validate theme creation parameters" name="InputSchemas validate create_dsfr_theme should validate theme creation parameters" time="0.019">
     </testcase>
-    <testcase classname="InputSchemas validate create_dsfr_theme should validate color format" name="InputSchemas validate create_dsfr_theme should validate color format" time="0.019">
+    <testcase classname="InputSchemas validate create_dsfr_theme should validate color format" name="InputSchemas validate create_dsfr_theme should validate color format" time="0.022">
     </testcase>
-    <testcase classname="InputSchemas validate create_dsfr_theme should validate CSS variable names" name="InputSchemas validate create_dsfr_theme should validate CSS variable names" time="0.003">
+    <testcase classname="InputSchemas validate create_dsfr_theme should validate CSS variable names" name="InputSchemas validate create_dsfr_theme should validate CSS variable names" time="0.037">
     </testcase>
-    <testcase classname="InputSchemas validate convert_to_framework should validate framework conversion parameters" name="InputSchemas validate convert_to_framework should validate framework conversion parameters" time="0.02">
+    <testcase classname="InputSchemas validate convert_to_framework should validate framework conversion parameters" name="InputSchemas validate convert_to_framework should validate framework conversion parameters" time="0.01">
     </testcase>
-    <testcase classname="InputSchemas validate convert_to_framework should validate PascalCase component name" name="InputSchemas validate convert_to_framework should validate PascalCase component name" time="0.076">
+    <testcase classname="InputSchemas validate convert_to_framework should validate PascalCase component name" name="InputSchemas validate convert_to_framework should validate PascalCase component name" time="0.005">
     </testcase>
-    <testcase classname="InputSchemas sanitizeParams should trim string parameters" name="InputSchemas sanitizeParams should trim string parameters" time="0.008">
+    <testcase classname="InputSchemas sanitizeParams should trim string parameters" name="InputSchemas sanitizeParams should trim string parameters" time="0.004">
     </testcase>
-    <testcase classname="InputSchemas sanitizeParams should apply default values" name="InputSchemas sanitizeParams should apply default values" time="0.008">
+    <testcase classname="InputSchemas sanitizeParams should apply default values" name="InputSchemas sanitizeParams should apply default values" time="0.003">
     </testcase>
-    <testcase classname="InputSchemas sanitizeParams should not override provided values" name="InputSchemas sanitizeParams should not override provided values" time="0.014">
+    <testcase classname="InputSchemas sanitizeParams should not override provided values" name="InputSchemas sanitizeParams should not override provided values" time="0.006">
     </testcase>
-    <testcase classname="InputSchemas getSchema should return schema for valid tool" name="InputSchemas getSchema should return schema for valid tool" time="0.009">
+    <testcase classname="InputSchemas getSchema should return schema for valid tool" name="InputSchemas getSchema should return schema for valid tool" time="0.003">
     </testcase>
-    <testcase classname="InputSchemas getSchema should return null for invalid tool" name="InputSchemas getSchema should return null for invalid tool" time="0.01">
+    <testcase classname="InputSchemas getSchema should return null for invalid tool" name="InputSchemas getSchema should return null for invalid tool" time="0.004">
     </testcase>
-    <testcase classname="InputSchemas getAvailableTools should return list of all available tools" name="InputSchemas getAvailableTools should return list of all available tools" time="0.008">
+    <testcase classname="InputSchemas getAvailableTools should return list of all available tools" name="InputSchemas getAvailableTools should return list of all available tools" time="0.003">
     </testcase>
-    <testcase classname="InputSchemas unknown tool validation should handle validation for unknown tool" name="InputSchemas unknown tool validation should handle validation for unknown tool" time="0.008">
+    <testcase classname="InputSchemas unknown tool validation should handle validation for unknown tool" name="InputSchemas unknown tool validation should handle validation for unknown tool" time="0.004">
     </testcase>
   </testsuite>
-  <testsuite name="ValidationService" errors="0" failures="0" skipped="0" timestamp="2025-08-10T10:36:44" time="0.796" tests="18">
-    <testcase classname="ValidationService constructor should initialize DSFR classes and semantic rules" name="ValidationService constructor should initialize DSFR classes and semantic rules" time="0.002">
+  <testsuite name="InputValidatorService" errors="0" failures="0" skipped="0" timestamp="2025-08-10T12:14:12" time="0.645" tests="32">
+    <testcase classname="InputValidatorService constructor should initialize with input schemas" name="InputValidatorService constructor should initialize with input schemas" time="0.025">
     </testcase>
-    <testcase classname="ValidationService validateHTML should validate simple valid HTML" name="ValidationService validateHTML should validate simple valid HTML" time="0.035">
+    <testcase classname="InputValidatorService validateAndSanitize should validate and sanitize valid search parameters" name="InputValidatorService validateAndSanitize should validate and sanitize valid search parameters" time="0.014">
+    </testcase>
+    <testcase classname="InputValidatorService validateAndSanitize should throw error for invalid parameters" name="InputValidatorService validateAndSanitize should throw error for invalid parameters" time="0.013">
+    </testcase>
+    <testcase classname="InputValidatorService validateAndSanitize should apply default values" name="InputValidatorService validateAndSanitize should apply default values" time="0.011">
+    </testcase>
+    <testcase classname="InputValidatorService sanitizeSearchQuery should sanitize search query properly" name="InputValidatorService sanitizeSearchQuery should sanitize search query properly" time="0.008">
+    </testcase>
+    <testcase classname="InputValidatorService sanitizeHtmlCode should remove script tags" name="InputValidatorService sanitizeHtmlCode should remove script tags" time="0.007">
+    </testcase>
+    <testcase classname="InputValidatorService sanitizeHtmlCode should remove javascript: protocols" name="InputValidatorService sanitizeHtmlCode should remove javascript: protocols" time="0.008">
+    </testcase>
+    <testcase classname="InputValidatorService sanitizeHtmlCode should remove event handlers" name="InputValidatorService sanitizeHtmlCode should remove event handlers" time="0.006">
+    </testcase>
+    <testcase classname="InputValidatorService sanitizeHtmlCode should normalize whitespace" name="InputValidatorService sanitizeHtmlCode should normalize whitespace" time="0.004">
+    </testcase>
+    <testcase classname="InputValidatorService normalizeColor should add # prefix if missing" name="InputValidatorService normalizeColor should add # prefix if missing" time="0.005">
+    </testcase>
+    <testcase classname="InputValidatorService normalizeColor should convert to uppercase" name="InputValidatorService normalizeColor should convert to uppercase" time="0.005">
+    </testcase>
+    <testcase classname="InputValidatorService normalizeColor should handle colors that already have # prefix" name="InputValidatorService normalizeColor should handle colors that already have # prefix" time="0.004">
+    </testcase>
+    <testcase classname="InputValidatorService normalizePascalCase should convert kebab-case to PascalCase" name="InputValidatorService normalizePascalCase should convert kebab-case to PascalCase" time="0.005">
+    </testcase>
+    <testcase classname="InputValidatorService normalizePascalCase should convert snake_case to PascalCase" name="InputValidatorService normalizePascalCase should convert snake_case to PascalCase" time="0.009">
+    </testcase>
+    <testcase classname="InputValidatorService normalizePascalCase should handle spaces" name="InputValidatorService normalizePascalCase should handle spaces" time="0.014">
+    </testcase>
+    <testcase classname="InputValidatorService normalizePascalCase should handle mixed separators" name="InputValidatorService normalizePascalCase should handle mixed separators" time="0.007">
+    </testcase>
+    <testcase classname="InputValidatorService additionalSanitization should sanitize search_dsfr_components parameters" name="InputValidatorService additionalSanitization should sanitize search_dsfr_components parameters" time="0.004">
+    </testcase>
+    <testcase classname="InputValidatorService additionalSanitization should sanitize validate_dsfr_html parameters" name="InputValidatorService additionalSanitization should sanitize validate_dsfr_html parameters" time="0.007">
+    </testcase>
+    <testcase classname="InputValidatorService additionalSanitization should sanitize generate_dsfr_component parameters" name="InputValidatorService additionalSanitization should sanitize generate_dsfr_component parameters" time="0.027">
+    </testcase>
+    <testcase classname="InputValidatorService additionalSanitization should sanitize create_dsfr_theme parameters" name="InputValidatorService additionalSanitization should sanitize create_dsfr_theme parameters" time="0.039">
+    </testcase>
+    <testcase classname="InputValidatorService additionalSanitization should sanitize convert_to_framework parameters" name="InputValidatorService additionalSanitization should sanitize convert_to_framework parameters" time="0.018">
+    </testcase>
+    <testcase classname="InputValidatorService validateCommonParams should validate normal parameters" name="InputValidatorService validateCommonParams should validate normal parameters" time="0.026">
+    </testcase>
+    <testcase classname="InputValidatorService validateCommonParams should reject non-object parameters" name="InputValidatorService validateCommonParams should reject non-object parameters" time="0.008">
+    </testcase>
+    <testcase classname="InputValidatorService validateCommonParams should reject oversized parameters" name="InputValidatorService validateCommonParams should reject oversized parameters" time="0.009">
+    </testcase>
+    <testcase classname="InputValidatorService createErrorResponse should create properly formatted error response" name="InputValidatorService createErrorResponse should create properly formatted error response" time="0.008">
+    </testcase>
+    <testcase classname="InputValidatorService validateRequiredParams should validate required parameters" name="InputValidatorService validateRequiredParams should validate required parameters" time="0.009">
+    </testcase>
+    <testcase classname="InputValidatorService validateRequiredParams should detect missing required parameters" name="InputValidatorService validateRequiredParams should detect missing required parameters" time="0.004">
+    </testcase>
+    <testcase classname="InputValidatorService validateRequiredParams should detect empty string as missing" name="InputValidatorService validateRequiredParams should detect empty string as missing" time="0.003">
+    </testcase>
+    <testcase classname="InputValidatorService validateStringLimits should validate string length limits" name="InputValidatorService validateStringLimits should validate string length limits" time="0.004">
+    </testcase>
+    <testcase classname="InputValidatorService validateStringLimits should detect strings that are too short" name="InputValidatorService validateStringLimits should detect strings that are too short" time="0.004">
+    </testcase>
+    <testcase classname="InputValidatorService validateStringLimits should detect strings that are too long" name="InputValidatorService validateStringLimits should detect strings that are too long" time="0.003">
+    </testcase>
+    <testcase classname="InputValidatorService getAvailableTools should return list of available tools with schemas" name="InputValidatorService getAvailableTools should return list of available tools with schemas" time="0.005">
+    </testcase>
+  </testsuite>
+  <testsuite name="ValidationService" errors="0" failures="0" skipped="0" timestamp="2025-08-10T12:14:12" time="0.898" tests="18">
+    <testcase classname="ValidationService constructor should initialize DSFR classes and semantic rules" name="ValidationService constructor should initialize DSFR classes and semantic rules" time="0.003">
+    </testcase>
+    <testcase classname="ValidationService validateHTML should validate simple valid HTML" name="ValidationService validateHTML should validate simple valid HTML" time="0.043">
     </testcase>
     <testcase classname="ValidationService validateHTML should detect DSFR class errors in strict mode" name="ValidationService validateHTML should detect DSFR class errors in strict mode" time="0.005">
     </testcase>
-    <testcase classname="ValidationService validateHTML should validate form elements with proper attributes" name="ValidationService validateHTML should validate form elements with proper attributes" time="0.005">
+    <testcase classname="ValidationService validateHTML should validate form elements with proper attributes" name="ValidationService validateHTML should validate form elements with proper attributes" time="0.011">
     </testcase>
-    <testcase classname="ValidationService validateHTML should detect missing required attributes on form elements" name="ValidationService validateHTML should detect missing required attributes on form elements" time="0.005">
+    <testcase classname="ValidationService validateHTML should detect missing required attributes on form elements" name="ValidationService validateHTML should detect missing required attributes on form elements" time="0.007">
     </testcase>
-    <testcase classname="ValidationService validateHTML should validate image alt attributes" name="ValidationService validateHTML should validate image alt attributes" time="0.008">
+    <testcase classname="ValidationService validateHTML should validate image alt attributes" name="ValidationService validateHTML should validate image alt attributes" time="0.007">
     </testcase>
-    <testcase classname="ValidationService validateHTML should detect missing alt attributes on images" name="ValidationService validateHTML should detect missing alt attributes on images" time="0.004">
+    <testcase classname="ValidationService validateHTML should detect missing alt attributes on images" name="ValidationService validateHTML should detect missing alt attributes on images" time="0.006">
     </testcase>
-    <testcase classname="ValidationService validateHTML should handle malformed HTML gracefully" name="ValidationService validateHTML should handle malformed HTML gracefully" time="0.003">
+    <testcase classname="ValidationService validateHTML should handle malformed HTML gracefully" name="ValidationService validateHTML should handle malformed HTML gracefully" time="0.006">
     </testcase>
-    <testcase classname="ValidationService validateHTML should skip accessibility checks when disabled" name="ValidationService validateHTML should skip accessibility checks when disabled" time="0.008">
+    <testcase classname="ValidationService validateHTML should skip accessibility checks when disabled" name="ValidationService validateHTML should skip accessibility checks when disabled" time="0.004">
     </testcase>
-    <testcase classname="ValidationService validateHTML should skip semantic checks when disabled" name="ValidationService validateHTML should skip semantic checks when disabled" time="0.009">
+    <testcase classname="ValidationService validateHTML should skip semantic checks when disabled" name="ValidationService validateHTML should skip semantic checks when disabled" time="0.006">
     </testcase>
     <testcase classname="ValidationService validateDSFRClasses should recognize valid DSFR button classes" name="ValidationService validateDSFRClasses should recognize valid DSFR button classes" time="0">
     </testcase>
@@ -241,41 +241,41 @@
     </testcase>
     <testcase classname="ValidationService calculateScore should reduce score for errors and warnings" name="ValidationService calculateScore should reduce score for errors and warnings" time="0">
     </testcase>
-    <testcase classname="ValidationService initializeDSFRClasses should initialize all DSFR class categories" name="ValidationService initializeDSFRClasses should initialize all DSFR class categories" time="0">
+    <testcase classname="ValidationService initializeDSFRClasses should initialize all DSFR class categories" name="ValidationService initializeDSFRClasses should initialize all DSFR class categories" time="0.001">
     </testcase>
     <testcase classname="ValidationService initializeDSFRClasses should include comprehensive button classes" name="ValidationService initializeDSFRClasses should include comprehensive button classes" time="0">
     </testcase>
     <testcase classname="ValidationService initializeSemanticRules should initialize page structure rules" name="ValidationService initializeSemanticRules should initialize page structure rules" time="0">
     </testcase>
-    <testcase classname="ValidationService initializeSemanticRules should initialize form validation rules" name="ValidationService initializeSemanticRules should initialize form validation rules" time="0.001">
+    <testcase classname="ValidationService initializeSemanticRules should initialize form validation rules" name="ValidationService initializeSemanticRules should initialize form validation rules" time="0">
     </testcase>
   </testsuite>
-  <testsuite name="AccessibilityService" errors="0" failures="0" skipped="0" timestamp="2025-08-10T10:36:44" time="0.877" tests="19">
-    <testcase classname="AccessibilityService constructor should initialize RGAA rules" name="AccessibilityService constructor should initialize RGAA rules" time="0.007">
+  <testsuite name="AccessibilityService" errors="0" failures="0" skipped="0" timestamp="2025-08-10T12:14:12" time="0.934" tests="19">
+    <testcase classname="AccessibilityService constructor should initialize RGAA rules" name="AccessibilityService constructor should initialize RGAA rules" time="0.002">
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should validate accessible HTML successfully" name="AccessibilityService checkAccessibility should validate accessible HTML successfully" time="0.08">
+    <testcase classname="AccessibilityService checkAccessibility should validate accessible HTML successfully" name="AccessibilityService checkAccessibility should validate accessible HTML successfully" time="0.049">
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should detect missing alt attributes on images" name="AccessibilityService checkAccessibility should detect missing alt attributes on images" time="0.009">
+    <testcase classname="AccessibilityService checkAccessibility should detect missing alt attributes on images" name="AccessibilityService checkAccessibility should detect missing alt attributes on images" time="0.008">
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should validate decorative images with empty alt" name="AccessibilityService checkAccessibility should validate decorative images with empty alt" time="0.013">
+    <testcase classname="AccessibilityService checkAccessibility should validate decorative images with empty alt" name="AccessibilityService checkAccessibility should validate decorative images with empty alt" time="0.007">
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should detect missing form labels" name="AccessibilityService checkAccessibility should detect missing form labels" time="0.011">
+    <testcase classname="AccessibilityService checkAccessibility should detect missing form labels" name="AccessibilityService checkAccessibility should detect missing form labels" time="0.004">
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should validate proper form label association" name="AccessibilityService checkAccessibility should validate proper form label association" time="0.006">
+    <testcase classname="AccessibilityService checkAccessibility should validate proper form label association" name="AccessibilityService checkAccessibility should validate proper form label association" time="0.005">
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should check for required field indicators" name="AccessibilityService checkAccessibility should check for required field indicators" time="0.008">
+    <testcase classname="AccessibilityService checkAccessibility should check for required field indicators" name="AccessibilityService checkAccessibility should check for required field indicators" time="0.005">
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should detect missing required field indicators" name="AccessibilityService checkAccessibility should detect missing required field indicators" time="0.006">
+    <testcase classname="AccessibilityService checkAccessibility should detect missing required field indicators" name="AccessibilityService checkAccessibility should detect missing required field indicators" time="0.005">
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should validate skip links presence" name="AccessibilityService checkAccessibility should validate skip links presence" time="0.007">
+    <testcase classname="AccessibilityService checkAccessibility should validate skip links presence" name="AccessibilityService checkAccessibility should validate skip links presence" time="0.006">
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should detect missing skip links" name="AccessibilityService checkAccessibility should detect missing skip links" time="0.003">
+    <testcase classname="AccessibilityService checkAccessibility should detect missing skip links" name="AccessibilityService checkAccessibility should detect missing skip links" time="0.006">
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should validate ARIA landmarks" name="AccessibilityService checkAccessibility should validate ARIA landmarks" time="0.005">
+    <testcase classname="AccessibilityService checkAccessibility should validate ARIA landmarks" name="AccessibilityService checkAccessibility should validate ARIA landmarks" time="0.008">
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should work with different RGAA levels" name="AccessibilityService checkAccessibility should work with different RGAA levels" time="0.009">
+    <testcase classname="AccessibilityService checkAccessibility should work with different RGAA levels" name="AccessibilityService checkAccessibility should work with different RGAA levels" time="0.008">
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should include suggestions when enabled" name="AccessibilityService checkAccessibility should include suggestions when enabled" time="0.017">
+    <testcase classname="AccessibilityService checkAccessibility should include suggestions when enabled" name="AccessibilityService checkAccessibility should include suggestions when enabled" time="0.019">
     </testcase>
     <testcase classname="AccessibilityService checkAccessibility should handle malformed HTML gracefully" name="AccessibilityService checkAccessibility should handle malformed HTML gracefully" time="0.003">
     </testcase>
@@ -290,24 +290,24 @@
     <testcase classname="AccessibilityService RGAA rule validation functions should validate decorative alt rule correctly" name="AccessibilityService RGAA rule validation functions should validate decorative alt rule correctly" time="0">
     </testcase>
   </testsuite>
-  <testsuite name="Advanced MCP Tools Integration" errors="0" failures="1" skipped="0" timestamp="2025-08-10T10:36:44" time="1.113" tests="12">
-    <testcase classname="Advanced MCP Tools Integration create_dsfr_theme (Enhanced) should create advanced theme with color palette and dark mode" name="Advanced MCP Tools Integration create_dsfr_theme (Enhanced) should create advanced theme with color palette and dark mode" time="0.004">
+  <testsuite name="Advanced MCP Tools Integration" errors="0" failures="1" skipped="0" timestamp="2025-08-10T12:14:12" time="1.497" tests="12">
+    <testcase classname="Advanced MCP Tools Integration create_dsfr_theme (Enhanced) should create advanced theme with color palette and dark mode" name="Advanced MCP Tools Integration create_dsfr_theme (Enhanced) should create advanced theme with color palette and dark mode" time="0.003">
     </testcase>
     <testcase classname="Advanced MCP Tools Integration create_dsfr_theme (Enhanced) should handle theme creation without secondary color" name="Advanced MCP Tools Integration create_dsfr_theme (Enhanced) should handle theme creation without secondary color" time="0">
     </testcase>
-    <testcase classname="Advanced MCP Tools Integration convert_to_framework (Enhanced) should provide advanced React conversion with analysis" name="Advanced MCP Tools Integration convert_to_framework (Enhanced) should provide advanced React conversion with analysis" time="0">
+    <testcase classname="Advanced MCP Tools Integration convert_to_framework (Enhanced) should provide advanced React conversion with analysis" name="Advanced MCP Tools Integration convert_to_framework (Enhanced) should provide advanced React conversion with analysis" time="0.001">
     </testcase>
     <testcase classname="Advanced MCP Tools Integration convert_to_framework (Enhanced) should provide advanced Vue conversion" name="Advanced MCP Tools Integration convert_to_framework (Enhanced) should provide advanced Vue conversion" time="0">
     </testcase>
-    <testcase classname="Advanced MCP Tools Integration convert_to_framework (Enhanced) should provide advanced Angular conversion" name="Advanced MCP Tools Integration convert_to_framework (Enhanced) should provide advanced Angular conversion" time="0.001">
+    <testcase classname="Advanced MCP Tools Integration convert_to_framework (Enhanced) should provide advanced Angular conversion" name="Advanced MCP Tools Integration convert_to_framework (Enhanced) should provide advanced Angular conversion" time="0">
     </testcase>
-    <testcase classname="Advanced MCP Tools Integration convert_to_framework (Enhanced) should handle unsupported framework gracefully" name="Advanced MCP Tools Integration convert_to_framework (Enhanced) should handle unsupported framework gracefully" time="0">
+    <testcase classname="Advanced MCP Tools Integration convert_to_framework (Enhanced) should handle unsupported framework gracefully" name="Advanced MCP Tools Integration convert_to_framework (Enhanced) should handle unsupported framework gracefully" time="0.001">
     </testcase>
-    <testcase classname="Advanced MCP Tools Integration generate_dsfr_component (Enhanced) should generate advanced component with comprehensive features" name="Advanced MCP Tools Integration generate_dsfr_component (Enhanced) should generate advanced component with comprehensive features" time="0.843">
+    <testcase classname="Advanced MCP Tools Integration generate_dsfr_component (Enhanced) should generate advanced component with comprehensive features" name="Advanced MCP Tools Integration generate_dsfr_component (Enhanced) should generate advanced component with comprehensive features" time="1.209">
     </testcase>
     <testcase classname="Advanced MCP Tools Integration generate_dsfr_component (Enhanced) should generate Vue component with advanced features" name="Advanced MCP Tools Integration generate_dsfr_component (Enhanced) should generate Vue component with advanced features" time="0">
     </testcase>
-    <testcase classname="Advanced MCP Tools Integration generate_dsfr_component (Enhanced) should generate Angular component with advanced features" name="Advanced MCP Tools Integration generate_dsfr_component (Enhanced) should generate Angular component with advanced features" time="0">
+    <testcase classname="Advanced MCP Tools Integration generate_dsfr_component (Enhanced) should generate Angular component with advanced features" name="Advanced MCP Tools Integration generate_dsfr_component (Enhanced) should generate Angular component with advanced features" time="0.001">
     </testcase>
     <testcase classname="Advanced MCP Tools Integration generate_dsfr_component (Enhanced) should generate component even for unknown types" name="Advanced MCP Tools Integration generate_dsfr_component (Enhanced) should generate component even for unknown types" time="0">
       <failure>Error: expect(received).toContain(expected) // indexOf
@@ -365,55 +365,89 @@ Received string:    &quot;# Composant DSFR avancé : custom-widget·
 &quot;
     at Object.&lt;anonymous&gt; (/Users/alex/Desktop/MCP-DSFR/test/integration/advanced-mcp-tools.test.js:271:23)</failure>
     </testcase>
-    <testcase classname="Advanced MCP Tools Integration generate_dsfr_component (Enhanced) should handle vanilla framework with JavaScript components" name="Advanced MCP Tools Integration generate_dsfr_component (Enhanced) should handle vanilla framework with JavaScript components" time="0">
+    <testcase classname="Advanced MCP Tools Integration generate_dsfr_component (Enhanced) should handle vanilla framework with JavaScript components" name="Advanced MCP Tools Integration generate_dsfr_component (Enhanced) should handle vanilla framework with JavaScript components" time="0.001">
     </testcase>
     <testcase classname="Advanced MCP Tools Integration Integration and Error Handling should handle all tools consistently" name="Advanced MCP Tools Integration Integration and Error Handling should handle all tools consistently" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="DocumentationService" errors="0" failures="0" skipped="0" timestamp="2025-08-10T10:36:44" time="1.348" tests="11">
-    <testcase classname="DocumentationService initialize should initialize the service successfully" name="DocumentationService initialize should initialize the service successfully" time="0.393">
+  <testsuite name="DocumentationService" errors="0" failures="0" skipped="0" timestamp="2025-08-10T12:14:12" time="1.509" tests="11">
+    <testcase classname="DocumentationService initialize should initialize the service successfully" name="DocumentationService initialize should initialize the service successfully" time="0.36">
     </testcase>
-    <testcase classname="DocumentationService initialize should not re-initialize if already initialized" name="DocumentationService initialize should not re-initialize if already initialized" time="0.001">
+    <testcase classname="DocumentationService initialize should not re-initialize if already initialized" name="DocumentationService initialize should not re-initialize if already initialized" time="0">
     </testcase>
-    <testcase classname="DocumentationService initialize should handle errors during initialization" name="DocumentationService initialize should handle errors during initialization" time="0.149">
+    <testcase classname="DocumentationService initialize should handle errors during initialization" name="DocumentationService initialize should handle errors during initialization" time="0.208">
     </testcase>
-    <testcase classname="DocumentationService parseDocument should parse a markdown document correctly" name="DocumentationService parseDocument should parse a markdown document correctly" time="0.001">
+    <testcase classname="DocumentationService parseDocument should parse a markdown document correctly" name="DocumentationService parseDocument should parse a markdown document correctly" time="0">
     </testcase>
     <testcase classname="DocumentationService parseDocument should extract code examples from markdown" name="DocumentationService parseDocument should extract code examples from markdown" time="0">
     </testcase>
-    <testcase classname="DocumentationService searchComponents should search components by query" name="DocumentationService searchComponents should search components by query" time="0.115">
+    <testcase classname="DocumentationService searchComponents should search components by query" name="DocumentationService searchComponents should search components by query" time="0.133">
     </testcase>
-    <testcase classname="DocumentationService searchComponents should filter by category" name="DocumentationService searchComponents should filter by category" time="0.09">
+    <testcase classname="DocumentationService searchComponents should filter by category" name="DocumentationService searchComponents should filter by category" time="0.088">
     </testcase>
-    <testcase classname="DocumentationService searchComponents should limit results" name="DocumentationService searchComponents should limit results" time="0.083">
+    <testcase classname="DocumentationService searchComponents should limit results" name="DocumentationService searchComponents should limit results" time="0.08">
     </testcase>
-    <testcase classname="DocumentationService getComponentDetails should get component details" name="DocumentationService getComponentDetails should get component details" time="0.072">
+    <testcase classname="DocumentationService getComponentDetails should get component details" name="DocumentationService getComponentDetails should get component details" time="0.078">
     </testcase>
-    <testcase classname="DocumentationService getComponentDetails should handle non-existent component" name="DocumentationService getComponentDetails should handle non-existent component" time="0.103">
+    <testcase classname="DocumentationService getComponentDetails should handle non-existent component" name="DocumentationService getComponentDetails should handle non-existent component" time="0.149">
     </testcase>
-    <testcase classname="DocumentationService listCategories should list all categories with counts" name="DocumentationService listCategories should list all categories with counts" time="0.079">
+    <testcase classname="DocumentationService listCategories should list all categories with counts" name="DocumentationService listCategories should list all categories with counts" time="0.098">
     </testcase>
   </testsuite>
-  <testsuite name="GeneratorService" errors="0" failures="0" skipped="0" timestamp="2025-08-10T10:36:44" time="2.424" tests="24">
-    <testcase classname="GeneratorService constructor should initialize with source parser" name="GeneratorService constructor should initialize with source parser" time="0.006">
+  <testsuite name="Performance Tests" errors="0" failures="1" skipped="0" timestamp="2025-08-10T12:14:12" time="2.869" tests="13">
+    <testcase classname="Performance Tests Memory Usage Tests should not exceed memory limits during initialization" name="Performance Tests Memory Usage Tests should not exceed memory limits during initialization" time="0.074">
+    </testcase>
+    <testcase classname="Performance Tests Memory Usage Tests should properly cleanup after operations" name="Performance Tests Memory Usage Tests should properly cleanup after operations" time="0.114">
+    </testcase>
+    <testcase classname="Performance Tests Response Time Tests should respond to search queries within acceptable time" name="Performance Tests Response Time Tests should respond to search queries within acceptable time" time="0.048">
+    </testcase>
+    <testcase classname="Performance Tests Response Time Tests should validate HTML quickly" name="Performance Tests Response Time Tests should validate HTML quickly" time="0.008">
+    </testcase>
+    <testcase classname="Performance Tests Response Time Tests should handle accessibility checks efficiently" name="Performance Tests Response Time Tests should handle accessibility checks efficiently" time="0.004">
+    </testcase>
+    <testcase classname="Performance Tests Concurrent Operations Tests should handle multiple concurrent search requests" name="Performance Tests Concurrent Operations Tests should handle multiple concurrent search requests" time="0.026">
+    </testcase>
+    <testcase classname="Performance Tests Concurrent Operations Tests should handle mixed operation types concurrently" name="Performance Tests Concurrent Operations Tests should handle mixed operation types concurrently" time="0.011">
+      <failure>Error: expect(received).toBeDefined()
+
+Received: undefined
+    at /Users/alex/Desktop/MCP-DSFR/test/performance/load-tests.test.js:203:32
+    at Array.forEach (&lt;anonymous&gt;)
+    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/MCP-DSFR/test/performance/load-tests.test.js:202:15)</failure>
+    </testcase>
+    <testcase classname="Performance Tests Large Data Handling Tests should handle large HTML validation efficiently" name="Performance Tests Large Data Handling Tests should handle large HTML validation efficiently" time="0.033">
+    </testcase>
+    <testcase classname="Performance Tests Large Data Handling Tests should handle many search results efficiently" name="Performance Tests Large Data Handling Tests should handle many search results efficiently" time="0">
+    </testcase>
+    <testcase classname="Performance Tests Input Validation Performance should validate inputs quickly" name="Performance Tests Input Validation Performance should validate inputs quickly" time="0.003">
+    </testcase>
+    <testcase classname="Performance Tests Input Validation Performance should sanitize large inputs efficiently" name="Performance Tests Input Validation Performance should sanitize large inputs efficiently" time="0">
+    </testcase>
+    <testcase classname="Performance Tests Resource Cleanup Tests should not create memory leaks with repeated operations" name="Performance Tests Resource Cleanup Tests should not create memory leaks with repeated operations" time="0.727">
+    </testcase>
+    <testcase classname="Performance Tests Stress Tests should handle rapid consecutive requests" name="Performance Tests Stress Tests should handle rapid consecutive requests" time="0.312">
+    </testcase>
+  </testsuite>
+  <testsuite name="GeneratorService" errors="0" failures="0" skipped="0" timestamp="2025-08-10T12:14:12" time="2.852" tests="24">
+    <testcase classname="GeneratorService constructor should initialize with source parser" name="GeneratorService constructor should initialize with source parser" time="0.003">
     </testcase>
     <testcase classname="GeneratorService initialize should initialize the source parser" name="GeneratorService initialize should initialize the source parser" time="0.001">
     </testcase>
-    <testcase classname="GeneratorService initialize should not re-initialize if already initialized" name="GeneratorService initialize should not re-initialize if already initialized" time="0">
+    <testcase classname="GeneratorService initialize should not re-initialize if already initialized" name="GeneratorService initialize should not re-initialize if already initialized" time="0.001">
     </testcase>
-    <testcase classname="GeneratorService generateComponent should generate vanilla component successfully" name="GeneratorService generateComponent should generate vanilla component successfully" time="0.88">
+    <testcase classname="GeneratorService generateComponent should generate vanilla component successfully" name="GeneratorService generateComponent should generate vanilla component successfully" time="1.151">
     </testcase>
-    <testcase classname="GeneratorService generateComponent should generate React component" name="GeneratorService generateComponent should generate React component" time="0.288">
+    <testcase classname="GeneratorService generateComponent should generate React component" name="GeneratorService generateComponent should generate React component" time="0.243">
     </testcase>
-    <testcase classname="GeneratorService generateComponent should generate Vue component" name="GeneratorService generateComponent should generate Vue component" time="0.214">
+    <testcase classname="GeneratorService generateComponent should generate Vue component" name="GeneratorService generateComponent should generate Vue component" time="0.211">
     </testcase>
-    <testcase classname="GeneratorService generateComponent should generate Angular component" name="GeneratorService generateComponent should generate Angular component" time="0.193">
+    <testcase classname="GeneratorService generateComponent should generate Angular component" name="GeneratorService generateComponent should generate Angular component" time="0.213">
     </testcase>
-    <testcase classname="GeneratorService generateComponent should handle non-existent component" name="GeneratorService generateComponent should handle non-existent component" time="0.199">
+    <testcase classname="GeneratorService generateComponent should handle non-existent component" name="GeneratorService generateComponent should handle non-existent component" time="0.203">
     </testcase>
-    <testcase classname="GeneratorService generateComponent should handle unsupported framework" name="GeneratorService generateComponent should handle unsupported framework" time="0.195">
+    <testcase classname="GeneratorService generateComponent should handle unsupported framework" name="GeneratorService generateComponent should handle unsupported framework" time="0.199">
     </testcase>
-    <testcase classname="GeneratorService generateComponent should use default framework when not specified" name="GeneratorService generateComponent should use default framework when not specified" time="0.204">
+    <testcase classname="GeneratorService generateComponent should use default framework when not specified" name="GeneratorService generateComponent should use default framework when not specified" time="0.328">
     </testcase>
     <testcase classname="GeneratorService generateVanillaComponent should generate HTML section" name="GeneratorService generateVanillaComponent should generate HTML section" time="0">
     </testcase>
@@ -442,40 +476,6 @@ Received string:    &quot;# Composant DSFR avancé : custom-widget·
     <testcase classname="GeneratorService convertClassesToFramework should convert CSS classes for React" name="GeneratorService convertClassesToFramework should convert CSS classes for React" time="0">
     </testcase>
     <testcase classname="GeneratorService convertClassesToFramework should handle Vue.js class binding" name="GeneratorService convertClassesToFramework should handle Vue.js class binding" time="0">
-    </testcase>
-  </testsuite>
-  <testsuite name="Performance Tests" errors="0" failures="1" skipped="0" timestamp="2025-08-10T10:36:44" time="2.542" tests="13">
-    <testcase classname="Performance Tests Memory Usage Tests should not exceed memory limits during initialization" name="Performance Tests Memory Usage Tests should not exceed memory limits during initialization" time="0.072">
-    </testcase>
-    <testcase classname="Performance Tests Memory Usage Tests should properly cleanup after operations" name="Performance Tests Memory Usage Tests should properly cleanup after operations" time="0.109">
-    </testcase>
-    <testcase classname="Performance Tests Response Time Tests should respond to search queries within acceptable time" name="Performance Tests Response Time Tests should respond to search queries within acceptable time" time="0.047">
-    </testcase>
-    <testcase classname="Performance Tests Response Time Tests should validate HTML quickly" name="Performance Tests Response Time Tests should validate HTML quickly" time="0.007">
-    </testcase>
-    <testcase classname="Performance Tests Response Time Tests should handle accessibility checks efficiently" name="Performance Tests Response Time Tests should handle accessibility checks efficiently" time="0.004">
-    </testcase>
-    <testcase classname="Performance Tests Concurrent Operations Tests should handle multiple concurrent search requests" name="Performance Tests Concurrent Operations Tests should handle multiple concurrent search requests" time="0.023">
-    </testcase>
-    <testcase classname="Performance Tests Concurrent Operations Tests should handle mixed operation types concurrently" name="Performance Tests Concurrent Operations Tests should handle mixed operation types concurrently" time="0.009">
-      <failure>Error: expect(received).toBeDefined()
-
-Received: undefined
-    at /Users/alex/Desktop/MCP-DSFR/test/performance/load-tests.test.js:203:32
-    at Array.forEach (&lt;anonymous&gt;)
-    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/MCP-DSFR/test/performance/load-tests.test.js:202:15)</failure>
-    </testcase>
-    <testcase classname="Performance Tests Large Data Handling Tests should handle large HTML validation efficiently" name="Performance Tests Large Data Handling Tests should handle large HTML validation efficiently" time="0.032">
-    </testcase>
-    <testcase classname="Performance Tests Large Data Handling Tests should handle many search results efficiently" name="Performance Tests Large Data Handling Tests should handle many search results efficiently" time="0">
-    </testcase>
-    <testcase classname="Performance Tests Input Validation Performance should validate inputs quickly" name="Performance Tests Input Validation Performance should validate inputs quickly" time="0.003">
-    </testcase>
-    <testcase classname="Performance Tests Input Validation Performance should sanitize large inputs efficiently" name="Performance Tests Input Validation Performance should sanitize large inputs efficiently" time="0">
-    </testcase>
-    <testcase classname="Performance Tests Resource Cleanup Tests should not create memory leaks with repeated operations" name="Performance Tests Resource Cleanup Tests should not create memory leaks with repeated operations" time="0.703">
-    </testcase>
-    <testcase classname="Performance Tests Stress Tests should handle rapid consecutive requests" name="Performance Tests Stress Tests should handle rapid consecutive requests" time="0.211">
     </testcase>
   </testsuite>
 </testsuites>

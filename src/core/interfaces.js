@@ -41,7 +41,7 @@ class IDataRepository extends IService {
    * @param {string} id - Identifiant unique
    * @returns {Promise<Object|null>}
    */
-  async findById(id) {
+  async findById(_id) {
     throw new Error('findById() doit être implémentée');
   }
 
@@ -51,7 +51,7 @@ class IDataRepository extends IService {
    * @param {Object} options - Options (pagination, tri, etc.)
    * @returns {Promise<Array>}
    */
-  async findAll(criteria = {}, options = {}) {
+  async findAll(_criteria = {}, _options = {}) {
     throw new Error('findAll() doit être implémentée');
   }
 
@@ -61,7 +61,7 @@ class IDataRepository extends IService {
    * @param {Object} options - Options de recherche
    * @returns {Promise<Array>}
    */
-  async search(query, options = {}) {
+  async search(_query, _options = {}) {
     throw new Error('search() doit être implémentée');
   }
 
@@ -70,7 +70,7 @@ class IDataRepository extends IService {
    * @param {Object} criteria - Critères de comptage
    * @returns {Promise<number>}
    */
-  async count(criteria = {}) {
+  async count(_criteria = {}) {
     throw new Error('count() doit être implémentée');
   }
 }
@@ -84,7 +84,7 @@ class ICacheService extends IService {
    * @param {string} key - Clé de cache
    * @returns {Promise<any|null>}
    */
-  async get(key) {
+  async get(_key) {
     throw new Error('get() doit être implémentée');
   }
 
@@ -95,7 +95,7 @@ class ICacheService extends IService {
    * @param {number} ttl - Durée de vie en millisecondes
    * @returns {Promise<void>}
    */
-  async set(key, value, ttl = null) {
+  async set(_key, _value, _ttl = null) {
     throw new Error('set() doit être implémentée');
   }
 
@@ -104,7 +104,7 @@ class ICacheService extends IService {
    * @param {string} key - Clé à supprimer
    * @returns {Promise<boolean>}
    */
-  async delete(key) {
+  async delete(_key) {
     throw new Error('delete() doit être implémentée');
   }
 
@@ -113,7 +113,7 @@ class ICacheService extends IService {
    * @param {string} pattern - Pattern optionnel
    * @returns {Promise<void>}
    */
-  async clear(pattern = null) {
+  async clear(_pattern = null) {
     throw new Error('clear() doit être implémentée');
   }
 
@@ -136,7 +136,7 @@ class IValidationService extends IService {
    * @param {Object} rules - Règles de validation
    * @returns {Promise<Object>} Résultat de validation
    */
-  async validate(data, rules = {}) {
+  async validate(_data, _rules = {}) {
     throw new Error('validate() doit être implémentée');
   }
 
@@ -146,7 +146,7 @@ class IValidationService extends IService {
    * @param {Object} schema - Schéma de validation
    * @returns {Promise<Object>} Résultat de validation
    */
-  async validateSchema(data, schema) {
+  async validateSchema(_data, _schema) {
     throw new Error('validateSchema() doit être implémentée');
   }
 }
@@ -162,7 +162,7 @@ class IGeneratorService extends IService {
    * @param {Object} options - Options de génération
    * @returns {Promise<Object>} Contenu généré
    */
-  async generate(template, data, options = {}) {
+  async generate(_template, _data, _options = {}) {
     throw new Error('generate() doit être implémentée');
   }
 
@@ -185,7 +185,7 @@ class IConfigService extends IService {
    * @param {any} defaultValue - Valeur par défaut
    * @returns {any}
    */
-  get(key, defaultValue = null) {
+  get(_key, _defaultValue = null) {
     throw new Error('get() doit être implémentée');
   }
 
@@ -195,7 +195,7 @@ class IConfigService extends IService {
    * @param {any} value - Valeur à définir
    * @returns {void}
    */
-  set(key, value) {
+  set(_key, _value) {
     throw new Error('set() doit être implémentée');
   }
 
@@ -204,7 +204,7 @@ class IConfigService extends IService {
    * @param {string} key - Clé à vérifier
    * @returns {boolean}
    */
-  has(key) {
+  has(_key) {
     throw new Error('has() doit être implémentée');
   }
 }
@@ -218,7 +218,7 @@ class ILoggerService extends IService {
    * @param {string} message - Message à logger
    * @param {Object} meta - Métadonnées optionnelles
    */
-  info(message, meta = {}) {
+  info(_message, _meta = {}) {
     throw new Error('info() doit être implémentée');
   }
 
@@ -228,7 +228,7 @@ class ILoggerService extends IService {
    * @param {Error} error - Erreur optionnelle
    * @param {Object} meta - Métadonnées optionnelles
    */
-  error(message, error = null, meta = {}) {
+  error(_message, _error = null, _meta = {}) {
     throw new Error('error() doit être implémentée');
   }
 
@@ -237,7 +237,7 @@ class ILoggerService extends IService {
    * @param {string} message - Message de warning
    * @param {Object} meta - Métadonnées optionnelles
    */
-  warn(message, meta = {}) {
+  warn(_message, _meta = {}) {
     throw new Error('warn() doit être implémentée');
   }
 
@@ -246,7 +246,7 @@ class ILoggerService extends IService {
    * @param {string} message - Message de debug
    * @param {Object} meta - Métadonnées optionnelles
    */
-  debug(message, meta = {}) {
+  debug(_message, _meta = {}) {
     throw new Error('debug() doit être implémentée');
   }
 }

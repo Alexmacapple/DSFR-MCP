@@ -91,7 +91,7 @@ class Container {
    */
   dispose() {
     // Appelle dispose() sur tous les singletons qui l'implémentent
-    for (const [name, service] of this.services) {
+    for (const [, service] of this.services) {
       if (service.type === 'singleton' && service.instance) {
         if (typeof service.instance.dispose === 'function') {
           service.instance.dispose();

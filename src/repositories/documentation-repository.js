@@ -300,7 +300,7 @@ class DocumentationRepository extends IDataRepository {
     };
   }
 
-  detectCategory(filename, title, content) {
+  detectCategory(filename, title, _content) {
     const lowerTitle = title.toLowerCase();
 
     if (filename.includes('fondamentaux') || lowerTitle.includes('fondamentaux')) return 'core';
@@ -312,7 +312,7 @@ class DocumentationRepository extends IDataRepository {
     return 'component';
   }
 
-  detectComponentType(filename, title, content) {
+  detectComponentType(filename, title, _content) {
     const lowerTitle = title.toLowerCase();
 
     if (lowerTitle.includes('formulaire') || lowerTitle.includes('champ')) return 'form';
