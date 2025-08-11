@@ -5,6 +5,32 @@ Tous les changements notables de ce projet seront documentés dans ce fichier.
 Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/),
 et ce projet adhère au [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.1] - 2025-08-11
+
+### 🧹 Repository Cleanup & Documentation Modernization
+
+> **🎯 Major cleanup** - Removal of obsolete files and modernization of documentation structure
+
+#### ✨ Repository Cleanup
+- **✅ Removed obsolete installation scripts** : `install.sh`, `install.ps1`, `restart-mcp.sh`
+- **✅ Removed outdated guides** : `GUIDE_INSTALLATION_MCP_CLAUDE.md`, `GUIDE_PERFORMANCE.md`, `QUICKSTART.md`
+- **✅ Removed obsolete roadmap** : `ROADMAP.md` (project reached maturity)
+- **✅ Updated CLAUDE.md** : English format with current commands and architecture
+- **✅ Consolidated documentation** : All essential info now in README.md
+
+#### 🔧 Modern Architecture Focus
+- **Docker-first approach** : Single installation method via `./docker/scripts/configure-claude.sh`
+- **Simplified user experience** : No more confusing multiple installation methods
+- **Clean repository structure** : Removed 6 obsolete files (1,400+ lines of outdated content)
+- **MCP SDK compatibility** : Updated for latest MCP SDK standards
+
+#### 📖 Documentation Strategy
+- **Single source of truth** : README.md as primary documentation
+- **Automated installation** : Docker scripts handle all complexity
+- **Clear development workflow** : CLAUDE.md for developers, README.md for users
+
+---
+
 ## [1.0.0] - 2025-08-09
 
 ### 🎯 Version Stable de Référence
