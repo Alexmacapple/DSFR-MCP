@@ -4606,114 +4606,49 @@ $grey-light: #F6F6F6;
 
       // Outils avancés
       case 'analyze_dsfr_usage':
-        return {
-          content: [{
-            type: 'text',
-            text: `📊 **ANALYSE D'UTILISATION DSFR** - ${args.source_code?.length || 0} caractères analysés
+        // 🚀 IMPLÉMENTATION ISSUE #35 - AST PARSING RÉEL
+        const HTMLAnalyzer = require('./services/html-analyzer');
+        const analyzer = new HTMLAnalyzer();
+        
+        try {
+          const analysisReport = analyzer.analyzeHTML(args.source_code, {
+            project_type: args.project_type,
+            analysis_depth: args.analysis_depth
+          });
+          
+          return {
+            content: [{
+              type: 'text',
+              text: analysisReport
+            }]
+          };
+        } catch (error) {
+          return {
+            content: [{
+              type: 'text', 
+              text: `📊 **ERREUR D'ANALYSE HTML** 
 
-## 🎯 **Projet ${args.project_type || 'auto-détecté'}** - Analyse ${args.analysis_depth || 'détaillée'}
+## ⚠️ **Erreur lors du parsing AST**
+${error.message}
 
-### ✅ **CONFORMITÉ DSFR DÉTECTÉE**
+### 💡 **Vérifiez que votre code HTML est valide**
+- Toutes les balises sont fermées
+- Pas de caractères spéciaux non échappés
+- Structure HTML complète
 
-#### 🟢 **Classes DSFR utilisées :**
-- \`fr-container\` : ✅ Mise en page principale
-- \`fr-btn\` : ✅ 3 boutons détectés
-- \`fr-input\` : ✅ 2 champs de formulaire
-- \`fr-card\` : ✅ 1 carte présente
-- \`fr-nav\` : ❌ Navigation manquante
-
-#### 📊 **Statistiques d'usage :**
-\`\`\`
-Classes DSFR trouvées : 12/20 (60%)
-Structure sémantique : 8/10 (80%)
-Accessibilité RGAA : 7/10 (70%)
-Responsive design : 9/10 (90%)
-\`\`\`
-
-### 🔍 **ANALYSE DÉTAILLÉE**
-
-#### 🎨 **Design System (Bon)**
-- **Couleurs** : Palette DSFR respectée (Bleu France #000091)
-- **Typographie** : Font Marianne détectée ✅
-- **Espacement** : Variables DSFR utilisées ✅
-- **Grille** : fr-grid-row implémentée ✅
-
-#### ⚡ **Structure HTML analysée :**
+### 📋 **Exemple valide :**
 \`\`\`html
-<!-- Structure détectée -->
-<main class="fr-container">
-  <div class="fr-grid-row fr-grid-row--gutters">
-    <div class="fr-col-12 fr-col-md-8">
-      <!-- Contenu conforme DSFR -->
-      <button class="fr-btn fr-btn--primary">Action</button>
-      <div class="fr-card">
-        <div class="fr-card__body">
-          <h2 class="fr-card__title">Titre</h2>
-        </div>
-      </div>
-    </div>
-  </div>
-</main>
+<div class="fr-container">
+  <button class="fr-btn fr-btn--primary">Test</button>
+  <input class="fr-input" type="text" id="test">
+  <label class="fr-label" for="test">Label</label>
+</div>
 \`\`\`
 
-### 📈 **RECOMMANDATIONS D'AMÉLIORATION**
-
-#### 🔴 **Critique (À corriger immédiatement)**
-1. **Navigation manquante** : Ajouter \`<nav class="fr-nav">\`
-2. **Labels manquants** : 2 inputs sans \`<label>\`
-3. **ARIA attributes** : Ajouter \`aria-label\` aux boutons icônes
-
-#### 🟡 **Important (À planifier)**
-1. **Footer DSFR** : Ajouter \`<footer class="fr-footer">\`
-2. **Header institutionnel** : Implémenter \`<header class="fr-header">\`
-3. **Breadcrumb** : Ajouter fil d'Ariane \`fr-breadcrumb\`
-
-#### ✅ **Code d'amélioration suggéré :**
-\`\`\`html
-<!-- Navigation DSFR complète -->
-<nav class="fr-nav" role="navigation" aria-label="Menu principal">
-  <ul class="fr-nav__list">
-    <li class="fr-nav__item">
-      <a class="fr-nav__link" href="/" aria-current="page">
-        Accueil
-      </a>
-    </li>
-    <li class="fr-nav__item">
-      <a class="fr-nav__link" href="/services">Services</a>
-    </li>
-  </ul>
-</nav>
-
-<!-- Header institutionnel -->
-<header class="fr-header">
-  <div class="fr-header__body">
-    <div class="fr-container">
-      <div class="fr-header__body-row">
-        <div class="fr-header__brand">
-          <p class="fr-header__brand-top">
-            République<br>Française
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-\`\`\`
-
-### 🏆 **SCORE GLOBAL DSFR**
-
-| Critère | Score actuel | Score optimal | Gap |
-|---------|--------------|---------------|-----|
-| **Classes DSFR** | 60% | 90% | +30% |
-| **Accessibilité** | 70% | 95% | +25% |  
-| **Sémantique** | 80% | 95% | +15% |
-| **Performance** | 85% | 95% | +10% |
-
-**Score final : 74/100** → **Objectif : 94/100** (+20 points)
-
-💀 **YOLO MODE** - Analyse complète avec recommandations actionables !`
-          }]
-        };
+🔧 **Parser AST real activé** - Issue #35 implémentée !`
+            }]
+          };
+        }
 
       case 'suggest_improvements':
         return {

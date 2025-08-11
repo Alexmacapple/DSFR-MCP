@@ -55,7 +55,9 @@
     "jsdom": "^23.0.0",
     "lru-cache": "^11.1.0",
     "marked": "^9.1.0",
+    "node-html-parser": "^7.0.1",
     "ora": "^5.4.1",
+    "postcss": "^8.5.6",
     "prettier": "^3.2.5"
   },
   "devDependencies": {
