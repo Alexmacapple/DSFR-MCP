@@ -4072,357 +4072,87 @@ ${args.target_framework === 'react' ? 'npm install react react-dom' :
         };
 
       case 'get_dsfr_icons':
-        return {
-          content: [{
-            type: 'text',
-            text: `🎨 **ICÔNES DSFR DISPONIBLES** - ${args.category || 'Toutes catégories'}
+        // 🚀 MISE À JOUR ISSUE #36 - Intégration base de données d'icônes
+        const DSFRIconDatabase = require('./services/icon-database');
+        const iconDB = new DSFRIconDatabase();
+        
+        try {
+          const searchResults = iconDB.searchIcons(
+            args.search || '', 
+            args.category || null, 
+            20
+          );
+          
+          const stats = iconDB.getStatistics();
+          
+          return {
+            content: [{
+              type: 'text',
+              text: `🎨 **ICÔNES DSFR DISPONIBLES** - ${args.category ? iconDB.categories[args.category]?.name || args.category : 'Toutes catégories'}
 
-## 🎯 **Recherche : "${args.search || 'toutes les icônes'}"** | Catégorie : **${args.category || 'Toutes'}**
+## 🎯 **Recherche : "${args.search || 'toutes les icônes'}"** | Résultats : **${searchResults.length}/${stats.total}**
 
-### 📦 **Total : 249+ icônes officielles DSFR disponibles**
+${searchResults.length > 0 ? 
+  `### 🔍 **Icônes trouvées :**
 
-### 🔍 **Icônes par catégorie :**
+${searchResults.map((icon, index) => 
+  `#### ${index + 1}. ${icon.svg} **${icon.name}** (\`fr-icon-${icon.id}\`)
+- **Catégorie** : ${iconDB.categories[icon.category]?.name}
+- **Description** : ${icon.description}
+- **Usage** : ${icon.usage.join(', ')}
 
-#### 📱 **Interface & Navigation (45 icônes)**
 \`\`\`html
-<!-- Menu & Navigation -->
-<span class="fr-icon-menu-line" aria-hidden="true"></span>
-<span class="fr-icon-close-line" aria-hidden="true"></span>
-<span class="fr-icon-arrow-left-line" aria-hidden="true"></span>
-<span class="fr-icon-arrow-right-line" aria-hidden="true"></span>
-<span class="fr-icon-arrow-up-line" aria-hidden="true"></span>
-<span class="fr-icon-arrow-down-line" aria-hidden="true"></span>
-<span class="fr-icon-external-link-line" aria-hidden="true"></span>
-<span class="fr-icon-home-4-line" aria-hidden="true"></span>
-<span class="fr-icon-search-line" aria-hidden="true"></span>
-<span class="fr-icon-more-line" aria-hidden="true"></span>
+<!-- ${icon.name} -->
+<span class="fr-icon-${icon.id}" aria-hidden="true" title="${icon.description}"></span>
 
-<!-- Actions -->
-<span class="fr-icon-add-line" aria-hidden="true"></span>
-<span class="fr-icon-subtract-line" aria-hidden="true"></span>
-<span class="fr-icon-edit-line" aria-hidden="true"></span>
-<span class="fr-icon-delete-line" aria-hidden="true"></span>
-<span class="fr-icon-download-line" aria-hidden="true"></span>
-<span class="fr-icon-upload-line" aria-hidden="true"></span>
-<span class="fr-icon-refresh-line" aria-hidden="true"></span>
-<span class="fr-icon-save-line" aria-hidden="true"></span>
-<span class="fr-icon-print-line" aria-hidden="true"></span>
-<span class="fr-icon-share-line" aria-hidden="true"></span>
+<!-- Avec bouton -->
+<button class="fr-btn fr-btn--icon-left fr-icon-${icon.id}">
+  ${icon.name}
+</button>
+
+<!-- Variantes -->
+<span class="fr-icon-${icon.id} fr-icon--sm" aria-hidden="true"></span> <!-- 16px -->
+<span class="fr-icon-${icon.id}" aria-hidden="true"></span> <!-- 24px -->
+<span class="fr-icon-${icon.id} fr-icon--lg" aria-hidden="true"></span> <!-- 32px -->
+\`\`\`
+`).join('\n\n')}` :
+  `### ❌ **Aucune icône trouvée**
+  
+Essayez avec : menu, user, download, settings, mail, search, add, etc.`
+}
+
+### 📊 **Statistiques globales DSFR**
+- **Total** : ${stats.total} icônes officielles
+- **Catégories** : ${stats.categories.map(cat => `${cat.name} (${cat.count})`).join(', ')}
+
+### 🎨 **Variantes disponibles**
+\`\`\`html
+<!-- Tailles -->
+<span class="fr-icon-menu-line fr-icon--sm"></span> <!-- 16px -->
+<span class="fr-icon-menu-line"></span> <!-- 24px défaut -->  
+<span class="fr-icon-menu-line fr-icon--lg"></span> <!-- 32px -->
+
+<!-- Couleurs -->
+<span class="fr-icon-heart-line fr-icon--blue-france"></span>
+<span class="fr-icon-heart-line fr-icon--red-marianne"></span>
+<span class="fr-icon-heart-line fr-icon--green-menthe"></span>
 \`\`\`
 
-#### 🏢 **Administration & Services (38 icônes)**
+## 💻 **Intégration rapide**
+
+### Boutons avec icônes
 \`\`\`html
-<!-- Administration -->
-<span class="fr-icon-government-line" aria-hidden="true"></span>
-<span class="fr-icon-community-line" aria-hidden="true"></span>
-<span class="fr-icon-building-line" aria-hidden="true"></span>
-<span class="fr-icon-organization-chart" aria-hidden="true"></span>
-<span class="fr-icon-medal-line" aria-hidden="true"></span>
-<span class="fr-icon-shield-check-line" aria-hidden="true"></span>
-
-<!-- Services publics -->
-<span class="fr-icon-service-public-line" aria-hidden="true"></span>
-<span class="fr-icon-passport-line" aria-hidden="true"></span>
-<span class="fr-icon-article-line" aria-hidden="true"></span>
-<span class="fr-icon-file-text-line" aria-hidden="true"></span>
-<span class="fr-icon-folder-line" aria-hidden="true"></span>
-<span class="fr-icon-archive-line" aria-hidden="true"></span>
-
-<!-- Juridique -->
-<span class="fr-icon-scales-3-line" aria-hidden="true"></span>
-<span class="fr-icon-judge-line" aria-hidden="true"></span>
-<span class="fr-icon-law-line" aria-hidden="true"></span>
-<span class="fr-icon-contract-line" aria-hidden="true"></span>
-\`\`\`
-
-#### 👤 **Utilisateur & Profil (32 icônes)**
-\`\`\`html
-<!-- Profil utilisateur -->
-<span class="fr-icon-user-line" aria-hidden="true"></span>
-<span class="fr-icon-user-add-line" aria-hidden="true"></span>
-<span class="fr-icon-user-settings-line" aria-hidden="true"></span>
-<span class="fr-icon-account-circle-line" aria-hidden="true"></span>
-<span class="fr-icon-team-line" aria-hidden="true"></span>
-<span class="fr-icon-group-line" aria-hidden="true"></span>
-
-<!-- Authentification -->
-<span class="fr-icon-lock-line" aria-hidden="true"></span>
-<span class="fr-icon-lock-unlock-line" aria-hidden="true"></span>
-<span class="fr-icon-key-2-line" aria-hidden="true"></span>
-<span class="fr-icon-login-circle-line" aria-hidden="true"></span>
-<span class="fr-icon-logout-circle-line" aria-hidden="true"></span>
-
-<!-- Paramètres -->
-<span class="fr-icon-settings-3-line" aria-hidden="true"></span>
-<span class="fr-icon-tools-line" aria-hidden="true"></span>
-<span class="fr-icon-equalizer-line" aria-hidden="true"></span>
-\`\`\`
-
-#### 💬 **Communication (29 icônes)**
-\`\`\`html
-<!-- Messages -->
-<span class="fr-icon-mail-line" aria-hidden="true"></span>
-<span class="fr-icon-mail-open-line" aria-hidden="true"></span>
-<span class="fr-icon-send-plane-line" aria-hidden="true"></span>
-<span class="fr-icon-chat-3-line" aria-hidden="true"></span>
-<span class="fr-icon-question-answer-line" aria-hidden="true"></span>
-<span class="fr-icon-discuss-line" aria-hidden="true"></span>
-
-<!-- Téléphone -->
-<span class="fr-icon-phone-line" aria-hidden="true"></span>
-<span class="fr-icon-smartphone-line" aria-hidden="true"></span>
-<span class="fr-icon-voicemail-line" aria-hidden="true"></span>
-
-<!-- Réseaux sociaux -->
-<span class="fr-icon-facebook-circle-line" aria-hidden="true"></span>
-<span class="fr-icon-twitter-line" aria-hidden="true"></span>
-<span class="fr-icon-linkedin-box-line" aria-hidden="true"></span>
-<span class="fr-icon-youtube-line" aria-hidden="true"></span>
-<span class="fr-icon-instagram-line" aria-hidden="true"></span>
-\`\`\`
-
-#### ⚠️ **États & Alertes (25 icônes)**
-\`\`\`html
-<!-- Succès -->
-<span class="fr-icon-check-line" aria-hidden="true"></span>
-<span class="fr-icon-checkbox-circle-line" aria-hidden="true"></span>
-<span class="fr-icon-success-line" aria-hidden="true"></span>
-
-<!-- Erreurs -->
-<span class="fr-icon-error-warning-line" aria-hidden="true"></span>
-<span class="fr-icon-close-circle-line" aria-hidden="true"></span>
-<span class="fr-icon-alert-line" aria-hidden="true"></span>
-
-<!-- Information -->
-<span class="fr-icon-information-line" aria-hidden="true"></span>
-<span class="fr-icon-question-line" aria-hidden="true"></span>
-<span class="fr-icon-lightbulb-line" aria-hidden="true"></span>
-
-<!-- Attention -->
-<span class="fr-icon-warning-line" aria-hidden="true"></span>
-<span class="fr-icon-error-warning-fill" aria-hidden="true"></span>
-<span class="fr-icon-forbid-line" aria-hidden="true"></span>
-\`\`\`
-
-#### 📅 **Temps & Planning (22 icônes)**
-\`\`\`html
-<!-- Calendrier -->
-<span class="fr-icon-calendar-line" aria-hidden="true"></span>
-<span class="fr-icon-calendar-event-line" aria-hidden="true"></span>
-<span class="fr-icon-calendar-2-line" aria-hidden="true"></span>
-<span class="fr-icon-calendar-todo-line" aria-hidden="true"></span>
-
-<!-- Temps -->
-<span class="fr-icon-time-line" aria-hidden="true"></span>
-<span class="fr-icon-timer-line" aria-hidden="true"></span>
-<span class="fr-icon-alarm-line" aria-hidden="true"></span>
-<span class="fr-icon-hourglass-line" aria-hidden="true"></span>
-
-<!-- Planning -->
-<span class="fr-icon-todo-line" aria-hidden="true"></span>
-<span class="fr-icon-task-line" aria-hidden="true"></span>
-<span class="fr-icon-checkbox-line" aria-hidden="true"></span>
-\`\`\`
-
-#### 🚗 **Transport & Mobilité (28 icônes)**
-\`\`\`html
-<!-- Véhicules -->
-<span class="fr-icon-car-line" aria-hidden="true"></span>
-<span class="fr-icon-truck-line" aria-hidden="true"></span>
-<span class="fr-icon-bus-line" aria-hidden="true"></span>
-<span class="fr-icon-train-line" aria-hidden="true"></span>
-<span class="fr-icon-subway-line" aria-hidden="true"></span>
-<span class="fr-icon-plane-line" aria-hidden="true"></span>
-<span class="fr-icon-ship-line" aria-hidden="true"></span>
-<span class="fr-icon-bike-line" aria-hidden="true"></span>
-
-<!-- Mobilité -->
-<span class="fr-icon-roadmap-line" aria-hidden="true"></span>
-<span class="fr-icon-navigation-line" aria-hidden="true"></span>
-<span class="fr-icon-map-pin-line" aria-hidden="true"></span>
-<span class="fr-icon-route-line" aria-hidden="true"></span>
-<span class="fr-icon-compass-3-line" aria-hidden="true"></span>
-
-<!-- Stationnement -->
-<span class="fr-icon-parking-line" aria-hidden="true"></span>
-<span class="fr-icon-gas-station-line" aria-hidden="true"></span>
-\`\`\`
-
-#### 💡 **Énergie & Environnement (20 icônes)**
-\`\`\`html
-<!-- Énergie -->
-<span class="fr-icon-flashlight-line" aria-hidden="true"></span>
-<span class="fr-icon-fire-line" aria-hidden="true"></span>
-<span class="fr-icon-sun-line" aria-hidden="true"></span>
-<span class="fr-icon-leaf-line" aria-hidden="true"></span>
-<span class="fr-icon-plant-line" aria-hidden="true"></span>
-
-<!-- Environnement -->
-<span class="fr-icon-earth-line" aria-hidden="true"></span>
-<span class="fr-icon-recycle-line" aria-hidden="true"></span>
-<span class="fr-icon-drop-line" aria-hidden="true"></span>
-<span class="fr-icon-temp-hot-line" aria-hidden="true"></span>
-<span class="fr-icon-temp-cold-line" aria-hidden="true"></span>
-\`\`\`
-
-### 💻 **Utilisation des icônes DSFR :**
-
-#### 🎯 **Méthode recommandée (spans) :**
-\`\`\`html
-<!-- ✅ RECOMMANDÉ : Avec span et aria-hidden -->
-<span class="fr-icon-home-4-line" aria-hidden="true"></span>
-<span>Accueil</span>
-
-<!-- ✅ Dans un bouton -->
-<button class="fr-btn fr-btn--primary">
-  <span class="fr-icon-download-line" aria-hidden="true"></span>
+<button class="fr-btn fr-btn--icon-left fr-icon-download-line">
   Télécharger
 </button>
-
-<!-- ✅ Dans une carte -->
-<div class="fr-card">
-  <div class="fr-card__body">
-    <div class="fr-card__content">
-      <h3 class="fr-card__title">
-        <span class="fr-icon-service-public-line" aria-hidden="true"></span>
-        Services publics
-      </h3>
-    </div>
-  </div>
-</div>
-\`\`\`
-
-#### 📐 **Tailles disponibles :**
-\`\`\`html
-<!-- Taille par défaut (1rem) -->
-<span class="fr-icon-home-4-line" aria-hidden="true"></span>
-
-<!-- Tailles personnalisées avec CSS -->
-<span class="fr-icon-home-4-line" aria-hidden="true" 
-      style="font-size: 1.5rem;"></span>
-<span class="fr-icon-home-4-line" aria-hidden="true" 
-      style="font-size: 2rem;"></span>
-<span class="fr-icon-home-4-line" aria-hidden="true" 
-      style="font-size: 3rem;"></span>
-\`\`\`
-
-#### 🎨 **Personnalisation couleurs :**
-\`\`\`css
-/* Couleur personnalisée */
-.fr-icon-home-4-line {
-  color: var(--blue-france-sun-113);
-}
-
-/* Couleur au survol */
-.fr-icon-home-4-line:hover {
-  color: var(--red-marianne-main-472);
-}
-
-/* Dans un contexte spécifique */
-.fr-btn .fr-icon-download-line {
-  margin-right: 0.5rem;
-}
-\`\`\`
-
-### 🔗 **CDN et intégration :**
-
-#### 📦 **Via NPM :**
-\`\`\`bash
-npm install @gouvfr/dsfr
-\`\`\`
-
-\`\`\`css
-/* Dans votre CSS */
-@import "@gouvfr/dsfr/dist/dsfr.min.css";
-@import "@gouvfr/dsfr/dist/utility/icons/icons.min.css";
-\`\`\`
-
-#### 🌐 **Via CDN :**
-\`\`\`html
-<!-- CSS principal DSFR -->
-<link href="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.11.2/dist/dsfr.min.css" rel="stylesheet">
-<!-- CSS icônes -->
-<link href="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.11.2/dist/utility/icons/icons.min.css" rel="stylesheet">
-\`\`\`
-
-### 🔍 **Recherche par mot-clé :**
-
-${args.search ? `
-#### 🎯 **Résultats pour "${args.search}" :**
-\`\`\`html
-${args.search.toLowerCase().includes('home') || args.search.toLowerCase().includes('maison') ? '<span class="fr-icon-home-4-line" aria-hidden="true"></span>' : ''}
-${args.search.toLowerCase().includes('mail') || args.search.toLowerCase().includes('email') ? '<span class="fr-icon-mail-line" aria-hidden="true"></span>' : ''}
-${args.search.toLowerCase().includes('phone') || args.search.toLowerCase().includes('téléphone') ? '<span class="fr-icon-phone-line" aria-hidden="true"></span>' : ''}
-${args.search.toLowerCase().includes('user') || args.search.toLowerCase().includes('utilisateur') ? '<span class="fr-icon-user-line" aria-hidden="true"></span>' : ''}
-${args.search.toLowerCase().includes('search') || args.search.toLowerCase().includes('recherche') ? '<span class="fr-icon-search-line" aria-hidden="true"></span>' : ''}
-${args.search.toLowerCase().includes('download') || args.search.toLowerCase().includes('télécharger') ? '<span class="fr-icon-download-line" aria-hidden="true"></span>' : ''}
-${args.search.toLowerCase().includes('car') || args.search.toLowerCase().includes('voiture') ? '<span class="fr-icon-car-line" aria-hidden="true"></span>' : ''}
-${args.search.toLowerCase().includes('calendar') || args.search.toLowerCase().includes('calendrier') ? '<span class="fr-icon-calendar-line" aria-hidden="true"></span>' : ''}
-${args.search.toLowerCase().includes('success') || args.search.toLowerCase().includes('succès') ? '<span class="fr-icon-check-line" aria-hidden="true"></span>' : ''}
-${args.search.toLowerCase().includes('error') || args.search.toLowerCase().includes('erreur') ? '<span class="fr-icon-error-warning-line" aria-hidden="true"></span>' : ''}
-\`\`\`
-` : ''}
-
-### ♿ **Accessibilité des icônes :**
-
-#### ✅ **Bonnes pratiques :**
-\`\`\`html
-<!-- ✅ Icône décorative -->
-<span class="fr-icon-home-4-line" aria-hidden="true"></span>
-<span>Accueil</span>
-
-<!-- ✅ Icône avec texte alternatif -->
-<span class="fr-icon-download-line" aria-label="Télécharger le fichier"></span>
-
-<!-- ✅ Bouton avec icône -->
-<button class="fr-btn" aria-label="Retour à l'accueil">
-  <span class="fr-icon-arrow-left-line" aria-hidden="true"></span>
-  Retour
+<button class="fr-btn fr-btn--secondary fr-btn--icon-right fr-icon-external-link-line">
+  Lien externe
 </button>
 \`\`\`
 
-#### ❌ **À éviter :**
+### Navigation avec icônes
 \`\`\`html
-<!-- ❌ Icône sans indication -->
-<span class="fr-icon-home-4-line"></span>
-
-<!-- ❌ Icône seule sans contexte -->
-<button class="fr-btn">
-  <span class="fr-icon-download-line"></span>
-</button>
-\`\`\`
-
-### 🎨 **Exemples d'usage courants :**
-
-#### 📋 **Formulaire avec icônes :**
-\`\`\`html
-<form class="fr-form">
-  <div class="fr-input-group">
-    <label class="fr-label" for="email">
-      <span class="fr-icon-mail-line" aria-hidden="true"></span>
-      Email
-    </label>
-    <input class="fr-input" type="email" id="email">
-  </div>
-  
-  <div class="fr-input-group">
-    <label class="fr-label" for="phone">
-      <span class="fr-icon-phone-line" aria-hidden="true"></span>
-      Téléphone
-    </label>
-    <input class="fr-input" type="tel" id="phone">
-  </div>
-  
-  <button class="fr-btn fr-btn--primary" type="submit">
-    <span class="fr-icon-send-plane-line" aria-hidden="true"></span>
-    Envoyer
-  </button>
-</form>
-\`\`\`
-
-#### 🧭 **Navigation avec icônes :**
-\`\`\`html
-<nav class="fr-nav" role="navigation">
+<nav class="fr-nav">
   <ul class="fr-nav__list">
     <li class="fr-nav__item">
       <a class="fr-nav__link" href="/">
@@ -4430,45 +4160,190 @@ ${args.search.toLowerCase().includes('error') || args.search.toLowerCase().inclu
         Accueil
       </a>
     </li>
-    <li class="fr-nav__item">
-      <a class="fr-nav__link" href="/services">
-        <span class="fr-icon-service-public-line" aria-hidden="true"></span>
-        Services
-      </a>
-    </li>
-    <li class="fr-nav__item">
-      <a class="fr-nav__link" href="/contact">
-        <span class="fr-icon-mail-line" aria-hidden="true"></span>
-        Contact
-      </a>
-    </li>
   </ul>
 </nav>
 \`\`\`
 
-### 🆕 **Nouveautés DSFR v1.11.2 :**
-- ✅ **12 nouvelles icônes** ajoutées
-- ✅ **Support SVG optimisé** 
-- ✅ **Tailles fluides** améliorées
-- ✅ **Performance** accrue (lazy loading)
-
-### 📊 **Statistiques :**
-\`\`\`
-📦 Total icônes DSFR    : 249+
-🎨 Catégories          : 7 principales
-📱 Interface           : 45 icônes
-🏢 Administration      : 38 icônes  
-👤 Utilisateur         : 32 icônes
-💬 Communication       : 29 icônes
-🚗 Transport           : 28 icônes
-⚠️  États/Alertes      : 25 icônes
-📅 Temps/Planning       : 22 icônes
-💡 Énergie/Environnement: 20 icônes
+## 📦 **Installation**
+\`\`\`html
+<!-- CDN -->
+<link href="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.11.2/dist/utility/icons/icons.min.css" rel="stylesheet">
 \`\`\`
 
-💀 **YOLO NUCLEAR MODE** - Bibliothèque complète des 249+ icônes DSFR avec exemples d'usage, accessibilité et intégration !`
-          }]
-        };
+\`\`\`bash
+# NPM
+npm install @gouvfr/dsfr
+\`\`\`
+
+## ♿ **Accessibilité**
+✅ **aria-hidden="true"** pour icônes décoratives  
+✅ **aria-label** pour icônes informatives  
+✅ **title** pour aide contextuelle  
+✅ **role="img"** si nécessaire
+
+🎯 **Base de données d'icônes DSFR** - ${searchResults.length > 0 ? `${searchResults.length} icônes affichées` : 'Essayez une autre recherche'} !`
+            }]
+          };
+        } catch (error) {
+          return {
+            content: [{
+              type: 'text',
+              text: `🎨 **ERREUR BASE DE DONNÉES ICÔNES**
+
+## ⚠️ **Erreur lors du chargement des icônes**
+${error.message}
+
+### 📋 **Fallback - Icônes principales DSFR**
+
+#### 📱 **Interface & Navigation**
+- \`fr-icon-menu-line\` - Menu hamburger
+- \`fr-icon-close-line\` - Fermer
+- \`fr-icon-arrow-left-line\` - Précédent
+- \`fr-icon-arrow-right-line\` - Suivant
+- \`fr-icon-search-line\` - Recherche
+- \`fr-icon-add-line\` - Ajouter
+- \`fr-icon-edit-line\` - Éditer
+
+#### 👤 **Utilisateur**
+- \`fr-icon-user-line\` - Profil utilisateur
+- \`fr-icon-mail-line\` - Email
+- \`fr-icon-phone-line\` - Téléphone
+- \`fr-icon-lock-line\` - Sécurité
+
+#### 📄 **Documents**
+- \`fr-icon-file-line\` - Fichier
+- \`fr-icon-download-line\` - Télécharger
+- \`fr-icon-upload-line\` - Téléverser
+- \`fr-icon-print-line\` - Imprimer
+
+### 💻 **Usage de base**
+\`\`\`html
+<span class="fr-icon-menu-line" aria-hidden="true"></span>
+<button class="fr-btn fr-btn--icon-left fr-icon-download-line">
+  Télécharger
+</button>
+\`\`\`
+
+🔧 **Base de données d'icônes indisponible** - Utilisation fallback`
+            }]
+          };
+        }
+
+      // 🚀 NOUVELLE IMPLÉMENTATION ISSUE #36 - VISUAL ICON PREVIEW  
+      case 'get_dsfr_icons_visual':
+        const iconDBVisual = new DSFRIconDatabase();
+        
+        try {
+          // Recherche des icônes selon les paramètres
+          const searchResults = iconDBVisual.searchIcons(
+            args.search || '', 
+            args.category || null, 
+            args.limit || 20
+          );
+          
+          // Statistiques globales
+          const stats = iconDBVisual.getStatistics();
+          
+          // Génération du rapport avec aperçus visuels
+          let report = `🎨 **ICÔNES DSFR AVEC APERÇU VISUEL** - ${args.category ? iconDBVisual.categories[args.category]?.name : 'Toutes catégories'}
+
+## 🎯 **Recherche : "${args.search || 'toutes les icônes'}"** | Résultats : **${searchResults.length}**
+
+### 📊 **Statistiques globales**
+- **Total** : ${stats.total} icônes officielles DSFR
+- **Catégories** : ${stats.categories.length} catégories disponibles  
+- **Variantes** : ${stats.sizes} tailles × ${stats.colors} couleurs = ${stats.sizes * stats.colors} combinaisons
+
+`;
+
+          // Grille visuelle des résultats
+          if (searchResults.length > 0) {
+            report += iconDBVisual.generateVisualGrid(searchResults, true);
+            
+            // Code d'intégration
+            report += `\n\n${iconDBVisual.generateIntegrationCode(searchResults)}`;
+          } else {
+            report += `## ❌ **Aucune icône trouvée**
+
+### 💡 **Suggestions de recherche :**
+- **Navigation** : menu, arrow, close, search
+- **Actions** : add, edit, delete, save, download  
+- **Utilisateur** : user, group, mail, phone
+- **Système** : settings, tools, lock, refresh
+- **Institution** : government, france, certificate
+
+### 📋 **Catégories disponibles :**
+${Object.entries(iconDBVisual.categories).map(([key, cat]) => 
+  `- **${cat.name}** (${cat.count} icônes) : ${cat.description}`
+).join('\n')}`;
+          }
+
+          // Footer avec informations techniques
+          report += `\n\n## 📦 **Installation DSFR Icons**
+
+### CDN (recommandé)
+\`\`\`html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.11.2/dist/utility/icons/icons.min.css">
+\`\`\`
+
+### NPM
+\`\`\`bash
+npm install @gouvfr/dsfr
+\`\`\`
+
+### ♿ **Accessibilité intégrée**
+✅ **aria-hidden="true"** pour icônes décoratives  
+✅ **aria-label** pour icônes informatives  
+✅ **title** pour aide contextuelle  
+✅ **Contraste AA** garanti sur tous les fonds  
+
+### 🎨 **Personnalisation CSS**
+\`\`\`css
+/* Couleurs personnalisées */
+.fr-icon { color: var(--blue-france-sun-113); }
+
+/* Animations */
+.fr-btn:hover .fr-icon { transform: scale(1.1); }
+
+/* Tailles responsive */
+@media (max-width: 768px) {
+  .fr-icon { font-size: 20px; }
+}
+\`\`\`
+
+🎯 **APERÇU VISUEL COMPLET** - Issue #36 implémentée avec ${searchResults.length} icônes affichées !`;
+
+          return {
+            content: [{
+              type: 'text',
+              text: report
+            }]
+          };
+        } catch (error) {
+          return {
+            content: [{
+              type: 'text',
+              text: `🎨 **ERREUR ICÔNES DSFR**
+
+## ⚠️ **Erreur lors de la génération des aperçus**
+${error.message}
+
+### 💡 **Paramètres supportés :**
+- **search** : Terme de recherche (ex: "menu", "user", "download")
+- **category** : Catégorie spécifique (interface, document, system, user, institution, data)
+- **limit** : Nombre max d'icônes (défaut: 20)
+
+### 📋 **Exemple d'usage :**
+\`\`\`
+Montre-moi les icônes DSFR de navigation
+Cherche les icônes "user" dans la catégorie utilisateur  
+Liste 10 icônes de la catégorie document
+\`\`\`
+
+🔧 **Base de données d'icônes avec aperçu visuel** - Issue #36`
+            }]
+          };
+        }
 
       case 'get_dsfr_colors':
         return {
