@@ -6,6 +6,8 @@
 const fs = require('fs').promises;
 const path = require('path');
 const { ICacheService } = require('../core/interfaces');
+const { DisposableBase } = require('../core/disposable');
+const { LRUCache } = require('../core/lru-cache');
 
 class CacheService extends ICacheService {
   constructor(config, logger) {
@@ -13,21 +15,19 @@ class CacheService extends ICacheService {
     this.config = config;
     this.logger = logger;
 
-    // Cache en mémoire
-    this.memoryCache = new Map();
-    this.cacheStats = {
-      hits: 0,
-      misses: 0,
-      sets: 0,
-      deletes: 0,
-      evictions: 0,
-      memoryUsage: 0,
-    };
-
     // Configuration
     this.maxMemorySize = config.cache?.maxMemorySize || 50 * 1024 * 1024; // 50MB
     this.defaultTTL = config.cache?.defaultTTL || 30 * 60 * 1000; // 30 minutes
     this.cleanupInterval = config.cache?.cleanupInterval || 5 * 60 * 1000; // 5 minutes
+
+    // Cache en mémoire optimisé avec LRU
+    this.memoryCache = new LRUCache({
+      maxSize: 1000,
+      maxMemory: this.maxMemorySize,
+      defaultTTL: this.defaultTTL,
+      autoCompress: config.cache?.compression !== false,
+      enableStats: true
+    });
     this.persistentCachePath =
       config.cache?.persistentPath || path.join(config.paths.data, 'cache');
 
@@ -401,21 +401,14 @@ class CacheService extends ICacheService {
       this.cleanupTimer = null;
     }
 
-    // Sauvegarder les données importantes avant de fermer
-    const importantKeys = Array.from(this.memoryCache.keys()).filter((key) =>
-      this.shouldPersist(key)
-    );
-
-    for (const key of importantKeys) {
-      const entry = this.memoryCache.get(key);
-      if (entry) {
-        await this.saveToPersistentCache(key, entry);
-      }
+    // Dispose du cache LRU (libère automatiquement la mémoire)
+    if (this.memoryCache && typeof this.memoryCache.dispose === 'function') {
+      await this.memoryCache.dispose();
+    } else if (this.memoryCache) {
+      this.memoryCache.clear();
     }
 
-    this.memoryCache.clear();
     this.initialized = false;
-
     this.logger.info('CacheService fermé');
   }
 }

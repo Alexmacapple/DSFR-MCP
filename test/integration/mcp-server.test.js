@@ -1,5 +1,5 @@
-const { Server } = require('@modelcontextprotocol/sdk/server/index.js');
-const { StdioServerTransport } = require('@modelcontextprotocol/sdk/server/stdio.js');
+const { Server } = require('@modelcontextprotocol/sdk/server');
+const { StdioServerTransport } = require('@modelcontextprotocol/sdk/server/stdio');
 
 // Import des services
 const DocumentationService = require('../../src/services/documentation');
@@ -7,7 +7,7 @@ const ValidationService = require('../../src/services/validation');
 const AccessibilityService = require('../../src/services/accessibility');
 const GeneratorService = require('../../src/services/generator');
 
-describe.skip('MCP Server Integration', () => {
+describe.skip('MCP Server Integration - TODO: Update for SDK v1.17.2', () => {
   let server;
   let documentationService;
   let validationService;
