@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 Playground DSFR-MCP - Testez les 16 outils interactivement</title>
+    
+    <!-- CSS DSFR officiel -->
+    <link href="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.11.2/dist/dsfr.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.11.2/dist/utility/icons/icons.min.css" rel="stylesheet">
+    
+    <!-- Monaco Editor pour l'édition de code -->
+    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.44.0/min/vs/loader.js"></script>
+    
+    <style>
+        .playground-container {
+            min-height: 100vh;
+            background: var(--background-default-grey);
+        }
+        
+        .tool-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        
+        .tool-card.active {
+            border: 2px solid var(--border-action-high-blue-france);
+            background: var(--background-action-low-blue-france);
+        }
+        
+        .editor-container {
+            height: 400px;
+            border: 1px solid var(--border-default-grey);
+            border-radius: 0.25rem;
+        }
+        
+        .result-container {
+            background: var(--background-contrast-grey);
+            border: 1px solid var(--border-default-grey);
+            border-radius: 0.25rem;
+            padding: 1rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            white-space: pre-wrap;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-mention-grey);
+        }
+        
+        .success {
+            border-left: 4px solid var(--border-action-high-success);
+            background: var(--background-action-low-success);
+        }
+        
+        .error {
+            border-left: 4px solid var(--border-action-high-error);
+            background: var(--background-action-low-error);
+        }
+        
+        .tool-category {
+            border-left: 4px solid var(--border-action-high-blue-france);
+            background: var(--background-alt-blue-france);
+            margin-bottom: 2rem;
+        }
+        
+        .quick-example {
+            background: var(--background-alt-grey);
+            border: 1px solid var(--border-default-grey);
+            border-radius: 0.25rem;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .quick-example:hover {
+            background: var(--background-contrast-grey);
+        }
+        
+        .stats-box {
+            background: var(--background-action-low-info);
+            border: 1px solid var(--border-action-high-info);
+            border-radius: 0.25rem;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+
+<body class="playground-container">
+    <!-- Header DSFR -->
+    <header class="fr-header">
+        <div class="fr-header__body">
+            <div class="fr-container">
+                <div class="fr-header__body-row">
+                    <div class="fr-header__brand fr-enlarge-link">
+                        <div class="fr-header__brand-top">
+                            <div class="fr-header__logo">
+                                <p class="fr-logo">
+                                    République<br>Française
+                                </p>
+                            </div>
+                        </div>
+                        <div class="fr-header__service">
+                            <a href="#" title="Accueil - Playground DSFR-MCP">
+                                <p class="fr-header__service-title">🎮 Playground DSFR-MCP</p>
+                            </a>
+                            <p class="fr-header__service-tagline">Testez les 16 outils MCP interactivement</p>
+                        </div>
+                    </div>
+                    <div class="fr-header__tools">
+                        <div class="fr-header__tools-links">
+                            <div class="fr-badge-group">
+                                <a href="http://localhost:3001/dashboard" class="fr-badge fr-badge--sm fr-badge--info" target="_blank">
+                                    <span class="fr-icon-dashboard-line fr-icon--sm" aria-hidden="true"></span>
+                                    Dashboard Live
+                                </a>
+                                <span class="fr-badge fr-badge--sm fr-badge--success" id="tools-status">
+                                    <span class="fr-icon-checkbox-circle-line fr-icon--sm" aria-hidden="true"></span>
+                                    16/16 outils ✅
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main role="main" id="content">
+        <div class="fr-container fr-py-6v">
+            <!-- Introduction -->
+            <div class="fr-grid-row fr-mb-6v">
+                <div class="fr-col-12">
+                    <h1 class="fr-h1 fr-mb-4v">
+                        🎮 Playground DSFR-MCP
+                    </h1>
+                    <p class="fr-text--lead fr-mb-4v">
+                        Testez tous les outils MCP DSFR directement dans votre navigateur ! 
+                        Générez du code, validez vos composants, créez des thèmes personnalisés.
+                    </p>
+                    
+                    <!-- Statistiques temps réel -->
+                    <div class="stats-box">
+                        <div class="fr-grid-row fr-grid-row--gutters">
+                            <div class="fr-col-6 fr-col-md-3">
+                                <p class="fr-text--sm fr-mb-1v">Outils disponibles</p>
+                                <p class="fr-text--bold" id="stats-tools">16/16</p>
+                            </div>
+                            <div class="fr-col-6 fr-col-md-3">
+                                <p class="fr-text--sm fr-mb-1v">Requêtes/min</p>
+                                <p class="fr-text--bold" id="stats-requests">--</p>
+                            </div>
+                            <div class="fr-col-6 fr-col-md-3">
+                                <p class="fr-text--sm fr-mb-1v">Temps réponse</p>
+                                <p class="fr-text--bold" id="stats-response">-- ms</p>
+                            </div>
+                            <div class="fr-col-6 fr-col-md-3">
+                                <p class="fr-text--sm fr-mb-1v">Taux succès</p>
+                                <p class="fr-text--bold" id="stats-success">--%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fr-grid-row fr-grid-row--gutters">
+                <!-- Panel gauche - Sélection d'outils -->
+                <div class="fr-col-12 fr-col-lg-4">
+                    <div class="fr-card fr-card--shadow">
+                        <div class="fr-card__body">
+                            <div class="fr-card__content">
+                                <h2 class="fr-card__title fr-h4 fr-mb-4v">
+                                    <span class="fr-icon-tools-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>
+                                    Sélectionnez un outil
+                                </h2>
+
+                                <!-- Recherche et documentation -->
+                                <div class="tool-category fr-p-3v fr-mb-4v">
+                                    <h3 class="fr-h6 fr-mb-2v">🔍 Recherche et documentation</h3>
+                                    
+                                    <div class="tool-card fr-card fr-card--sm fr-mb-2v" data-tool="search_dsfr_components">
+                                        <div class="fr-card__body">
+                                            <div class="fr-card__content">
+                                                <h4 class="fr-card__title fr-text--sm">search_dsfr_components</h4>
+                                                <p class="fr-card__desc fr-text--xs">Recherche de composants DSFR</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tool-card fr-card fr-card--sm fr-mb-2v" data-tool="get_component_details">
+                                        <div class="fr-card__body">
+                                            <div class="fr-card__content">
+                                                <h4 class="fr-card__title fr-text--sm">get_component_details</h4>
+                                                <p class="fr-card__desc fr-text--xs">Détails d'un composant</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tool-card fr-card fr-card--sm fr-mb-2v" data-tool="list_dsfr_categories">
+                                        <div class="fr-card__body">
+                                            <div class="fr-card__content">
+                                                <h4 class="fr-card__title fr-text--sm">list_dsfr_categories</h4>
+                                                <p class="fr-card__desc fr-text--xs">Liste des catégories</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tool-card fr-card fr-card--sm" data-tool="search_patterns">
+                                        <div class="fr-card__body">
+                                            <div class="fr-card__content">
+                                                <h4 class="fr-card__title fr-text--sm">search_patterns</h4>
+                                                <p class="fr-card__desc fr-text--xs">Recherche de patterns</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Génération -->
+                                <div class="tool-category fr-p-3v fr-mb-4v">
+                                    <h3 class="fr-h6 fr-mb-2v">🛠️ Génération</h3>
+                                    
+                                    <div class="tool-card fr-card fr-card--sm fr-mb-2v" data-tool="generate_dsfr_component">
+                                        <div class="fr-card__body">
+                                            <div class="fr-card__content">
+                                                <h4 class="fr-card__title fr-text--sm">generate_dsfr_component</h4>
+                                                <p class="fr-card__desc fr-text--xs">Génère un composant</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tool-card fr-card fr-card--sm fr-mb-2v" data-tool="generate_dsfr_template">
+                                        <div class="fr-card__body">
+                                            <div class="fr-card__content">
+                                                <h4 class="fr-card__title fr-text--sm">generate_dsfr_template</h4>
+                                                <p class="fr-card__desc fr-text--xs">Génère un template</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tool-card fr-card fr-card--sm" data-tool="create_dsfr_theme">
+                                        <div class="fr-card__body">
+                                            <div class="fr-card__content">
+                                                <h4 class="fr-card__title fr-text--sm">create_dsfr_theme</h4>
+                                                <p class="fr-card__desc fr-text--xs">Crée un thème</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Validation -->
+                                <div class="tool-category fr-p-3v fr-mb-4v">
+                                    <h3 class="fr-h6 fr-mb-2v">✅ Validation</h3>
+                                    
+                                    <div class="tool-card fr-card fr-card--sm fr-mb-2v" data-tool="validate_dsfr_html">
+                                        <div class="fr-card__body">
+                                            <div class="fr-card__content">
+                                                <h4 class="fr-card__title fr-text--sm">validate_dsfr_html</h4>
+                                                <p class="fr-card__desc fr-text--xs">Valide le HTML DSFR</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tool-card fr-card fr-card--sm" data-tool="check_accessibility">
+                                        <div class="fr-card__body">
+                                            <div class="fr-card__content">
+                                                <h4 class="fr-card__title fr-text--sm">check_accessibility</h4>
+                                                <p class="fr-card__desc fr-text--xs">Vérifie l'accessibilité</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Utilitaires -->
+                                <div class="tool-category fr-p-3v">
+                                    <h3 class="fr-h6 fr-mb-2v">🔧 Utilitaires & Avancés</h3>
+                                    
+                                    <div class="tool-card fr-card fr-card--sm fr-mb-1v" data-tool="convert_to_framework">
+                                        <div class="fr-card__body">
+                                            <div class="fr-card__content">
+                                                <h4 class="fr-card__title fr-text--xs">convert_to_framework</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tool-card fr-card fr-card--sm fr-mb-1v" data-tool="get_dsfr_icons">
+                                        <div class="fr-card__body">
+                                            <div class="fr-card__content">
+                                                <h4 class="fr-card__title fr-text--xs">get_dsfr_icons</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tool-card fr-card fr-card--sm fr-mb-1v" data-tool="get_dsfr_colors">
+                                        <div class="fr-card__body">
+                                            <div class="fr-card__content">
+                                                <h4 class="fr-card__title fr-text--xs">get_dsfr_colors</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tool-card fr-card fr-card--sm fr-mb-1v" data-tool="analyze_dsfr_usage">
+                                        <div class="fr-card__body">
+                                            <div class="fr-card__content">
+                                                <h4 class="fr-card__title fr-text--xs">analyze_dsfr_usage</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tool-card fr-card fr-card--sm fr-mb-1v" data-tool="suggest_improvements">
+                                        <div class="fr-card__body">
+                                            <div class="fr-card__content">
+                                                <h4 class="fr-card__title fr-text--xs">suggest_improvements</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tool-card fr-card fr-card--sm" data-tool="export_documentation">
+                                        <div class="fr-card__body">
+                                            <div class="fr-card__content">
+                                                <h4 class="fr-card__title fr-text--xs">export_documentation</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel central - Interface d'édition -->
+                <div class="fr-col-12 fr-col-lg-8">
+                    <div class="fr-card fr-card--shadow">
+                        <div class="fr-card__body">
+                            <div class="fr-card__content">
+                                <div class="fr-grid-row fr-grid-row--gutters fr-mb-4v">
+                                    <div class="fr-col">
+                                        <h2 class="fr-card__title fr-h4" id="tool-title">
+                                            Sélectionnez un outil à gauche
+                                        </h2>
+                                        <p class="fr-card__desc" id="tool-description">
+                                            Choisissez un outil MCP pour voir sa description et tester ses fonctionnalités.
+                                        </p>
+                                    </div>
+                                    <div class="fr-col-auto">
+                                        <button class="fr-btn fr-btn--primary" id="execute-btn" disabled>
+                                            <span class="fr-icon-play-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>
+                                            Exécuter
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Exemples rapides -->
+                                <div id="quick-examples" style="display: none;">
+                                    <h3 class="fr-h6 fr-mb-2v">⚡ Exemples rapides :</h3>
+                                    <div id="examples-container"></div>
+                                </div>
+
+                                <!-- Éditeur de paramètres -->
+                                <div class="fr-mb-4v">
+                                    <h3 class="fr-h6 fr-mb-2v">🔧 Paramètres (JSON)</h3>
+                                    <div id="editor" class="editor-container"></div>
+                                </div>
+
+                                <!-- Résultat -->
+                                <div>
+                                    <h3 class="fr-h6 fr-mb-2v">📋 Résultat</h3>
+                                    <div id="result" class="result-container">
+                                        Aucun résultat pour le moment. Exécutez un outil pour voir le résultat ici.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer DSFR -->
+    <footer class="fr-footer" role="contentinfo">
+        <div class="fr-container">
+            <div class="fr-footer__body">
+                <div class="fr-footer__brand fr-enlarge-link">
+                    <a title="Retour à l'accueil" href="/">
+                        <p class="fr-logo">
+                            République<br>Française
+                        </p>
+                    </a>
+                </div>
+                <div class="fr-footer__content">
+                    <p class="fr-footer__content-desc">
+                        Playground DSFR-MCP - Testez tous les outils du Model Context Protocol pour le Système de Design de l'État Français.
+                    </p>
+                    <ul class="fr-footer__content-list">
+                        <li class="fr-footer__content-item">
+                            <a href="http://localhost:3001/dashboard" target="_blank" class="fr-footer__content-link">Dashboard Live</a>
+                        </li>
+                        <li class="fr-footer__content-item">
+                            <a href="https://github.com/Alexmacapple/DSFR-MCP" target="_blank" class="fr-footer__content-link">Code source</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="fr-footer__bottom">
+                <div class="fr-footer__bottom-copy">
+                    <p>Fait avec ❤️ pour démocratiser le DSFR • 
+                    <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank" rel="noopener external">Licence etalab-2.0</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.11.2/dist/dsfr.module.min.js" type="module"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.11.2/dist/dsfr.nomodule.min.js"></script>
+    
+    <script>
+        let editor;
+        let selectedTool = null;
+
+        // Configuration des outils avec exemples
+        const toolsConfig = {
+            search_dsfr_components: {
+                title: "🔍 Recherche de composants DSFR",
+                description: "Trouve rapidement les composants DSFR par nom, catégorie ou mot-clé",
+                defaultParams: {
+                    query: "bouton",
+                    limit: 5
+                },
+                examples: [
+                    { name: "Recherche boutons", params: { query: "bouton", limit: 5 } },
+                    { name: "Formulaires", params: { query: "form", category: "forms", limit: 10 } },
+                    { name: "Navigation", params: { query: "nav", category: "navigation" } }
+                ]
+            },
+            generate_dsfr_component: {
+                title: "🛠️ Génération de composant",
+                description: "Génère un composant DSFR complet avec TypeScript et accessibilité",
+                defaultParams: {
+                    component_type: "button-primary",
+                    framework: "react",
+                    options: {
+                        typescript: true,
+                        accessibility: true,
+                        testing: true
+                    }
+                },
+                examples: [
+                    { name: "Bouton React", params: { component_type: "button", framework: "react" } },
+                    { name: "Card Vue", params: { component_type: "card", framework: "vue" } },
+                    { name: "Form Angular", params: { component_type: "form", framework: "angular" } }
+                ]
+            },
+            validate_dsfr_html: {
+                title: "✅ Validation HTML DSFR",
+                description: "Valide la conformité de votre code HTML avec les standards DSFR",
+                defaultParams: {
+                    html_code: '<button class="fr-btn fr-btn--primary">Mon bouton</button>',
+                    strict_mode: true
+                },
+                examples: [
+                    { name: "Bouton valide", params: { html_code: '<button class="fr-btn fr-btn--primary">Valider</button>' } },
+                    { name: "Card complète", params: { html_code: '<div class="fr-card"><div class="fr-card__body"><h3 class="fr-card__title">Titre</h3></div></div>' } }
+                ]
+            },
+            create_dsfr_theme: {
+                title: "🎨 Création de thème",
+                description: "Crée un thème personnalisé avec palette couleurs et variables SCSS",
+                defaultParams: {
+                    theme_name: "mon-theme",
+                    primary_color: "#1e3a8a",
+                    secondary_color: "#0f766e",
+                    custom_variables: {
+                        "border-radius": "8px",
+                        "font-size-base": "16px"
+                    }
+                },
+                examples: [
+                    { name: "Thème bleu", params: { theme_name: "bleu", primary_color: "#1e3a8a" } },
+                    { name: "Thème vert", params: { theme_name: "vert", primary_color: "#059669" } }
+                ]
+            }
+        };
+
+        // Initialisation de Monaco Editor
+        require.config({ paths: { vs: 'https://cdn.jsdelivr.net/npm/monaco-editor@0.44.0/min/vs' } });
+        require(['vs/editor/editor.main'], function () {
+            editor = monaco.editor.create(document.getElementById('editor'), {
+                value: '{}',
+                language: 'json',
+                theme: 'vs-light',
+                automaticLayout: true,
+                minimap: { enabled: false },
+                fontSize: 14,
+                lineNumbers: 'on',
+                wordWrap: 'on'
+            });
+        });
+
+        // Gestion de la sélection d'outils
+        document.querySelectorAll('.tool-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Désactiver la sélection précédente
+                document.querySelectorAll('.tool-card').forEach(c => c.classList.remove('active'));
+                
+                // Activer la nouvelle sélection
+                this.classList.add('active');
+                selectedTool = this.dataset.tool;
+                
+                updateToolInterface(selectedTool);
+            });
+        });
+
+        function updateToolInterface(toolName) {
+            const config = toolsConfig[toolName];
+            
+            if (!config) {
+                // Configuration par défaut pour les outils sans config spécifique
+                document.getElementById('tool-title').textContent = toolName;
+                document.getElementById('tool-description').textContent = 'Outil MCP disponible - définissez vos paramètres en JSON';
+                editor.setValue('{}');
+                document.getElementById('quick-examples').style.display = 'none';
+                document.getElementById('execute-btn').disabled = false;
+                return;
+            }
+
+            // Mise à jour de l'interface
+            document.getElementById('tool-title').textContent = config.title;
+            document.getElementById('tool-description').textContent = config.description;
+            
+            // Mise à jour de l'éditeur avec les paramètres par défaut
+            editor.setValue(JSON.stringify(config.defaultParams, null, 2));
+            
+            // Affichage des exemples rapides
+            if (config.examples) {
+                const examplesContainer = document.getElementById('examples-container');
+                examplesContainer.innerHTML = config.examples.map(example => `
+                    <div class="quick-example" onclick="loadExample('${toolName}', ${JSON.stringify(example.params).replace(/"/g, '&quot;')})">
+                        <strong>${example.name}</strong>
+                        <br><small>${JSON.stringify(example.params)}</small>
+                    </div>
+                `).join('');
+                document.getElementById('quick-examples').style.display = 'block';
+            } else {
+                document.getElementById('quick-examples').style.display = 'none';
+            }
+            
+            document.getElementById('execute-btn').disabled = false;
+        }
+
+        function loadExample(toolName, params) {
+            editor.setValue(JSON.stringify(params, null, 2));
+        }
+
+        // Exécution des outils
+        document.getElementById('execute-btn').addEventListener('click', async function() {
+            if (!selectedTool) return;
+
+            const btn = this;
+            const resultDiv = document.getElementById('result');
+            
+            btn.disabled = true;
+            btn.innerHTML = '<span class="fr-icon-loader-3-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>Exécution...';
+            
+            resultDiv.className = 'result-container loading';
+            resultDiv.textContent = 'Exécution en cours...';
+
+            try {
+                const params = JSON.parse(editor.getValue());
+                
+                // Simulation d'appel API (à remplacer par vraie API)
+                const response = await simulateToolCall(selectedTool, params);
+                
+                resultDiv.className = 'result-container success';
+                resultDiv.textContent = JSON.stringify(response, null, 2);
+                
+            } catch (error) {
+                resultDiv.className = 'result-container error';
+                resultDiv.textContent = `Erreur: ${error.message}`;
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '<span class="fr-icon-play-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>Exécuter';
+            }
+        });
+
+        // Simulation d'appels API (à remplacer par vraies API)
+        async function simulateToolCall(toolName, params) {
+            // Simulation avec délai
+            await new Promise(resolve => setTimeout(resolve, Math.random() * 1000 + 500));
+            
+            // Réponses simulées basées sur l'outil
+            const responses = {
+                search_dsfr_components: {
+                    results: [
+                        { name: 'fr-btn', category: 'actions', description: 'Bouton standard DSFR' },
+                        { name: 'fr-btn--primary', category: 'actions', description: 'Bouton primaire' },
+                        { name: 'fr-btn--secondary', category: 'actions', description: 'Bouton secondaire' }
+                    ],
+                    total: 3,
+                    query: params.query
+                },
+                generate_dsfr_component: {
+                    component_type: params.component_type,
+                    framework: params.framework,
+                    code: `// Composant ${params.component_type} généré pour ${params.framework}
+import React from 'react';
+
+interface ButtonProps {
+  children: React.ReactNode;
+  onClick?: () => void;
+  variant?: 'primary' | 'secondary';
+}
+
+export const Button: React.FC<ButtonProps> = ({ 
+  children, 
+  onClick, 
+  variant = 'primary' 
+}) => {
+  return (
+    <button 
+      className={\`fr-btn fr-btn--\${variant}\`}
+      onClick={onClick}
+      type="button"
+    >
+      {children}
+    </button>
+  );
+};`,
+                    accessibility_features: ['aria-labels', 'keyboard-navigation', 'screen-reader-support'],
+                    generated_at: new Date().toISOString()
+                },
+                validate_dsfr_html: {
+                    valid: true,
+                    score: 95,
+                    issues: [
+                        {
+                            level: 'warning',
+                            message: 'Considérez d\'ajouter un attribut aria-label pour l\'accessibilité',
+                            line: 1,
+                            column: 15
+                        }
+                    ],
+                    suggestions: ['Ajouter des attributs ARIA', 'Vérifier la hiérarchie des titres']
+                },
+                create_dsfr_theme: {
+                    theme_name: params.theme_name,
+                    primary_color: params.primary_color,
+                    css_variables: {
+                        '--color-primary': params.primary_color,
+                        '--color-primary-hover': '#1e40af',
+                        '--color-primary-active': '#1e3a8a'
+                    },
+                    scss_file: `// Thème ${params.theme_name} généré
+$primary-color: ${params.primary_color};
+$secondary-color: ${params.secondary_color};
+
+:root {
+  --color-primary: #{$primary-color};
+  --color-secondary: #{$secondary-color};
+}`,
+                    generated_files: ['theme.css', 'variables.scss', 'mixins.scss']
+                }
+            };
+
+            return responses[toolName] || { 
+                tool: toolName, 
+                params: params, 
+                result: 'Simulation réussie',
+                timestamp: new Date().toISOString()
+            };
+        }
+
+        // Mise à jour des statistiques temps réel
+        async function updateStats() {
+            try {
+                const response = await fetch('http://localhost:3001/api/metrics');
+                const data = await response.json();
+                
+                document.getElementById('stats-requests').textContent = data.overview.requestsPerMinute;
+                document.getElementById('stats-response').textContent = data.overview.avgResponseTime + ' ms';
+                document.getElementById('stats-success').textContent = data.overview.successRate + '%';
+                
+                // Mise à jour du statut des outils
+                const toolCount = Object.keys(data.tools).length;
+                document.getElementById('stats-tools').textContent = `${toolCount}/16`;
+                
+            } catch (error) {
+                console.log('Dashboard metrics not available:', error.message);
+            }
+        }
+
+        // Mise à jour initiale et périodique
+        updateStats();
+        setInterval(updateStats, 10000);
+    </script>
+</body>
+</html>

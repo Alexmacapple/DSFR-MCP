@@ -36,7 +36,7 @@ try {
   OptimizedGeneratorService = require('./services/generator-optimized');
   TemplateService = require('./services/template');
   AccessibilityService = require('./services/accessibility');
-  
+
   // Services dashboard et métriques
   const { MetricsService: MetricsServiceClass } = require('./services/metrics-service');
   const { DashboardService: DashboardServiceClass } = require('./services/dashboard-service');
@@ -87,7 +87,7 @@ async function initializeServices() {
         info: logError,
         warn: logError,
         error: logError,
-        debug: logError
+        debug: logError,
       };
       _cacheService = new CacheService(config, cacheLogger);
       await _cacheService.initialize();
@@ -98,7 +98,7 @@ async function initializeServices() {
     if (MetricsService) {
       _metricsService = new MetricsService(logError);
       logError('[DASHBOARD] Service de métriques initialisé');
-      
+
       // Connecter les métriques de cache si le cache est disponible
       if (_cacheService && _metricsService) {
         // Mettre à jour les métriques de cache toutes les 10 secondes
@@ -107,7 +107,7 @@ async function initializeServices() {
             try {
               // Simuler quelques opérations de cache pour générer des statistiques
               await simulateCacheActivity();
-              
+
               const stats = await _cacheService.getStats();
               _metricsService.updateCacheMetrics(stats);
             } catch (error) {
@@ -118,11 +118,14 @@ async function initializeServices() {
         logError('[CACHE] Métriques de cache connectées au dashboard');
       }
     }
-    
+
     // Ne démarrer le dashboard que si on n'est pas en mode MCP stdio
     const skipDashboard = process.argv.includes('--mcp') || isMCPMode;
     if (DashboardService && _metricsService && !skipDashboard) {
-      _dashboardService = new DashboardService(_metricsService, { info: console.error, error: console.error });
+      _dashboardService = new DashboardService(_metricsService, {
+        info: console.error,
+        error: console.error,
+      });
       try {
         await _dashboardService.start();
         console.error('[DASHBOARD] Dashboard disponible sur http://localhost:3001/dashboard');
@@ -152,7 +155,7 @@ async function initializeServices() {
 // Fonction pour simuler de l'activité cache et générer des statistiques réalistes
 async function simulateCacheActivity() {
   if (!_cacheService || !_cacheService.isInitialized()) return;
-  
+
   try {
     // Simulation d'opérations de cache courantes dans une app MCP
     const cacheOperations = [
@@ -160,15 +163,17 @@ async function simulateCacheActivity() {
       { key: 'search_patterns_cache', data: { patterns: ['fr-btn', 'fr-card', 'fr-form'] } },
       { key: 'documentation_index', data: { docs: ['guide', 'api', 'examples'] } },
       { key: 'config_cache', data: { config: { theme: 'light', lang: 'fr' } } },
-      { key: 'user_preferences', data: { prefs: { dashboard: true, metrics: true } } }
+      { key: 'user_preferences', data: { prefs: { dashboard: true, metrics: true } } },
     ];
-    
+
     // Alternativement set et get pour simuler l'usage réel
     const randomOp = cacheOperations[Math.floor(Math.random() * cacheOperations.length)];
-    
-    if (Math.random() < 0.7) {  // 70% de chance de faire un GET (cache hit/miss)
+
+    if (Math.random() < 0.7) {
+      // 70% de chance de faire un GET (cache hit/miss)
       await _cacheService.get(randomOp.key);
-    } else {  // 30% de chance de faire un SET
+    } else {
+      // 30% de chance de faire un SET
       await _cacheService.set(randomOp.key, randomOp.data, 60000); // TTL 1 minute
     }
   } catch (error) {
@@ -773,8 +778,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
 // Helper pour wrapper les appels d'outils avec métriques
 async function executeToolWithMetrics(toolName, toolFunction) {
   const startTime = Date.now();
-  let success = true;
-  
+
   try {
     const result = await toolFunction();
     if (_metricsService) {
@@ -783,7 +787,6 @@ async function executeToolWithMetrics(toolName, toolFunction) {
     }
     return result;
   } catch (error) {
-    success = false;
     if (_metricsService) {
       const responseTime = Date.now() - startTime;
       _metricsService.recordRequest(toolName, responseTime, false);
@@ -803,15 +806,14 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
     }
 
     return await executeToolWithMetrics(name, async () => {
-
-    switch (name) {
-      // Outils de recherche et documentation
-      case 'search_dsfr_components':
-        return {
-          content: [
-            {
-              type: 'text',
-              text: `🔍 **RECHERCHE COMPOSANTS DSFR** - "${args.query || 'tous'}"
+      switch (name) {
+        // Outils de recherche et documentation
+        case 'search_dsfr_components':
+          return {
+            content: [
+              {
+                type: 'text',
+                text: `🔍 **RECHERCHE COMPOSANTS DSFR** - "${args.query || 'tous'}"
 
 📋 **Composants trouvés (${args.limit || 10} premiers) :**
 
@@ -868,16 +870,16 @@ Classes : fr-table, fr-table--bordered
 \`\`\`
 
 💀 **YOLO MODE** - 208 composants DSFR disponibles instantanément !`,
-            },
-          ],
-        };
+              },
+            ],
+          };
 
-      case 'get_component_details':
-        return {
-          content: [
-            {
-              type: 'text',
-              text: `📋 **DÉTAILS COMPOSANT DSFR : ${args.component_name || 'Bouton'}**
+        case 'get_component_details':
+          return {
+            content: [
+              {
+                type: 'text',
+                text: `📋 **DÉTAILS COMPOSANT DSFR : ${args.component_name || 'Bouton'}**
 
 ## 🎯 **Description**
 Le composant **${args.component_name || 'Bouton'}** fait partie du système de design de l'État français (DSFR). Il respecte les standards d'accessibilité RGAA 4.1 et l'identité visuelle gouvernementale.
@@ -1008,16 +1010,16 @@ ${args.include_examples ? '## 💡 **Exemples d\'intégration**\n\n### Avec icô
 ${args.include_accessibility ? "## 🔍 **Tests d'accessibilité**\n✅ **Validé avec :**\n- NVDA (lecteur d'écran)\n- VoiceOver (macOS/iOS)\n- JAWS (Windows)\n- Navigateur en mode clavier uniquement\n- Outils de contraste (WebAIM, Colour Contrast Analyser)" : ''}
 
 💀 **YOLO MODE** - Détails complets avec code prêt à utiliser !`,
-            },
-          ],
-        };
+              },
+            ],
+          };
 
-      case 'list_dsfr_categories':
-        return {
-          content: [
-            {
-              type: 'text',
-              text: `📚 **CATÉGORIES DSFR DISPONIBLES**
+        case 'list_dsfr_categories':
+          return {
+            content: [
+              {
+                type: 'text',
+                text: `📚 **CATÉGORIES DSFR DISPONIBLES**
 
 ## 🎯 **Core (Fondamentaux)** - 18 composants
 ### Éléments de base du design system
@@ -1113,17 +1115,17 @@ ${args.include_accessibility ? "## 🔍 **Tests d'accessibilité**\n✅ **Valid�
 10. 🔗 **fr-breadcrumb** - Fil d'Ariane
 
 💀 **YOLO MODE** - Toutes les catégories DSFR listées instantanément !`,
-            },
-          ],
-        };
+              },
+            ],
+          };
 
-      // Outils de génération
-      case 'generate_dsfr_component':
-        return {
-          content: [
-            {
-              type: 'text',
-              text: `🛠️ **GÉNÉRATION COMPOSANT DSFR** - "${args.component_type || 'bouton'}"
+        // Outils de génération
+        case 'generate_dsfr_component':
+          return {
+            content: [
+              {
+                type: 'text',
+                text: `🛠️ **GÉNÉRATION COMPOSANT DSFR** - "${args.component_type || 'bouton'}"
 
 ## 🎯 **Type : ${args.component_type || 'bouton'}** | Framework : **${args.framework || 'vanilla'}**
 
@@ -1378,16 +1380,16 @@ export default {
 - ✅ Internationalisation préparée
 
 💀 **YOLO NUCLEAR MODE** - Composant ${args.component_type || 'bouton'} généré instantanément avec code complet !`,
-            },
-          ],
-        };
+              },
+            ],
+          };
 
-      case 'generate_dsfr_template':
-        return {
-          content: [
-            {
-              type: 'text',
-              text: `🏗️ **GÉNÉRATION TEMPLATE DSFR** - "${args.template_name || 'page-standard'}"
+        case 'generate_dsfr_template':
+          return {
+            content: [
+              {
+                type: 'text',
+                text: `🏗️ **GÉNÉRATION TEMPLATE DSFR** - "${args.template_name || 'page-standard'}"
 
 ## 🎯 **Template : ${args.template_name || 'page-standard'}** | Framework : **${args.framework || 'vanilla'}**
 
@@ -2223,17 +2225,17 @@ onMounted(() => {
 ✅ Sanitization des entrées utilisateur
 
 💀 **YOLO NUCLEAR MODE** - Template ${args.template_name || 'complet'} généré avec architecture gouvernementale française complète !`,
-            },
-          ],
-        };
+              },
+            ],
+          };
 
-      // Outils de validation
-      case 'validate_dsfr_html':
-        return {
-          content: [
-            {
-              type: 'text',
-              text: `✅ **VALIDATION HTML DSFR** - Analyse de ${args.html_content?.length || 'votre code'}
+        // Outils de validation
+        case 'validate_dsfr_html':
+          return {
+            content: [
+              {
+                type: 'text',
+                text: `✅ **VALIDATION HTML DSFR** - Analyse de ${args.html_content?.length || 'votre code'}
 
 ## 🎯 **Résultat de validation : CONFORME** ✅
 
@@ -2440,16 +2442,16 @@ SEO                 ███████████▒  90%
 - ✅ **Security scan** : No issues
 
 💀 **YOLO NUCLEAR MODE** - Validation HTML DSFR complète avec analyse détaillée et corrections automatiques !`,
-            },
-          ],
-        };
+              },
+            ],
+          };
 
-      case 'check_accessibility':
-        return {
-          content: [
-            {
-              type: 'text',
-              text: `♿ **AUDIT ACCESSIBILITÉ RGAA 4.1** - Analyse de ${args.html_content?.length || 'votre code'}
+        case 'check_accessibility':
+          return {
+            content: [
+              {
+                type: 'text',
+                text: `♿ **AUDIT ACCESSIBILITÉ RGAA 4.1** - Analyse de ${args.html_content?.length || 'votre code'}
 
 ## 🎯 **Niveau d'accessibilité : AA CONFORME** ♿
 
@@ -2824,17 +2826,17 @@ STATUT : LARGEMENT CONFORME ✅
 \`\`\`
 
 💀 **YOLO NUCLEAR MODE** - Audit d'accessibilité RGAA 4.1 complet avec corrections et certification niveau AA !`,
-            },
-          ],
-        };
+              },
+            ],
+          };
 
-      // Outils de personnalisation
-      case 'create_dsfr_theme':
-        return {
-          content: [
-            {
-              type: 'text',
-              text: `🎨 **CRÉATION THÈME DSFR PERSONNALISÉ** - "${args.theme_name || 'theme-custom'}"
+        // Outils de personnalisation
+        case 'create_dsfr_theme':
+          return {
+            content: [
+              {
+                type: 'text',
+                text: `🎨 **CRÉATION THÈME DSFR PERSONNALISÉ** - "${args.theme_name || 'theme-custom'}"
 
 ## 🎯 **Thème : ${args.theme_name || 'MonTheme'}** | Palette : **${args.color_palette || 'france'}**
 
@@ -3392,18 +3394,18 @@ $custom-font-family: ${args.font_family || '"Marianne", sans-serif'};
 - **Modulaire** : Chargement sélectif possible
 
 💀 **YOLO NUCLEAR MODE** - Thème DSFR ${args.theme_name || 'personnalisé'} généré instantanément avec palette ${args.color_palette || 'France'} complète !`,
-            },
-          ],
-        };
+              },
+            ],
+          };
 
-      // Outils de patterns
-      case 'search_patterns':
-        // 🚀 YOLO NUCLEAR MODE - RÉPONSE DIRECTE !
-        return {
-          content: [
-            {
-              type: 'text',
-              text: `🚀 **YOLO NUCLEAR - Formulaire DSFR ultra-rapide !**
+        // Outils de patterns
+        case 'search_patterns':
+          // 🚀 YOLO NUCLEAR MODE - RÉPONSE DIRECTE !
+          return {
+            content: [
+              {
+                type: 'text',
+                text: `🚀 **YOLO NUCLEAR - Formulaire DSFR ultra-rapide !**
 
 \`\`\`html
 <form class="fr-form">
@@ -3451,17 +3453,17 @@ $custom-font-family: ${args.font_family || '"Marianne", sans-serif'};
 ♿ **Accessibilité RGAA 4.1 garantie**
 
 🚀 **YOLO NUCLEAR MODE** - Réponse instantanée sans latence !`,
-            },
-          ],
-        };
+              },
+            ],
+          };
 
-      // Outils utilitaires
-      case 'convert_to_framework':
-        return {
-          content: [
-            {
-              type: 'text',
-              text: `🔄 **CONVERSION FRAMEWORK DSFR** - "${args.target_framework || 'React'}"
+        // Outils utilitaires
+        case 'convert_to_framework':
+          return {
+            content: [
+              {
+                type: 'text',
+                text: `🔄 **CONVERSION FRAMEWORK DSFR** - "${args.target_framework || 'React'}"
 
 ## 🎯 **Conversion : HTML → ${args.target_framework || 'React'}** 
 
@@ -4333,25 +4335,25 @@ ${
 - ✅ **Performance** optimisée pour ${args.target_framework || 'React'}
 
 💀 **YOLO NUCLEAR MODE** - Conversion HTML vers ${args.target_framework || 'React'} instantanée avec DSFR complet et fonctionnalités avancées !`,
-            },
-          ],
-        };
+              },
+            ],
+          };
 
-      case 'get_dsfr_icons': {
-        // 🚀 MISE À JOUR ISSUE #36 - Intégration base de données d'icônes
-        const DSFRIconDatabase = require('./services/icon-database');
-        const iconDB = new DSFRIconDatabase();
+        case 'get_dsfr_icons': {
+          // 🚀 MISE À JOUR ISSUE #36 - Intégration base de données d'icônes
+          const DSFRIconDatabase = require('./services/icon-database');
+          const iconDB = new DSFRIconDatabase();
 
-        try {
-          const searchResults = iconDB.searchIcons(args.search || '', args.category || null, 20);
+          try {
+            const searchResults = iconDB.searchIcons(args.search || '', args.category || null, 20);
 
-          const stats = iconDB.getStatistics();
+            const stats = iconDB.getStatistics();
 
-          return {
-            content: [
-              {
-                type: 'text',
-                text: `🎨 **ICÔNES DSFR DISPONIBLES** - ${args.category ? iconDB.categories[args.category]?.name || args.category : 'Toutes catégories'}
+            return {
+              content: [
+                {
+                  type: 'text',
+                  text: `🎨 **ICÔNES DSFR DISPONIBLES** - ${args.category ? iconDB.categories[args.category]?.name || args.category : 'Toutes catégories'}
 
 ## 🎯 **Recherche : "${args.search || 'toutes les icônes'}"** | Résultats : **${searchResults.length}/${stats.total}**
 
@@ -4450,15 +4452,15 @@ npm install @gouvfr/dsfr
 ✅ **role="img"** si nécessaire
 
 🎯 **Base de données d'icônes DSFR** - ${searchResults.length > 0 ? `${searchResults.length} icônes affichées` : 'Essayez une autre recherche'} !`,
-              },
-            ],
-          };
-        } catch (error) {
-          return {
-            content: [
-              {
-                type: 'text',
-                text: `🎨 **ERREUR BASE DE DONNÉES ICÔNES**
+                },
+              ],
+            };
+          } catch (error) {
+            return {
+              content: [
+                {
+                  type: 'text',
+                  text: `🎨 **ERREUR BASE DE DONNÉES ICÔNES**
 
 ## ⚠️ **Erreur lors du chargement des icônes**
 ${error.message}
@@ -4495,30 +4497,30 @@ ${error.message}
 \`\`\`
 
 🔧 **Base de données d'icônes indisponible** - Utilisation fallback`,
-              },
-            ],
-          };
+                },
+              ],
+            };
+          }
         }
-      }
 
-      // 🚀 NOUVELLE IMPLÉMENTATION ISSUE #36 - VISUAL ICON PREVIEW
-      case 'get_dsfr_icons_visual': {
-        const DSFRIconDatabase = require('./services/icon-database');
-        const iconDBVisual = new DSFRIconDatabase();
+        // 🚀 NOUVELLE IMPLÉMENTATION ISSUE #36 - VISUAL ICON PREVIEW
+        case 'get_dsfr_icons_visual': {
+          const DSFRIconDatabase = require('./services/icon-database');
+          const iconDBVisual = new DSFRIconDatabase();
 
-        try {
-          // Recherche des icônes selon les paramètres
-          const searchResults = iconDBVisual.searchIcons(
-            args.search || '',
-            args.category || null,
-            args.limit || 20
-          );
+          try {
+            // Recherche des icônes selon les paramètres
+            const searchResults = iconDBVisual.searchIcons(
+              args.search || '',
+              args.category || null,
+              args.limit || 20
+            );
 
-          // Statistiques globales
-          const stats = iconDBVisual.getStatistics();
+            // Statistiques globales
+            const stats = iconDBVisual.getStatistics();
 
-          // Génération du rapport avec aperçus visuels
-          let report = `🎨 **ICÔNES DSFR AVEC APERÇU VISUEL** - ${args.category ? iconDBVisual.categories[args.category]?.name : 'Toutes catégories'}
+            // Génération du rapport avec aperçus visuels
+            let report = `🎨 **ICÔNES DSFR AVEC APERÇU VISUEL** - ${args.category ? iconDBVisual.categories[args.category]?.name : 'Toutes catégories'}
 
 ## 🎯 **Recherche : "${args.search || 'toutes les icônes'}"** | Résultats : **${searchResults.length}**
 
@@ -4529,14 +4531,14 @@ ${error.message}
 
 `;
 
-          // Grille visuelle des résultats
-          if (searchResults.length > 0) {
-            report += iconDBVisual.generateVisualGrid(searchResults, true);
+            // Grille visuelle des résultats
+            if (searchResults.length > 0) {
+              report += iconDBVisual.generateVisualGrid(searchResults, true);
 
-            // Code d'intégration
-            report += `\n\n${iconDBVisual.generateIntegrationCode(searchResults)}`;
-          } else {
-            report += `## ❌ **Aucune icône trouvée**
+              // Code d'intégration
+              report += `\n\n${iconDBVisual.generateIntegrationCode(searchResults)}`;
+            } else {
+              report += `## ❌ **Aucune icône trouvée**
 
 ### 💡 **Suggestions de recherche :**
 - **Navigation** : menu, arrow, close, search
@@ -4549,10 +4551,10 @@ ${error.message}
 ${Object.entries(iconDBVisual.categories)
   .map(([_key, cat]) => `- **${cat.name}** (${cat.count} icônes) : ${cat.description}`)
   .join('\n')}`;
-          }
+            }
 
-          // Footer avec informations techniques
-          report += `\n\n## 📦 **Installation DSFR Icons**
+            // Footer avec informations techniques
+            report += `\n\n## 📦 **Installation DSFR Icons**
 
 ### CDN (recommandé)
 \`\`\`html
@@ -4586,20 +4588,20 @@ npm install @gouvfr/dsfr
 
 🎯 **APERÇU VISUEL COMPLET** - Issue #36 implémentée avec ${searchResults.length} icônes affichées !`;
 
-          return {
-            content: [
-              {
-                type: 'text',
-                text: report,
-              },
-            ],
-          };
-        } catch (error) {
-          return {
-            content: [
-              {
-                type: 'text',
-                text: `🎨 **ERREUR ICÔNES DSFR**
+            return {
+              content: [
+                {
+                  type: 'text',
+                  text: report,
+                },
+              ],
+            };
+          } catch (error) {
+            return {
+              content: [
+                {
+                  type: 'text',
+                  text: `🎨 **ERREUR ICÔNES DSFR**
 
 ## ⚠️ **Erreur lors de la génération des aperçus**
 ${error.message}
@@ -4617,18 +4619,18 @@ Liste 10 icônes de la catégorie document
 \`\`\`
 
 🔧 **Base de données d'icônes avec aperçu visuel** - Issue #36`,
-              },
-            ],
-          };
+                },
+              ],
+            };
+          }
         }
-      }
 
-      case 'get_dsfr_colors':
-        return {
-          content: [
-            {
-              type: 'text',
-              text: `🎨 **PALETTE DE COULEURS DSFR OFFICIELLE** - Format ${args.format || 'hex'}
+        case 'get_dsfr_colors':
+          return {
+            content: [
+              {
+                type: 'text',
+                text: `🎨 **PALETTE DE COULEURS DSFR OFFICIELLE** - Format ${args.format || 'hex'}
 
 ## 🇫🇷 **Couleurs Institutionnelles Françaises**
 
@@ -4759,36 +4761,36 @@ $grey-light: #F6F6F6;
 🎨 **32+ couleurs** testées et validées  
 ♿ **RGAA 4.1** - Accessibilité garantie  
 📱 **Responsive** - Mode sombre inclus`,
-            },
-          ],
-        };
-
-      // Outils avancés
-      case 'analyze_dsfr_usage': {
-        // 🚀 IMPLÉMENTATION ISSUE #35 - AST PARSING RÉEL
-        const HTMLAnalyzer = require('./services/html-analyzer');
-        const analyzer = new HTMLAnalyzer();
-
-        try {
-          const analysisReport = analyzer.analyzeHTML(args.source_code, {
-            project_type: args.project_type,
-            analysis_depth: args.analysis_depth,
-          });
-
-          return {
-            content: [
-              {
-                type: 'text',
-                text: analysisReport,
               },
             ],
           };
-        } catch (error) {
-          return {
-            content: [
-              {
-                type: 'text',
-                text: `📊 **ERREUR D'ANALYSE HTML** 
+
+        // Outils avancés
+        case 'analyze_dsfr_usage': {
+          // 🚀 IMPLÉMENTATION ISSUE #35 - AST PARSING RÉEL
+          const HTMLAnalyzer = require('./services/html-analyzer');
+          const analyzer = new HTMLAnalyzer();
+
+          try {
+            const analysisReport = analyzer.analyzeHTML(args.source_code, {
+              project_type: args.project_type,
+              analysis_depth: args.analysis_depth,
+            });
+
+            return {
+              content: [
+                {
+                  type: 'text',
+                  text: analysisReport,
+                },
+              ],
+            };
+          } catch (error) {
+            return {
+              content: [
+                {
+                  type: 'text',
+                  text: `📊 **ERREUR D'ANALYSE HTML** 
 
 ## ⚠️ **Erreur lors du parsing AST**
 ${error.message}
@@ -4808,18 +4810,18 @@ ${error.message}
 \`\`\`
 
 🔧 **Parser AST real activé** - Issue #35 implémentée !`,
-              },
-            ],
-          };
+                },
+              ],
+            };
+          }
         }
-      }
 
-      case 'suggest_improvements':
-        return {
-          content: [
-            {
-              type: 'text',
-              text: `💡 **SUGGESTIONS D'AMÉLIORATION DSFR** - Code analysé (${args.html_code?.length || 0} caractères)
+        case 'suggest_improvements':
+          return {
+            content: [
+              {
+                type: 'text',
+                text: `💡 **SUGGESTIONS D'AMÉLIORATION DSFR** - Code analysé (${args.html_code?.length || 0} caractères)
 
 ## 🎯 **Priorité ${args.priority_level || 'high'}** - Catégories: ${args.improvement_categories?.join(', ') || 'accessibilité, conformité DSFR'}
 
@@ -4898,16 +4900,16 @@ ${error.message}
 - **Gain** : +30 points conformité DSFR
 
 💀 **YOLO MODE** - Suggestions générées instantanément avec code corrigé !`,
-            },
-          ],
-        };
+              },
+            ],
+          };
 
-      case 'compare_versions':
-        return {
-          content: [
-            {
-              type: 'text',
-              text: `🔄 **COMPARAISON VERSIONS DSFR** ${args.version_from || '1.13.0'} → ${args.version_to || '1.14.0'}
+        case 'compare_versions':
+          return {
+            content: [
+              {
+                type: 'text',
+                text: `🔄 **COMPARAISON VERSIONS DSFR** ${args.version_from || '1.13.0'} → ${args.version_to || '1.14.0'}
 
 ## 🆕 **Nouveautés v${args.version_to || '1.14.0'} :**
 
@@ -4965,25 +4967,24 @@ ${error.message}
 - **Compatibilité** : 95% rétrocompatible
 
 💀 **YOLO MODE** - Comparaison instantanée des versions DSFR !`,
-            },
-          ],
-        };
+              },
+            ],
+          };
 
-      case 'export_documentation':
-        return {
-          content: [
-            {
-              type: 'text',
-              text: '🚀 **EXPORT DSFR ULTRA-RAPIDE**\n\n```html\n<button class="fr-btn fr-btn--primary">Bouton DSFR</button>\n<form class="fr-form">\n  <input class="fr-input" type="text">\n</form>\n```\n\n💀 **YOLO MODE** - Export instantané !',
-            },
-          ],
-        };
+        case 'export_documentation':
+          return {
+            content: [
+              {
+                type: 'text',
+                text: '🚀 **EXPORT DSFR ULTRA-RAPIDE**\n\n```html\n<button class="fr-btn fr-btn--primary">Bouton DSFR</button>\n<form class="fr-form">\n  <input class="fr-input" type="text">\n</form>\n```\n\n💀 **YOLO MODE** - Export instantané !',
+              },
+            ],
+          };
 
-      default:
-        throw new Error(`Outil inconnu: ${name}`);
-    }
+        default:
+          throw new Error(`Outil inconnu: ${name}`);
+      }
     });
-    
   } catch (error) {
     logError(`[DOCKER] Erreur outil ${name}:`, error.message);
     return {

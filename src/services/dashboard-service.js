@@ -5,7 +5,6 @@
 
 const http = require('http');
 const url = require('url');
-const path = require('path');
 
 class DashboardService {
   constructor(metricsService, logger, port = 3001) {
@@ -51,10 +50,14 @@ class DashboardService {
     try {
       if (pathname === '/dashboard' || pathname === '/') {
         this.serveDashboard(res);
+      } else if (pathname === '/playground') {
+        this.servePlayground(res);
       } else if (pathname === '/api/metrics') {
         this.serveMetrics(res);
       } else if (pathname === '/api/health') {
         this.serveHealth(res);
+      } else if (pathname.startsWith('/api/tools/')) {
+        await this.handleToolAPI(req, res, pathname);
       } else {
         this.serve404(res);
       }
@@ -71,6 +74,24 @@ class DashboardService {
     const html = this.generateDashboardHTML();
     res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
     res.end(html);
+  }
+
+  /**
+   * Sert le playground interactif
+   */
+  servePlayground(res) {
+    const fs = require('fs');
+    const path = require('path');
+    
+    try {
+      const playgroundPath = path.join(process.cwd(), 'public', 'playground.html');
+      const html = fs.readFileSync(playgroundPath, 'utf8');
+      res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+      res.end(html);
+    } catch (error) {
+      this.logger?.error('Erreur chargement playground:', error);
+      this.serveError(res, 500, 'Playground non disponible');
+    }
   }
 
   /**
@@ -94,8 +115,8 @@ class DashboardService {
       services: {
         mcp_server: metrics.overview.status,
         cache: metrics.cache.hitRate > 0 ? 'healthy' : 'idle',
-        memory: parseFloat(metrics.system.memoryUsage.percentage) < 80 ? 'healthy' : 'warning'
-      }
+        memory: parseFloat(metrics.system.memoryUsage.percentage) < 80 ? 'healthy' : 'warning',
+      },
     };
 
     res.writeHead(200, { 'Content-Type': 'application/json' });
@@ -629,6 +650,188 @@ class DashboardService {
     <script nomodule src="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.11.2/dist/dsfr.nomodule.min.js"></script>
 </body>
 </html>`;
+  }
+
+  /**
+   * Gère les appels API REST vers les outils MCP
+   */
+  async handleToolAPI(req, res, pathname) {
+    const toolName = pathname.split('/api/tools/')[1];
+    
+    // CORS pour API publique
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    
+    if (req.method === 'OPTIONS') {
+      res.writeHead(200);
+      res.end();
+      return;
+    }
+    
+    if (req.method !== 'POST') {
+      this.serveError(res, 405, 'Méthode non autorisée. Utilisez POST.');
+      return;
+    }
+    
+    try {
+      // Lire le body de la requête
+      const body = await this.readRequestBody(req);
+      const params = JSON.parse(body);
+      
+      // Simuler l'appel d'outil MCP (à connecter au vrai serveur MCP)
+      const result = await this.simulateToolCall(toolName, params);
+      
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({
+        success: true,
+        tool: toolName,
+        result: result,
+        timestamp: new Date().toISOString(),
+        response_time: Math.floor(Math.random() * 100) + 50 // Simulation
+      }, null, 2));
+      
+    } catch (error) {
+      this.logger?.error('Erreur API tool:', error);
+      res.writeHead(400, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({
+        success: false,
+        error: error.message,
+        timestamp: new Date().toISOString()
+      }, null, 2));
+    }
+  }
+
+  /**
+   * Lit le body d'une requête HTTP
+   */
+  readRequestBody(req) {
+    return new Promise((resolve, reject) => {
+      let body = '';
+      req.on('data', chunk => {
+        body += chunk.toString();
+      });
+      req.on('end', () => {
+        resolve(body);
+      });
+      req.on('error', reject);
+    });
+  }
+
+  /**
+   * Simulation d'appel d'outil MCP
+   */
+  async simulateToolCall(toolName, params) {
+    // Simulation réaliste basée sur le nom de l'outil
+    const responses = {
+      'search_dsfr_components': {
+        query: params.query,
+        results: [
+          {
+            name: 'fr-btn',
+            category: 'actions',
+            description: 'Bouton standard DSFR',
+            classes: ['fr-btn', 'fr-btn--primary', 'fr-btn--secondary'],
+            example: '<button class="fr-btn fr-btn--primary">Mon bouton</button>'
+          },
+          {
+            name: 'fr-card',
+            category: 'layout',
+            description: 'Carte de contenu DSFR',
+            classes: ['fr-card', 'fr-card__body', 'fr-card__title'],
+            example: '<div class="fr-card"><div class="fr-card__body"><h3 class="fr-card__title">Titre</h3></div></div>'
+          }
+        ],
+        total: 2,
+        limit: params.limit || 10
+      },
+      
+      'generate_dsfr_component': {
+        component_type: params.component_type,
+        framework: params.framework || 'vanilla',
+        code: this.generateSampleCode(params.component_type, params.framework),
+        files: [
+          `${params.component_type}.${params.framework === 'typescript' ? 'tsx' : 'js'}`,
+          `${params.component_type}.css`,
+          `${params.component_type}.test.js`
+        ],
+        features: ['accessibility', 'responsive', 'typescript-ready']
+      },
+      
+      'validate_dsfr_html': {
+        valid: Math.random() > 0.3,
+        score: Math.floor(Math.random() * 40) + 60,
+        issues: [
+          {
+            type: 'warning',
+            message: 'Attribut aria-label manquant pour l\'accessibilité',
+            line: 1,
+            severity: 'medium'
+          }
+        ],
+        suggestions: [
+          'Ajouter des attributs ARIA appropriés',
+          'Vérifier la hiérarchie des titres',
+          'S\'assurer que tous les liens ont un contexte'
+        ]
+      },
+      
+      'create_dsfr_theme': {
+        theme_name: params.theme_name,
+        primary_color: params.primary_color,
+        generated_colors: {
+          primary: params.primary_color,
+          'primary-hover': this.darkenColor(params.primary_color, 10),
+          'primary-active': this.darkenColor(params.primary_color, 20)
+        },
+        css_file: `:root {\n  --color-primary: ${params.primary_color};\n  --color-primary-hover: ${this.darkenColor(params.primary_color, 10)};\n}`,
+        scss_file: `$primary: ${params.primary_color};\n@import 'dsfr/mixins';`
+      }
+    };
+
+    return responses[toolName] || {
+      tool: toolName,
+      params: params,
+      message: `Outil ${toolName} exécuté avec succès`,
+      simulated: true
+    };
+  }
+
+  /**
+   * Génère du code d'exemple
+   */
+  generateSampleCode(componentType, framework = 'vanilla') {
+    const codes = {
+      vanilla: {
+        button: '<button class="fr-btn fr-btn--primary" type="button">Mon bouton</button>',
+        card: '<div class="fr-card"><div class="fr-card__body"><h3 class="fr-card__title">Titre de la carte</h3><p class="fr-card__desc">Description de la carte</p></div></div>',
+        form: '<form class="fr-form"><div class="fr-input-group"><label class="fr-label" for="input">Label</label><input class="fr-input" type="text" id="input"></div></form>'
+      },
+      react: {
+        button: `import React from 'react';\n\nconst Button = ({ children, variant = 'primary' }) => {\n  return (\n    <button className={\`fr-btn fr-btn--\${variant}\`} type="button">\n      {children}\n    </button>\n  );\n};\n\nexport default Button;`,
+        card: `import React from 'react';\n\nconst Card = ({ title, description }) => {\n  return (\n    <div className="fr-card">\n      <div className="fr-card__body">\n        <h3 className="fr-card__title">{title}</h3>\n        <p className="fr-card__desc">{description}</p>\n      </div>\n    </div>\n  );\n};\n\nexport default Card;`
+      }
+    };
+
+    return codes[framework]?.[componentType] || codes.vanilla[componentType] || `<!-- Composant ${componentType} pour ${framework} -->`;
+  }
+
+  /**
+   * Assombrit une couleur (simulation)
+   */
+  darkenColor(color, percent) {
+    // Simulation simple - en prod, utiliser une vraie lib de couleurs
+    if (color.startsWith('#')) {
+      const num = parseInt(color.replace('#', ''), 16);
+      const amt = Math.round(2.55 * percent);
+      const R = (num >> 16) - amt;
+      const G = (num >> 8 & 0x00FF) - amt;
+      const B = (num & 0x0000FF) - amt;
+      return '#' + (0x1000000 + (R < 255 ? R < 1 ? 0 : R : 255) * 0x10000 +
+        (G < 255 ? G < 1 ? 0 : G : 255) * 0x100 +
+        (B < 255 ? B < 1 ? 0 : B : 255)).toString(16).slice(1);
+    }
+    return color;
   }
 
   /**

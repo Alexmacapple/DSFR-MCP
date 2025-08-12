@@ -14,7 +14,7 @@ class MetricsService extends EventEmitter {
     this.logger = logger;
     this.startTime = Date.now();
     this.sharedMetricsPath = sharedMetricsPath;
-    
+
     // Métriques principales
     this.metrics = {
       requests: {
@@ -22,25 +22,25 @@ class MetricsService extends EventEmitter {
         successful: 0,
         failed: 0,
         avgResponseTime: 0,
-        lastRequests: []
+        lastRequests: [],
       },
       tools: {
         usage: new Map(),
         responseTime: new Map(),
-        errors: new Map()
+        errors: new Map(),
       },
       cache: {
         hits: 0,
         misses: 0,
         hitRate: 0,
         memoryUsage: 0,
-        size: 0
+        size: 0,
       },
       system: {
         uptime: 0,
         memoryUsage: process.memoryUsage(),
-        cpuUsage: null
-      }
+        cpuUsage: null,
+      },
     };
 
     // Mise à jour automatique toutes les 5 secondes
@@ -54,7 +54,7 @@ class MetricsService extends EventEmitter {
    */
   recordRequest(toolName, responseTime, success = true) {
     const now = Date.now();
-    
+
     // Métriques globales
     this.metrics.requests.total++;
     if (success) {
@@ -66,15 +66,14 @@ class MetricsService extends EventEmitter {
     // Temps de réponse moyen (rolling average)
     const currentAvg = this.metrics.requests.avgResponseTime;
     const total = this.metrics.requests.total;
-    this.metrics.requests.avgResponseTime = 
-      (currentAvg * (total - 1) + responseTime) / total;
+    this.metrics.requests.avgResponseTime = (currentAvg * (total - 1) + responseTime) / total;
 
     // Dernières requêtes (max 100)
     this.metrics.requests.lastRequests.push({
       tool: toolName,
       timestamp: now,
       responseTime,
-      success
+      success,
     });
     if (this.metrics.requests.lastRequests.length > 100) {
       this.metrics.requests.lastRequests.shift();
@@ -99,7 +98,7 @@ class MetricsService extends EventEmitter {
 
     // Sauvegarder les métriques partagées
     this.saveSharedMetrics();
-    
+
     this.emit('request', { toolName, responseTime, success });
   }
 
@@ -111,12 +110,21 @@ class MetricsService extends EventEmitter {
       if (fs.existsSync(this.sharedMetricsPath)) {
         const data = fs.readFileSync(this.sharedMetricsPath, 'utf8');
         const sharedMetrics = JSON.parse(data);
-        
+
         // Fusionner les métriques partagées avec les locales
-        this.metrics.requests.total = Math.max(this.metrics.requests.total, sharedMetrics.requests?.total || 0);
-        this.metrics.requests.successful = Math.max(this.metrics.requests.successful, sharedMetrics.requests?.successful || 0);
-        this.metrics.requests.failed = Math.max(this.metrics.requests.failed, sharedMetrics.requests?.failed || 0);
-        
+        this.metrics.requests.total = Math.max(
+          this.metrics.requests.total,
+          sharedMetrics.requests?.total || 0
+        );
+        this.metrics.requests.successful = Math.max(
+          this.metrics.requests.successful,
+          sharedMetrics.requests?.successful || 0
+        );
+        this.metrics.requests.failed = Math.max(
+          this.metrics.requests.failed,
+          sharedMetrics.requests?.failed || 0
+        );
+
         // Outils partagés
         if (sharedMetrics.tools) {
           Object.entries(sharedMetrics.tools).forEach(([toolName, stats]) => {
@@ -124,25 +132,26 @@ class MetricsService extends EventEmitter {
             this.metrics.tools.usage.set(toolName, Math.max(currentUsage, stats.usage || 0));
           });
         }
-        
+
         // Charger l'activité récente partagée et la fusionner
         if (sharedMetrics.recentActivity && Array.isArray(sharedMetrics.recentActivity)) {
           // Ajouter l'activité partagée aux activités locales si elle n'existe pas déjà
-          sharedMetrics.recentActivity.forEach(activity => {
-            const exists = this.metrics.requests.lastRequests.some(req => 
-              req.tool === activity.tool && 
-              req.timestamp === new Date(activity.timestamp).getTime()
+          sharedMetrics.recentActivity.forEach((activity) => {
+            const exists = this.metrics.requests.lastRequests.some(
+              (req) =>
+                req.tool === activity.tool &&
+                req.timestamp === new Date(activity.timestamp).getTime()
             );
             if (!exists) {
               this.metrics.requests.lastRequests.push({
                 tool: activity.tool,
                 timestamp: new Date(activity.timestamp).getTime(),
                 responseTime: activity.responseTime,
-                success: activity.success
+                success: activity.success,
               });
             }
           });
-          
+
           // Garder seulement les 100 dernières activités
           if (this.metrics.requests.lastRequests.length > 100) {
             this.metrics.requests.lastRequests = this.metrics.requests.lastRequests.slice(-100);
@@ -164,14 +173,14 @@ class MetricsService extends EventEmitter {
       if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir, { recursive: true });
       }
-      
+
       // Charger les données existantes
       let existingData = {
         requests: { total: 0, successful: 0, failed: 0, avgResponseTime: 0 },
         tools: {},
-        recentActivity: []
+        recentActivity: [],
       };
-      
+
       if (fs.existsSync(this.sharedMetricsPath)) {
         try {
           existingData = JSON.parse(fs.readFileSync(this.sharedMetricsPath, 'utf8'));
@@ -179,77 +188,88 @@ class MetricsService extends EventEmitter {
           // Fichier corrompu, utiliser les données par défaut
         }
       }
-      
+
       // Fusionner les métriques de requête (prendre le maximum)
-      const totalRequests = Math.max(this.metrics.requests.total, existingData.requests?.total || 0);
-      const successfulRequests = Math.max(this.metrics.requests.successful, existingData.requests?.successful || 0);
-      const failedRequests = Math.max(this.metrics.requests.failed, existingData.requests?.failed || 0);
-      
+      const totalRequests = Math.max(
+        this.metrics.requests.total,
+        existingData.requests?.total || 0
+      );
+      const successfulRequests = Math.max(
+        this.metrics.requests.successful,
+        existingData.requests?.successful || 0
+      );
+      const failedRequests = Math.max(
+        this.metrics.requests.failed,
+        existingData.requests?.failed || 0
+      );
+
       // Fusionner les outils (additionner les usages)
       const mergedTools = { ...existingData.tools };
       this.metrics.tools.usage.forEach((usage, toolName) => {
         const times = this.metrics.tools.responseTime.get(toolName) || [];
         const errors = this.metrics.tools.errors.get(toolName) || 0;
         const avgTime = times.length > 0 ? times.reduce((a, b) => a + b, 0) / times.length : 0;
-        
+
         const existingTool = mergedTools[toolName] || { usage: 0, errors: 0 };
         mergedTools[toolName] = {
           usage: existingTool.usage + usage,
           avgResponseTime: Math.round(avgTime),
           errors: existingTool.errors + errors,
           errorRate: 0, // Calculé après
-          status: 'healthy' // Calculé après
+          status: 'healthy', // Calculé après
         };
-        
+
         // Calculer le taux d'erreur final
         const finalUsage = mergedTools[toolName].usage;
         const finalErrors = mergedTools[toolName].errors;
-        mergedTools[toolName].errorRate = finalUsage > 0 ? Math.round((finalErrors / finalUsage) * 100) : 0;
-        mergedTools[toolName].status = finalErrors > finalUsage * 0.1 ? 'error' : finalUsage > 0 ? 'healthy' : 'idle';
+        mergedTools[toolName].errorRate =
+          finalUsage > 0 ? Math.round((finalErrors / finalUsage) * 100) : 0;
+        mergedTools[toolName].status =
+          finalErrors > finalUsage * 0.1 ? 'error' : finalUsage > 0 ? 'healthy' : 'idle';
       });
-      
+
       // Fusionner l'activité récente (ajouter les nouvelles, garder les uniques)
       const existingActivities = existingData.recentActivity || [];
-      const newActivities = this.metrics.requests.lastRequests.slice(-20).map(req => ({
+      const newActivities = this.metrics.requests.lastRequests.slice(-20).map((req) => ({
         tool: req.tool,
-        timestamp: new Date(req.timestamp).toLocaleTimeString('fr-FR', { 
+        timestamp: new Date(req.timestamp).toLocaleTimeString('fr-FR', {
           timeZone: 'Europe/Paris',
-          hour12: false 
+          hour12: false,
         }),
         responseTime: req.responseTime,
-        success: req.success
+        success: req.success,
       }));
-      
+
       // Créer un Set pour identifier les activités uniques
       const activityMap = new Map();
-      
+
       // Ajouter d'abord les activités existantes
-      existingActivities.forEach(activity => {
+      existingActivities.forEach((activity) => {
         const key = `${activity.tool}-${activity.timestamp}`;
         activityMap.set(key, activity);
       });
-      
+
       // Ajouter les nouvelles activités
-      newActivities.forEach(activity => {
+      newActivities.forEach((activity) => {
         const key = `${activity.tool}-${activity.timestamp}`;
         activityMap.set(key, activity);
       });
-      
+
       // Convertir en array et garder les 50 dernières
       const mergedActivity = Array.from(activityMap.values()).slice(-50);
-      
+
       const sharedData = {
         requests: {
           total: totalRequests,
           successful: successfulRequests,
           failed: failedRequests,
-          avgResponseTime: Math.round(this.metrics.requests.avgResponseTime || 0)
+          avgResponseTime: Math.round(this.metrics.requests.avgResponseTime || 0),
         },
         tools: mergedTools,
         recentActivity: mergedActivity,
-        lastUpdate: Date.now()
+        lastUpdate: Date.now(),
       };
-      
+
       fs.writeFileSync(this.sharedMetricsPath, JSON.stringify(sharedData, null, 2));
     } catch (error) {
       // Ignorer les erreurs de sauvegarde silencieusement
@@ -266,7 +286,7 @@ class MetricsService extends EventEmitter {
         misses: cacheStats.misses || 0,
         hitRate: cacheStats.hitRate || 0,
         memoryUsage: cacheStats.memoryUsage || 0,
-        size: cacheStats.size || 0
+        size: cacheStats.size || 0,
       };
     }
   }
@@ -277,7 +297,7 @@ class MetricsService extends EventEmitter {
   updateSystemMetrics() {
     this.metrics.system.uptime = Date.now() - this.startTime;
     this.metrics.system.memoryUsage = process.memoryUsage();
-    
+
     // CPU usage (approximatif)
     const usage = process.cpuUsage();
     this.metrics.system.cpuUsage = usage;
@@ -289,7 +309,7 @@ class MetricsService extends EventEmitter {
   getDashboardMetrics() {
     // Charger les métriques partagées avant de les retourner
     this.loadSharedMetrics();
-    
+
     const uptime = this.metrics.system.uptime;
     const memUsage = this.metrics.system.memoryUsage;
 
@@ -306,27 +326,28 @@ class MetricsService extends EventEmitter {
         const avgTime = times.reduce((a, b) => a + b, 0) / times.length;
         const usage = this.metrics.tools.usage.get(toolName) || 0;
         const errors = this.metrics.tools.errors.get(toolName) || 0;
-        
+
         toolsStats[toolName] = {
           usage,
           avgResponseTime: Math.round(avgTime),
           errorRate: usage > 0 ? ((errors / usage) * 100).toFixed(1) : 0,
-          status: errors === 0 ? 'healthy' : errors < usage * 0.1 ? 'warning' : 'error'
+          status: errors === 0 ? 'healthy' : errors < usage * 0.1 ? 'warning' : 'error',
         };
       }
     }
 
     // Requêtes par minute (dernières 10 minutes)
-    const tenMinutesAgo = Date.now() - (10 * 60 * 1000);
-    const recentRequests = this.metrics.requests.lastRequests
-      .filter(req => req.timestamp > tenMinutesAgo);
+    const tenMinutesAgo = Date.now() - 10 * 60 * 1000;
+    const recentRequests = this.metrics.requests.lastRequests.filter(
+      (req) => req.timestamp > tenMinutesAgo
+    );
     const requestsPerMinute = recentRequests.length / 10;
 
     // Utiliser les données partagées pour les métriques globales si disponibles
     let totalRequests = this.metrics.requests.total;
     let successfulRequests = this.metrics.requests.successful;
     let avgResponseTime = this.metrics.requests.avgResponseTime;
-    
+
     try {
       if (fs.existsSync(this.sharedMetricsPath)) {
         const sharedData = JSON.parse(fs.readFileSync(this.sharedMetricsPath, 'utf8'));
@@ -346,28 +367,27 @@ class MetricsService extends EventEmitter {
         status: this.getOverallStatus(),
         requestsTotal: totalRequests,
         requestsPerMinute: Math.round(requestsPerMinute * 10) / 10,
-        successRate: totalRequests > 0 
-          ? ((successfulRequests / totalRequests) * 100).toFixed(1)
-          : 100,
-        avgResponseTime: Math.round(avgResponseTime)
+        successRate:
+          totalRequests > 0 ? ((successfulRequests / totalRequests) * 100).toFixed(1) : 100,
+        avgResponseTime: Math.round(avgResponseTime),
       },
       cache: {
         hitRate: this.metrics.cache.hitRate,
         hits: this.metrics.cache.hits,
         misses: this.metrics.cache.misses,
         memoryUsage: this.formatBytes(this.metrics.cache.memoryUsage),
-        size: this.metrics.cache.size
+        size: this.metrics.cache.size,
       },
       system: {
         memoryUsage: {
           used: this.formatBytes(memUsage.heapUsed),
           total: this.formatBytes(memUsage.heapTotal),
-          percentage: ((memUsage.heapUsed / memUsage.heapTotal) * 100).toFixed(1)
+          percentage: ((memUsage.heapUsed / memUsage.heapTotal) * 100).toFixed(1),
         },
-        rss: this.formatBytes(memUsage.rss)
+        rss: this.formatBytes(memUsage.rss),
       },
       tools: toolsStats,
-      recentActivity: this.getRecentActivityFromShared()
+      recentActivity: this.getRecentActivityFromShared(),
     };
   }
 
@@ -383,17 +403,15 @@ class MetricsService extends EventEmitter {
     } catch (error) {
       // Fallback vers les métriques locales
     }
-    
+
     // Fallback : utiliser l'activité locale
-    return this.metrics.requests.lastRequests
-      .slice(-20)
-      .map(req => ({
-        ...req,
-        timestamp: new Date(req.timestamp).toLocaleTimeString('fr-FR', { 
-          timeZone: 'Europe/Paris',
-          hour12: false 
-        })
-      }));
+    return this.metrics.requests.lastRequests.slice(-20).map((req) => ({
+      ...req,
+      timestamp: new Date(req.timestamp).toLocaleTimeString('fr-FR', {
+        timeZone: 'Europe/Paris',
+        hour12: false,
+      }),
+    }));
   }
 
   /**
@@ -402,10 +420,10 @@ class MetricsService extends EventEmitter {
   getOverallStatus() {
     const total = this.metrics.requests.total;
     if (total === 0) return 'idle';
-    
+
     const successRate = (this.metrics.requests.successful / total) * 100;
     const avgTime = this.metrics.requests.avgResponseTime;
-    
+
     if (successRate >= 95 && avgTime < 500) return 'healthy';
     if (successRate >= 90 && avgTime < 1000) return 'warning';
     return 'error';
@@ -419,7 +437,7 @@ class MetricsService extends EventEmitter {
     const hours = Math.floor(seconds / 3600);
     const minutes = Math.floor((seconds % 3600) / 60);
     const secs = seconds % 60;
-    
+
     if (hours > 0) {
       return `${hours}h ${minutes}m ${secs}s`;
     } else if (minutes > 0) {
@@ -449,7 +467,7 @@ class MetricsService extends EventEmitter {
       successful: 0,
       failed: 0,
       avgResponseTime: 0,
-      lastRequests: []
+      lastRequests: [],
     };
     this.metrics.tools.usage.clear();
     this.metrics.tools.responseTime.clear();

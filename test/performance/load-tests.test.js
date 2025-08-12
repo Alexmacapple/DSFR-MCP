@@ -1,21 +1,21 @@
-const DocumentationService = require('../../src/services/documentation');
+const DocumentationService = require('../../src/services/documentation-v2-standalone');
 const ValidationService = require('../../src/services/validation');
 const AccessibilityService = require('../../src/services/accessibility');
-const GeneratorService = require('../../src/services/generator');
+const OptimizedGeneratorService = require('../../src/services/generator-optimized');
 const InputValidatorService = require('../../src/services/input-validator');
 
 describe('Performance Tests', () => {
   let documentationService;
   let validationService;
   let accessibilityService;
-  let generatorService;
+  let optimizedGeneratorService;
   let inputValidator;
   
   beforeAll(async () => {
     documentationService = new DocumentationService();
     validationService = new ValidationService();
     accessibilityService = new AccessibilityService();
-    generatorService = new GeneratorService();
+    optimizedGeneratorService = new OptimizedGeneratorService();
     inputValidator = new InputValidatorService();
     
     // Initialize services

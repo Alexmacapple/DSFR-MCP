@@ -3,6 +3,9 @@
   "version": "1.5.0",
   "description": "MCP Server complet pour le Système de Design de l'État Français (DSFR)",
   "main": "src/index.js",
+  "bin": {
+    "dsfr-mcp": "./cli.js"
+  },
   "scripts": {
     "start": "node src/index.js",
     "dev": "node --watch src/index.js",
@@ -48,7 +51,9 @@
     "ajv-formats": "^3.0.1",
     "chalk": "^4.1.2",
     "cheerio": "^1.0.0-rc.12",
+    "commander": "^11.1.0",
     "dotenv": "^16.3.1",
+    "inquirer": "^9.2.12",
     "fuse.js": "^7.0.0",
     "gray-matter": "^4.0.3",
     "js-yaml": "^4.1.0",
