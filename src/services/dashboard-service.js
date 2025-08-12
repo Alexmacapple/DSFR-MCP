@@ -134,36 +134,54 @@ class DashboardService {
     <link href="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.11.2/dist/utility/icons/icons.min.css" rel="stylesheet">
     
     <style>
-        /* Styles spécifiques pour métriques */
-        .metric-card {
+        /* Styles spécifiques pour cartes métriques DSFR */
+        .fr-card--sm .fr-card__content {
             text-align: center;
         }
         
-        .metric-value-large {
-            font-size: 3rem;
+        .fr-card--sm .fr-display--lg {
+            font-size: 2.5rem;
             font-weight: 700;
-            line-height: 1;
+            line-height: 1.2;
             margin: 0.5rem 0;
         }
         
-        .metric-label {
+        .fr-card--sm .fr-text--lead {
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin: 0.5rem 0;
+        }
+        
+        .fr-card__detail {
             color: var(--text-mention-grey);
             font-size: 0.875rem;
             margin-bottom: 0.5rem;
-        }
-        
-        .metric-sublabel {
-            color: var(--text-mention-grey);
-            font-size: 0.75rem;
+            font-weight: 500;
         }
         
         .status-success { color: var(--background-flat-success); }
         .status-warning { color: var(--background-flat-warning); }
         .status-error { color: var(--background-flat-error); }
         .status-idle { color: var(--text-mention-grey); }
+        .status-uniform { color: var(--text-default-grey); }
         
-        .tools-table {
+        .tools-table-full {
             font-size: 0.875rem;
+            width: 100% !important;
+            border-collapse: collapse !important;
+            table-layout: auto !important;
+            min-width: 100% !important;
+        }
+        
+        .tools-table-full td {
+            padding: 0.75rem !important;
+            border: 1px solid var(--border-default-grey) !important;
+            vertical-align: top !important;
+        }
+        
+        .tools-table-full th {
+            font-weight: 600 !important;
         }
         
         .activity-log {
@@ -233,160 +251,219 @@ class DashboardService {
         </div>
     </header>
 
+    <!-- Fil d'Ariane -->
+    <nav role="navigation" class="fr-breadcrumb" aria-label="vous êtes ici :">
+        <div class="fr-container">
+            <button class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-dashboard">
+                Voir le fil d'Ariane
+            </button>
+            <div class="fr-collapse" id="breadcrumb-dashboard">
+                <ol class="fr-breadcrumb__list">
+                    <li>
+                        <a class="fr-breadcrumb__link" href="/dashboard">Accueil</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" href="/dashboard">Dashboard</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" aria-current="page">Monitoring</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </nav>
+
     <!-- Main Content -->
     <main role="main" id="content">
         <div class="fr-container">
             <!-- Titre de page -->
-            <div class="fr-grid-row">
+            <div class="fr-grid-row fr-mb-4v">
                 <div class="fr-col-12">
-                    <h1 class="fr-h1 fr-mb-4w">
-                        <span class="fr-icon-dashboard-line fr-icon--lg fr-mr-1w" aria-hidden="true"></span>
-                        Tableau de bord du serveur
+                    <h1 class="fr-h1">
+                        Tableau de bord du serveur MCP
                     </h1>
                 </div>
             </div>
 
-            <!-- Métriques principales -->
-            <div class="fr-grid-row fr-grid-row--gutters fr-mb-4w">
-                <!-- Vue d'ensemble -->
-                <div class="fr-col-12 fr-col-md-3">
-                    <div class="fr-card fr-card--no-border metric-card">
+            <!-- Bandeau d'information DSFR -->
+            <div class="fr-grid-row fr-mb-6v">
+                <div class="fr-col-12">
+                    <div class="fr-alert fr-alert--info">
+                        <h3 class="fr-alert__title">Information</h3>
+                        <p>Page mise à jour automatiquement toutes les 10 secondes</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Chiffres clés -->
+            <div class="fr-grid-row fr-mb-4v">
+                <div class="fr-col-12">
+                    <h2 class="fr-h3 fr-mb-6v">
+                        Métriques principales
+                    </h2>
+                </div>
+            </div>
+            
+            <!-- Première ligne : Métriques principales -->
+            <div class="fr-grid-row fr-grid-row--gutters fr-mb-6v">
+                <!-- Uptime -->
+                <div class="fr-col-12 fr-col-sm-6 fr-col-md-3">
+                    <div class="fr-card fr-card--sm fr-card--grey fr-card--no-icon">
                         <div class="fr-card__body">
                             <div class="fr-card__content">
-                                <h3 class="fr-card__title fr-h6">
-                                    <span class="fr-icon-time-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>
-                                    Uptime
+                                <p class="fr-card__detail">Temps de fonctionnement</p>
+                                <h3 class="fr-card__title">
+                                    <span class="fr-display--lg" id="overview-uptime">--</span>
                                 </h3>
-                                <div id="overview-uptime" class="metric-value-large status-idle">--</div>
-                                <p class="metric-sublabel" id="overview-requests">-- requêtes totales</p>
+                                <p class="fr-card__desc fr-text--sm" id="overview-requests">
+                                    -- requêtes totales
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Performance -->
-                <div class="fr-col-12 fr-col-md-3">
-                    <div class="fr-card fr-card--no-border metric-card">
+                <div class="fr-col-12 fr-col-sm-6 fr-col-md-3">
+                    <div class="fr-card fr-card--sm fr-card--grey fr-card--no-icon">
                         <div class="fr-card__body">
                             <div class="fr-card__content">
-                                <h3 class="fr-card__title fr-h6">
-                                    <span class="fr-icon-flashlight-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>
-                                    Performance
+                                <p class="fr-card__detail">Temps de réponse moyen</p>
+                                <h3 class="fr-card__title">
+                                    <span class="fr-display--lg" id="overview-avg-time">-- ms</span>
                                 </h3>
-                                <div id="overview-avg-time" class="metric-value-large status-idle">-- ms</div>
-                                <p class="metric-sublabel" id="overview-req-min">-- req/min</p>
+                                <p class="fr-card__desc fr-text--sm" id="overview-req-min">
+                                    -- req/min
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Succès -->
-                <div class="fr-col-12 fr-col-md-3">
-                    <div class="fr-card fr-card--no-border metric-card">
+                <!-- Taux de réussite -->
+                <div class="fr-col-12 fr-col-sm-6 fr-col-md-3">
+                    <div class="fr-card fr-card--sm fr-card--grey fr-card--no-icon">
                         <div class="fr-card__body">
                             <div class="fr-card__content">
-                                <h3 class="fr-card__title fr-h6">
-                                    <span class="fr-icon-checkbox-circle-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>
-                                    Succès
+                                <p class="fr-card__detail">Taux de réussite</p>
+                                <h3 class="fr-card__title">
+                                    <span class="fr-display--lg" id="overview-success">--%</span>
                                 </h3>
-                                <div id="overview-success" class="metric-value-large status-idle">--%</div>
-                                <p class="metric-sublabel">Taux de succès</p>
+                                <p class="fr-card__desc fr-text--sm">
+                                    Opérations réussies
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Cache -->
-                <div class="fr-col-12 fr-col-md-3">
-                    <div class="fr-card fr-card--no-border metric-card">
+                <!-- Efficacité du cache -->
+                <div class="fr-col-12 fr-col-sm-6 fr-col-md-3">
+                    <div class="fr-card fr-card--sm fr-card--grey fr-card--no-icon">
                         <div class="fr-card__body">
                             <div class="fr-card__content">
-                                <h3 class="fr-card__title fr-h6">
-                                    <span class="fr-icon-database-2-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>
-                                    Cache
+                                <p class="fr-card__detail">Efficacité du cache</p>
+                                <h3 class="fr-card__title">
+                                    <span class="fr-display--lg" id="cache-hitrate">--%</span>
                                 </h3>
-                                <div id="cache-hitrate" class="metric-value-large status-idle">--%</div>
-                                <p class="metric-sublabel" id="cache-memory">-- mémoire</p>
+                                <p class="fr-card__desc fr-text--sm" id="cache-memory">
+                                    -- mémoire utilisée
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Deuxième ligne : Métriques système -->
+            <div class="fr-grid-row fr-grid-row--gutters fr-mb-8v">
+                <!-- Carte Mémoire -->
+                <div class="fr-col-12 fr-col-sm-6 fr-col-md-6">
+                    <div class="fr-card fr-card--sm fr-card--grey fr-card--no-icon">
+                        <div class="fr-card__body">
+                            <div class="fr-card__content">
+                                <p class="fr-card__detail">Mémoire utilisée</p>
+                                <h3 class="fr-card__title">
+                                    <span class="fr-text--lead" id="system-memory-used">--</span>
+                                </h3>
+                                <p class="fr-card__desc fr-text--sm" id="system-memory-total">
+                                    sur -- total
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carte RSS -->
+                <div class="fr-col-12 fr-col-sm-6 fr-col-md-6">
+                    <div class="fr-card fr-card--sm fr-card--grey fr-card--no-icon">
+                        <div class="fr-card__body">
+                            <div class="fr-card__content">
+                                <p class="fr-card__detail">Mémoire RSS</p>
+                                <h3 class="fr-card__title">
+                                    <span class="fr-text--lead" id="system-rss-value">--</span>
+                                </h3>
+                                <p class="fr-card__desc fr-text--sm">
+                                    Mémoire résidente
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Outils MCP -->
-            <div class="fr-grid-row fr-mb-4w">
+            <!-- Section Détails techniques (bloc 100%) -->
+            <div class="fr-grid-row fr-mb-4v">
                 <div class="fr-col-12">
-                    <div class="fr-card">
-                        <div class="fr-card__body">
-                            <div class="fr-card__content">
-                                <h2 class="fr-card__title fr-h4">
-                                    <span class="fr-icon-tools-line fr-icon--lg fr-mr-1w" aria-hidden="true"></span>
-                                    Outils MCP (16/16)
-                                </h2>
-                                <div class="fr-table fr-table--bordered">
-                                    <table class="tools-table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Outil</th>
-                                                <th scope="col">Utilisations</th>
-                                                <th scope="col">Temps moyen</th>
-                                                <th scope="col">Taux erreur</th>
-                                                <th scope="col">Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="tools">
-                                            <tr>
-                                                <td colspan="5" class="fr-text--center">
-                                                    <span class="fr-icon-loader-3-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>
-                                                    Chargement des outils...
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                    <h2 class="fr-h3 fr-mb-6v">
+                        Détails techniques - outils MCP (16)
+                    </h2>
+                </div>
+            </div>
+            
+            <div class="fr-grid-row fr-mb-8v">
+                <div class="fr-col-12" style="padding: 0;">
+                    <div style="width: 100%; background: white; border: 1px solid var(--border-default-grey); border-radius: 0.25rem; box-shadow: 0 2px 6px 0 rgba(0, 0, 18, 0.16); overflow: hidden;">
+                        <div style="padding: 1rem; margin: 0; width: calc(100% - 2rem);">
+                            <div style="width: 100%; overflow-x: auto; margin: 0; padding: 0;">
+                                <table class="tools-table-full" style="width: 100%; border-collapse: collapse; table-layout: auto; min-width: 100%;">
+                                    <thead style="background: var(--background-alt-grey);">
+                                        <tr>
+                                            <th scope="col" style="padding: 0.75rem; text-align: left; border: 1px solid var(--border-default-grey); width: 30%;">Outil</th>
+                                            <th scope="col" style="padding: 0.75rem; text-align: left; border: 1px solid var(--border-default-grey); width: 15%;">Usage</th>
+                                            <th scope="col" style="padding: 0.75rem; text-align: left; border: 1px solid var(--border-default-grey); width: 20%;">Temps moyen</th>
+                                            <th scope="col" style="padding: 0.75rem; text-align: left; border: 1px solid var(--border-default-grey); width: 15%;">Taux erreur</th>
+                                            <th scope="col" style="padding: 0.75rem; text-align: left; border: 1px solid var(--border-default-grey); width: 20%;">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tools">
+                                        <tr>
+                                            <td colspan="5" style="padding: 1rem; text-align: center; border: 1px solid var(--border-default-grey);">
+                                                Chargement des outils...
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Système et Activité -->
-            <div class="fr-grid-row fr-grid-row--gutters">
-                <!-- Système -->
-                <div class="fr-col-12 fr-col-md-6">
-                    <div class="fr-card">
-                        <div class="fr-card__body">
-                            <div class="fr-card__content">
-                                <h2 class="fr-card__title fr-h5">
-                                    <span class="fr-icon-settings-3-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>
-                                    Système
-                                </h2>
-                                <div id="system">
-                                    <div class="fr-grid-row fr-grid-row--gutters">
-                                        <div class="fr-col-6">
-                                            <p class="fr-text--sm fr-mb-1v">Mémoire utilisée</p>
-                                            <p class="fr-text--bold" id="system-memory">Chargement...</p>
-                                        </div>
-                                        <div class="fr-col-6">
-                                            <p class="fr-text--sm fr-mb-1v">RSS</p>
-                                            <p class="fr-text--bold" id="system-rss">Chargement...</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Section Activité récente (bloc 100%) -->
+            <div class="fr-grid-row fr-mb-4v">
+                <div class="fr-col-12">
+                    <h2 class="fr-h3 fr-mb-6v">
+                        Activité récente
+                    </h2>
                 </div>
-
-                <!-- Activité récente -->
-                <div class="fr-col-12 fr-col-md-6">
-                    <div class="fr-card">
+            </div>
+            
+            <div class="fr-grid-row fr-mb-8v">
+                <div class="fr-col-12">
+                    <div class="fr-card fr-card--shadow">
                         <div class="fr-card__body">
                             <div class="fr-card__content">
-                                <h2 class="fr-card__title fr-h5">
-                                    <span class="fr-icon-file-text-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>
-                                    Activité récente
-                                </h2>
                                 <div class="activity-log" id="activity">
                                     <p class="fr-text--sm">Chargement de l'activité...</p>
                                 </div>
@@ -396,23 +473,49 @@ class DashboardService {
                 </div>
             </div>
 
-            <!-- Info mise à jour -->
-            <div class="fr-grid-row fr-mt-4w">
-                <div class="fr-col-12">
-                    <div class="fr-notice fr-notice--info">
-                        <div class="fr-container">
-                            <div class="fr-notice__body">
-                                <p class="fr-notice__title">
-                                    <span class="fr-icon-refresh-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>
-                                    Page mise à jour automatiquement toutes les 10 secondes
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+        </div>
+    </main>
+    
+    <!-- Footer DSFR -->
+    <footer class="fr-footer" role="contentinfo" id="footer-dashboard">
+        <div class="fr-container">
+            <div class="fr-footer__body">
+                <div class="fr-footer__brand fr-enlarge-link">
+                    <a title="Retour à l'accueil du site - Dashboard DSFR-MCP" href="/">
+                        <p class="fr-logo">
+                            République<br>Française
+                        </p>
+                    </a>
+                </div>
+                <div class="fr-footer__content">
+                    <p class="fr-footer__content-desc">
+                        Dashboard de monitoring - Service de surveillance et d'analyse des performances en temps réel pour le serveur MCP DSFR.
+                    </p>
+                    <ul class="fr-footer__content-list">
+                        <li class="fr-footer__content-item">
+                            <a title="info.gouv.fr - nouvelle fenêtre" href="https://info.gouv.fr" target="_blank" rel="noopener external" class="fr-footer__content-link">info.gouv.fr</a>
+                        </li>
+                        <li class="fr-footer__content-item">
+                            <a title="service-public.fr - nouvelle fenêtre" href="https://service-public.fr" target="_blank" rel="noopener external" class="fr-footer__content-link">service-public.fr</a>
+                        </li>
+                        <li class="fr-footer__content-item">
+                            <a title="legifrance.gouv.fr - nouvelle fenêtre" href="https://legifrance.gouv.fr" target="_blank" rel="noopener external" class="fr-footer__content-link">legifrance.gouv.fr</a>
+                        </li>
+                        <li class="fr-footer__content-item">
+                            <a title="data.gouv.fr - nouvelle fenêtre" href="https://data.gouv.fr" target="_blank" rel="noopener external" class="fr-footer__content-link">data.gouv.fr</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="fr-footer__bottom">
+                <div class="fr-footer__bottom-copy">
+                    <p>Sauf mention explicite de propriété intellectuelle détenue par des tiers, les contenus de ce site sont proposés sous 
+                    <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank" rel="noopener external" title="Licence etalab - nouvelle fenêtre">licence etalab-2.0</a>
+                    </p>
                 </div>
             </div>
         </div>
-    </main>
+    </footer>
     
     <script>
         // Mise à jour des métriques
@@ -427,27 +530,35 @@ class DashboardService {
                                                    metrics.overview.status === 'warning' ? 'warning' : 
                                                    metrics.overview.status === 'error' ? 'error' : 'info');
                 statusElement.className = 'fr-badge fr-badge--sm ' + statusClass;
-                statusElement.innerHTML = \`<span class="fr-icon-pulse-line fr-icon--sm" aria-hidden="true"></span> \${metrics.overview.status.toUpperCase()}\`;
+                const statusText = metrics.overview.status === 'healthy' ? 'OPÉRATIONNEL' :
+                                  metrics.overview.status === 'warning' ? 'ATTENTION' :
+                                  metrics.overview.status === 'error' ? 'ERREUR' : 'INACTIF';
+                statusElement.innerHTML = statusText;
                 
-                // Métriques principales
+                // Métriques principales avec cartes DSFR - couleur uniforme
                 document.getElementById('overview-uptime').textContent = metrics.overview.uptime;
-                document.getElementById('overview-uptime').className = 'metric-value-large status-' + metrics.overview.status;
+                document.getElementById('overview-uptime').className = 'fr-display--lg status-uniform';
                 document.getElementById('overview-requests').textContent = \`\${metrics.overview.requestsTotal} requêtes totales\`;
                 
-                document.getElementById('overview-avg-time').textContent = \`\${metrics.overview.avgResponseTime} ms\`;
-                document.getElementById('overview-avg-time').className = 'metric-value-large status-' + (metrics.overview.avgResponseTime < 500 ? 'success' : metrics.overview.avgResponseTime < 1000 ? 'warning' : 'error');
+                document.getElementById('overview-avg-time').textContent = \`\${metrics.overview.avgResponseTime}\`;
+                document.getElementById('overview-avg-time').className = 'fr-display--lg status-uniform';
                 document.getElementById('overview-req-min').textContent = \`\${metrics.overview.requestsPerMinute} req/min\`;
                 
-                document.getElementById('overview-success').textContent = \`\${metrics.overview.successRate}%\`;
-                document.getElementById('overview-success').className = 'metric-value-large status-' + (parseFloat(metrics.overview.successRate) >= 95 ? 'success' : parseFloat(metrics.overview.successRate) >= 90 ? 'warning' : 'error');
+                document.getElementById('overview-success').textContent = \`\${metrics.overview.successRate}\`;
+                document.getElementById('overview-success').className = 'fr-display--lg status-uniform';
                 
-                document.getElementById('cache-hitrate').textContent = metrics.cache.hitRate || '0%';
-                document.getElementById('cache-hitrate').className = 'metric-value-large status-' + (metrics.cache.hits > 0 ? 'success' : 'idle');
+                // Corriger l'affichage du cache - gérer le cas hitRate = 0
+                const cacheHitRate = typeof metrics.cache.hitRate === 'number' ? 
+                    metrics.cache.hitRate.toFixed(1) + '%' : 
+                    (metrics.cache.hitRate || '0%');
+                document.getElementById('cache-hitrate').textContent = cacheHitRate;
+                document.getElementById('cache-hitrate').className = 'fr-display--lg status-uniform';
                 document.getElementById('cache-memory').textContent = metrics.cache.memoryUsage || '0 B';
                 
-                // Système
-                document.getElementById('system-memory').textContent = \`\${metrics.system.memoryUsage.used} / \${metrics.system.memoryUsage.total} (\${metrics.system.memoryUsage.percentage}%)\`;
-                document.getElementById('system-rss').textContent = metrics.system.rss;
+                // Système avec cartes
+                document.getElementById('system-memory-used').textContent = metrics.system.memoryUsage.used;
+                document.getElementById('system-memory-total').textContent = \`sur \${metrics.system.memoryUsage.total} (\${metrics.system.memoryUsage.percentage}%)\`;
+                document.getElementById('system-rss-value').textContent = metrics.system.rss;
                 
                 // Outils MCP - Table format DSFR
                 const toolsHtml = Object.entries(metrics.tools).map(([name, stats]) => {
@@ -455,15 +566,19 @@ class DashboardService {
                                        stats.status === 'warning' ? 'fr-badge--warning' :
                                        stats.status === 'error' ? 'fr-badge--error' : 'fr-badge--info';
                     
+                    const statusTextFr = stats.status === 'healthy' ? 'Opérationnel' :
+                                        stats.status === 'warning' ? 'Attention' :
+                                        stats.status === 'error' ? 'Erreur' : 'Inactif';
+                    
                     return \`
                         <tr>
-                            <td class="fr-text--bold">\${name}</td>
-                            <td>\${stats.usage}</td>
-                            <td>\${stats.avgResponseTime}ms</td>
-                            <td>\${stats.errorRate}%</td>
-                            <td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--border-default-grey); font-weight: 600;">\${name}</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--border-default-grey);">\${stats.usage}</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--border-default-grey);">\${stats.avgResponseTime}ms</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--border-default-grey);">\${stats.errorRate}%</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--border-default-grey);">
                                 <span class="fr-badge fr-badge--sm \${statusBadge}">
-                                    \${stats.status}
+                                    \${statusTextFr}
                                 </span>
                             </td>
                         </tr>
@@ -472,8 +587,7 @@ class DashboardService {
                 
                 document.getElementById('tools').innerHTML = toolsHtml || \`
                     <tr>
-                        <td colspan="5" class="fr-text--center">
-                            <span class="fr-icon-information-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>
+                        <td colspan="5" style="padding: 1rem; text-align: center; border: 1px solid var(--border-default-grey);">
                             Aucun outil utilisé
                         </td>
                     </tr>
@@ -485,13 +599,12 @@ class DashboardService {
                         <span class="fr-text--xs fr-text--regular">[\${item.timestamp}]</span>
                         <span class="fr-text--sm fr-text--bold">\${item.tool}</span>
                         <span class="fr-text--xs">- \${item.responseTime}ms</span>
-                        <span class="fr-icon-\${item.success ? 'checkbox-circle-line fr-text--success' : 'close-circle-line fr-text--error'} fr-icon--sm" aria-hidden="true"></span>
+                        <span class="fr-text--\${item.success ? 'success' : 'error'}">[\${item.success ? '✓' : '✗'}]</span>
                     </div>
                 \`).join('');
                 
                 document.getElementById('activity').innerHTML = activityHtml || \`
                     <p class="fr-text--sm">
-                        <span class="fr-icon-information-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>
                         Aucune activité récente
                     </p>
                 \`;
@@ -499,7 +612,7 @@ class DashboardService {
             } catch (error) {
                 console.error('Erreur lors de la mise à jour:', error);
                 const statusElement = document.getElementById('globalStatus');
-                statusElement.innerHTML = '<span class="fr-icon-error-warning-line fr-icon--sm" aria-hidden="true"></span> ERREUR';
+                statusElement.innerHTML = 'ERREUR';
                 statusElement.className = 'fr-badge fr-badge--sm fr-badge--error';
             }
         }
