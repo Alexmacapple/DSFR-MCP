@@ -14,6 +14,8 @@ services:
     image: dsfr-mcp:latest
     container_name: dsfr-mcp-server
     restart: unless-stopped
+    stdin_open: true
+    tty: true
     
     environment:
       - NODE_ENV=production

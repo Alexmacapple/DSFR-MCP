@@ -84,7 +84,9 @@ async function initializeServices() {
       logError('[DASHBOARD] Service de métriques initialisé');
     }
     
-    if (DashboardService && _metricsService) {
+    // Ne démarrer le dashboard que si on n'est pas en mode MCP stdio
+    const skipDashboard = process.argv.includes('--mcp') || isMCPMode;
+    if (DashboardService && _metricsService && !skipDashboard) {
       _dashboardService = new DashboardService(_metricsService, { info: console.error, error: console.error });
       try {
         await _dashboardService.start();
@@ -93,6 +95,8 @@ async function initializeServices() {
         console.error('[DASHBOARD] Erreur démarrage dashboard:', error.message);
         console.error('[DASHBOARD] Stack:', error.stack);
       }
+    } else if (skipDashboard) {
+      logError('[DASHBOARD] Dashboard désactivé en mode MCP');
     }
 
     servicesInitialized = true;

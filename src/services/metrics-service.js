@@ -1,15 +1,19 @@
 /**
  * Service de métriques pour dashboard DSFR-MCP
  * Collecte et expose les métriques de performance et santé
+ * Support partage via fichier entre instances MCP
  */
 
 const { EventEmitter } = require('events');
+const fs = require('fs');
+const path = require('path');
 
 class MetricsService extends EventEmitter {
-  constructor(logger) {
+  constructor(logger, sharedMetricsPath = '/app/data/shared-metrics.json') {
     super();
     this.logger = logger;
     this.startTime = Date.now();
+    this.sharedMetricsPath = sharedMetricsPath;
     
     // Métriques principales
     this.metrics = {
@@ -93,7 +97,81 @@ class MetricsService extends EventEmitter {
       this.metrics.tools.errors.set(toolName, toolErrors + 1);
     }
 
+    // Sauvegarder les métriques partagées
+    this.saveSharedMetrics();
+    
     this.emit('request', { toolName, responseTime, success });
+  }
+
+  /**
+   * Charge les métriques partagées depuis le fichier
+   */
+  loadSharedMetrics() {
+    try {
+      if (fs.existsSync(this.sharedMetricsPath)) {
+        const data = fs.readFileSync(this.sharedMetricsPath, 'utf8');
+        const sharedMetrics = JSON.parse(data);
+        
+        // Fusionner les métriques partagées avec les locales
+        this.metrics.requests.total = Math.max(this.metrics.requests.total, sharedMetrics.requests?.total || 0);
+        this.metrics.requests.successful = Math.max(this.metrics.requests.successful, sharedMetrics.requests?.successful || 0);
+        this.metrics.requests.failed = Math.max(this.metrics.requests.failed, sharedMetrics.requests?.failed || 0);
+        
+        // Outils partagés
+        if (sharedMetrics.tools) {
+          Object.entries(sharedMetrics.tools).forEach(([toolName, stats]) => {
+            const currentUsage = this.metrics.tools.usage.get(toolName) || 0;
+            this.metrics.tools.usage.set(toolName, Math.max(currentUsage, stats.usage || 0));
+          });
+        }
+      }
+    } catch (error) {
+      // Ignorer les erreurs de chargement silencieusement
+    }
+  }
+
+  /**
+   * Sauvegarde les métriques dans le fichier partagé
+   */
+  saveSharedMetrics() {
+    try {
+      // S'assurer que le répertoire existe
+      const dir = path.dirname(this.sharedMetricsPath);
+      if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, { recursive: true });
+      }
+      
+      // Préparer les données à sauvegarder
+      const toolsData = {};
+      this.metrics.tools.usage.forEach((usage, toolName) => {
+        const times = this.metrics.tools.responseTime.get(toolName) || [];
+        const errors = this.metrics.tools.errors.get(toolName) || 0;
+        const avgTime = times.length > 0 ? times.reduce((a, b) => a + b, 0) / times.length : 0;
+        
+        toolsData[toolName] = {
+          usage,
+          avgResponseTime: Math.round(avgTime),
+          errors,
+          errorRate: usage > 0 ? Math.round((errors / usage) * 100) : 0,
+          status: errors > usage * 0.1 ? 'error' : usage > 0 ? 'healthy' : 'idle'
+        };
+      });
+      
+      const sharedData = {
+        requests: {
+          total: this.metrics.requests.total,
+          successful: this.metrics.requests.successful,
+          failed: this.metrics.requests.failed,
+          avgResponseTime: Math.round(this.metrics.requests.avgResponseTime)
+        },
+        tools: toolsData,
+        lastUpdate: Date.now()
+      };
+      
+      fs.writeFileSync(this.sharedMetricsPath, JSON.stringify(sharedData, null, 2));
+    } catch (error) {
+      // Ignorer les erreurs de sauvegarde silencieusement
+    }
   }
 
   /**
@@ -127,22 +205,33 @@ class MetricsService extends EventEmitter {
    * Obtient les métriques formatées pour le dashboard
    */
   getDashboardMetrics() {
+    // Charger les métriques partagées avant de les retourner
+    this.loadSharedMetrics();
+    
     const uptime = this.metrics.system.uptime;
     const memUsage = this.metrics.system.memoryUsage;
 
-    // Calcul des moyennes par outil
-    const toolsStats = {};
-    for (const [toolName, times] of this.metrics.tools.responseTime) {
-      const avgTime = times.reduce((a, b) => a + b, 0) / times.length;
-      const usage = this.metrics.tools.usage.get(toolName) || 0;
-      const errors = this.metrics.tools.errors.get(toolName) || 0;
-      
-      toolsStats[toolName] = {
-        usage,
-        avgResponseTime: Math.round(avgTime),
-        errorRate: usage > 0 ? ((errors / usage) * 100).toFixed(1) : 0,
-        status: errors === 0 ? 'healthy' : errors < usage * 0.1 ? 'warning' : 'error'
-      };
+    // Charger directement les stats des outils depuis le fichier partagé
+    let toolsStats = {};
+    try {
+      if (fs.existsSync(this.sharedMetricsPath)) {
+        const sharedData = JSON.parse(fs.readFileSync(this.sharedMetricsPath, 'utf8'));
+        toolsStats = sharedData.tools || {};
+      }
+    } catch (error) {
+      // Fallback vers les métriques locales
+      for (const [toolName, times] of this.metrics.tools.responseTime) {
+        const avgTime = times.reduce((a, b) => a + b, 0) / times.length;
+        const usage = this.metrics.tools.usage.get(toolName) || 0;
+        const errors = this.metrics.tools.errors.get(toolName) || 0;
+        
+        toolsStats[toolName] = {
+          usage,
+          avgResponseTime: Math.round(avgTime),
+          errorRate: usage > 0 ? ((errors / usage) * 100).toFixed(1) : 0,
+          status: errors === 0 ? 'healthy' : errors < usage * 0.1 ? 'warning' : 'error'
+        };
+      }
     }
 
     // Requêtes par minute (dernières 10 minutes)
@@ -151,16 +240,34 @@ class MetricsService extends EventEmitter {
       .filter(req => req.timestamp > tenMinutesAgo);
     const requestsPerMinute = recentRequests.length / 10;
 
+    // Utiliser les données partagées pour les métriques globales si disponibles
+    let totalRequests = this.metrics.requests.total;
+    let successfulRequests = this.metrics.requests.successful;
+    let avgResponseTime = this.metrics.requests.avgResponseTime;
+    
+    try {
+      if (fs.existsSync(this.sharedMetricsPath)) {
+        const sharedData = JSON.parse(fs.readFileSync(this.sharedMetricsPath, 'utf8'));
+        if (sharedData.requests) {
+          totalRequests = Math.max(totalRequests, sharedData.requests.total || 0);
+          successfulRequests = Math.max(successfulRequests, sharedData.requests.successful || 0);
+          avgResponseTime = sharedData.requests.avgResponseTime || avgResponseTime;
+        }
+      }
+    } catch (error) {
+      // Utiliser les métriques locales
+    }
+
     return {
       overview: {
         uptime: this.formatUptime(uptime),
         status: this.getOverallStatus(),
-        requestsTotal: this.metrics.requests.total,
+        requestsTotal: totalRequests,
         requestsPerMinute: Math.round(requestsPerMinute * 10) / 10,
-        successRate: this.metrics.requests.total > 0 
-          ? ((this.metrics.requests.successful / this.metrics.requests.total) * 100).toFixed(1)
+        successRate: totalRequests > 0 
+          ? ((successfulRequests / totalRequests) * 100).toFixed(1)
           : 100,
-        avgResponseTime: Math.round(this.metrics.requests.avgResponseTime)
+        avgResponseTime: Math.round(avgResponseTime)
       },
       cache: {
         hitRate: this.metrics.cache.hitRate,
