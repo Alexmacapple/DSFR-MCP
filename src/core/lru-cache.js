@@ -25,7 +25,7 @@ class CacheEntry {
    */
   _calculateSize(value) {
     if (value === null || value === undefined) return 0;
-    
+
     try {
       const str = typeof value === 'string' ? value : JSON.stringify(value);
       return Buffer.byteLength(str, 'utf8');
@@ -40,7 +40,7 @@ class CacheEntry {
    */
   isExpired() {
     if (this.ttl === 0) return false;
-    return Date.now() > (this.createTime + this.ttl);
+    return Date.now() > this.createTime + this.ttl;
   }
 
   /**
@@ -61,9 +61,9 @@ class CacheEntry {
         const zlib = require('zlib');
         const compressed = zlib.deflateSync(this.value);
         if (compressed.length < this.size * 0.8) {
-          this.value = { 
-            __compressed: true, 
-            data: compressed.toString('base64') 
+          this.value = {
+            __compressed: true,
+            data: compressed.toString('base64'),
           };
           this.size = compressed.length;
         }
@@ -97,21 +97,24 @@ class CacheEntry {
 class LRUCache extends DisposableBase {
   constructor(options = {}) {
     super();
-    
+
     this.maxSize = options.maxSize || 100;
     this.defaultTTL = options.defaultTTL || 0; // 0 = pas d'expiration
     this.maxMemory = options.maxMemory || 50 * 1024 * 1024; // 50MB max
     this.autoCompress = options.autoCompress || true;
     this.enableStats = options.enableStats !== false;
-    
+
     this.cache = new Map();
     this.stats = this.enableStats ? this._initStats() : null;
-    
+
     // Cleanup automatique
     if (this.defaultTTL > 0) {
-      this.cleanupInterval = this.setInterval(() => {
-        this.cleanup();
-      }, Math.min(this.defaultTTL / 10, 60000)); // Max 1 minute
+      this.cleanupInterval = this.setInterval(
+        () => {
+          this.cleanup();
+        },
+        Math.min(this.defaultTTL / 10, 60000)
+      ); // Max 1 minute
     }
   }
 
@@ -126,7 +129,7 @@ class LRUCache extends DisposableBase {
       evictions: 0,
       expirations: 0,
       memoryUsage: 0,
-      compressions: 0
+      compressions: 0,
     };
   }
 
@@ -183,7 +186,7 @@ class LRUCache extends DisposableBase {
     const entries = Array.from(this.cache.entries()).map(([key, entry]) => ({
       key,
       entry,
-      score: this._calculateEvictionScore(entry)
+      score: this._calculateEvictionScore(entry),
     }));
 
     // Trie par score (plus bas = éviction prioritaire)
@@ -205,12 +208,12 @@ class LRUCache extends DisposableBase {
    * @returns {number} Score d'éviction
    */
   _calculateEvictionScore(entry) {
-    const age = Date.now() - entry.createTime;
+    const _age = Date.now() - entry.createTime;
     const timeSinceAccess = Date.now() - entry.accessTime;
     const sizeWeight = entry.size / 1024; // KB
-    
+
     // Score basé sur fréquence, récence et taille
-    return (entry.accessCount * 100) - (timeSinceAccess / 1000) - sizeWeight;
+    return entry.accessCount * 100 - timeSinceAccess / 1000 - sizeWeight;
   }
 
   /**
@@ -238,7 +241,7 @@ class LRUCache extends DisposableBase {
 
     entry.touch();
     if (this.stats) this.stats.hits++;
-    
+
     return entry.decompress();
   }
 
@@ -345,15 +348,16 @@ class LRUCache extends DisposableBase {
   getStats() {
     if (!this.stats) return null;
 
-    const hitRate = this.stats.hits + this.stats.misses > 0 
-      ? (this.stats.hits / (this.stats.hits + this.stats.misses) * 100).toFixed(2)
-      : 0;
+    const hitRate =
+      this.stats.hits + this.stats.misses > 0
+        ? ((this.stats.hits / (this.stats.hits + this.stats.misses)) * 100).toFixed(2)
+        : 0;
 
     return {
       ...this.stats,
       size: this.cache.size,
       hitRate: `${hitRate}%`,
-      memoryUsage: `${(this.stats.memoryUsage / 1024 / 1024).toFixed(2)}MB`
+      memoryUsage: `${(this.stats.memoryUsage / 1024 / 1024).toFixed(2)}MB`,
     };
   }
 

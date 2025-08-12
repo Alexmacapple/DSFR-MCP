@@ -48,7 +48,7 @@ class DisposableBase extends IDisposable {
     if (this._disposed) {
       throw new Error('Cannot add disposable to already disposed object');
     }
-    
+
     this._disposables.push(resource);
     return resource;
   }
@@ -64,7 +64,7 @@ class DisposableBase extends IDisposable {
       this._timers.delete(timer);
       callback();
     }, delay);
-    
+
     this._timers.add(timer);
     return timer;
   }
@@ -89,16 +89,16 @@ class DisposableBase extends IDisposable {
    */
   addEventListener(emitter, event, listener) {
     emitter.on(event, listener);
-    
+
     if (!this._eventListeners.has(emitter)) {
       this._eventListeners.set(emitter, new Map());
     }
-    
+
     const listeners = this._eventListeners.get(emitter);
     if (!listeners.has(event)) {
       listeners.set(event, []);
     }
-    
+
     listeners.get(event).push(listener);
   }
 
@@ -206,7 +206,7 @@ async function using(resource, action) {
  * @returns {Function} Méthode décorée
  */
 function autoDispose(method) {
-  return function(...args) {
+  return function (...args) {
     this.assertNotDisposed();
     return method.apply(this, args);
   };
@@ -216,5 +216,5 @@ module.exports = {
   IDisposable,
   DisposableBase,
   using,
-  autoDispose
+  autoDispose,
 };

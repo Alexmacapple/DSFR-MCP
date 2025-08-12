@@ -6,7 +6,7 @@
 const fs = require('fs').promises;
 const path = require('path');
 const { ICacheService } = require('../core/interfaces');
-const { DisposableBase } = require('../core/disposable');
+const { DisposableBase: _DisposableBase } = require('../core/disposable');
 const { LRUCache } = require('../core/lru-cache');
 
 class CacheService extends ICacheService {

@@ -10,32 +10,69 @@ class HTMLAnalyzer {
     // Base de données des classes DSFR officielles
     this.dsfrClasses = {
       // Layout
-      'fr-container': { category: 'layout', importance: 'high', description: 'Conteneur principal' },
+      'fr-container': {
+        category: 'layout',
+        importance: 'high',
+        description: 'Conteneur principal',
+      },
       'fr-grid-row': { category: 'layout', importance: 'high', description: 'Ligne de grille' },
-      'fr-col-': { category: 'layout', importance: 'medium', description: 'Colonne responsive', prefix: true },
-      
-      // Components  
+      'fr-col-': {
+        category: 'layout',
+        importance: 'medium',
+        description: 'Colonne responsive',
+        prefix: true,
+      },
+
+      // Components
       'fr-btn': { category: 'component', importance: 'high', description: 'Bouton DSFR' },
       'fr-input': { category: 'component', importance: 'high', description: 'Champ de saisie' },
       'fr-card': { category: 'component', importance: 'medium', description: 'Carte de contenu' },
       'fr-nav': { category: 'component', importance: 'high', description: 'Navigation principale' },
       'fr-header': { category: 'component', importance: 'high', description: 'En-tête officiel' },
       'fr-footer': { category: 'component', importance: 'medium', description: 'Pied de page' },
-      'fr-breadcrumb': { category: 'component', importance: 'medium', description: 'Fil d\'Ariane' },
+      'fr-breadcrumb': { category: 'component', importance: 'medium', description: "Fil d'Ariane" },
       'fr-form': { category: 'component', importance: 'high', description: 'Formulaire DSFR' },
-      'fr-fieldset': { category: 'component', importance: 'medium', description: 'Groupe de champs' },
+      'fr-fieldset': {
+        category: 'component',
+        importance: 'medium',
+        description: 'Groupe de champs',
+      },
       'fr-label': { category: 'component', importance: 'high', description: 'Label de champ' },
       'fr-table': { category: 'component', importance: 'medium', description: 'Tableau DSFR' },
       'fr-modal': { category: 'component', importance: 'medium', description: 'Modale' },
       'fr-accordion': { category: 'component', importance: 'medium', description: 'Accordéon' },
-      
+
       // Utility
       'fr-hidden': { category: 'utility', importance: 'low', description: 'Masquer élément' },
-      'fr-sr-only': { category: 'utility', importance: 'medium', description: 'Lecteur d\'écran uniquement' },
-      'fr-text-': { category: 'utility', importance: 'low', description: 'Classes de texte', prefix: true },
-      'fr-background-': { category: 'utility', importance: 'low', description: 'Classes de fond', prefix: true },
-      'fr-m-': { category: 'utility', importance: 'low', description: 'Classes de margin', prefix: true },
-      'fr-p-': { category: 'utility', importance: 'low', description: 'Classes de padding', prefix: true }
+      'fr-sr-only': {
+        category: 'utility',
+        importance: 'medium',
+        description: "Lecteur d'écran uniquement",
+      },
+      'fr-text-': {
+        category: 'utility',
+        importance: 'low',
+        description: 'Classes de texte',
+        prefix: true,
+      },
+      'fr-background-': {
+        category: 'utility',
+        importance: 'low',
+        description: 'Classes de fond',
+        prefix: true,
+      },
+      'fr-m-': {
+        category: 'utility',
+        importance: 'low',
+        description: 'Classes de margin',
+        prefix: true,
+      },
+      'fr-p-': {
+        category: 'utility',
+        importance: 'low',
+        description: 'Classes de padding',
+        prefix: true,
+      },
     };
 
     this.semanticElements = ['main', 'nav', 'header', 'footer', 'section', 'article', 'aside'];
@@ -56,9 +93,24 @@ class HTMLAnalyzer {
         lowerCaseAttributeNames: true,
         comment: false,
         voidTag: {
-          tags: ['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr'],
-          closingSlash: true
-        }
+          tags: [
+            'area',
+            'base',
+            'br',
+            'col',
+            'embed',
+            'hr',
+            'img',
+            'input',
+            'link',
+            'meta',
+            'param',
+            'source',
+            'track',
+            'wbr',
+          ],
+          closingSlash: true,
+        },
       });
 
       const analysis = {
@@ -68,7 +120,7 @@ class HTMLAnalyzer {
         formAnalysis: this.analyzeFormElements(root),
         headingStructure: this.analyzeHeadingStructure(root),
         performance: this.analyzePerformance(root),
-        codeStats: this.getCodeStats(htmlCode, root)
+        codeStats: this.getCodeStats(htmlCode, root),
       };
 
       return this.generateDetailedReport(analysis, htmlCode, options);
@@ -84,32 +136,32 @@ class HTMLAnalyzer {
     const foundClasses = new Set();
     const classUsage = {};
     const missingClasses = [];
-    
+
     // Parcourir tous les éléments avec des classes
     const elementsWithClasses = root.querySelectorAll('[class]');
-    
-    elementsWithClasses.forEach(element => {
+
+    elementsWithClasses.forEach((element) => {
       const classAttr = element.getAttribute('class');
       if (classAttr) {
         const classes = classAttr.split(/\s+/);
-        
-        classes.forEach(className => {
+
+        classes.forEach((className) => {
           // Vérifier si c'est une classe DSFR
           if (this.isDSFRClass(className)) {
             foundClasses.add(className);
-            
+
             if (!classUsage[className]) {
               classUsage[className] = {
                 count: 0,
                 elements: [],
-                classInfo: this.getDSFRClassInfo(className)
+                classInfo: this.getDSFRClassInfo(className),
               };
             }
-            
+
             classUsage[className].count++;
             classUsage[className].elements.push({
               tagName: element.tagName.toLowerCase(),
-              attributes: this.getElementAttributes(element)
+              attributes: this.getElementAttributes(element),
             });
           }
         });
@@ -125,8 +177,8 @@ class HTMLAnalyzer {
       missing: missingClasses,
       stats: {
         totalFound: foundClasses.size,
-        byCategory: this.categorizeDSFRClasses(Array.from(foundClasses))
-      }
+        byCategory: this.categorizeDSFRClasses(Array.from(foundClasses)),
+      },
     };
   }
 
@@ -136,16 +188,16 @@ class HTMLAnalyzer {
   analyzeSemanticStructure(root) {
     const structure = {};
     const issues = [];
-    
-    this.semanticElements.forEach(tagName => {
+
+    this.semanticElements.forEach((tagName) => {
       const elements = root.querySelectorAll(tagName);
       structure[tagName] = {
         count: elements.length,
         present: elements.length > 0,
-        elements: elements.map(el => ({
+        elements: elements.map((el) => ({
           attributes: this.getElementAttributes(el),
-          hasContent: el.innerHTML.trim().length > 0
-        }))
+          hasContent: el.innerHTML.trim().length > 0,
+        })),
       };
     });
 
@@ -153,16 +205,16 @@ class HTMLAnalyzer {
     if (!structure.main.present) {
       issues.push({
         type: 'critical',
-        message: 'Élément <main> manquant - requis pour l\'accessibilité',
-        fix: '<main role="main" id="content"><!-- Contenu principal --></main>'
+        message: "Élément <main> manquant - requis pour l'accessibilité",
+        fix: '<main role="main" id="content"><!-- Contenu principal --></main>',
       });
     }
 
     if (!structure.nav.present) {
       issues.push({
-        type: 'important', 
+        type: 'important',
         message: 'Navigation <nav> manquante',
-        fix: '<nav class="fr-nav" role="navigation" aria-label="Menu principal"><!-- Navigation --></nav>'
+        fix: '<nav class="fr-nav" role="navigation" aria-label="Menu principal"><!-- Navigation --></nav>',
       });
     }
 
@@ -170,7 +222,7 @@ class HTMLAnalyzer {
       issues.push({
         type: 'warning',
         message: `${structure.main.count} éléments <main> trouvés - un seul recommandé`,
-        fix: 'Conserver un seul élément <main> par page'
+        fix: 'Conserver un seul élément <main> par page',
       });
     }
 
@@ -195,7 +247,7 @@ class HTMLAnalyzer {
         category: 'forms',
         message: `${inputsWithoutLabels.length} champ(s) sans label associé`,
         elements: inputsWithoutLabels,
-        fix: 'Ajouter <label class="fr-label" for="field-id"> ou aria-label'
+        fix: 'Ajouter <label class="fr-label" for="field-id"> ou aria-label',
       });
     }
 
@@ -209,7 +261,7 @@ class HTMLAnalyzer {
         type: 'critical',
         category: 'images',
         message: `${imagesWithoutAlt.length} image(s) sans attribut alt`,
-        fix: 'Ajouter alt="" pour images décoratives ou alt="description" pour images informatives'
+        fix: 'Ajouter alt="" pour images décoratives ou alt="description" pour images informatives',
       });
     }
 
@@ -246,7 +298,7 @@ class HTMLAnalyzer {
       score: accessibilityScore,
       issues,
       categories: this.categorizeAccessibilityIssues(issues),
-      recommendations: this.generateAccessibilityRecommendations(issues)
+      recommendations: this.generateAccessibilityRecommendations(issues),
     };
   }
 
@@ -257,27 +309,27 @@ class HTMLAnalyzer {
     const forms = root.querySelectorAll('form');
     const inputs = root.querySelectorAll('input, textarea, select');
     const buttons = root.querySelectorAll('button, input[type="submit"], input[type="button"]');
-    
+
     const analysis = {
       forms: {
         count: forms.length,
         withDSFRClasses: 0,
-        issues: []
+        issues: [],
       },
       fields: {
         total: inputs.length,
         withLabels: 0,
         withDSFRClasses: 0,
-        byType: {}
+        byType: {},
       },
       buttons: {
         total: buttons.length,
-        withDSFRClasses: 0
-      }
+        withDSFRClasses: 0,
+      },
     };
 
     // Analyser les formulaires
-    forms.forEach(form => {
+    forms.forEach((form) => {
       const classes = form.getAttribute('class') || '';
       if (classes.includes('fr-form')) {
         analysis.forms.withDSFRClasses++;
@@ -285,16 +337,16 @@ class HTMLAnalyzer {
         analysis.forms.issues.push({
           type: 'warning',
           message: 'Formulaire sans classe fr-form',
-          fix: '<form class="fr-form">'
+          fix: '<form class="fr-form">',
         });
       }
     });
 
     // Analyser les champs
-    inputs.forEach(input => {
+    inputs.forEach((input) => {
       const type = input.getAttribute('type') || 'text';
       analysis.fields.byType[type] = (analysis.fields.byType[type] || 0) + 1;
-      
+
       const classes = input.getAttribute('class') || '';
       if (classes.includes('fr-input')) {
         analysis.fields.withDSFRClasses++;
@@ -304,14 +356,14 @@ class HTMLAnalyzer {
       const id = input.getAttribute('id');
       const ariaLabel = input.getAttribute('aria-label');
       const ariaLabelledby = input.getAttribute('aria-labelledby');
-      
-      if (id && root.querySelector(`label[for="${id}"]`) || ariaLabel || ariaLabelledby) {
+
+      if ((id && root.querySelector(`label[for="${id}"]`)) || ariaLabel || ariaLabelledby) {
         analysis.fields.withLabels++;
       }
     });
 
     // Analyser les boutons
-    buttons.forEach(button => {
+    buttons.forEach((button) => {
       const classes = button.getAttribute('class') || '';
       if (classes.includes('fr-btn')) {
         analysis.buttons.withDSFRClasses++;
@@ -327,15 +379,15 @@ class HTMLAnalyzer {
   analyzeHeadingStructure(root) {
     const headings = [];
     const issues = [];
-    
-    this.headingElements.forEach(tag => {
+
+    this.headingElements.forEach((tag) => {
       const elements = root.querySelectorAll(tag);
-      elements.forEach(el => {
+      elements.forEach((el) => {
         headings.push({
           level: parseInt(tag.charAt(1)),
           tag,
           text: el.text.trim(),
-          hasContent: el.text.trim().length > 0
+          hasContent: el.text.trim().length > 0,
         });
       });
     });
@@ -349,24 +401,24 @@ class HTMLAnalyzer {
         type: 'warning',
         category: 'headings',
         message: 'Aucun titre (h1-h6) trouvé',
-        fix: 'Ajouter une structure de titres hiérarchique'
+        fix: 'Ajouter une structure de titres hiérarchique',
       });
     } else {
       // Vérifier qu'il y a un h1
-      const h1Count = headings.filter(h => h.level === 1).length;
+      const h1Count = headings.filter((h) => h.level === 1).length;
       if (h1Count === 0) {
         issues.push({
           type: 'important',
-          category: 'headings', 
+          category: 'headings',
           message: 'Aucun titre h1 trouvé',
-          fix: 'Ajouter un titre <h1> principal pour la page'
+          fix: 'Ajouter un titre <h1> principal pour la page',
         });
       } else if (h1Count > 1) {
         issues.push({
           type: 'warning',
           category: 'headings',
           message: `${h1Count} titres h1 trouvés - un seul recommandé`,
-          fix: 'Utiliser un seul h1 par page'
+          fix: 'Utiliser un seul h1 par page',
         });
       }
     }
@@ -379,17 +431,17 @@ class HTMLAnalyzer {
    */
   isDSFRClass(className) {
     if (!className) return false;
-    
+
     // Vérification directe
     if (this.dsfrClasses[className]) return true;
-    
+
     // Vérification des préfixes
     for (const [baseClass, info] of Object.entries(this.dsfrClasses)) {
       if (info.prefix && className.startsWith(baseClass)) {
         return true;
       }
     }
-    
+
     return false;
   }
 
@@ -397,70 +449,72 @@ class HTMLAnalyzer {
     if (this.dsfrClasses[className]) {
       return this.dsfrClasses[className];
     }
-    
+
     // Vérifier les préfixes
     for (const [baseClass, info] of Object.entries(this.dsfrClasses)) {
       if (info.prefix && className.startsWith(baseClass)) {
         return { ...info, fullClass: className };
       }
     }
-    
+
     return { category: 'unknown', importance: 'low', description: 'Classe DSFR non répertoriée' };
   }
 
   findInputsWithoutLabels(root) {
     const inputs = root.querySelectorAll('input:not([type="hidden"]), textarea, select');
     const inputsWithoutLabels = [];
-    
-    inputs.forEach(input => {
+
+    inputs.forEach((input) => {
       const id = input.getAttribute('id');
       const ariaLabel = input.getAttribute('aria-label');
       const ariaLabelledby = input.getAttribute('aria-labelledby');
-      
+
       let hasLabel = false;
-      
+
       if (id && root.querySelector(`label[for="${id}"]`)) {
         hasLabel = true;
       } else if (ariaLabel || ariaLabelledby) {
         hasLabel = true;
       }
-      
+
       if (!hasLabel) {
         inputsWithoutLabels.push({
           tagName: input.tagName.toLowerCase(),
           type: input.getAttribute('type'),
           id: id,
-          attributes: this.getElementAttributes(input)
+          attributes: this.getElementAttributes(input),
         });
       }
     });
-    
+
     return inputsWithoutLabels;
   }
 
   checkARIAAttributes(root) {
     const issues = [];
-    
+
     // Vérifier les éléments interactifs sans rôle approprié
-    const interactiveElements = root.querySelectorAll('div[onclick], span[onclick], div[tabindex], span[tabindex]');
-    interactiveElements.forEach(el => {
+    const interactiveElements = root.querySelectorAll(
+      'div[onclick], span[onclick], div[tabindex], span[tabindex]'
+    );
+    interactiveElements.forEach((el) => {
       const role = el.getAttribute('role');
       if (!role) {
         issues.push({
           type: 'warning',
           category: 'aria',
           message: 'Élément interactif sans rôle ARIA approprié',
-          fix: 'Ajouter role="button" ou utiliser un élément sémantique approprié'
+          fix: 'Ajouter role="button" ou utiliser un élément sémantique approprié',
         });
       }
     });
-    
+
     return issues;
   }
 
   checkBasicContrastIssues(root) {
     const issues = [];
-    
+
     // Vérification basique - rechercher des styles inline avec des couleurs problématiques
     const elementsWithStyle = root.querySelectorAll('[style*="color"]');
     if (elementsWithStyle.length > 0) {
@@ -468,17 +522,17 @@ class HTMLAnalyzer {
         type: 'warning',
         category: 'contrast',
         message: 'Styles de couleur inline détectés - vérifier les contrastes',
-        fix: 'Utiliser les classes de couleur DSFR pour garantir les contrastes RGAA'
+        fix: 'Utiliser les classes de couleur DSFR pour garantir les contrastes RGAA',
       });
     }
-    
+
     return issues;
   }
 
   getElementAttributes(element) {
     const attrs = {};
     if (element.attributes) {
-      Object.keys(element.attributes).forEach(key => {
+      Object.keys(element.attributes).forEach((key) => {
         attrs[key] = element.attributes[key];
       });
     }
@@ -487,26 +541,26 @@ class HTMLAnalyzer {
 
   categorizeAccessibilityIssues(issues) {
     const categories = {
-      critical: issues.filter(i => i.type === 'critical'),
-      important: issues.filter(i => i.type === 'important'), 
-      warning: issues.filter(i => i.type === 'warning')
+      critical: issues.filter((i) => i.type === 'critical'),
+      important: issues.filter((i) => i.type === 'important'),
+      warning: issues.filter((i) => i.type === 'warning'),
     };
-    
+
     return categories;
   }
 
   generateAccessibilityRecommendations(issues) {
     const recommendations = [];
-    const criticalCount = issues.filter(i => i.type === 'critical').length;
-    const importantCount = issues.filter(i => i.type === 'important').length;
-    
+    const criticalCount = issues.filter((i) => i.type === 'critical').length;
+    const importantCount = issues.filter((i) => i.type === 'important').length;
+
     if (criticalCount > 0) {
-      recommendations.push('🔴 Corriger les problèmes critiques d\'accessibilité en priorité');
+      recommendations.push("🔴 Corriger les problèmes critiques d'accessibilité en priorité");
     }
     if (importantCount > 0) {
       recommendations.push('🟡 Planifier la correction des problèmes importants');
     }
-    
+
     return recommendations;
   }
 
@@ -515,20 +569,20 @@ class HTMLAnalyzer {
       totalElements: root.querySelectorAll('*').length,
       totalClasses: 0,
       duplicateIds: [],
-      unusedClasses: []
+      unusedClasses: [],
     };
-    
+
     // Compter les classes
     const elementsWithClasses = root.querySelectorAll('[class]');
-    elementsWithClasses.forEach(el => {
-      const classes = (el.getAttribute('class') || '').split(/\s+/).filter(c => c.length > 0);
+    elementsWithClasses.forEach((el) => {
+      const classes = (el.getAttribute('class') || '').split(/\s+/).filter((c) => c.length > 0);
       stats.totalClasses += classes.length;
     });
-    
+
     // Vérifier les IDs dupliqués
     const ids = new Map();
     const elementsWithIds = root.querySelectorAll('[id]');
-    elementsWithIds.forEach(el => {
+    elementsWithIds.forEach((el) => {
       const id = el.getAttribute('id');
       if (ids.has(id)) {
         stats.duplicateIds.push(id);
@@ -536,7 +590,7 @@ class HTMLAnalyzer {
         ids.set(id, true);
       }
     });
-    
+
     return stats;
   }
 
@@ -545,35 +599,36 @@ class HTMLAnalyzer {
       characters: htmlCode.length,
       lines: htmlCode.split('\n').length,
       elements: root.querySelectorAll('*').length,
-      textNodes: root.querySelectorAll('*').filter(el => el.text && el.text.trim().length > 0).length
+      textNodes: root.querySelectorAll('*').filter((el) => el.text && el.text.trim().length > 0)
+        .length,
     };
   }
 
   detectMissingImportantClasses(root, missingClasses) {
     // Vérifier si on a des formulaires sans fr-form
     const forms = root.querySelectorAll('form');
-    forms.forEach(form => {
+    forms.forEach((form) => {
       const classes = form.getAttribute('class') || '';
       if (!classes.includes('fr-form')) {
         missingClasses.push({
           element: 'form',
           missing: 'fr-form',
           importance: 'high',
-          reason: 'Standardisation DSFR des formulaires'
+          reason: 'Standardisation DSFR des formulaires',
         });
       }
     });
 
     // Vérifier les boutons sans fr-btn
     const buttons = root.querySelectorAll('button, input[type="submit"], input[type="button"]');
-    buttons.forEach(button => {
+    buttons.forEach((button) => {
       const classes = button.getAttribute('class') || '';
       if (!classes.includes('fr-btn')) {
         missingClasses.push({
           element: 'button',
           missing: 'fr-btn',
           importance: 'medium',
-          reason: 'Cohérence visuelle des boutons DSFR'
+          reason: 'Cohérence visuelle des boutons DSFR',
         });
       }
     });
@@ -581,32 +636,42 @@ class HTMLAnalyzer {
 
   categorizeDSFRClasses(classes) {
     const categories = { layout: 0, component: 0, utility: 0, unknown: 0 };
-    
-    classes.forEach(className => {
+
+    classes.forEach((className) => {
       const info = this.getDSFRClassInfo(className);
       categories[info.category] = (categories[info.category] || 0) + 1;
     });
-    
+
     return categories;
   }
 
-  generateDetailedReport(analysis, htmlCode, options) {
-    const { dsfrClasses, semanticStructure, accessibility, formAnalysis, performance } = analysis;
-    
-    let report = `📊 **ANALYSE RÉELLE DU CODE HTML** - ${analysis.codeStats.characters} caractères analysés
+  generateDetailedReport(analysis, htmlCode, _options) {
+    const {
+      dsfrClasses,
+      semanticStructure,
+      accessibility,
+      formAnalysis,
+      performance: _performance,
+    } = analysis;
+
+    const report = `📊 **ANALYSE RÉELLE DU CODE HTML** - ${analysis.codeStats.characters} caractères analysés
 
 ## 🎯 **Code analysé** - ${analysis.codeStats.elements} éléments, ${analysis.codeStats.lines} lignes
 
 ### ✅ **CLASSES DSFR DÉTECTÉES (${dsfrClasses.found.length})**
 
 #### 🟢 **Classes trouvées :**
-${dsfrClasses.found.length > 0 ? 
-  dsfrClasses.found.map(cls => {
-    const usage = dsfrClasses.usage[cls];
-    const info = usage?.classInfo || this.getDSFRClassInfo(cls);
-    return `- \`${cls}\` : ${info.description} (${usage?.count || 1}x)`;
-  }).join('\n') 
-  : '❌ Aucune classe DSFR détectée'}
+${
+  dsfrClasses.found.length > 0
+    ? dsfrClasses.found
+        .map((cls) => {
+          const usage = dsfrClasses.usage[cls];
+          const info = usage?.classInfo || this.getDSFRClassInfo(cls);
+          return `- \`${cls}\` : ${info.description} (${usage?.count || 1}x)`;
+        })
+        .join('\n')
+    : '❌ Aucune classe DSFR détectée'
+}
 
 #### 📊 **Répartition par catégorie :**
 \`\`\`
@@ -619,36 +684,57 @@ Total     : ${dsfrClasses.found.length} classes DSFR
 ### 🏗️ **STRUCTURE SÉMANTIQUE**
 
 #### 📋 **Éléments HTML5 détectés :**
-${Object.entries(semanticStructure.structure).map(([tag, info]) => 
-  `- \`<${tag}>\` : ${info.present ? '✅' : '❌'} ${info.count > 0 ? `(${info.count})` : ''}`
-).join('\n')}
+${Object.entries(semanticStructure.structure)
+  .map(
+    ([tag, info]) =>
+      `- \`<${tag}>\` : ${info.present ? '✅' : '❌'} ${info.count > 0 ? `(${info.count})` : ''}`
+  )
+  .join('\n')}
 
-${semanticStructure.issues.length > 0 ? `
+${
+  semanticStructure.issues.length > 0
+    ? `
 #### 🚨 **Problèmes structurels détectés :**
-${semanticStructure.issues.map(issue => 
-  `**${issue.type === 'critical' ? '🔴' : issue.type === 'important' ? '🟡' : '⚪'}** ${issue.message}
+${semanticStructure.issues
+  .map(
+    (issue) =>
+      `**${issue.type === 'critical' ? '🔴' : issue.type === 'important' ? '🟡' : '⚪'}** ${issue.message}
   \`\`\`html
   ${issue.fix}
   \`\`\``
-).join('\n')}` : '✅ Structure sémantique correcte'}
+  )
+  .join('\n')}`
+    : '✅ Structure sémantique correcte'
+}
 
 ### ♿ **ACCESSIBILITÉ RGAA 4.1** - Score: ${accessibility.score}/100
 
-${accessibility.issues.length > 0 ? `
+${
+  accessibility.issues.length > 0
+    ? `
 #### 🔍 **Problèmes d'accessibilité :**
-${accessibility.issues.map(issue => 
-  `**${issue.type === 'critical' ? '🔴 Critique' : issue.type === 'important' ? '🟡 Important' : '⚪ Avertissement'}** : ${issue.message}
+${accessibility.issues
+  .map(
+    (issue) =>
+      `**${issue.type === 'critical' ? '🔴 Critique' : issue.type === 'important' ? '🟡 Important' : '⚪ Avertissement'}** : ${issue.message}
   ${issue.fix ? `💡 **Solution** : ${issue.fix}` : ''}`
-).join('\n\n')}` : '✅ Aucun problème d\'accessibilité majeur détecté'}
+  )
+  .join('\n\n')}`
+    : "✅ Aucun problème d'accessibilité majeur détecté"
+}
 
 ### 📝 **ANALYSE DES FORMULAIRES**
 - **Formulaires** : ${formAnalysis.forms.count} (${formAnalysis.forms.withDSFRClasses}/${formAnalysis.forms.count} avec classes DSFR)
 - **Champs** : ${formAnalysis.fields.total} (${formAnalysis.fields.withLabels}/${formAnalysis.fields.total} avec labels)
 - **Boutons** : ${formAnalysis.buttons.total} (${formAnalysis.buttons.withDSFRClasses}/${formAnalysis.buttons.total} avec fr-btn)
 
-${formAnalysis.forms.issues.length > 0 ? `
+${
+  formAnalysis.forms.issues.length > 0
+    ? `
 **Améliorations suggérées :**
-${formAnalysis.forms.issues.map(issue => `- ${issue.message}: ${issue.fix}`).join('\n')}` : ''}
+${formAnalysis.forms.issues.map((issue) => `- ${issue.message}: ${issue.fix}`).join('\n')}`
+    : ''
+}
 
 ### 🚀 **RECOMMANDATIONS PRIORITAIRES**
 
@@ -666,8 +752,8 @@ ${this.generateOptionalRecommendations(analysis).join('\n')}
 | Critère | Score | Détail |
 |---------|--------|---------|
 | **Classes DSFR** | ${Math.round((dsfrClasses.found.length / Math.max(analysis.codeStats.elements * 0.3, 10)) * 100)}% | ${dsfrClasses.found.length} classes sur ~${Math.round(analysis.codeStats.elements * 0.3)} attendues |
-| **Sémantique HTML5** | ${Math.round((Object.values(semanticStructure.structure).filter(s => s.present).length / this.semanticElements.length) * 100)}% | ${Object.values(semanticStructure.structure).filter(s => s.present).length}/${this.semanticElements.length} éléments présents |
-| **Accessibilité RGAA** | ${accessibility.score}% | ${accessibility.issues.filter(i => i.type === 'critical').length} problèmes critiques |
+| **Sémantique HTML5** | ${Math.round((Object.values(semanticStructure.structure).filter((s) => s.present).length / this.semanticElements.length) * 100)}% | ${Object.values(semanticStructure.structure).filter((s) => s.present).length}/${this.semanticElements.length} éléments présents |
+| **Accessibilité RGAA** | ${accessibility.score}% | ${accessibility.issues.filter((i) => i.type === 'critical').length} problèmes critiques |
 | **Formulaires DSFR** | ${formAnalysis.forms.count > 0 ? Math.round((formAnalysis.forms.withDSFRClasses / formAnalysis.forms.count) * 100) : 100}% | ${formAnalysis.forms.withDSFRClasses}/${formAnalysis.forms.count} conformes |
 
 **Score global : ${this.calculateOverallScore(analysis)}/100**
@@ -685,95 +771,127 @@ ${this.generateCorrectedCode(analysis, htmlCode)}
 
   generateCriticalRecommendations(analysis) {
     const recommendations = [];
-    
-    const criticalAccessibility = analysis.accessibility.issues.filter(i => i.type === 'critical');
+
+    const criticalAccessibility = analysis.accessibility.issues.filter(
+      (i) => i.type === 'critical'
+    );
     if (criticalAccessibility.length > 0) {
-      recommendations.push(`1. **Corriger ${criticalAccessibility.length} problème(s) d'accessibilité critique**`);
+      recommendations.push(
+        `1. **Corriger ${criticalAccessibility.length} problème(s) d'accessibilité critique**`
+      );
     }
-    
-    const criticalSemantic = analysis.semanticStructure.issues.filter(i => i.type === 'critical');
+
+    const criticalSemantic = analysis.semanticStructure.issues.filter((i) => i.type === 'critical');
     if (criticalSemantic.length > 0) {
       recommendations.push(`2. **Ajouter les éléments sémantiques manquants** (main, nav, etc.)`);
     }
-    
+
     if (analysis.dsfrClasses.found.length === 0) {
-      recommendations.push(`3. **Intégrer les classes DSFR de base** (fr-container, fr-btn, fr-input)`);
+      recommendations.push(
+        `3. **Intégrer les classes DSFR de base** (fr-container, fr-btn, fr-input)`
+      );
     }
-    
+
     return recommendations.length > 0 ? recommendations : ['✅ Aucune action critique requise'];
   }
 
   generateImportantRecommendations(analysis) {
     const recommendations = [];
-    
+
     const importantIssues = [
-      ...analysis.accessibility.issues.filter(i => i.type === 'important'),
-      ...analysis.semanticStructure.issues.filter(i => i.type === 'important')
+      ...analysis.accessibility.issues.filter((i) => i.type === 'important'),
+      ...analysis.semanticStructure.issues.filter((i) => i.type === 'important'),
     ];
-    
+
     if (importantIssues.length > 0) {
       recommendations.push(`1. **Résoudre ${importantIssues.length} problème(s) important(s)**`);
     }
-    
-    if (analysis.formAnalysis.forms.count > 0 && analysis.formAnalysis.forms.withDSFRClasses === 0) {
+
+    if (
+      analysis.formAnalysis.forms.count > 0 &&
+      analysis.formAnalysis.forms.withDSFRClasses === 0
+    ) {
       recommendations.push(`2. **Migrer les formulaires vers les classes DSFR**`);
     }
-    
+
     return recommendations.length > 0 ? recommendations : ['✅ Aucune action importante requise'];
   }
 
   generateOptionalRecommendations(analysis) {
     const recommendations = [];
-    
+
     if (analysis.dsfrClasses.stats.byCategory.utility === 0) {
       recommendations.push(`1. **Exploiter les classes utilitaires DSFR** (fr-m-*, fr-p-*, etc.)`);
     }
-    
+
     if (analysis.performance.duplicateIds.length > 0) {
-      recommendations.push(`2. **Corriger les IDs dupliqués** (${analysis.performance.duplicateIds.length} détectés)`);
+      recommendations.push(
+        `2. **Corriger les IDs dupliqués** (${analysis.performance.duplicateIds.length} détectés)`
+      );
     }
-    
+
     return recommendations.length > 0 ? recommendations : ['✅ Code déjà bien optimisé'];
   }
 
   generateCorrectedCode(analysis, originalCode) {
     // Génération simplifiée du code corrigé - version de base
     let correctedCode = originalCode;
-    
+
     // Si pas de classes DSFR sur les formulaires, en ajouter
-    if (analysis.formAnalysis.forms.count > 0 && analysis.formAnalysis.forms.withDSFRClasses === 0) {
+    if (
+      analysis.formAnalysis.forms.count > 0 &&
+      analysis.formAnalysis.forms.withDSFRClasses === 0
+    ) {
       correctedCode = correctedCode.replace(/<form([^>]*)>/g, '<form$1 class="fr-form">');
     }
-    
-    // Si pas de classes DSFR sur les boutons, en ajouter  
-    if (analysis.formAnalysis.buttons.total > 0 && analysis.formAnalysis.buttons.withDSFRClasses === 0) {
+
+    // Si pas de classes DSFR sur les boutons, en ajouter
+    if (
+      analysis.formAnalysis.buttons.total > 0 &&
+      analysis.formAnalysis.buttons.withDSFRClasses === 0
+    ) {
       correctedCode = correctedCode.replace(/<button([^>]*)>/g, '<button$1 class="fr-btn">');
     }
-    
-    return correctedCode.length > 500 ? correctedCode.substring(0, 500) + '\n<!-- ... code tronqué ... -->' : correctedCode;
+
+    return correctedCode.length > 500
+      ? correctedCode.substring(0, 500) + '\n<!-- ... code tronqué ... -->'
+      : correctedCode;
   }
 
   calculateOverallScore(analysis) {
     const weights = {
       dsfr: 0.3,
-      semantic: 0.2, 
+      semantic: 0.2,
       accessibility: 0.4,
-      forms: 0.1
+      forms: 0.1,
     };
-    
-    const dsfrScore = Math.min(Math.round((analysis.dsfrClasses.found.length / Math.max(analysis.codeStats.elements * 0.3, 10)) * 100), 100);
-    const semanticScore = Math.round((Object.values(analysis.semanticStructure.structure).filter(s => s.present).length / this.semanticElements.length) * 100);
-    const accessibilityScore = analysis.accessibility.score;
-    const formsScore = analysis.formAnalysis.forms.count > 0 ? 
-      Math.round((analysis.formAnalysis.forms.withDSFRClasses / analysis.formAnalysis.forms.count) * 100) : 100;
-    
-    const overallScore = Math.round(
-      dsfrScore * weights.dsfr + 
-      semanticScore * weights.semantic + 
-      accessibilityScore * weights.accessibility + 
-      formsScore * weights.forms
+
+    const dsfrScore = Math.min(
+      Math.round(
+        (analysis.dsfrClasses.found.length / Math.max(analysis.codeStats.elements * 0.3, 10)) * 100
+      ),
+      100
     );
-    
+    const semanticScore = Math.round(
+      (Object.values(analysis.semanticStructure.structure).filter((s) => s.present).length /
+        this.semanticElements.length) *
+        100
+    );
+    const accessibilityScore = analysis.accessibility.score;
+    const formsScore =
+      analysis.formAnalysis.forms.count > 0
+        ? Math.round(
+            (analysis.formAnalysis.forms.withDSFRClasses / analysis.formAnalysis.forms.count) * 100
+          )
+        : 100;
+
+    const overallScore = Math.round(
+      dsfrScore * weights.dsfr +
+        semanticScore * weights.semantic +
+        accessibilityScore * weights.accessibility +
+        formsScore * weights.forms
+    );
+
     return Math.min(overallScore, 100);
   }
 
