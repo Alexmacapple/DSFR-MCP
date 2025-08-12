@@ -165,6 +165,12 @@ class MetricsService extends EventEmitter {
           avgResponseTime: Math.round(this.metrics.requests.avgResponseTime)
         },
         tools: toolsData,
+        recentActivity: this.metrics.requests.lastRequests.slice(-20).map(req => ({
+          tool: req.tool,
+          timestamp: new Date(req.timestamp).toLocaleTimeString(),
+          responseTime: req.responseTime,
+          success: req.success
+        })),
         lastUpdate: Date.now()
       };
       
@@ -285,13 +291,30 @@ class MetricsService extends EventEmitter {
         rss: this.formatBytes(memUsage.rss)
       },
       tools: toolsStats,
-      recentActivity: this.metrics.requests.lastRequests
-        .slice(-20)
-        .map(req => ({
-          ...req,
-          timestamp: new Date(req.timestamp).toLocaleTimeString()
-        }))
+      recentActivity: this.getRecentActivityFromShared()
     };
+  }
+
+  /**
+   * Récupère l'activité récente depuis le fichier partagé
+   */
+  getRecentActivityFromShared() {
+    try {
+      if (fs.existsSync(this.sharedMetricsPath)) {
+        const sharedData = JSON.parse(fs.readFileSync(this.sharedMetricsPath, 'utf8'));
+        return sharedData.recentActivity || [];
+      }
+    } catch (error) {
+      // Fallback vers les métriques locales
+    }
+    
+    // Fallback : utiliser l'activité locale
+    return this.metrics.requests.lastRequests
+      .slice(-20)
+      .map(req => ({
+        ...req,
+        timestamp: new Date(req.timestamp).toLocaleTimeString()
+      }));
   }
 
   /**
