@@ -254,8 +254,14 @@ class CacheService extends ICacheService {
 
   updateMemoryUsage() {
     let totalSize = 0;
-    for (const entry of this.memoryCache.values()) {
-      totalSize += entry.size;
+    // Le LRUCache custom utilise un Map interne .cache
+    if (this.memoryCache.cache && this.memoryCache.cache.values) {
+      for (const entry of this.memoryCache.cache.values()) {
+        totalSize += entry.size || 0;
+      }
+    } else {
+      // Fallback pour d'autres implémentations
+      console.warn('updateMemoryUsage: API LRUCache non reconnue');
     }
     this.cacheStats.memoryUsage = totalSize;
   }
