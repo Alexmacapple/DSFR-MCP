@@ -55,30 +55,30 @@ try {
 }
 
 // Initialisation sécurisée des services
-let docService, validationService, generatorService, templateService, accessibilityService;
+let _docService, _validationService, _generatorService, _templateService, _accessibilityService;
 let servicesInitialized = false;
 
 async function initializeServices() {
   try {
     if (DocumentationService) {
-      docService = new DocumentationService();
+      _docService = new DocumentationService();
       // Service standalone - pas besoin d'initialisation async
     }
-    if (ValidationService) validationService = new ValidationService();
-    if (OptimizedGeneratorService) generatorService = new OptimizedGeneratorService();
-    if (TemplateService) templateService = new TemplateService();
-    if (AccessibilityService) accessibilityService = new AccessibilityService();
+    if (ValidationService) _validationService = new ValidationService();
+    if (OptimizedGeneratorService) _generatorService = new OptimizedGeneratorService();
+    if (TemplateService) _templateService = new TemplateService();
+    if (AccessibilityService) _accessibilityService = new AccessibilityService();
 
     servicesInitialized = true;
     logError('[DOCKER] Services initialisés avec succès');
   } catch (error) {
     logError("[DOCKER] Erreur lors de l'initialisation des services:", error.message);
     // Services de fallback simulés
-    docService = createFallbackDocService();
-    validationService = createFallbackValidationService();
-    generatorService = createFallbackGeneratorService();
-    templateService = createFallbackTemplateService();
-    accessibilityService = createFallbackAccessibilityService();
+    _docService = createFallbackDocService();
+    _validationService = createFallbackValidationService();
+    _generatorService = createFallbackGeneratorService();
+    _templateService = createFallbackTemplateService();
+    _accessibilityService = createFallbackAccessibilityService();
     servicesInitialized = true;
     logError('[DOCKER] Services fallback activés');
   }
@@ -692,9 +692,10 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       // Outils de recherche et documentation
       case 'search_dsfr_components':
         return {
-          content: [{
-            type: 'text',
-            text: `🔍 **RECHERCHE COMPOSANTS DSFR** - "${args.query || 'tous'}"
+          content: [
+            {
+              type: 'text',
+              text: `🔍 **RECHERCHE COMPOSANTS DSFR** - "${args.query || 'tous'}"
 
 📋 **Composants trouvés (${args.limit || 10} premiers) :**
 
@@ -750,22 +751,26 @@ Classes : fr-table, fr-table--bordered
 </table>
 \`\`\`
 
-💀 **YOLO MODE** - 208 composants DSFR disponibles instantanément !`
-          }]
+💀 **YOLO MODE** - 208 composants DSFR disponibles instantanément !`,
+            },
+          ],
         };
 
       case 'get_component_details':
         return {
-          content: [{
-            type: 'text',
-            text: `📋 **DÉTAILS COMPOSANT DSFR : ${args.component_name || 'Bouton'}**
+          content: [
+            {
+              type: 'text',
+              text: `📋 **DÉTAILS COMPOSANT DSFR : ${args.component_name || 'Bouton'}**
 
 ## 🎯 **Description**
 Le composant **${args.component_name || 'Bouton'}** fait partie du système de design de l'État français (DSFR). Il respecte les standards d'accessibilité RGAA 4.1 et l'identité visuelle gouvernementale.
 
 ## 💻 **Code HTML Complet**
 \`\`\`html
-${args.component_name?.toLowerCase() === 'carte' ? `<!-- Composant Carte DSFR -->
+${
+  args.component_name?.toLowerCase() === 'carte'
+    ? `<!-- Composant Carte DSFR -->
 <div class="fr-card">
   <div class="fr-card__body">
     <div class="fr-card__content">
@@ -781,7 +786,9 @@ ${args.component_name?.toLowerCase() === 'carte' ? `<!-- Composant Carte DSFR --
       </div>
     </div>
   </div>
-</div>` : args.component_name?.toLowerCase() === 'formulaire' ? `<!-- Composant Formulaire DSFR -->
+</div>`
+    : args.component_name?.toLowerCase() === 'formulaire'
+      ? `<!-- Composant Formulaire DSFR -->
 <form class="fr-form">
   <fieldset class="fr-fieldset">
     <legend class="fr-fieldset__legend--regular fr-fieldset__legend">
@@ -817,7 +824,8 @@ ${args.component_name?.toLowerCase() === 'carte' ? `<!-- Composant Carte DSFR --
       Annuler
     </button>
   </div>
-</form>` : `<!-- Composant Bouton DSFR -->
+</form>`
+      : `<!-- Composant Bouton DSFR -->
 <button class="fr-btn fr-btn--primary" type="button">
   ${args.component_name || 'Bouton'} primaire
 </button>
@@ -826,7 +834,8 @@ ${args.component_name?.toLowerCase() === 'carte' ? `<!-- Composant Carte DSFR --
 </button>
 <button class="fr-btn fr-btn--tertiary" type="button">
   ${args.component_name || 'Bouton'} tertiaire
-</button>`}
+</button>`
+}
 \`\`\`
 
 ## 🎨 **Classes CSS Disponibles**
@@ -870,7 +879,7 @@ Le composant s'adapte automatiquement aux différentes tailles d'écran :
 - **Desktop** (> 768px) : Taille optimale
 
 ## 🎯 **Cas d'usage recommandés**
-${args.component_name?.toLowerCase() === 'carte' ? '- Présentation de contenus structurés\n- Galeries d\'articles ou services\n- Aperçus de documents\n- Liens vers pages détaillées' : args.component_name?.toLowerCase() === 'formulaire' ? '- Collecte d\'informations utilisateur\n- Formulaires de contact\n- Inscription/connexion\n- Enquêtes et sondages' : '- Actions principales (validation, soumission)\n- Navigation (suivant, précédent)\n- Actions destructives (suppression)\n- Appels à l\'action (CTA)'}
+${args.component_name?.toLowerCase() === 'carte' ? "- Présentation de contenus structurés\n- Galeries d'articles ou services\n- Aperçus de documents\n- Liens vers pages détaillées" : args.component_name?.toLowerCase() === 'formulaire' ? "- Collecte d'informations utilisateur\n- Formulaires de contact\n- Inscription/connexion\n- Enquêtes et sondages" : "- Actions principales (validation, soumission)\n- Navigation (suivant, précédent)\n- Actions destructives (suppression)\n- Appels à l'action (CTA)"}
 
 ## 📊 **Métriques de Performance**
 - **Temps de rendu** : < 16ms
@@ -880,17 +889,19 @@ ${args.component_name?.toLowerCase() === 'carte' ? '- Présentation de contenus 
 
 ${args.include_examples ? '## 💡 **Exemples d\'intégration**\n\n### Avec icône :\n```html\n<button class="fr-btn fr-btn--primary fr-btn--icon-left fr-icon-add-line">\n  Ajouter un élément\n</button>\n```\n\n### Dans un formulaire :\n```html\n<div class="fr-form__actions">\n  <button class="fr-btn fr-btn--primary" type="submit">Valider</button>\n  <button class="fr-btn fr-btn--secondary" type="button">Annuler</button>\n</div>\n```' : ''}
 
-${args.include_accessibility ? '## 🔍 **Tests d\'accessibilité**\n✅ **Validé avec :**\n- NVDA (lecteur d\'écran)\n- VoiceOver (macOS/iOS)\n- JAWS (Windows)\n- Navigateur en mode clavier uniquement\n- Outils de contraste (WebAIM, Colour Contrast Analyser)' : ''}
+${args.include_accessibility ? "## 🔍 **Tests d'accessibilité**\n✅ **Validé avec :**\n- NVDA (lecteur d'écran)\n- VoiceOver (macOS/iOS)\n- JAWS (Windows)\n- Navigateur en mode clavier uniquement\n- Outils de contraste (WebAIM, Colour Contrast Analyser)" : ''}
 
-💀 **YOLO MODE** - Détails complets avec code prêt à utiliser !`
-          }]
+💀 **YOLO MODE** - Détails complets avec code prêt à utiliser !`,
+            },
+          ],
         };
 
       case 'list_dsfr_categories':
         return {
-          content: [{
-            type: 'text',
-            text: `📚 **CATÉGORIES DSFR DISPONIBLES**
+          content: [
+            {
+              type: 'text',
+              text: `📚 **CATÉGORIES DSFR DISPONIBLES**
 
 ## 🎯 **Core (Fondamentaux)** - 18 composants
 ### Éléments de base du design system
@@ -985,23 +996,27 @@ ${args.include_accessibility ? '## 🔍 **Tests d\'accessibilité**\n✅ **Valid
 9. 🗂️ **fr-accordion** - Contenu pliable
 10. 🔗 **fr-breadcrumb** - Fil d'Ariane
 
-💀 **YOLO MODE** - Toutes les catégories DSFR listées instantanément !`
-          }]
+💀 **YOLO MODE** - Toutes les catégories DSFR listées instantanément !`,
+            },
+          ],
         };
 
       // Outils de génération
       case 'generate_dsfr_component':
         return {
-          content: [{
-            type: 'text',
-            text: `🛠️ **GÉNÉRATION COMPOSANT DSFR** - "${args.component_type || 'bouton'}"
+          content: [
+            {
+              type: 'text',
+              text: `🛠️ **GÉNÉRATION COMPOSANT DSFR** - "${args.component_type || 'bouton'}"
 
 ## 🎯 **Type : ${args.component_type || 'bouton'}** | Framework : **${args.framework || 'vanilla'}**
 
 ### 📋 **Code HTML généré :**
 
 \`\`\`html
-${args.component_type === 'form' || args.component_type === 'formulaire' ? `<form class="fr-form" novalidate>
+${
+  args.component_type === 'form' || args.component_type === 'formulaire'
+    ? `<form class="fr-form" novalidate>
   <fieldset class="fr-fieldset">
     <legend class="fr-fieldset__legend">Formulaire DSFR</legend>
     
@@ -1029,8 +1044,9 @@ ${args.component_type === 'form' || args.component_type === 'formulaire' ? `<for
       </div>
     </div>
   </fieldset>
-</form>` : 
-args.component_type === 'card' || args.component_type === 'carte' ? `<div class="fr-card fr-enlarge-link">
+</form>`
+    : args.component_type === 'card' || args.component_type === 'carte'
+      ? `<div class="fr-card fr-enlarge-link">
   <div class="fr-card__body">
     <div class="fr-card__content">
       <h3 class="fr-card__title">
@@ -1051,8 +1067,9 @@ args.component_type === 'card' || args.component_type === 'carte' ? `<div class=
       <img class="fr-responsive-img" src="/image.jpg" alt="Description de l'image">
     </div>
   </div>
-</div>` :
-args.component_type === 'nav' || args.component_type === 'navigation' ? `<nav class="fr-nav" id="navigation" role="navigation" aria-label="Menu principal">
+</div>`
+      : args.component_type === 'nav' || args.component_type === 'navigation'
+        ? `<nav class="fr-nav" id="navigation" role="navigation" aria-label="Menu principal">
   <ul class="fr-nav__list">
     <li class="fr-nav__item">
       <a class="fr-nav__link" href="/" target="_self" aria-current="page">Accueil</a>
@@ -1075,8 +1092,9 @@ args.component_type === 'nav' || args.component_type === 'navigation' ? `<nav cl
       <a class="fr-nav__link" href="/contact" target="_self">Contact</a>
     </li>
   </ul>
-</nav>` :
-args.component_type === 'table' || args.component_type === 'tableau' ? `<div class="fr-table">
+</nav>`
+        : args.component_type === 'table' || args.component_type === 'tableau'
+          ? `<div class="fr-table">
   <table>
     <caption>Tableau DSFR avec données</caption>
     <thead>
@@ -1106,10 +1124,11 @@ args.component_type === 'table' || args.component_type === 'tableau' ? `<div cla
       </tr>
     </tbody>
   </table>
-</div>` :
-`<button class="fr-btn fr-btn--primary" type="button">
+</div>`
+          : `<button class="fr-btn fr-btn--primary" type="button">
   Bouton DSFR
-</button>`}
+</button>`
+}
 \`\`\`
 
 ### 🎨 **CSS/Styles requis :**
@@ -1124,7 +1143,9 @@ args.component_type === 'table' || args.component_type === 'tableau' ? `<div cla
 }
 \`\`\`
 
-${args.framework === 'react' ? `### ⚛️ **Version React :**
+${
+  args.framework === 'react'
+    ? `### ⚛️ **Version React :**
 \`\`\`jsx
 import { useState } from 'react';
 
@@ -1134,7 +1155,9 @@ const DSFRComponent = () => {
   return (
     <div className="fr-container">
       {/* Composant ${args.component_type || 'bouton'} React */}
-      ${args.component_type === 'form' ? `<form className="fr-form" onSubmit={handleSubmit}>
+      ${
+        args.component_type === 'form'
+          ? `<form className="fr-form" onSubmit={handleSubmit}>
         <fieldset className="fr-fieldset">
           <legend className="fr-fieldset__legend">Formulaire React</legend>
           <div className="fr-input-group">
@@ -1149,22 +1172,30 @@ const DSFRComponent = () => {
           </div>
           <button className="fr-btn" type="submit">Envoyer</button>
         </fieldset>
-      </form>` : `<button className="fr-btn fr-btn--primary" onClick={handleClick}>
+      </form>`
+          : `<button className="fr-btn fr-btn--primary" onClick={handleClick}>
         Bouton React
-      </button>`}
+      </button>`
+      }
     </div>
   );
 };
 
 export default DSFRComponent;
 \`\`\`
-` : ''}
+`
+    : ''
+}
 
-${args.framework === 'vue' ? `### 🟢 **Version Vue.js :**
+${
+  args.framework === 'vue'
+    ? `### 🟢 **Version Vue.js :**
 \`\`\`vue
 <template>
   <div class="fr-container">
-    ${args.component_type === 'form' ? `<form class="fr-form" @submit.prevent="handleSubmit">
+    ${
+      args.component_type === 'form'
+        ? `<form class="fr-form" @submit.prevent="handleSubmit">
       <fieldset class="fr-fieldset">
         <legend class="fr-fieldset__legend">Formulaire Vue</legend>
         <div class="fr-input-group">
@@ -1179,9 +1210,11 @@ ${args.framework === 'vue' ? `### 🟢 **Version Vue.js :**
         </div>
         <button class="fr-btn" type="submit">Envoyer</button>
       </fieldset>
-    </form>` : `<button class="fr-btn fr-btn--primary" @click="handleClick">
+    </form>`
+        : `<button class="fr-btn fr-btn--primary" @click="handleClick">
       Bouton Vue
-    </button>`}
+    </button>`
+    }
   </div>
 </template>
 
@@ -1204,7 +1237,9 @@ export default {
 };
 </script>
 \`\`\`
-` : ''}
+`
+    : ''
+}
 
 ### ♿ **Accessibilité RGAA 4.1 intégrée :**
 ✅ Navigation au clavier complète
@@ -1226,15 +1261,17 @@ export default {
 - ✅ Gestion des états (loading, error, success)
 - ✅ Internationalisation préparée
 
-💀 **YOLO NUCLEAR MODE** - Composant ${args.component_type || 'bouton'} généré instantanément avec code complet !`
-          }]
+💀 **YOLO NUCLEAR MODE** - Composant ${args.component_type || 'bouton'} généré instantanément avec code complet !`,
+            },
+          ],
         };
 
       case 'generate_dsfr_template':
         return {
-          content: [{
-            type: 'text',
-            text: `🏗️ **GÉNÉRATION TEMPLATE DSFR** - "${args.template_name || 'page-standard'}"
+          content: [
+            {
+              type: 'text',
+              text: `🏗️ **GÉNÉRATION TEMPLATE DSFR** - "${args.template_name || 'page-standard'}"
 
 ## 🎯 **Template : ${args.template_name || 'page-standard'}** | Framework : **${args.framework || 'vanilla'}**
 
@@ -1246,10 +1283,15 @@ export default {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${args.template_name === 'accueil' || args.template_name === 'homepage' ? 'Accueil - Site Gouvernement' : 
-           args.template_name === 'contact' ? 'Contact - Ministère' : 
-           args.template_name === 'services' || args.template_name === 'service' ? 'Services - Administration' :
-           'Page - Site Officiel'}</title>
+  <title>${
+    args.template_name === 'accueil' || args.template_name === 'homepage'
+      ? 'Accueil - Site Gouvernement'
+      : args.template_name === 'contact'
+        ? 'Contact - Ministère'
+        : args.template_name === 'services' || args.template_name === 'service'
+          ? 'Services - Administration'
+          : 'Page - Site Officiel'
+  }</title>
   
   <!-- DSFR CSS -->
   <link href="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.11.2/dist/dsfr.min.css" rel="stylesheet">
@@ -1290,10 +1332,15 @@ export default {
             <div class="fr-header__service">
               <a href="/" title="Accueil - ${args.template_name === 'ministere' ? 'Ministère' : 'Site Officiel'}">
                 <p class="fr-header__service-title">
-                  ${args.template_name === 'ministere' || args.template_name === 'ministry' ? 'Ministère de l\'Intérieur' :
-                    args.template_name === 'prefet' || args.template_name === 'prefecture' ? 'Préfecture de Région' :
-                    args.template_name === 'mairie' || args.template_name === 'city' ? 'Mairie de Paris' :
-                    'Services Publics'}
+                  ${
+                    args.template_name === 'ministere' || args.template_name === 'ministry'
+                      ? "Ministère de l'Intérieur"
+                      : args.template_name === 'prefet' || args.template_name === 'prefecture'
+                        ? 'Préfecture de Région'
+                        : args.template_name === 'mairie' || args.template_name === 'city'
+                          ? 'Mairie de Paris'
+                          : 'Services Publics'
+                  }
                 </p>
               </a>
             </div>
@@ -1363,9 +1410,15 @@ export default {
           </li>
           <li>
             <a class="fr-breadcrumb__link" aria-current="page">
-              ${args.template_name === 'contact' ? 'Contact' :
-                args.template_name === 'services' ? 'Services' :
-                args.template_name === 'accueil' ? 'Accueil' : 'Page actuelle'}
+              ${
+                args.template_name === 'contact'
+                  ? 'Contact'
+                  : args.template_name === 'services'
+                    ? 'Services'
+                    : args.template_name === 'accueil'
+                      ? 'Accueil'
+                      : 'Page actuelle'
+              }
             </a>
           </li>
         </ol>
@@ -1376,7 +1429,9 @@ export default {
   <!-- Contenu principal -->
   <main role="main" id="content">
     <div class="fr-container">
-      ${args.template_name === 'accueil' || args.template_name === 'homepage' ? `
+      ${
+        args.template_name === 'accueil' || args.template_name === 'homepage'
+          ? `
       <!-- Hero section -->
       <div class="fr-grid-row fr-grid-row--gutters fr-py-6w">
         <div class="fr-col-12">
@@ -1451,7 +1506,9 @@ export default {
           </div>
         </div>
       </section>
-      ` : args.template_name === 'contact' ? `
+      `
+          : args.template_name === 'contact'
+            ? `
       <div class="fr-grid-row fr-grid-row--gutters fr-py-6w">
         <div class="fr-col-12 fr-col-lg-8">
           <h1 class="fr-h1">Contactez-nous</h1>
@@ -1572,7 +1629,9 @@ export default {
           </div>
         </div>
       </div>
-      ` : args.template_name === 'services' ? `
+      `
+            : args.template_name === 'services'
+              ? `
       <div class="fr-grid-row fr-grid-row--gutters fr-py-6w">
         <div class="fr-col-12">
           <h1 class="fr-h1">Nos services</h1>
@@ -1647,7 +1706,8 @@ export default {
           </div>
         </div>
       </section>
-      ` : `
+      `
+              : `
       <div class="fr-grid-row fr-grid-row--gutters fr-py-6w">
         <div class="fr-col-12">
           <h1 class="fr-h1">Page Standard</h1>
@@ -1690,7 +1750,8 @@ export default {
           </div>
         </div>
       </div>
-      `}
+      `
+      }
     </div>
   </main>
 
@@ -1767,7 +1828,9 @@ export default {
 </html>
 \`\`\`
 
-${args.framework === 'react' ? `
+${
+  args.framework === 'react'
+    ? `
 ### ⚛️ **Version React/Next.js :**
 
 \`\`\`jsx
@@ -1827,7 +1890,9 @@ const DSFRTemplate = () => {
             <div className="fr-grid-row fr-grid-row--gutters fr-py-6w">
               <div className="fr-col-12">
                 <h1 className="fr-h1">Template React DSFR</h1>
-                ${args.template_name === 'contact' ? `
+                ${
+                  args.template_name === 'contact'
+                    ? `
                 <form className="fr-form" onSubmit={(e) => { e.preventDefault(); console.log(formData); }}>
                   <fieldset className="fr-fieldset">
                     <legend className="fr-fieldset__legend">Contact</legend>
@@ -1843,12 +1908,14 @@ const DSFRTemplate = () => {
                     <button className="fr-btn" type="submit">Envoyer</button>
                   </fieldset>
                 </form>
-                ` : `
+                `
+                    : `
                 <p className="fr-text--lead">Page React avec DSFR</p>
                 <button className="fr-btn" onClick={() => alert('DSFR React!')}>
                   Tester le composant
                 </button>
-                `}
+                `
+                }
               </div>
             </div>
           </div>
@@ -1873,9 +1940,13 @@ const DSFRTemplate = () => {
 
 export default DSFRTemplate;
 \`\`\`
-` : ''}
+`
+    : ''
+}
 
-${args.framework === 'vue' ? `
+${
+  args.framework === 'vue'
+    ? `
 ### 🟢 **Version Vue.js/Nuxt :**
 
 \`\`\`vue
@@ -1912,7 +1983,9 @@ ${args.framework === 'vue' ? `
         <div class="fr-grid-row fr-grid-row--gutters fr-py-6w">
           <div class="fr-col-12">
             <h1 class="fr-h1">Template Vue DSFR</h1>
-            ${args.template_name === 'contact' ? `
+            ${
+              args.template_name === 'contact'
+                ? `
             <form class="fr-form" @submit.prevent="submitForm">
               <fieldset class="fr-fieldset">
                 <legend class="fr-fieldset__legend">Contact</legend>
@@ -1928,12 +2001,14 @@ ${args.framework === 'vue' ? `
                 <button class="fr-btn" type="submit">Envoyer</button>
               </fieldset>
             </form>
-            ` : `
+            `
+                : `
             <p class="fr-text--lead">Page Vue avec DSFR</p>
             <button class="fr-btn" @click="testComponent">
               Tester le composant
             </button>
-            `}
+            `
+            }
           </div>
         </div>
       </div>
@@ -1971,7 +2046,9 @@ onMounted(() => {
 });
 </script>
 \`\`\`
-` : ''}
+`
+    : ''
+}
 
 ### 🎨 **Personnalisations disponibles :**
 
@@ -2029,23 +2106,27 @@ onMounted(() => {
 ✅ Protection CSRF sur formulaires
 ✅ Sanitization des entrées utilisateur
 
-💀 **YOLO NUCLEAR MODE** - Template ${args.template_name || 'complet'} généré avec architecture gouvernementale française complète !`
-          }]
+💀 **YOLO NUCLEAR MODE** - Template ${args.template_name || 'complet'} généré avec architecture gouvernementale française complète !`,
+            },
+          ],
         };
 
       // Outils de validation
       case 'validate_dsfr_html':
         return {
-          content: [{
-            type: 'text',
-            text: `✅ **VALIDATION HTML DSFR** - Analyse de ${args.html_content?.length || 'votre code'}
+          content: [
+            {
+              type: 'text',
+              text: `✅ **VALIDATION HTML DSFR** - Analyse de ${args.html_content?.length || 'votre code'}
 
 ## 🎯 **Résultat de validation : CONFORME** ✅
 
 ### 📋 **Analyse détaillée du code HTML :**
 
 \`\`\`html
-${args.html_content || `<!-- Code HTML analysé -->
+${
+  args.html_content ||
+  `<!-- Code HTML analysé -->
 <div class="fr-container">
   <h1 class="fr-h1">Titre conforme DSFR</h1>
   <div class="fr-grid-row fr-grid-row--gutters">
@@ -2063,7 +2144,8 @@ ${args.html_content || `<!-- Code HTML analysé -->
       </form>
     </div>
   </div>
-</div>`}
+</div>`
+}
 \`\`\`
 
 ### 🔍 **Points de validation vérifiés :**
@@ -2241,15 +2323,17 @@ SEO                 ███████████▒  90%
 - ✅ **Performance check** : Good score
 - ✅ **Security scan** : No issues
 
-💀 **YOLO NUCLEAR MODE** - Validation HTML DSFR complète avec analyse détaillée et corrections automatiques !`
-          }]
+💀 **YOLO NUCLEAR MODE** - Validation HTML DSFR complète avec analyse détaillée et corrections automatiques !`,
+            },
+          ],
         };
 
       case 'check_accessibility':
         return {
-          content: [{
-            type: 'text',
-            text: `♿ **AUDIT ACCESSIBILITÉ RGAA 4.1** - Analyse de ${args.html_content?.length || 'votre code'}
+          content: [
+            {
+              type: 'text',
+              text: `♿ **AUDIT ACCESSIBILITÉ RGAA 4.1** - Analyse de ${args.html_content?.length || 'votre code'}
 
 ## 🎯 **Niveau d'accessibilité : AA CONFORME** ♿
 
@@ -2623,16 +2707,18 @@ RÉSULTATS :
 STATUT : LARGEMENT CONFORME ✅
 \`\`\`
 
-💀 **YOLO NUCLEAR MODE** - Audit d'accessibilité RGAA 4.1 complet avec corrections et certification niveau AA !`
-          }]
+💀 **YOLO NUCLEAR MODE** - Audit d'accessibilité RGAA 4.1 complet avec corrections et certification niveau AA !`,
+            },
+          ],
         };
 
       // Outils de personnalisation
       case 'create_dsfr_theme':
         return {
-          content: [{
-            type: 'text',
-            text: `🎨 **CRÉATION THÈME DSFR PERSONNALISÉ** - "${args.theme_name || 'theme-custom'}"
+          content: [
+            {
+              type: 'text',
+              text: `🎨 **CRÉATION THÈME DSFR PERSONNALISÉ** - "${args.theme_name || 'theme-custom'}"
 
 ## 🎯 **Thème : ${args.theme_name || 'MonTheme'}** | Palette : **${args.color_palette || 'france'}**
 
@@ -2646,36 +2732,66 @@ STATUT : LARGEMENT CONFORME ✅
 
 :root {
   /* 🇫🇷 COULEURS PRINCIPALES GOUVERNEMENT */
-  --custom-primary: ${args.color_palette === 'marine' ? '#003d82' : 
-                     args.color_palette === 'emeraude' ? '#00a95f' :
-                     args.color_palette === 'rouge' ? '#e1000f' :
-                     args.color_palette === 'violet' ? '#6a6af4' :
-                     '#000091'}; /* Bleu France par défaut */
+  --custom-primary: ${
+    args.color_palette === 'marine'
+      ? '#003d82'
+      : args.color_palette === 'emeraude'
+        ? '#00a95f'
+        : args.color_palette === 'rouge'
+          ? '#e1000f'
+          : args.color_palette === 'violet'
+            ? '#6a6af4'
+            : '#000091'
+  }; /* Bleu France par défaut */
   
-  --custom-primary-hover: ${args.color_palette === 'marine' ? '#1e2c7a' :
-                            args.color_palette === 'emeraude' ? '#009646' :
-                            args.color_palette === 'rouge' ? '#c9191e' :
-                            args.color_palette === 'violet' ? '#5757d1' :
-                            '#1212ff'};
+  --custom-primary-hover: ${
+    args.color_palette === 'marine'
+      ? '#1e2c7a'
+      : args.color_palette === 'emeraude'
+        ? '#009646'
+        : args.color_palette === 'rouge'
+          ? '#c9191e'
+          : args.color_palette === 'violet'
+            ? '#5757d1'
+            : '#1212ff'
+  };
   
-  --custom-primary-active: ${args.color_palette === 'marine' ? '#001f5c' :
-                             args.color_palette === 'emeraude' ? '#006f42' :
-                             args.color_palette === 'rouge' ? '#a3000b' :
-                             args.color_palette === 'violet' ? '#4848c7' :
-                             '#2323bd'};
+  --custom-primary-active: ${
+    args.color_palette === 'marine'
+      ? '#001f5c'
+      : args.color_palette === 'emeraude'
+        ? '#006f42'
+        : args.color_palette === 'rouge'
+          ? '#a3000b'
+          : args.color_palette === 'violet'
+            ? '#4848c7'
+            : '#2323bd'
+  };
 
   /* 🎨 COULEURS SECONDAIRES */
-  --custom-secondary: ${args.color_palette === 'marine' ? '#9a9aff' :
-                        args.color_palette === 'emeraude' ? '#18ffb5' :
-                        args.color_palette === 'rouge' ? '#ff6b82' :
-                        args.color_palette === 'violet' ? '#b19cd9' :
-                        '#e1000f'}; /* Rouge Marianne */
+  --custom-secondary: ${
+    args.color_palette === 'marine'
+      ? '#9a9aff'
+      : args.color_palette === 'emeraude'
+        ? '#18ffb5'
+        : args.color_palette === 'rouge'
+          ? '#ff6b82'
+          : args.color_palette === 'violet'
+            ? '#b19cd9'
+            : '#e1000f'
+  }; /* Rouge Marianne */
   
-  --custom-tertiary: ${args.color_palette === 'marine' ? '#ffd23d' :
-                       args.color_palette === 'emeraude' ? '#ffbe42' :
-                       args.color_palette === 'rouge' ? '#ffe066' :
-                       args.color_palette === 'violet' ? '#ffb347' :
-                       '#68a532'}; /* Vert tilleul */
+  --custom-tertiary: ${
+    args.color_palette === 'marine'
+      ? '#ffd23d'
+      : args.color_palette === 'emeraude'
+        ? '#ffbe42'
+        : args.color_palette === 'rouge'
+          ? '#ffe066'
+          : args.color_palette === 'violet'
+            ? '#ffb347'
+            : '#68a532'
+  }; /* Vert tilleul */
 
   /* ⚪ COULEURS NEUTRES */
   --custom-grey-50: #f6f6f6;
@@ -2909,7 +3025,9 @@ STATUT : LARGEMENT CONFORME ✅
 }
 
 /* 🌙 MODE SOMBRE (OPTIONNEL) */
-${args.dark_mode ? `
+${
+  args.dark_mode
+    ? `
 @media (prefers-color-scheme: dark) {
   :root {
     --custom-primary: #4d7fff;
@@ -2931,7 +3049,9 @@ ${args.dark_mode ? `
     color: var(--custom-grey-900);
     border-color: var(--custom-grey-300);
   }
-}` : ''}
+}`
+    : ''
+}
 \`\`\`
 
 ### 🎨 **Exemples d'utilisation du thème :**
@@ -3155,17 +3275,19 @@ $custom-font-family: ${args.font_family || '"Marianne", sans-serif'};
 - **Optimisé** : Variables CSS natives
 - **Modulaire** : Chargement sélectif possible
 
-💀 **YOLO NUCLEAR MODE** - Thème DSFR ${args.theme_name || 'personnalisé'} généré instantanément avec palette ${args.color_palette || 'France'} complète !`
-          }]
+💀 **YOLO NUCLEAR MODE** - Thème DSFR ${args.theme_name || 'personnalisé'} généré instantanément avec palette ${args.color_palette || 'France'} complète !`,
+            },
+          ],
         };
 
       // Outils de patterns
       case 'search_patterns':
         // 🚀 YOLO NUCLEAR MODE - RÉPONSE DIRECTE !
         return {
-          content: [{
-            type: 'text',
-            text: `🚀 **YOLO NUCLEAR - Formulaire DSFR ultra-rapide !**
+          content: [
+            {
+              type: 'text',
+              text: `🚀 **YOLO NUCLEAR - Formulaire DSFR ultra-rapide !**
 
 \`\`\`html
 <form class="fr-form">
@@ -3212,22 +3334,26 @@ $custom-font-family: ${args.font_family || '"Marianne", sans-serif'};
 ✅ Structure sémantique respectée
 ♿ **Accessibilité RGAA 4.1 garantie**
 
-🚀 **YOLO NUCLEAR MODE** - Réponse instantanée sans latence !`
-          }]
+🚀 **YOLO NUCLEAR MODE** - Réponse instantanée sans latence !`,
+            },
+          ],
         };
 
       // Outils utilitaires
       case 'convert_to_framework':
         return {
-          content: [{
-            type: 'text',
-            text: `🔄 **CONVERSION FRAMEWORK DSFR** - "${args.target_framework || 'React'}"
+          content: [
+            {
+              type: 'text',
+              text: `🔄 **CONVERSION FRAMEWORK DSFR** - "${args.target_framework || 'React'}"
 
 ## 🎯 **Conversion : HTML → ${args.target_framework || 'React'}** 
 
 ### 📋 **Code HTML source analysé :**
 \`\`\`html
-${args.html_content || `<!-- Code HTML à convertir -->
+${
+  args.html_content ||
+  `<!-- Code HTML à convertir -->
 <div class="fr-container">
   <h1 class="fr-h1">Titre DSFR</h1>
   <form class="fr-form">
@@ -3242,10 +3368,13 @@ ${args.html_content || `<!-- Code HTML à convertir -->
       </button>
     </fieldset>
   </form>
-</div>`}
+</div>`
+}
 \`\`\`
 
-${args.target_framework === 'react' || args.target_framework === 'React' ? `
+${
+  args.target_framework === 'react' || args.target_framework === 'React'
+    ? `
 ### ⚛️ **Code React généré :**
 
 \`\`\`jsx
@@ -3457,9 +3586,13 @@ export default DSFRComponent;
   }
 }
 \`\`\`
-` : ''}
+`
+    : ''
+}
 
-${args.target_framework === 'vue' || args.target_framework === 'Vue' ? `
+${
+  args.target_framework === 'vue' || args.target_framework === 'Vue'
+    ? `
 ### 🟢 **Code Vue.js généré :**
 
 \`\`\`vue
@@ -3658,9 +3791,13 @@ export default {
   }
 }
 \`\`\`
-` : ''}
+`
+    : ''
+}
 
-${args.target_framework === 'angular' || args.target_framework === 'Angular' ? `
+${
+  args.target_framework === 'angular' || args.target_framework === 'Angular'
+    ? `
 ### 🔺 **Code Angular généré :**
 
 #### Component TypeScript :
@@ -3842,9 +3979,13 @@ import { DsfrFormComponent } from './dsfr-form/dsfr-form.component';
 })
 export class AppModule { }
 \`\`\`
-` : ''}
+`
+    : ''
+}
 
-${args.target_framework === 'svelte' || args.target_framework === 'Svelte' ? `
+${
+  args.target_framework === 'svelte' || args.target_framework === 'Svelte'
+    ? `
 ### 🟠 **Code Svelte généré :**
 
 \`\`\`svelte
@@ -4018,7 +4159,9 @@ ${args.target_framework === 'svelte' || args.target_framework === 'Svelte' ? `
   }
 </style>
 \`\`\`
-` : ''}
+`
+    : ''
+}
 
 ### ✨ **Fonctionnalités ajoutées dans la conversion :**
 
@@ -4053,11 +4196,17 @@ ${args.target_framework === 'svelte' || args.target_framework === 'Svelte' ? `
 npm install @gouvfr/dsfr
 
 # Framework spécifique
-${args.target_framework === 'react' ? 'npm install react react-dom' :
-  args.target_framework === 'vue' ? 'npm install vue@next' :
-  args.target_framework === 'angular' ? 'npm install @angular/core @angular/forms' :
-  args.target_framework === 'svelte' ? 'npm install svelte' :
-  'npm install react react-dom  # Par défaut'}
+${
+  args.target_framework === 'react'
+    ? 'npm install react react-dom'
+    : args.target_framework === 'vue'
+      ? 'npm install vue@next'
+      : args.target_framework === 'angular'
+        ? 'npm install @angular/core @angular/forms'
+        : args.target_framework === 'svelte'
+          ? 'npm install svelte'
+          : 'npm install react react-dom  # Par défaut'
+}
 \`\`\`
 
 ### 🔄 **Conversion réussie :**
@@ -4067,36 +4216,37 @@ ${args.target_framework === 'react' ? 'npm install react react-dom' :
 - ✅ **Validation** interactive et accessible
 - ✅ **Performance** optimisée pour ${args.target_framework || 'React'}
 
-💀 **YOLO NUCLEAR MODE** - Conversion HTML vers ${args.target_framework || 'React'} instantanée avec DSFR complet et fonctionnalités avancées !`
-          }]
+💀 **YOLO NUCLEAR MODE** - Conversion HTML vers ${args.target_framework || 'React'} instantanée avec DSFR complet et fonctionnalités avancées !`,
+            },
+          ],
         };
 
-      case 'get_dsfr_icons':
+      case 'get_dsfr_icons': {
         // 🚀 MISE À JOUR ISSUE #36 - Intégration base de données d'icônes
         const DSFRIconDatabase = require('./services/icon-database');
         const iconDB = new DSFRIconDatabase();
-        
+
         try {
-          const searchResults = iconDB.searchIcons(
-            args.search || '', 
-            args.category || null, 
-            20
-          );
-          
+          const searchResults = iconDB.searchIcons(args.search || '', args.category || null, 20);
+
           const stats = iconDB.getStatistics();
-          
+
           return {
-            content: [{
-              type: 'text',
-              text: `🎨 **ICÔNES DSFR DISPONIBLES** - ${args.category ? iconDB.categories[args.category]?.name || args.category : 'Toutes catégories'}
+            content: [
+              {
+                type: 'text',
+                text: `🎨 **ICÔNES DSFR DISPONIBLES** - ${args.category ? iconDB.categories[args.category]?.name || args.category : 'Toutes catégories'}
 
 ## 🎯 **Recherche : "${args.search || 'toutes les icônes'}"** | Résultats : **${searchResults.length}/${stats.total}**
 
-${searchResults.length > 0 ? 
-  `### 🔍 **Icônes trouvées :**
+${
+  searchResults.length > 0
+    ? `### 🔍 **Icônes trouvées :**
 
-${searchResults.map((icon, index) => 
-  `#### ${index + 1}. ${icon.svg} **${icon.name}** (\`fr-icon-${icon.id}\`)
+${searchResults
+  .map(
+    (icon, index) =>
+      `#### ${index + 1}. ${icon.svg} **${icon.name}** (\`fr-icon-${icon.id}\`)
 - **Catégorie** : ${iconDB.categories[icon.category]?.name}
 - **Description** : ${icon.description}
 - **Usage** : ${icon.usage.join(', ')}
@@ -4115,15 +4265,17 @@ ${searchResults.map((icon, index) =>
 <span class="fr-icon-${icon.id}" aria-hidden="true"></span> <!-- 24px -->
 <span class="fr-icon-${icon.id} fr-icon--lg" aria-hidden="true"></span> <!-- 32px -->
 \`\`\`
-`).join('\n\n')}` :
-  `### ❌ **Aucune icône trouvée**
+`
+  )
+  .join('\n\n')}`
+    : `### ❌ **Aucune icône trouvée**
   
 Essayez avec : menu, user, download, settings, mail, search, add, etc.`
 }
 
 ### 📊 **Statistiques globales DSFR**
 - **Total** : ${stats.total} icônes officielles
-- **Catégories** : ${stats.categories.map(cat => `${cat.name} (${cat.count})`).join(', ')}
+- **Catégories** : ${stats.categories.map((cat) => `${cat.name} (${cat.count})`).join(', ')}
 
 ### 🎨 **Variantes disponibles**
 \`\`\`html
@@ -4181,14 +4333,16 @@ npm install @gouvfr/dsfr
 ✅ **title** pour aide contextuelle  
 ✅ **role="img"** si nécessaire
 
-🎯 **Base de données d'icônes DSFR** - ${searchResults.length > 0 ? `${searchResults.length} icônes affichées` : 'Essayez une autre recherche'} !`
-            }]
+🎯 **Base de données d'icônes DSFR** - ${searchResults.length > 0 ? `${searchResults.length} icônes affichées` : 'Essayez une autre recherche'} !`,
+              },
+            ],
           };
         } catch (error) {
           return {
-            content: [{
-              type: 'text',
-              text: `🎨 **ERREUR BASE DE DONNÉES ICÔNES**
+            content: [
+              {
+                type: 'text',
+                text: `🎨 **ERREUR BASE DE DONNÉES ICÔNES**
 
 ## ⚠️ **Erreur lors du chargement des icônes**
 ${error.message}
@@ -4224,26 +4378,29 @@ ${error.message}
 </button>
 \`\`\`
 
-🔧 **Base de données d'icônes indisponible** - Utilisation fallback`
-            }]
+🔧 **Base de données d'icônes indisponible** - Utilisation fallback`,
+              },
+            ],
           };
         }
+      }
 
-      // 🚀 NOUVELLE IMPLÉMENTATION ISSUE #36 - VISUAL ICON PREVIEW  
-      case 'get_dsfr_icons_visual':
+      // 🚀 NOUVELLE IMPLÉMENTATION ISSUE #36 - VISUAL ICON PREVIEW
+      case 'get_dsfr_icons_visual': {
+        const DSFRIconDatabase = require('./services/icon-database');
         const iconDBVisual = new DSFRIconDatabase();
-        
+
         try {
           // Recherche des icônes selon les paramètres
           const searchResults = iconDBVisual.searchIcons(
-            args.search || '', 
-            args.category || null, 
+            args.search || '',
+            args.category || null,
             args.limit || 20
           );
-          
+
           // Statistiques globales
           const stats = iconDBVisual.getStatistics();
-          
+
           // Génération du rapport avec aperçus visuels
           let report = `🎨 **ICÔNES DSFR AVEC APERÇU VISUEL** - ${args.category ? iconDBVisual.categories[args.category]?.name : 'Toutes catégories'}
 
@@ -4259,7 +4416,7 @@ ${error.message}
           // Grille visuelle des résultats
           if (searchResults.length > 0) {
             report += iconDBVisual.generateVisualGrid(searchResults, true);
-            
+
             // Code d'intégration
             report += `\n\n${iconDBVisual.generateIntegrationCode(searchResults)}`;
           } else {
@@ -4273,9 +4430,9 @@ ${error.message}
 - **Institution** : government, france, certificate
 
 ### 📋 **Catégories disponibles :**
-${Object.entries(iconDBVisual.categories).map(([key, cat]) => 
-  `- **${cat.name}** (${cat.count} icônes) : ${cat.description}`
-).join('\n')}`;
+${Object.entries(iconDBVisual.categories)
+  .map(([_key, cat]) => `- **${cat.name}** (${cat.count} icônes) : ${cat.description}`)
+  .join('\n')}`;
           }
 
           // Footer avec informations techniques
@@ -4314,16 +4471,19 @@ npm install @gouvfr/dsfr
 🎯 **APERÇU VISUEL COMPLET** - Issue #36 implémentée avec ${searchResults.length} icônes affichées !`;
 
           return {
-            content: [{
-              type: 'text',
-              text: report
-            }]
+            content: [
+              {
+                type: 'text',
+                text: report,
+              },
+            ],
           };
         } catch (error) {
           return {
-            content: [{
-              type: 'text',
-              text: `🎨 **ERREUR ICÔNES DSFR**
+            content: [
+              {
+                type: 'text',
+                text: `🎨 **ERREUR ICÔNES DSFR**
 
 ## ⚠️ **Erreur lors de la génération des aperçus**
 ${error.message}
@@ -4340,16 +4500,19 @@ Cherche les icônes "user" dans la catégorie utilisateur
 Liste 10 icônes de la catégorie document
 \`\`\`
 
-🔧 **Base de données d'icônes avec aperçu visuel** - Issue #36`
-            }]
+🔧 **Base de données d'icônes avec aperçu visuel** - Issue #36`,
+              },
+            ],
           };
         }
+      }
 
       case 'get_dsfr_colors':
         return {
-          content: [{
-            type: 'text',
-            text: `🎨 **PALETTE DE COULEURS DSFR OFFICIELLE** - Format ${args.format || 'hex'}
+          content: [
+            {
+              type: 'text',
+              text: `🎨 **PALETTE DE COULEURS DSFR OFFICIELLE** - Format ${args.format || 'hex'}
 
 ## 🇫🇷 **Couleurs Institutionnelles Françaises**
 
@@ -4450,7 +4613,9 @@ Liste 10 icônes de la catégorie document
 \`\`\`
 
 ## 💾 **Export des Couleurs**
-${args.include_utilities ? `
+${
+  args.include_utilities
+    ? `
 ### Variables SCSS
 \`\`\`scss
 $blue-france: #000091;
@@ -4470,38 +4635,44 @@ $grey-light: #F6F6F6;
   "greyLight": "#F6F6F6"
 }
 \`\`\`
-` : ''}
+`
+    : ''
+}
 
 🇫🇷 **DESIGN SYSTEM OFFICIEL** - République Française  
 🎨 **32+ couleurs** testées et validées  
 ♿ **RGAA 4.1** - Accessibilité garantie  
-📱 **Responsive** - Mode sombre inclus`
-          }]
+📱 **Responsive** - Mode sombre inclus`,
+            },
+          ],
         };
 
       // Outils avancés
-      case 'analyze_dsfr_usage':
+      case 'analyze_dsfr_usage': {
         // 🚀 IMPLÉMENTATION ISSUE #35 - AST PARSING RÉEL
         const HTMLAnalyzer = require('./services/html-analyzer');
         const analyzer = new HTMLAnalyzer();
-        
+
         try {
           const analysisReport = analyzer.analyzeHTML(args.source_code, {
             project_type: args.project_type,
-            analysis_depth: args.analysis_depth
+            analysis_depth: args.analysis_depth,
           });
-          
+
           return {
-            content: [{
-              type: 'text',
-              text: analysisReport
-            }]
+            content: [
+              {
+                type: 'text',
+                text: analysisReport,
+              },
+            ],
           };
         } catch (error) {
           return {
-            content: [{
-              type: 'text', 
-              text: `📊 **ERREUR D'ANALYSE HTML** 
+            content: [
+              {
+                type: 'text',
+                text: `📊 **ERREUR D'ANALYSE HTML** 
 
 ## ⚠️ **Erreur lors du parsing AST**
 ${error.message}
@@ -4520,16 +4691,19 @@ ${error.message}
 </div>
 \`\`\`
 
-🔧 **Parser AST real activé** - Issue #35 implémentée !`
-            }]
+🔧 **Parser AST real activé** - Issue #35 implémentée !`,
+              },
+            ],
           };
         }
+      }
 
       case 'suggest_improvements':
         return {
-          content: [{
-            type: 'text',
-            text: `💡 **SUGGESTIONS D'AMÉLIORATION DSFR** - Code analysé (${args.html_code?.length || 0} caractères)
+          content: [
+            {
+              type: 'text',
+              text: `💡 **SUGGESTIONS D'AMÉLIORATION DSFR** - Code analysé (${args.html_code?.length || 0} caractères)
 
 ## 🎯 **Priorité ${args.priority_level || 'high'}** - Catégories: ${args.improvement_categories?.join(', ') || 'accessibilité, conformité DSFR'}
 
@@ -4607,15 +4781,17 @@ ${error.message}
 - **Après corrections** : 95/100
 - **Gain** : +30 points conformité DSFR
 
-💀 **YOLO MODE** - Suggestions générées instantanément avec code corrigé !`
-          }]
+💀 **YOLO MODE** - Suggestions générées instantanément avec code corrigé !`,
+            },
+          ],
         };
 
       case 'compare_versions':
         return {
-          content: [{
-            type: 'text',
-            text: `🔄 **COMPARAISON VERSIONS DSFR** ${args.version_from || '1.13.0'} → ${args.version_to || '1.14.0'}
+          content: [
+            {
+              type: 'text',
+              text: `🔄 **COMPARAISON VERSIONS DSFR** ${args.version_from || '1.13.0'} → ${args.version_to || '1.14.0'}
 
 ## 🆕 **Nouveautés v${args.version_to || '1.14.0'} :**
 
@@ -4672,16 +4848,19 @@ ${error.message}
 - **${args.version_to || '1.14.0'}** : 208 composants (+23)
 - **Compatibilité** : 95% rétrocompatible
 
-💀 **YOLO MODE** - Comparaison instantanée des versions DSFR !`
-          }]
+💀 **YOLO MODE** - Comparaison instantanée des versions DSFR !`,
+            },
+          ],
         };
 
       case 'export_documentation':
         return {
-          content: [{
-            type: 'text',
-            text: '🚀 **EXPORT DSFR ULTRA-RAPIDE**\n\n```html\n<button class="fr-btn fr-btn--primary">Bouton DSFR</button>\n<form class="fr-form">\n  <input class="fr-input" type="text">\n</form>\n```\n\n💀 **YOLO MODE** - Export instantané !'
-          }]
+          content: [
+            {
+              type: 'text',
+              text: '🚀 **EXPORT DSFR ULTRA-RAPIDE**\n\n```html\n<button class="fr-btn fr-btn--primary">Bouton DSFR</button>\n<form class="fr-form">\n  <input class="fr-input" type="text">\n</form>\n```\n\n💀 **YOLO MODE** - Export instantané !',
+            },
+          ],
         };
 
       default:
