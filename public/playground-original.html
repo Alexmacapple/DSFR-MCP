@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playground DSFR-MCP - Testez les 16 outils interactivement</title>
+    <title>🎮 Playground DSFR-MCP - Testez les 16 outils interactivement</title>
     
     <!-- CSS DSFR officiel -->
     <link href="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.11.2/dist/dsfr.min.css" rel="stylesheet">
@@ -15,7 +15,7 @@
     <style>
         .playground-container {
             min-height: 100vh;
-            background: var(--grey-950-100);
+            background: var(--background-default-grey);
         }
         
         .tool-card {
@@ -28,25 +28,20 @@
             box-shadow: 0 8px 16px rgba(0,0,0,0.1);
         }
         
-        .tool-card:focus {
-            outline: 2px solid var(--blue-france-sun-113-625);
-            outline-offset: 2px;
-        }
-        
         .tool-card.active {
-            border: 2px solid var(--blue-france-sun-113-625);
-            background: var(--blue-france-975-75);
+            border: 2px solid var(--border-action-high-blue-france);
+            background: var(--background-action-low-blue-france);
         }
         
         .editor-container {
             height: 400px;
-            border: 1px solid var(--grey-925-125);
+            border: 1px solid var(--border-default-grey);
             border-radius: 0.25rem;
         }
         
         .result-container {
-            background: var(--grey-975-75);
-            border: 1px solid var(--grey-925-125);
+            background: var(--background-contrast-grey);
+            border: 1px solid var(--border-default-grey);
             border-radius: 0.25rem;
             padding: 1rem;
             font-family: 'Courier New', monospace;
@@ -59,28 +54,28 @@
         .loading {
             text-align: center;
             padding: 2rem;
-            color: var(--grey-625-425);
+            color: var(--text-mention-grey);
         }
         
         .success {
-            border-left: 4px solid var(--success-425-625);
-            background: var(--success-950-100);
+            border-left: 4px solid var(--border-action-high-success);
+            background: var(--background-action-low-success);
         }
         
         .error {
-            border-left: 4px solid var(--error-425-625);
-            background: var(--error-950-100);
+            border-left: 4px solid var(--border-action-high-error);
+            background: var(--background-action-low-error);
         }
         
         .tool-category {
-            border-left: 4px solid var(--blue-france-sun-113-625);
-            background: var(--blue-france-975-75);
+            border-left: 4px solid var(--border-action-high-blue-france);
+            background: var(--background-alt-blue-france);
             margin-bottom: 2rem;
         }
         
         .quick-example {
-            background: var(--grey-975-75);
-            border: 1px solid var(--grey-925-125);
+            background: var(--background-alt-grey);
+            border: 1px solid var(--border-default-grey);
             border-radius: 0.25rem;
             padding: 0.75rem;
             margin: 0.5rem 0;
@@ -89,12 +84,12 @@
         }
         
         .quick-example:hover {
-            background: var(--grey-950-100);
+            background: var(--background-contrast-grey);
         }
         
         .stats-box {
-            background: var(--info-950-100);
-            border: 1px solid var(--info-425-625);
+            background: var(--background-action-low-info);
+            border: 1px solid var(--border-action-high-info);
             border-radius: 0.25rem;
             padding: 1rem;
             margin: 1rem 0;
@@ -104,7 +99,7 @@
 
 <body class="playground-container">
     <!-- Header DSFR -->
-    <header class="fr-header" role="banner">
+    <header class="fr-header">
         <div class="fr-header__body">
             <div class="fr-container">
                 <div class="fr-header__body-row">
@@ -118,10 +113,7 @@
                         </div>
                         <div class="fr-header__service">
                             <a href="#" title="Accueil - Playground DSFR-MCP">
-                                <p class="fr-header__service-title">
-                                    <span class="fr-icon-gamepad-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>
-                                    Playground DSFR-MCP
-                                </p>
+                                <p class="fr-header__service-title">🎮 Playground DSFR-MCP</p>
                             </a>
                             <p class="fr-header__service-tagline">Testez les 16 outils MCP interactivement</p>
                         </div>
@@ -135,7 +127,7 @@
                                 </a>
                                 <span class="fr-badge fr-badge--sm fr-badge--success" id="tools-status">
                                     <span class="fr-icon-checkbox-circle-line fr-icon--sm" aria-hidden="true"></span>
-                                    16/16 outils
+                                    16/16 outils ✅
                                 </span>
                             </div>
                         </div>
@@ -152,8 +144,7 @@
             <div class="fr-grid-row fr-mb-6v">
                 <div class="fr-col-12">
                     <h1 class="fr-h1 fr-mb-4v">
-                        <span class="fr-icon-gamepad-line fr-mr-2v" aria-hidden="true"></span>
-                        Playground DSFR-MCP
+                        🎮 Playground DSFR-MCP
                     </h1>
                     <p class="fr-text--lead fr-mb-4v">
                         Testez tous les outils MCP DSFR directement dans votre navigateur ! 
@@ -187,7 +178,7 @@
             <div class="fr-grid-row fr-grid-row--gutters">
                 <!-- Panel gauche - Sélection d'outils -->
                 <div class="fr-col-12 fr-col-lg-4">
-                    <nav class="fr-card fr-card--shadow" aria-label="Sélection d'outils">
+                    <div class="fr-card fr-card--shadow">
                         <div class="fr-card__body">
                             <div class="fr-card__content">
                                 <h2 class="fr-card__title fr-h4 fr-mb-4v">
@@ -196,18 +187,10 @@
                                 </h2>
 
                                 <!-- Recherche et documentation -->
-                                <section class="tool-category fr-p-3v fr-mb-4v" aria-labelledby="search-heading">
-                                    <h3 class="fr-h6 fr-mb-2v" id="search-heading">
-                                        <span class="fr-icon-search-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>
-                                        Recherche et documentation
-                                    </h3>
+                                <div class="tool-category fr-p-3v fr-mb-4v">
+                                    <h3 class="fr-h6 fr-mb-2v">🔍 Recherche et documentation</h3>
                                     
-                                    <div class="tool-card fr-card fr-card--sm fr-mb-2v" 
-                                         data-tool="search_dsfr_components"
-                                         role="button"
-                                         tabindex="0"
-                                         aria-label="Sélectionner l'outil search_dsfr_components"
-                                         aria-pressed="false">
+                                    <div class="tool-card fr-card fr-card--sm fr-mb-2v" data-tool="search_dsfr_components">
                                         <div class="fr-card__body">
                                             <div class="fr-card__content">
                                                 <h4 class="fr-card__title fr-text--sm">search_dsfr_components</h4>
@@ -216,12 +199,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="tool-card fr-card fr-card--sm fr-mb-2v" 
-                                         data-tool="get_component_details"
-                                         role="button"
-                                         tabindex="0"
-                                         aria-label="Sélectionner l'outil get_component_details"
-                                         aria-pressed="false">
+                                    <div class="tool-card fr-card fr-card--sm fr-mb-2v" data-tool="get_component_details">
                                         <div class="fr-card__body">
                                             <div class="fr-card__content">
                                                 <h4 class="fr-card__title fr-text--sm">get_component_details</h4>
@@ -230,12 +208,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="tool-card fr-card fr-card--sm fr-mb-2v" 
-                                         data-tool="list_dsfr_categories"
-                                         role="button"
-                                         tabindex="0"
-                                         aria-label="Sélectionner l'outil list_dsfr_categories"
-                                         aria-pressed="false">
+                                    <div class="tool-card fr-card fr-card--sm fr-mb-2v" data-tool="list_dsfr_categories">
                                         <div class="fr-card__body">
                                             <div class="fr-card__content">
                                                 <h4 class="fr-card__title fr-text--sm">list_dsfr_categories</h4>
@@ -244,12 +217,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="tool-card fr-card fr-card--sm" 
-                                         data-tool="search_patterns"
-                                         role="button"
-                                         tabindex="0"
-                                         aria-label="Sélectionner l'outil search_patterns"
-                                         aria-pressed="false">
+                                    <div class="tool-card fr-card fr-card--sm" data-tool="search_patterns">
                                         <div class="fr-card__body">
                                             <div class="fr-card__content">
                                                 <h4 class="fr-card__title fr-text--sm">search_patterns</h4>
@@ -257,21 +225,13 @@
                                             </div>
                                         </div>
                                     </div>
-                                </section>
+                                </div>
 
                                 <!-- Génération -->
-                                <section class="tool-category fr-p-3v fr-mb-4v" aria-labelledby="generation-heading">
-                                    <h3 class="fr-h6 fr-mb-2v" id="generation-heading">
-                                        <span class="fr-icon-tool-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>
-                                        Génération
-                                    </h3>
+                                <div class="tool-category fr-p-3v fr-mb-4v">
+                                    <h3 class="fr-h6 fr-mb-2v">🛠️ Génération</h3>
                                     
-                                    <div class="tool-card fr-card fr-card--sm fr-mb-2v" 
-                                         data-tool="generate_dsfr_component"
-                                         role="button"
-                                         tabindex="0"
-                                         aria-label="Sélectionner l'outil generate_dsfr_component"
-                                         aria-pressed="false">
+                                    <div class="tool-card fr-card fr-card--sm fr-mb-2v" data-tool="generate_dsfr_component">
                                         <div class="fr-card__body">
                                             <div class="fr-card__content">
                                                 <h4 class="fr-card__title fr-text--sm">generate_dsfr_component</h4>
@@ -280,12 +240,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="tool-card fr-card fr-card--sm fr-mb-2v" 
-                                         data-tool="generate_dsfr_template"
-                                         role="button"
-                                         tabindex="0"
-                                         aria-label="Sélectionner l'outil generate_dsfr_template"
-                                         aria-pressed="false">
+                                    <div class="tool-card fr-card fr-card--sm fr-mb-2v" data-tool="generate_dsfr_template">
                                         <div class="fr-card__body">
                                             <div class="fr-card__content">
                                                 <h4 class="fr-card__title fr-text--sm">generate_dsfr_template</h4>
@@ -294,12 +249,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="tool-card fr-card fr-card--sm" 
-                                         data-tool="create_dsfr_theme"
-                                         role="button"
-                                         tabindex="0"
-                                         aria-label="Sélectionner l'outil create_dsfr_theme"
-                                         aria-pressed="false">
+                                    <div class="tool-card fr-card fr-card--sm" data-tool="create_dsfr_theme">
                                         <div class="fr-card__body">
                                             <div class="fr-card__content">
                                                 <h4 class="fr-card__title fr-text--sm">create_dsfr_theme</h4>
@@ -307,21 +257,13 @@
                                             </div>
                                         </div>
                                     </div>
-                                </section>
+                                </div>
 
                                 <!-- Validation -->
-                                <section class="tool-category fr-p-3v fr-mb-4v" aria-labelledby="validation-heading">
-                                    <h3 class="fr-h6 fr-mb-2v" id="validation-heading">
-                                        <span class="fr-icon-checkbox-circle-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>
-                                        Validation
-                                    </h3>
+                                <div class="tool-category fr-p-3v fr-mb-4v">
+                                    <h3 class="fr-h6 fr-mb-2v">✅ Validation</h3>
                                     
-                                    <div class="tool-card fr-card fr-card--sm fr-mb-2v" 
-                                         data-tool="validate_dsfr_html"
-                                         role="button"
-                                         tabindex="0"
-                                         aria-label="Sélectionner l'outil validate_dsfr_html"
-                                         aria-pressed="false">
+                                    <div class="tool-card fr-card fr-card--sm fr-mb-2v" data-tool="validate_dsfr_html">
                                         <div class="fr-card__body">
                                             <div class="fr-card__content">
                                                 <h4 class="fr-card__title fr-text--sm">validate_dsfr_html</h4>
@@ -330,12 +272,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="tool-card fr-card fr-card--sm" 
-                                         data-tool="check_accessibility"
-                                         role="button"
-                                         tabindex="0"
-                                         aria-label="Sélectionner l'outil check_accessibility"
-                                         aria-pressed="false">
+                                    <div class="tool-card fr-card fr-card--sm" data-tool="check_accessibility">
                                         <div class="fr-card__body">
                                             <div class="fr-card__content">
                                                 <h4 class="fr-card__title fr-text--sm">check_accessibility</h4>
@@ -343,21 +280,13 @@
                                             </div>
                                         </div>
                                     </div>
-                                </section>
+                                </div>
 
                                 <!-- Utilitaires -->
-                                <section class="tool-category fr-p-3v" aria-labelledby="utilities-heading">
-                                    <h3 class="fr-h6 fr-mb-2v" id="utilities-heading">
-                                        <span class="fr-icon-settings-5-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>
-                                        Utilitaires & Avancés
-                                    </h3>
+                                <div class="tool-category fr-p-3v">
+                                    <h3 class="fr-h6 fr-mb-2v">🔧 Utilitaires & Avancés</h3>
                                     
-                                    <div class="tool-card fr-card fr-card--sm fr-mb-1v" 
-                                         data-tool="convert_to_framework"
-                                         role="button"
-                                         tabindex="0"
-                                         aria-label="Sélectionner l'outil convert_to_framework"
-                                         aria-pressed="false">
+                                    <div class="tool-card fr-card fr-card--sm fr-mb-1v" data-tool="convert_to_framework">
                                         <div class="fr-card__body">
                                             <div class="fr-card__content">
                                                 <h4 class="fr-card__title fr-text--xs">convert_to_framework</h4>
@@ -365,12 +294,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="tool-card fr-card fr-card--sm fr-mb-1v" 
-                                         data-tool="get_dsfr_icons"
-                                         role="button"
-                                         tabindex="0"
-                                         aria-label="Sélectionner l'outil get_dsfr_icons"
-                                         aria-pressed="false">
+                                    <div class="tool-card fr-card fr-card--sm fr-mb-1v" data-tool="get_dsfr_icons">
                                         <div class="fr-card__body">
                                             <div class="fr-card__content">
                                                 <h4 class="fr-card__title fr-text--xs">get_dsfr_icons</h4>
@@ -378,12 +302,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="tool-card fr-card fr-card--sm fr-mb-1v" 
-                                         data-tool="get_dsfr_colors"
-                                         role="button"
-                                         tabindex="0"
-                                         aria-label="Sélectionner l'outil get_dsfr_colors"
-                                         aria-pressed="false">
+                                    <div class="tool-card fr-card fr-card--sm fr-mb-1v" data-tool="get_dsfr_colors">
                                         <div class="fr-card__body">
                                             <div class="fr-card__content">
                                                 <h4 class="fr-card__title fr-text--xs">get_dsfr_colors</h4>
@@ -391,12 +310,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="tool-card fr-card fr-card--sm fr-mb-1v" 
-                                         data-tool="analyze_dsfr_usage"
-                                         role="button"
-                                         tabindex="0"
-                                         aria-label="Sélectionner l'outil analyze_dsfr_usage"
-                                         aria-pressed="false">
+                                    <div class="tool-card fr-card fr-card--sm fr-mb-1v" data-tool="analyze_dsfr_usage">
                                         <div class="fr-card__body">
                                             <div class="fr-card__content">
                                                 <h4 class="fr-card__title fr-text--xs">analyze_dsfr_usage</h4>
@@ -404,12 +318,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="tool-card fr-card fr-card--sm fr-mb-1v" 
-                                         data-tool="suggest_improvements"
-                                         role="button"
-                                         tabindex="0"
-                                         aria-label="Sélectionner l'outil suggest_improvements"
-                                         aria-pressed="false">
+                                    <div class="tool-card fr-card fr-card--sm fr-mb-1v" data-tool="suggest_improvements">
                                         <div class="fr-card__body">
                                             <div class="fr-card__content">
                                                 <h4 class="fr-card__title fr-text--xs">suggest_improvements</h4>
@@ -417,22 +326,17 @@
                                         </div>
                                     </div>
 
-                                    <div class="tool-card fr-card fr-card--sm" 
-                                         data-tool="export_documentation"
-                                         role="button"
-                                         tabindex="0"
-                                         aria-label="Sélectionner l'outil export_documentation"
-                                         aria-pressed="false">
+                                    <div class="tool-card fr-card fr-card--sm" data-tool="export_documentation">
                                         <div class="fr-card__body">
                                             <div class="fr-card__content">
                                                 <h4 class="fr-card__title fr-text--xs">export_documentation</h4>
                                             </div>
                                         </div>
                                     </div>
-                                </section>
+                                </div>
                             </div>
                         </div>
-                    </nav>
+                    </div>
                 </div>
 
                 <!-- Panel central - Interface d'édition -->
@@ -450,11 +354,7 @@
                                         </p>
                                     </div>
                                     <div class="fr-col-auto">
-                                        <button class="fr-btn fr-btn--primary" 
-                                                id="execute-btn" 
-                                                disabled
-                                                aria-label="Exécuter l'outil sélectionné"
-                                                aria-busy="false">
+                                        <button class="fr-btn fr-btn--primary" id="execute-btn" disabled>
                                             <span class="fr-icon-play-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>
                                             Exécuter
                                         </button>
@@ -463,37 +363,20 @@
 
                                 <!-- Exemples rapides -->
                                 <div id="quick-examples" style="display: none;">
-                                    <h3 class="fr-h6 fr-mb-2v">
-                                        <span class="fr-icon-flashlight-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>
-                                        Exemples rapides :
-                                    </h3>
+                                    <h3 class="fr-h6 fr-mb-2v">⚡ Exemples rapides :</h3>
                                     <div id="examples-container"></div>
                                 </div>
 
                                 <!-- Éditeur de paramètres -->
                                 <div class="fr-mb-4v">
-                                    <label for="editor" class="fr-h6 fr-mb-2v">
-                                        <span class="fr-icon-settings-5-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>
-                                        Paramètres (JSON)
-                                    </label>
-                                    <div id="editor" 
-                                         class="editor-container"
-                                         role="textbox"
-                                         aria-label="Éditeur de paramètres JSON"
-                                         aria-multiline="true"></div>
+                                    <h3 class="fr-h6 fr-mb-2v">🔧 Paramètres (JSON)</h3>
+                                    <div id="editor" class="editor-container"></div>
                                 </div>
 
                                 <!-- Résultat -->
                                 <div>
-                                    <h3 class="fr-h6 fr-mb-2v">
-                                        <span class="fr-icon-clipboard-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>
-                                        Résultat
-                                    </h3>
-                                    <div id="result" 
-                                         class="result-container"
-                                         role="region"
-                                         aria-live="polite"
-                                         aria-label="Résultat de l'exécution">
+                                    <h3 class="fr-h6 fr-mb-2v">📋 Résultat</h3>
+                                    <div id="result" class="result-container">
                                         Aucun résultat pour le moment. Exécutez un outil pour voir le résultat ici.
                                     </div>
                                 </div>
@@ -532,7 +415,7 @@
             </div>
             <div class="fr-footer__bottom">
                 <div class="fr-footer__bottom-copy">
-                    <p>Fait avec <span class="fr-icon-heart-line fr-icon--sm" aria-hidden="true"></span> pour démocratiser le DSFR • 
+                    <p>Fait avec ❤️ pour démocratiser le DSFR • 
                     <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank" rel="noopener external">Licence etalab-2.0</a>
                     </p>
                 </div>
@@ -551,7 +434,7 @@
         // Configuration des outils avec exemples
         const toolsConfig = {
             search_dsfr_components: {
-                title: "Recherche de composants DSFR",
+                title: "🔍 Recherche de composants DSFR",
                 description: "Trouve rapidement les composants DSFR par nom, catégorie ou mot-clé",
                 defaultParams: {
                     query: "bouton",
@@ -564,7 +447,7 @@
                 ]
             },
             generate_dsfr_component: {
-                title: "Génération de composant",
+                title: "🛠️ Génération de composant",
                 description: "Génère un composant DSFR complet avec TypeScript et accessibilité",
                 defaultParams: {
                     component_type: "button-primary",
@@ -582,7 +465,7 @@
                 ]
             },
             validate_dsfr_html: {
-                title: "Validation HTML DSFR",
+                title: "✅ Validation HTML DSFR",
                 description: "Valide la conformité de votre code HTML avec les standards DSFR",
                 defaultParams: {
                     html_code: '<button class="fr-btn fr-btn--primary">Mon bouton</button>',
@@ -594,7 +477,7 @@
                 ]
             },
             create_dsfr_theme: {
-                title: "Création de thème",
+                title: "🎨 Création de thème",
                 description: "Crée un thème personnalisé avec palette couleurs et variables SCSS",
                 defaultParams: {
                     theme_name: "mon-theme",
@@ -627,36 +510,19 @@
             });
         });
 
-        // Gestion de la sélection d'outils avec support clavier
+        // Gestion de la sélection d'outils
         document.querySelectorAll('.tool-card').forEach(card => {
-            // Gestion du clic
             card.addEventListener('click', function() {
-                selectTool(this);
-            });
-            
-            // Support clavier
-            card.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    selectTool(this);
-                }
+                // Désactiver la sélection précédente
+                document.querySelectorAll('.tool-card').forEach(c => c.classList.remove('active'));
+                
+                // Activer la nouvelle sélection
+                this.classList.add('active');
+                selectedTool = this.dataset.tool;
+                
+                updateToolInterface(selectedTool);
             });
         });
-
-        function selectTool(card) {
-            // Désactiver la sélection précédente
-            document.querySelectorAll('.tool-card').forEach(c => {
-                c.classList.remove('active');
-                c.setAttribute('aria-pressed', 'false');
-            });
-            
-            // Activer la nouvelle sélection
-            card.classList.add('active');
-            card.setAttribute('aria-pressed', 'true');
-            selectedTool = card.dataset.tool;
-            
-            updateToolInterface(selectedTool);
-        }
 
         function updateToolInterface(toolName) {
             const config = toolsConfig[toolName];
@@ -682,12 +548,7 @@
             if (config.examples) {
                 const examplesContainer = document.getElementById('examples-container');
                 examplesContainer.innerHTML = config.examples.map(example => `
-                    <div class="quick-example" 
-                         onclick="loadExample('${toolName}', ${JSON.stringify(example.params).replace(/"/g, '&quot;')})"
-                         role="button"
-                         tabindex="0"
-                         aria-label="Charger l'exemple ${example.name}"
-                         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+                    <div class="quick-example" onclick="loadExample('${toolName}', ${JSON.stringify(example.params).replace(/"/g, '&quot;')})">
                         <strong>${example.name}</strong>
                         <br><small>${JSON.stringify(example.params)}</small>
                     </div>
@@ -704,7 +565,7 @@
             editor.setValue(JSON.stringify(params, null, 2));
         }
 
-        // Exécution des outils avec améliorations d'accessibilité
+        // Exécution des outils
         document.getElementById('execute-btn').addEventListener('click', async function() {
             if (!selectedTool) return;
 
@@ -712,7 +573,6 @@
             const resultDiv = document.getElementById('result');
             
             btn.disabled = true;
-            btn.setAttribute('aria-busy', 'true');
             btn.innerHTML = '<span class="fr-icon-loader-3-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>Exécution...';
             
             resultDiv.className = 'result-container loading';
@@ -727,41 +587,14 @@
                 resultDiv.className = 'result-container success';
                 resultDiv.textContent = JSON.stringify(response, null, 2);
                 
-                // Notification de succès
-                showNotification("Exécution réussie", "success");
-                
             } catch (error) {
                 resultDiv.className = 'result-container error';
-                resultDiv.innerHTML = `
-                    <div role="alert" class="fr-alert fr-alert--error">
-                        <p class="fr-alert__title">Erreur d'exécution</p>
-                        <p>${error.message}</p>
-                    </div>
-                `;
-                
-                // Notification d'erreur
-                showNotification("Erreur lors de l'exécution", "error");
-                
+                resultDiv.textContent = `Erreur: ${error.message}`;
             } finally {
                 btn.disabled = false;
-                btn.setAttribute('aria-busy', 'false');
                 btn.innerHTML = '<span class="fr-icon-play-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>Exécuter';
             }
         });
-
-        // Fonction de notification accessible
-        function showNotification(message, type) {
-            const notification = document.createElement('div');
-            notification.className = `fr-alert fr-alert--${type} fr-alert--sm`;
-            notification.role = 'alert';
-            notification.innerHTML = `<p>${message}</p>`;
-            
-            document.body.appendChild(notification);
-            
-            setTimeout(() => {
-                notification.remove();
-            }, 3000);
-        }
 
         // Simulation d'appels API (à remplacer par vraies API)
         async function simulateToolCall(toolName, params) {

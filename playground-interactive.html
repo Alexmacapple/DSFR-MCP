@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="fr" data-fr-theme>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Playground interactif DSFR - Explorez les composants du Design System de l'État">
+  <title>Playground DSFR - Design System de l'État</title>
+  
+  <!-- DSFR CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.11.2/dist/dsfr.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.11.2/dist/utility/icons/icons.min.css" rel="stylesheet">
+  
+  <!-- Favicon DSFR -->
+  <link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.11.2/dist/favicon/apple-touch-icon.png">
+  <link rel="icon" href="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.11.2/dist/favicon/favicon.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.11.2/dist/favicon/favicon.ico" type="image/x-icon">
+  
+  <!-- Styles personnalisés pour le playground -->
+  <style>
+    .playground-section {
+      padding: 3rem 0;
+      background-color: var(--background-default-grey);
+    }
+    
+    .playground-section:nth-child(even) {
+      background-color: var(--background-contrast-grey);
+    }
+    
+    .demo-box {
+      padding: 2rem;
+      background: var(--background-default-white);
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+    }
+    
+    .code-preview {
+      background: var(--background-contrast-grey);
+      padding: 1rem;
+      border-radius: 0.25rem;
+      font-family: monospace;
+      font-size: 0.875rem;
+      overflow-x: auto;
+      margin-top: 1rem;
+    }
+    
+    .interactive-demo {
+      border: 2px dashed var(--border-default-blue-france);
+      padding: 2rem;
+      border-radius: 0.5rem;
+      margin: 1rem 0;
+    }
+    
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- En-tête -->
+  <header role="banner" class="fr-header">
+    <div class="fr-header__body">
+      <div class="fr-container">
+        <div class="fr-header__body-row">
+          <div class="fr-header__brand fr-enlarge-link">
+            <div class="fr-header__brand-top">
+              <div class="fr-header__logo">
+                <p class="fr-logo">
+                  République
+                  <br>Française
+                </p>
+              </div>
+              <div class="fr-header__navbar">
+                <button class="fr-btn--menu fr-btn" data-fr-opened="false" aria-controls="modal-menu">
+                  Menu
+                </button>
+              </div>
+            </div>
+            <div class="fr-header__service">
+              <a href="/" title="Accueil - Playground DSFR">
+                <p class="fr-header__service-title">Playground DSFR</p>
+              </a>
+              <p class="fr-header__service-tagline">Explorez le Design System de l'État</p>
+            </div>
+          </div>
+          <div class="fr-header__tools">
+            <div class="fr-header__tools-links">
+              <ul class="fr-btns-group">
+                <li>
+                  <button class="fr-btn fr-icon-theme-fill" aria-controls="fr-theme-modal" data-fr-opened="false" title="Sélecteur de thème">
+                    Thème
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fr-header__menu fr-modal" id="modal-menu" aria-labelledby="button-menu">
+      <div class="fr-container">
+        <button class="fr-btn--close fr-btn" aria-controls="modal-menu" title="Fermer">
+          Fermer
+        </button>
+        <div class="fr-header__menu-links">
+          <nav class="fr-nav" role="navigation" aria-label="Menu principal">
+            <ul class="fr-nav__list">
+              <li class="fr-nav__item">
+                <a class="fr-nav__link" href="#composants" target="_self">Composants</a>
+              </li>
+              <li class="fr-nav__item">
+                <a class="fr-nav__link" href="#formulaires" target="_self">Formulaires</a>
+              </li>
+              <li class="fr-nav__item">
+                <a class="fr-nav__link" href="#navigation" target="_self">Navigation</a>
+              </li>
+              <li class="fr-nav__item">
+                <a class="fr-nav__link" href="#exemples" target="_self">Exemples</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Section Hero -->
+  <section class="fr-container fr-py-8w">
+    <div class="fr-grid-row fr-grid-row--center">
+      <div class="fr-col-12 fr-col-md-10 fr-col-lg-8">
+        <h1 class="fr-display--xs fr-mb-2w">Bienvenue sur le Playground DSFR</h1>
+        <p class="fr-text--lead fr-mb-4w">
+          Découvrez et testez les composants du Design System de l'État français. 
+          Interface interactive pour explorer, personnaliser et intégrer les éléments DSFR dans vos projets.
+        </p>
+        <ul class="fr-btns-group fr-btns-group--inline-lg">
+          <li>
+            <a class="fr-btn fr-btn--lg" href="#composants">
+              Explorer les composants
+            </a>
+          </li>
+          <li>
+            <a class="fr-btn fr-btn--secondary fr-btn--lg" href="#documentation">
+              Documentation
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Composants -->
+  <section id="composants" class="playground-section">
+    <div class="fr-container">
+      <h2 class="fr-h2">Composants interactifs</h2>
+      <p class="fr-text--lg">Explorez les composants principaux du DSFR avec des exemples interactifs.</p>
+      
+      <div class="feature-grid">
+        <!-- Carte Boutons -->
+        <div class="fr-card fr-card--no-arrow">
+          <div class="fr-card__body">
+            <div class="fr-card__content">
+              <h3 class="fr-card__title">
+                <a href="#demo-boutons">Boutons</a>
+              </h3>
+              <p class="fr-card__desc">
+                Découvrez les différents styles de boutons : primaire, secondaire, tertiaire, avec icônes.
+              </p>
+              <div class="fr-card__start">
+                <ul class="fr-badges-group">
+                  <li>
+                    <p class="fr-badge fr-badge--green-menthe">Interactif</p>
+                  </li>
+                  <li>
+                    <p class="fr-badge fr-badge--blue-ecume">Accessible</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carte Formulaires -->
+        <div class="fr-card fr-card--no-arrow">
+          <div class="fr-card__body">
+            <div class="fr-card__content">
+              <h3 class="fr-card__title">
+                <a href="#demo-formulaires">Formulaires</a>
+              </h3>
+              <p class="fr-card__desc">
+                Champs de saisie, sélecteurs, cases à cocher et boutons radio avec validation.
+              </p>
+              <div class="fr-card__start">
+                <ul class="fr-badges-group">
+                  <li>
+                    <p class="fr-badge fr-badge--green-menthe">Interactif</p>
+                  </li>
+                  <li>
+                    <p class="fr-badge fr-badge--purple-glycine">Validation</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carte Navigation -->
+        <div class="fr-card fr-card--no-arrow">
+          <div class="fr-card__body">
+            <div class="fr-card__content">
+              <h3 class="fr-card__title">
+                <a href="#demo-navigation">Navigation</a>
+              </h3>
+              <p class="fr-card__desc">
+                Menus, fils d'Ariane, pagination et autres éléments de navigation.
+              </p>
+              <div class="fr-card__start">
+                <ul class="fr-badges-group">
+                  <li>
+                    <p class="fr-badge fr-badge--green-menthe">Interactif</p>
+                  </li>
+                  <li>
+                    <p class="fr-badge fr-badge--yellow-tournesol">Responsive</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carte Alertes -->
+        <div class="fr-card fr-card--no-arrow">
+          <div class="fr-card__body">
+            <div class="fr-card__content">
+              <h3 class="fr-card__title">
+                <a href="#demo-alertes">Alertes & Messages</a>
+              </h3>
+              <p class="fr-card__desc">
+                Messages d'information, d'erreur, de succès et d'avertissement.
+              </p>
+              <div class="fr-card__start">
+                <ul class="fr-badges-group">
+                  <li>
+                    <p class="fr-badge fr-badge--green-menthe">Interactif</p>
+                  </li>
+                  <li>
+                    <p class="fr-badge fr-badge--pink-macaron">États</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Démos interactives -->
+  <section class="playground-section">
+    <div class="fr-container">
+      <h2 class="fr-h2">Démonstrations interactives</h2>
+      
+      <!-- Démo Boutons -->
+      <div id="demo-boutons" class="demo-box">
+        <h3 class="fr-h3">Boutons</h3>
+        <div class="interactive-demo">
+          <div class="fr-btns-group fr-btns-group--inline">
+            <ul class="fr-btns-group fr-btns-group--inline-lg">
+              <li>
+                <button class="fr-btn" onclick="showNotification('Bouton primaire cliqué!')">
+                  Bouton primaire
+                </button>
+              </li>
+              <li>
+                <button class="fr-btn fr-btn--secondary" onclick="showNotification('Bouton secondaire cliqué!')">
+                  Bouton secondaire
+                </button>
+              </li>
+              <li>
+                <button class="fr-btn fr-btn--tertiary" onclick="showNotification('Bouton tertiaire cliqué!')">
+                  Bouton tertiaire
+                </button>
+              </li>
+              <li>
+                <button class="fr-btn fr-btn--tertiary-no-outline" onclick="showNotification('Bouton sans contour cliqué!')">
+                  Sans contour
+                </button>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="fr-btns-group fr-btns-group--inline fr-mt-2w">
+            <ul class="fr-btns-group fr-btns-group--inline-lg">
+              <li>
+                <button class="fr-btn fr-icon-download-line fr-btn--icon-left">
+                  Télécharger
+                </button>
+              </li>
+              <li>
+                <button class="fr-btn fr-btn--secondary fr-icon-add-circle-line fr-btn--icon-right">
+                  Ajouter
+                </button>
+              </li>
+              <li>
+                <button class="fr-btn fr-btn--sm">
+                  Petit bouton
+                </button>
+              </li>
+              <li>
+                <button class="fr-btn fr-btn--lg">
+                  Grand bouton
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="code-preview">
+          <code>&lt;button class="fr-btn"&gt;Bouton primaire&lt;/button&gt;</code>
+        </div>
+      </div>
+
+      <!-- Démo Formulaires -->
+      <div id="demo-formulaires" class="demo-box">
+        <h3 class="fr-h3">Formulaire interactif</h3>
+        <div class="interactive-demo">
+          <form id="demo-form" onsubmit="handleFormSubmit(event)">
+            <div class="fr-input-group">
+              <label class="fr-label" for="text-input">
+                Nom complet
+                <span class="fr-hint-text">Format : Prénom Nom</span>
+              </label>
+              <input class="fr-input" type="text" id="text-input" name="text-input" required>
+            </div>
+            
+            <div class="fr-input-group fr-mt-2w">
+              <label class="fr-label" for="email-input">
+                Adresse email
+              </label>
+              <input class="fr-input" type="email" id="email-input" name="email-input" required>
+            </div>
+            
+            <div class="fr-select-group fr-mt-2w">
+              <label class="fr-label" for="select-demo">
+                Service concerné
+              </label>
+              <select class="fr-select" id="select-demo" name="select-demo">
+                <option value="" selected disabled>Sélectionnez un service</option>
+                <option value="1">Service des impôts</option>
+                <option value="2">Service social</option>
+                <option value="3">Service technique</option>
+              </select>
+            </div>
+            
+            <fieldset class="fr-fieldset fr-mt-2w">
+              <legend class="fr-fieldset__legend fr-text--regular">
+                Préférences de contact
+              </legend>
+              <div class="fr-fieldset__content">
+                <div class="fr-checkbox-group">
+                  <input type="checkbox" id="checkbox-email" name="checkbox-email">
+                  <label class="fr-label" for="checkbox-email">
+                    Par email
+                  </label>
+                </div>
+                <div class="fr-checkbox-group">
+                  <input type="checkbox" id="checkbox-phone" name="checkbox-phone">
+                  <label class="fr-label" for="checkbox-phone">
+                    Par téléphone
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+            
+            <div class="fr-btns-group fr-mt-4w">
+              <ul class="fr-btns-group fr-btns-group--inline-lg">
+                <li>
+                  <button type="submit" class="fr-btn">
+                    Envoyer
+                  </button>
+                </li>
+                <li>
+                  <button type="reset" class="fr-btn fr-btn--secondary">
+                    Réinitialiser
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Démo Alertes -->
+      <div id="demo-alertes" class="demo-box">
+        <h3 class="fr-h3">Messages et alertes</h3>
+        <div class="interactive-demo">
+          <div class="fr-alert fr-alert--info fr-mb-2w">
+            <h3 class="fr-alert__title">Information</h3>
+            <p>Message d'information pour guider l'utilisateur.</p>
+          </div>
+          
+          <div class="fr-alert fr-alert--success fr-mb-2w">
+            <h3 class="fr-alert__title">Succès</h3>
+            <p>Votre demande a été traitée avec succès.</p>
+          </div>
+          
+          <div class="fr-alert fr-alert--warning fr-mb-2w">
+            <h3 class="fr-alert__title">Avertissement</h3>
+            <p>Attention, cette action est irréversible.</p>
+          </div>
+          
+          <div class="fr-alert fr-alert--error">
+            <h3 class="fr-alert__title">Erreur</h3>
+            <p>Une erreur s'est produite lors du traitement.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Grid System -->
+  <section class="playground-section">
+    <div class="fr-container">
+      <h2 class="fr-h2">Système de grille responsive</h2>
+      <p class="fr-text--lg">Le système de grille DSFR s'adapte automatiquement à tous les écrans.</p>
+      
+      <div class="demo-box">
+        <div class="fr-grid-row fr-grid-row--gutters">
+          <div class="fr-col-12 fr-col-md-4">
+            <div class="fr-callout">
+              <h3 class="fr-callout__title">Mobile First</h3>
+              <p class="fr-callout__text">
+                Conception adaptative qui privilégie l'expérience mobile.
+              </p>
+            </div>
+          </div>
+          <div class="fr-col-12 fr-col-md-4">
+            <div class="fr-callout fr-callout--green-emeraude">
+              <h3 class="fr-callout__title">Flexible</h3>
+              <p class="fr-callout__text">
+                Grille à 12 colonnes avec breakpoints personnalisables.
+              </p>
+            </div>
+          </div>
+          <div class="fr-col-12 fr-col-md-4">
+            <div class="fr-callout fr-callout--blue-ecume">
+              <h3 class="fr-callout__title">Accessible</h3>
+              <p class="fr-callout__text">
+                Respecte les normes RGAA et WCAG pour tous.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Icônes et pictogrammes -->
+  <section class="playground-section">
+    <div class="fr-container">
+      <h2 class="fr-h2">Icônes et pictogrammes</h2>
+      <div class="demo-box">
+        <div class="fr-grid-row fr-grid-row--gutters fr-grid-row--center">
+          <div class="fr-col-6 fr-col-sm-3 fr-col-lg-2 text-center">
+            <span class="fr-icon-account-line fr-icon--lg" aria-hidden="true"></span>
+            <p class="fr-text--sm fr-mt-1w">account-line</p>
+          </div>
+          <div class="fr-col-6 fr-col-sm-3 fr-col-lg-2 text-center">
+            <span class="fr-icon-calendar-line fr-icon--lg" aria-hidden="true"></span>
+            <p class="fr-text--sm fr-mt-1w">calendar-line</p>
+          </div>
+          <div class="fr-col-6 fr-col-sm-3 fr-col-lg-2 text-center">
+            <span class="fr-icon-mail-line fr-icon--lg" aria-hidden="true"></span>
+            <p class="fr-text--sm fr-mt-1w">mail-line</p>
+          </div>
+          <div class="fr-col-6 fr-col-sm-3 fr-col-lg-2 text-center">
+            <span class="fr-icon-phone-line fr-icon--lg" aria-hidden="true"></span>
+            <p class="fr-text--sm fr-mt-1w">phone-line</p>
+          </div>
+          <div class="fr-col-6 fr-col-sm-3 fr-col-lg-2 text-center">
+            <span class="fr-icon-map-pin-2-line fr-icon--lg" aria-hidden="true"></span>
+            <p class="fr-text--sm fr-mt-1w">map-pin-2-line</p>
+          </div>
+          <div class="fr-col-6 fr-col-sm-3 fr-col-lg-2 text-center">
+            <span class="fr-icon-search-line fr-icon--lg" aria-hidden="true"></span>
+            <p class="fr-text--sm fr-mt-1w">search-line</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pied de page -->
+  <footer class="fr-footer" role="contentinfo" id="footer">
+    <div class="fr-container">
+      <div class="fr-footer__body">
+        <div class="fr-footer__brand fr-enlarge-link">
+          <a href="/" title="Retour à l'accueil">
+            <p class="fr-logo">
+              République
+              <br>Française
+            </p>
+          </a>
+        </div>
+        <div class="fr-footer__content">
+          <p class="fr-footer__content-desc">
+            Playground DSFR - Un outil interactif pour explorer et tester les composants du Design System de l'État.
+          </p>
+          <ul class="fr-footer__content-list">
+            <li class="fr-footer__content-item">
+              <a class="fr-footer__content-link" target="_blank" href="https://www.systeme-de-design.gouv.fr/">
+                systeme-de-design.gouv.fr
+              </a>
+            </li>
+            <li class="fr-footer__content-item">
+              <a class="fr-footer__content-link" target="_blank" href="https://github.com/GouvernementFR/dsfr">
+                Code source DSFR
+              </a>
+            </li>
+            <li class="fr-footer__content-item">
+              <a class="fr-footer__content-link" href="https://www.gouvernement.fr">
+                gouvernement.fr
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="fr-footer__bottom">
+        <ul class="fr-footer__bottom-list">
+          <li class="fr-footer__bottom-item">
+            <a class="fr-footer__bottom-link" href="#">
+              Plan du site
+            </a>
+          </li>
+          <li class="fr-footer__bottom-item">
+            <a class="fr-footer__bottom-link" href="#">
+              Accessibilité : conforme
+            </a>
+          </li>
+          <li class="fr-footer__bottom-item">
+            <a class="fr-footer__bottom-link" href="#">
+              Mentions légales
+            </a>
+          </li>
+          <li class="fr-footer__bottom-item">
+            <a class="fr-footer__bottom-link" href="#">
+              Données personnelles
+            </a>
+          </li>
+          <li class="fr-footer__bottom-item">
+            <a class="fr-footer__bottom-link" href="#">
+              Gestion des cookies
+            </a>
+          </li>
+        </ul>
+        <div class="fr-footer__bottom-copy">
+          <p>
+            Sauf mention contraire, tous les contenus de ce site sont sous 
+            <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank">licence etalab-2.0</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal de sélection de thème -->
+  <dialog id="fr-theme-modal" class="fr-modal" role="dialog" aria-labelledby="fr-theme-modal-title">
+    <div class="fr-container fr-container--fluid fr-container-md">
+      <div class="fr-grid-row fr-grid-row--center">
+        <div class="fr-col-12 fr-col-md-6 fr-col-lg-4">
+          <div class="fr-modal__body">
+            <div class="fr-modal__header">
+              <button class="fr-btn--close fr-btn" aria-controls="fr-theme-modal" title="Fermer">
+                Fermer
+              </button>
+            </div>
+            <div class="fr-modal__content">
+              <h1 id="fr-theme-modal-title" class="fr-modal__title">
+                Paramètres d'affichage
+              </h1>
+              <div id="fr-display" class="fr-display">
+                <fieldset class="fr-fieldset">
+                  <legend class="fr-fieldset__legend fr-text--regular" id="display-fieldset-legend">
+                    Choisissez un thème pour personnaliser l'apparence du site.
+                  </legend>
+                  <div class="fr-fieldset__content">
+                    <div class="fr-radio-group fr-radio-rich">
+                      <input value="light" type="radio" id="fr-radios-theme-light" name="fr-radios-theme">
+                      <label class="fr-label" for="fr-radios-theme-light">
+                        Thème clair
+                      </label>
+                    </div>
+                    <div class="fr-radio-group fr-radio-rich">
+                      <input value="dark" type="radio" id="fr-radios-theme-dark" name="fr-radios-theme">
+                      <label class="fr-label" for="fr-radios-theme-dark">
+                        Thème sombre
+                      </label>
+                    </div>
+                    <div class="fr-radio-group fr-radio-rich">
+                      <input value="system" type="radio" id="fr-radios-theme-system" name="fr-radios-theme" checked>
+                      <label class="fr-label" for="fr-radios-theme-system">
+                        Système
+                        <span class="fr-hint-text">Utilise les paramètres système</span>
+                      </label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Scripts DSFR -->
+  <script src="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.11.2/dist/dsfr.min.js"></script>
+  
+  <!-- Scripts personnalisés -->
+  <script>
+    // Fonction pour afficher une notification
+    function showNotification(message) {
+      // Créer une alerte temporaire
+      const alert = document.createElement('div');
+      alert.className = 'fr-alert fr-alert--info fr-alert--sm';
+      alert.innerHTML = `
+        <p class="fr-alert__text">${message}</p>
+      `;
+      alert.style.position = 'fixed';
+      alert.style.top = '20px';
+      alert.style.right = '20px';
+      alert.style.zIndex = '1000';
+      alert.style.maxWidth = '300px';
+      
+      document.body.appendChild(alert);
+      
+      // Supprimer après 3 secondes
+      setTimeout(() => {
+        alert.remove();
+      }, 3000);
+    }
+    
+    // Gestion du formulaire de démo
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      
+      // Récupérer les valeurs du formulaire
+      const formData = new FormData(event.target);
+      const values = Object.fromEntries(formData);
+      
+      // Afficher un message de succès
+      showNotification('Formulaire soumis avec succès !');
+      
+      // Log des valeurs pour la démo
+      console.log('Données du formulaire:', values);
+      
+      // Optionnel : réinitialiser le formulaire
+      // event.target.reset();
+    }
+    
+    // Initialisation des composants DSFR au chargement
+    document.addEventListener('DOMContentLoaded', function() {
+      // Smooth scroll pour les ancres
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+      
+      // Gestion du thème
+      const themeRadios = document.querySelectorAll('input[name="fr-radios-theme"]');
+      themeRadios.forEach(radio => {
+        radio.addEventListener('change', function() {
+          if (this.checked) {
+            const theme = this.value;
+            if (theme === 'light') {
+              document.documentElement.setAttribute('data-fr-theme', 'light');
+            } else if (theme === 'dark') {
+              document.documentElement.setAttribute('data-fr-theme', 'dark');
+            } else {
+              document.documentElement.removeAttribute('data-fr-theme');
+            }
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
