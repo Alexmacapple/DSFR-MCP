@@ -1,609 +1,875 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="204" failures="27" errors="0" time="2.07">
-  <testsuite name="Architecture V2 - Core Components" errors="0" failures="7" skipped="0" timestamp="2025-08-12T13:16:16" time="0.25" tests="25">
-    <testcase classname="Architecture V2 - Core Components Container DI should create and resolve singletons" name="Architecture V2 - Core Components Container DI should create and resolve singletons" time="0.002">
-    </testcase>
-    <testcase classname="Architecture V2 - Core Components Container DI should create transient services" name="Architecture V2 - Core Components Container DI should create transient services" time="0">
-    </testcase>
-    <testcase classname="Architecture V2 - Core Components Container DI should handle values" name="Architecture V2 - Core Components Container DI should handle values" time="0">
-    </testcase>
-    <testcase classname="Architecture V2 - Core Components Container DI should handle dependencies" name="Architecture V2 - Core Components Container DI should handle dependencies" time="0">
-    </testcase>
-    <testcase classname="Architecture V2 - Core Components Container DI should throw for unknown services" name="Architecture V2 - Core Components Container DI should throw for unknown services" time="0.001">
-    </testcase>
-    <testcase classname="Architecture V2 - Core Components Container DI should list registered services" name="Architecture V2 - Core Components Container DI should list registered services" time="0.001">
-    </testcase>
-    <testcase classname="Architecture V2 - Core Components ConfigService should load default configuration" name="Architecture V2 - Core Components ConfigService should load default configuration" time="0">
-    </testcase>
-    <testcase classname="Architecture V2 - Core Components ConfigService should handle nested keys" name="Architecture V2 - Core Components ConfigService should handle nested keys" time="0">
-    </testcase>
-    <testcase classname="Architecture V2 - Core Components ConfigService should return default values" name="Architecture V2 - Core Components ConfigService should return default values" time="0.001">
-    </testcase>
-    <testcase classname="Architecture V2 - Core Components ConfigService should set and get values" name="Architecture V2 - Core Components ConfigService should set and get values" time="0">
-    </testcase>
-    <testcase classname="Architecture V2 - Core Components ConfigService should check key existence" name="Architecture V2 - Core Components ConfigService should check key existence" time="0">
-    </testcase>
-    <testcase classname="Architecture V2 - Core Components ConfigService should merge configurations" name="Architecture V2 - Core Components ConfigService should merge configurations" time="0">
-    </testcase>
-    <testcase classname="Architecture V2 - Core Components LoggerService should create logger with config" name="Architecture V2 - Core Components LoggerService should create logger with config" time="0">
-    </testcase>
-    <testcase classname="Architecture V2 - Core Components LoggerService should log different levels" name="Architecture V2 - Core Components LoggerService should log different levels" time="0.003">
-    </testcase>
-    <testcase classname="Architecture V2 - Core Components LoggerService should format logs correctly" name="Architecture V2 - Core Components LoggerService should format logs correctly" time="0">
-    </testcase>
-    <testcase classname="Architecture V2 - Core Components LoggerService should handle log levels" name="Architecture V2 - Core Components LoggerService should handle log levels" time="0.001">
-    </testcase>
-    <testcase classname="Architecture V2 - Core Components CacheService should store and retrieve values" name="Architecture V2 - Core Components CacheService should store and retrieve values" time="0.001">
-      <failure>TypeError: this.memoryCache.values is not a function or its return value is not iterable
-    at CacheService.updateMemoryUsage (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:257:42)
-    at CacheService.set (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:149:10)
-    at processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/DSFR-MCP-main/test/integration/architecture-core.test.js:236:7)</failure>
-    </testcase>
-    <testcase classname="Architecture V2 - Core Components CacheService should handle TTL" name="Architecture V2 - Core Components CacheService should handle TTL" time="0.001">
-      <failure>TypeError: this.memoryCache.values is not a function or its return value is not iterable
-    at CacheService.updateMemoryUsage (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:257:42)
-    at CacheService.set (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:149:10)
-    at processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/DSFR-MCP-main/test/integration/architecture-core.test.js:243:7)</failure>
-    </testcase>
-    <testcase classname="Architecture V2 - Core Components CacheService should delete values" name="Architecture V2 - Core Components CacheService should delete values" time="0">
-      <failure>TypeError: this.memoryCache.values is not a function or its return value is not iterable
-    at CacheService.updateMemoryUsage (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:257:42)
-    at CacheService.set (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:149:10)
-    at processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/DSFR-MCP-main/test/integration/architecture-core.test.js:255:7)</failure>
-    </testcase>
-    <testcase classname="Architecture V2 - Core Components CacheService should clear cache" name="Architecture V2 - Core Components CacheService should clear cache" time="0">
-      <failure>TypeError: this.memoryCache.values is not a function or its return value is not iterable
-    at CacheService.updateMemoryUsage (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:257:42)
-    at CacheService.set (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:149:10)
-    at processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/DSFR-MCP-main/test/integration/architecture-core.test.js:264:7)</failure>
-    </testcase>
-    <testcase classname="Architecture V2 - Core Components CacheService should provide statistics" name="Architecture V2 - Core Components CacheService should provide statistics" time="0">
-      <failure>TypeError: this.memoryCache.values is not a function or its return value is not iterable
-    at CacheService.updateMemoryUsage (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:257:42)
-    at CacheService.set (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:149:10)
-    at processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/DSFR-MCP-main/test/integration/architecture-core.test.js:274:7)</failure>
-    </testcase>
-    <testcase classname="Architecture V2 - Core Components CacheService should handle compression" name="Architecture V2 - Core Components CacheService should handle compression" time="0.001">
-      <failure>TypeError: this.memoryCache.values is not a function or its return value is not iterable
-    at CacheService.updateMemoryUsage (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:257:42)
-    at CacheService.set (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:149:10)
-    at processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/DSFR-MCP-main/test/integration/architecture-core.test.js:291:7)</failure>
-    </testcase>
-    <testcase classname="Architecture V2 - Core Components CacheService should format bytes correctly" name="Architecture V2 - Core Components CacheService should format bytes correctly" time="0">
-    </testcase>
-    <testcase classname="Architecture V2 - Core Components Performance Tests should initialize services quickly" name="Architecture V2 - Core Components Performance Tests should initialize services quickly" time="0.001">
-    </testcase>
-    <testcase classname="Architecture V2 - Core Components Performance Tests should handle multiple concurrent cache operations" name="Architecture V2 - Core Components Performance Tests should handle multiple concurrent cache operations" time="0.002">
-      <failure>TypeError: this.memoryCache.values is not a function or its return value is not iterable
-    at CacheService.updateMemoryUsage (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:257:42)
-    at CacheService.set (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:149:10)
-    at async Promise.all (index 0)
-    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/DSFR-MCP-main/test/integration/architecture-core.test.js:357:7)</failure>
-    </testcase>
-  </testsuite>
-  <testsuite name="DocumentationServiceV2" errors="0" failures="2" skipped="0" timestamp="2025-08-12T13:16:16" time="0.296" tests="25">
-    <testcase classname="DocumentationServiceV2 Initialisation should initialize successfully" name="DocumentationServiceV2 Initialisation should initialize successfully" time="0.005">
-    </testcase>
-    <testcase classname="DocumentationServiceV2 Initialisation should not re-initialize if already initialized" name="DocumentationServiceV2 Initialisation should not re-initialize if already initialized" time="0">
-    </testcase>
-    <testcase classname="DocumentationServiceV2 Initialisation should handle initialization errors" name="DocumentationServiceV2 Initialisation should handle initialization errors" time="0.001">
-    </testcase>
-    <testcase classname="DocumentationServiceV2 searchComponents should return cached results when available" name="DocumentationServiceV2 searchComponents should return cached results when available" time="0.001">
-    </testcase>
-    <testcase classname="DocumentationServiceV2 searchComponents should search and cache results when not cached" name="DocumentationServiceV2 searchComponents should search and cache results when not cached" time="0.002">
-    </testcase>
-    <testcase classname="DocumentationServiceV2 searchComponents should handle search errors gracefully" name="DocumentationServiceV2 searchComponents should handle search errors gracefully" time="0">
-    </testcase>
-    <testcase classname="DocumentationServiceV2 searchComponents should format results correctly when no results found" name="DocumentationServiceV2 searchComponents should format results correctly when no results found" time="0">
-    </testcase>
-    <testcase classname="DocumentationServiceV2 getComponentDetails should return component details with examples and accessibility" name="DocumentationServiceV2 getComponentDetails should return component details with examples and accessibility" time="0.001">
-    </testcase>
-    <testcase classname="DocumentationServiceV2 getComponentDetails should fallback to search if component not found directly" name="DocumentationServiceV2 getComponentDetails should fallback to search if component not found directly" time="0">
-    </testcase>
-    <testcase classname="DocumentationServiceV2 getComponentDetails should handle component not found" name="DocumentationServiceV2 getComponentDetails should handle component not found" time="0">
-    </testcase>
-    <testcase classname="DocumentationServiceV2 listCategories should return formatted categories list" name="DocumentationServiceV2 listCategories should return formatted categories list" time="0.001">
-    </testcase>
-    <testcase classname="DocumentationServiceV2 searchPatterns should search patterns in layout category" name="DocumentationServiceV2 searchPatterns should search patterns in layout category" time="0.001">
-      <failure>Error: expect(jest.fn()).toHaveBeenCalledWith(...expected)
-
-Expected: &quot;grille&quot;, {&quot;category&quot;: &quot;layout&quot;, &quot;limit&quot;: 10}
-
-Number of calls: 0
-    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/DSFR-MCP-main/test/unit/services/documentation-service-v2.test.js:278:37)
-    at processTicksAndRejections (node:internal/process/task_queues:105:5)</failure>
-    </testcase>
-    <testcase classname="DocumentationServiceV2 searchPatterns should filter results by pattern type" name="DocumentationServiceV2 searchPatterns should filter results by pattern type" time="0">
-      <failure>Error: expect(jest.fn()).toHaveBeenCalled()
-
-Expected number of calls: &gt;= 1
-Received number of calls:    0
-    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/DSFR-MCP-main/test/unit/services/documentation-service-v2.test.js:299:37)
-    at processTicksAndRejections (node:internal/process/task_queues:105:5)</failure>
-    </testcase>
-    <testcase classname="DocumentationServiceV2 getIcons should return filtered icon results" name="DocumentationServiceV2 getIcons should return filtered icon results" time="0.001">
-    </testcase>
-    <testcase classname="DocumentationServiceV2 getColors should return color palette with utilities" name="DocumentationServiceV2 getColors should return color palette with utilities" time="0">
-    </testcase>
-    <testcase classname="DocumentationServiceV2 getColors should return colors without utilities when disabled" name="DocumentationServiceV2 getColors should return colors without utilities when disabled" time="0.001">
-    </testcase>
-    <testcase classname="DocumentationServiceV2 Utility methods should get category name from config" name="DocumentationServiceV2 Utility methods should get category name from config" time="0">
-    </testcase>
-    <testcase classname="DocumentationServiceV2 Utility methods should return category key if not found in config" name="DocumentationServiceV2 Utility methods should return category key if not found in config" time="0.001">
-    </testcase>
-    <testcase classname="DocumentationServiceV2 Utility methods should extract accessibility information" name="DocumentationServiceV2 Utility methods should extract accessibility information" time="0">
-    </testcase>
-    <testcase classname="DocumentationServiceV2 Utility methods should handle content without accessibility info" name="DocumentationServiceV2 Utility methods should handle content without accessibility info" time="0">
-    </testcase>
-    <testcase classname="DocumentationServiceV2 Error handling and edge cases should auto-initialize when calling methods on uninitialized service" name="DocumentationServiceV2 Error handling and edge cases should auto-initialize when calling methods on uninitialized service" time="0">
-    </testcase>
-    <testcase classname="DocumentationServiceV2 Error handling and edge cases should handle cache errors gracefully" name="DocumentationServiceV2 Error handling and edge cases should handle cache errors gracefully" time="0.001">
-    </testcase>
-    <testcase classname="DocumentationServiceV2 Error handling and edge cases should dispose correctly" name="DocumentationServiceV2 Error handling and edge cases should dispose correctly" time="0">
-    </testcase>
-    <testcase classname="DocumentationServiceV2 Format methods edge cases should handle search results with missing score" name="DocumentationServiceV2 Format methods edge cases should handle search results with missing score" time="0">
-    </testcase>
-    <testcase classname="DocumentationServiceV2 Format methods edge cases should handle component without code examples" name="DocumentationServiceV2 Format methods edge cases should handle component without code examples" time="0.001">
-    </testcase>
-  </testsuite>
-  <testsuite name="CacheService" errors="0" failures="17" skipped="0" timestamp="2025-08-12T13:16:16" time="0.316" tests="25">
-    <testcase classname="CacheService Constructor should initialize with correct default values" name="CacheService Constructor should initialize with correct default values" time="0.003">
-    </testcase>
-    <testcase classname="CacheService Constructor should initialize cacheStats correctly" name="CacheService Constructor should initialize cacheStats correctly" time="0">
-    </testcase>
-    <testcase classname="CacheService Constructor should use default values when config is missing" name="CacheService Constructor should use default values when config is missing" time="0.001">
-    </testcase>
-    <testcase classname="CacheService initialize() should initialize successfully" name="CacheService initialize() should initialize successfully" time="0.002">
-    </testcase>
-    <testcase classname="CacheService initialize() should not initialize twice" name="CacheService initialize() should not initialize twice" time="0.003">
-    </testcase>
-    <testcase classname="CacheService initialize() should handle initialization errors" name="CacheService initialize() should handle initialization errors" time="0.003">
-      <failure>Error: expect(received).rejects.toThrow()
-
-Received promise resolved instead of rejected
-Resolved to value: undefined
-    at expect (/Users/alex/Desktop/DSFR-MCP-main/node_modules/expect/build/index.js:113:15)
-    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/DSFR-MCP-main/test/unit/services/cache-service.test.js:128:13)
-    at Promise.then.completed (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/utils.js:298:28)
-    at new Promise (&lt;anonymous&gt;)
-    at callAsyncCircusFn (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/utils.js:231:10)
-    at _callCircusTest (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/run.js:316:40)
-    at _runTest (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/run.js:252:3)
-    at _runTestsForDescribeBlock (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/run.js:126:9)
-    at _runTestsForDescribeBlock (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/run.js:121:9)
-    at _runTestsForDescribeBlock (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/run.js:121:9)
-    at run (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/run.js:71:3)
-    at runAndTransformResultsToJestFormat (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
-    at jestAdapter (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
-    at runTestInternal (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-runner/build/runTest.js:367:16)
-    at runTest (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-runner/build/runTest.js:444:34)
-    at Object.worker (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-runner/build/testWorker.js:106:12)</failure>
-    </testcase>
-    <testcase classname="CacheService get() and set() should set and get a value" name="CacheService get() and set() should set and get a value" time="0.001">
-      <failure>TypeError: this.memoryCache.values is not a function or its return value is not iterable
-    at CacheService.updateMemoryUsage (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:257:42)
-    at CacheService.set (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:149:10)
-    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/DSFR-MCP-main/test/unit/services/cache-service.test.js:145:7)</failure>
-    </testcase>
-    <testcase classname="CacheService get() and set() should return null for non-existent key" name="CacheService get() and set() should return null for non-existent key" time="0.002">
-    </testcase>
-    <testcase classname="CacheService get() and set() should handle TTL expiration" name="CacheService get() and set() should handle TTL expiration" time="0.004">
-      <failure>TypeError: this.memoryCache.values is not a function or its return value is not iterable
-    at CacheService.updateMemoryUsage (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:257:42)
-    at CacheService.set (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:149:10)
-    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/DSFR-MCP-main/test/unit/services/cache-service.test.js:165:7)</failure>
-    </testcase>
-    <testcase classname="CacheService get() and set() should update existing value" name="CacheService get() and set() should update existing value" time="0.001">
-      <failure>TypeError: this.memoryCache.values is not a function or its return value is not iterable
-    at CacheService.updateMemoryUsage (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:257:42)
-    at CacheService.set (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:149:10)
-    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/DSFR-MCP-main/test/unit/services/cache-service.test.js:185:7)</failure>
-    </testcase>
-    <testcase classname="CacheService delete() should delete an existing key" name="CacheService delete() should delete an existing key" time="0">
-      <failure>TypeError: this.memoryCache.values is not a function or its return value is not iterable
-    at CacheService.updateMemoryUsage (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:257:42)
-    at CacheService.set (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:149:10)
-    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/DSFR-MCP-main/test/unit/services/cache-service.test.js:205:7)</failure>
-    </testcase>
-    <testcase classname="CacheService delete() should return false for non-existent key" name="CacheService delete() should return false for non-existent key" time="0.001">
-    </testcase>
-    <testcase classname="CacheService clear() should clear all cache entries" name="CacheService clear() should clear all cache entries" time="0">
-      <failure>TypeError: this.memoryCache.values is not a function or its return value is not iterable
-    at CacheService.updateMemoryUsage (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:257:42)
-    at CacheService.set (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:149:10)
-    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/DSFR-MCP-main/test/unit/services/cache-service.test.js:229:7)</failure>
-    </testcase>
-    <testcase classname="CacheService has() should return true for existing key" name="CacheService has() should return true for existing key" time="0.001">
-      <failure>TypeError: this.memoryCache.values is not a function or its return value is not iterable
-    at CacheService.updateMemoryUsage (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:257:42)
-    at CacheService.set (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:149:10)
-    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/DSFR-MCP-main/test/unit/services/cache-service.test.js:250:7)</failure>
-    </testcase>
-    <testcase classname="CacheService has() should return false for non-existent key" name="CacheService has() should return false for non-existent key" time="0">
-      <failure>TypeError: cacheService.has is not a function
-    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/DSFR-MCP-main/test/unit/services/cache-service.test.js:256:33)
-    at Promise.then.completed (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/utils.js:298:28)
-    at new Promise (&lt;anonymous&gt;)
-    at callAsyncCircusFn (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/utils.js:231:10)
-    at _callCircusTest (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/run.js:316:40)
-    at _runTest (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/run.js:252:3)
-    at _runTestsForDescribeBlock (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/run.js:126:9)
-    at _runTestsForDescribeBlock (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/run.js:121:9)
-    at _runTestsForDescribeBlock (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/run.js:121:9)
-    at run (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/run.js:71:3)
-    at runAndTransformResultsToJestFormat (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
-    at jestAdapter (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
-    at runTestInternal (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-runner/build/runTest.js:367:16)
-    at runTest (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-runner/build/runTest.js:444:34)
-    at Object.worker (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-runner/build/testWorker.js:106:12)</failure>
-    </testcase>
-    <testcase classname="CacheService has() should return false for expired key" name="CacheService has() should return false for expired key" time="0">
-      <failure>TypeError: this.memoryCache.values is not a function or its return value is not iterable
-    at CacheService.updateMemoryUsage (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:257:42)
-    at CacheService.set (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:149:10)
-    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/DSFR-MCP-main/test/unit/services/cache-service.test.js:260:7)</failure>
-    </testcase>
-    <testcase classname="CacheService getStats() should return correct statistics" name="CacheService getStats() should return correct statistics" time="0.001">
-      <failure>TypeError: this.memoryCache.values is not a function or its return value is not iterable
-    at CacheService.updateMemoryUsage (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:257:42)
-    at CacheService.set (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:149:10)
-    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/DSFR-MCP-main/test/unit/services/cache-service.test.js:276:7)</failure>
-    </testcase>
-    <testcase classname="CacheService Memory management should track memory usage" name="CacheService Memory management should track memory usage" time="0.001">
-      <failure>TypeError: this.memoryCache.values is not a function or its return value is not iterable
-    at CacheService.updateMemoryUsage (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:257:42)
-    at CacheService.set (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:149:10)
-    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/DSFR-MCP-main/test/unit/services/cache-service.test.js:303:7)</failure>
-    </testcase>
-    <testcase classname="CacheService Memory management should format bytes correctly" name="CacheService Memory management should format bytes correctly" time="0.002">
-      <failure>Error: expect(received).toBe(expected) // Object.is equality
-
-Expected: &quot;1.00 KB&quot;
-Received: &quot;1 KB&quot;
-    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/DSFR-MCP-main/test/unit/services/cache-service.test.js:310:46)
-    at Promise.then.completed (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/utils.js:298:28)
-    at new Promise (&lt;anonymous&gt;)
-    at callAsyncCircusFn (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/utils.js:231:10)
-    at _callCircusTest (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/run.js:316:40)
-    at _runTest (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/run.js:252:3)
-    at _runTestsForDescribeBlock (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/run.js:126:9)
-    at _runTestsForDescribeBlock (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/run.js:121:9)
-    at _runTestsForDescribeBlock (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/run.js:121:9)
-    at run (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/run.js:71:3)
-    at runAndTransformResultsToJestFormat (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
-    at jestAdapter (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
-    at runTestInternal (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-runner/build/runTest.js:367:16)
-    at runTest (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-runner/build/runTest.js:444:34)
-    at Object.worker (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-runner/build/testWorker.js:106:12)</failure>
-    </testcase>
-    <testcase classname="CacheService Compression should compress and decompress data when enabled" name="CacheService Compression should compress and decompress data when enabled" time="0.001">
-      <failure>TypeError: this.memoryCache.values is not a function or its return value is not iterable
-    at CacheService.updateMemoryUsage (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:257:42)
-    at CacheService.set (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:149:10)
-    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/DSFR-MCP-main/test/unit/services/cache-service.test.js:327:7)</failure>
-    </testcase>
-    <testcase classname="CacheService Compression should not compress when disabled" name="CacheService Compression should not compress when disabled" time="0">
-      <failure>TypeError: this.memoryCache.values is not a function or its return value is not iterable
-    at CacheService.updateMemoryUsage (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:257:42)
-    at CacheService.set (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:149:10)
-    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/DSFR-MCP-main/test/unit/services/cache-service.test.js:339:7)</failure>
-    </testcase>
-    <testcase classname="CacheService Cleanup should cleanup expired entries" name="CacheService Cleanup should cleanup expired entries" time="0.001">
-      <failure>TypeError: this.memoryCache.values is not a function or its return value is not iterable
-    at CacheService.updateMemoryUsage (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:257:42)
-    at CacheService.set (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:149:10)
-    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/DSFR-MCP-main/test/unit/services/cache-service.test.js:355:7)</failure>
-    </testcase>
-    <testcase classname="CacheService dispose() should cleanup resources on dispose" name="CacheService dispose() should cleanup resources on dispose" time="0.001">
-    </testcase>
-    <testcase classname="CacheService Error handling should handle invalid JSON gracefully" name="CacheService Error handling should handle invalid JSON gracefully" time="0.001">
-      <failure>Error: expect(received).toBeNull()
-
-Received: &quot;not-valid-json{&quot;
-    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/DSFR-MCP-main/test/unit/services/cache-service.test.js:406:22)</failure>
-    </testcase>
-    <testcase classname="CacheService Error handling should handle set errors gracefully" name="CacheService Error handling should handle set errors gracefully" time="0.001">
-      <failure>TypeError: Converting circular structure to JSON
-    --&gt; starting at object with constructor &apos;Object&apos;
-    --- property &apos;circular&apos; closes the circle
-    at JSON.stringify (&lt;anonymous&gt;)
-    at CacheService.set (/Users/alex/Desktop/DSFR-MCP-main/src/services/cache-service.js:120:29)
-    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/DSFR-MCP-main/test/unit/services/cache-service.test.js:416:41)
-    at Promise.then.completed (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/utils.js:298:28)
-    at new Promise (&lt;anonymous&gt;)
-    at callAsyncCircusFn (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/utils.js:231:10)
-    at _callCircusTest (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/run.js:316:40)
-    at _runTest (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/run.js:252:3)
-    at _runTestsForDescribeBlock (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/run.js:126:9)
-    at _runTestsForDescribeBlock (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/run.js:121:9)
-    at _runTestsForDescribeBlock (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/run.js:121:9)
-    at run (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/run.js:71:3)
-    at runAndTransformResultsToJestFormat (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
-    at jestAdapter (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
-    at runTestInternal (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-runner/build/runTest.js:367:16)
-    at runTest (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-runner/build/runTest.js:444:34)
-    at Object.worker (/Users/alex/Desktop/DSFR-MCP-main/node_modules/jest-runner/build/testWorker.js:106:12)</failure>
-    </testcase>
-  </testsuite>
-  <testsuite name="Parser DSFR V2 - Performance et fonctionnalités" errors="0" failures="0" skipped="0" timestamp="2025-08-12T13:16:16" time="0.286" tests="18">
-    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should parse valid YAML content" name="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should parse valid YAML content" time="0.006">
-    </testcase>
-    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should handle YAML parsing errors gracefully" name="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should handle YAML parsing errors gracefully" time="0.007">
-    </testcase>
-    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should validate against DSFR component schema" name="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should validate against DSFR component schema" time="0.001">
-    </testcase>
-    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should process multiple files in parallel" name="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should process multiple files in parallel" time="0.002">
-    </testcase>
-    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should provide parsing statistics" name="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should provide parsing statistics" time="0">
-    </testcase>
-    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should add documents to search index" name="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should add documents to search index" time="0.007">
-    </testcase>
-    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should perform fuzzy search" name="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should perform fuzzy search" time="0.002">
-    </testcase>
-    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should filter by facets" name="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should filter by facets" time="0.001">
-    </testcase>
-    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should provide pagination" name="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should provide pagination" time="0.001">
-    </testcase>
-    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should sort results by different criteria" name="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should sort results by different criteria" time="0.016">
-    </testcase>
-    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should calculate facets correctly" name="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should calculate facets correctly" time="0.003">
-    </testcase>
-    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should provide search performance metrics" name="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should provide search performance metrics" time="0.007">
-    </testcase>
-    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités Performance Tests should achieve 5x performance improvement over V1" name="Parser DSFR V2 - Performance et fonctionnalités Performance Tests should achieve 5x performance improvement over V1" time="0.003">
-    </testcase>
-    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités Performance Tests should handle concurrent parsing efficiently" name="Parser DSFR V2 - Performance et fonctionnalités Performance Tests should handle concurrent parsing efficiently" time="0.006">
-    </testcase>
-    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités Performance Tests should maintain performance with large datasets" name="Parser DSFR V2 - Performance et fonctionnalités Performance Tests should maintain performance with large datasets" time="0.021">
-    </testcase>
-    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités Integration Tests should integrate all services correctly" name="Parser DSFR V2 - Performance et fonctionnalités Integration Tests should integrate all services correctly" time="0.003">
-    </testcase>
-    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités Integration Tests should handle errors gracefully across services" name="Parser DSFR V2 - Performance et fonctionnalités Integration Tests should handle errors gracefully across services" time="0.002">
-    </testcase>
-    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités Integration Tests should provide comprehensive statistics" name="Parser DSFR V2 - Performance et fonctionnalités Integration Tests should provide comprehensive statistics" time="0.001">
-    </testcase>
-  </testsuite>
-  <testsuite name="InputSchemas" errors="0" failures="0" skipped="0" timestamp="2025-08-12T13:16:16" time="0.301" tests="27">
-    <testcase classname="InputSchemas constructor should initialize with all schemas" name="InputSchemas constructor should initialize with all schemas" time="0.024">
-    </testcase>
-    <testcase classname="InputSchemas validate search_dsfr_components should validate valid search parameters" name="InputSchemas validate search_dsfr_components should validate valid search parameters" time="0.024">
-    </testcase>
-    <testcase classname="InputSchemas validate search_dsfr_components should require query parameter" name="InputSchemas validate search_dsfr_components should require query parameter" time="0.008">
-    </testcase>
-    <testcase classname="InputSchemas validate search_dsfr_components should validate category enum" name="InputSchemas validate search_dsfr_components should validate category enum" time="0.009">
-    </testcase>
-    <testcase classname="InputSchemas validate search_dsfr_components should validate limit bounds" name="InputSchemas validate search_dsfr_components should validate limit bounds" time="0.007">
-    </testcase>
-    <testcase classname="InputSchemas validate search_dsfr_components should apply default limit" name="InputSchemas validate search_dsfr_components should apply default limit" time="0.008">
-    </testcase>
-    <testcase classname="InputSchemas validate validate_dsfr_html should validate valid HTML validation parameters" name="InputSchemas validate validate_dsfr_html should validate valid HTML validation parameters" time="0.006">
-    </testcase>
-    <testcase classname="InputSchemas validate validate_dsfr_html should require html_code parameter" name="InputSchemas validate validate_dsfr_html should require html_code parameter" time="0.006">
-    </testcase>
-    <testcase classname="InputSchemas validate validate_dsfr_html should validate HTML code length" name="InputSchemas validate validate_dsfr_html should validate HTML code length" time="0.008">
-    </testcase>
-    <testcase classname="InputSchemas validate validate_dsfr_html should apply default boolean values" name="InputSchemas validate validate_dsfr_html should apply default boolean values" time="0.007">
-    </testcase>
-    <testcase classname="InputSchemas validate check_accessibility should validate accessibility check parameters" name="InputSchemas validate check_accessibility should validate accessibility check parameters" time="0.007">
-    </testcase>
-    <testcase classname="InputSchemas validate check_accessibility should validate RGAA level enum" name="InputSchemas validate check_accessibility should validate RGAA level enum" time="0.007">
-    </testcase>
-    <testcase classname="InputSchemas validate generate_dsfr_component should validate component generation parameters" name="InputSchemas validate generate_dsfr_component should validate component generation parameters" time="0.008">
-    </testcase>
-    <testcase classname="InputSchemas validate generate_dsfr_component should validate component type pattern" name="InputSchemas validate generate_dsfr_component should validate component type pattern" time="0.004">
-    </testcase>
-    <testcase classname="InputSchemas validate generate_dsfr_component should validate framework enum" name="InputSchemas validate generate_dsfr_component should validate framework enum" time="0.005">
-    </testcase>
-    <testcase classname="InputSchemas validate create_dsfr_theme should validate theme creation parameters" name="InputSchemas validate create_dsfr_theme should validate theme creation parameters" time="0.012">
-    </testcase>
-    <testcase classname="InputSchemas validate create_dsfr_theme should validate color format" name="InputSchemas validate create_dsfr_theme should validate color format" time="0.006">
-    </testcase>
-    <testcase classname="InputSchemas validate create_dsfr_theme should validate CSS variable names" name="InputSchemas validate create_dsfr_theme should validate CSS variable names" time="0.016">
-    </testcase>
-    <testcase classname="InputSchemas validate convert_to_framework should validate framework conversion parameters" name="InputSchemas validate convert_to_framework should validate framework conversion parameters" time="0.004">
-    </testcase>
-    <testcase classname="InputSchemas validate convert_to_framework should validate PascalCase component name" name="InputSchemas validate convert_to_framework should validate PascalCase component name" time="0.008">
-    </testcase>
-    <testcase classname="InputSchemas sanitizeParams should trim string parameters" name="InputSchemas sanitizeParams should trim string parameters" time="0.007">
-    </testcase>
-    <testcase classname="InputSchemas sanitizeParams should apply default values" name="InputSchemas sanitizeParams should apply default values" time="0.006">
-    </testcase>
-    <testcase classname="InputSchemas sanitizeParams should not override provided values" name="InputSchemas sanitizeParams should not override provided values" time="0.004">
-    </testcase>
-    <testcase classname="InputSchemas getSchema should return schema for valid tool" name="InputSchemas getSchema should return schema for valid tool" time="0.004">
-    </testcase>
-    <testcase classname="InputSchemas getSchema should return null for invalid tool" name="InputSchemas getSchema should return null for invalid tool" time="0.007">
-    </testcase>
-    <testcase classname="InputSchemas getAvailableTools should return list of all available tools" name="InputSchemas getAvailableTools should return list of all available tools" time="0.011">
-    </testcase>
-    <testcase classname="InputSchemas unknown tool validation should handle validation for unknown tool" name="InputSchemas unknown tool validation should handle validation for unknown tool" time="0.016">
-    </testcase>
-  </testsuite>
-  <testsuite name="InputValidatorService" errors="0" failures="0" skipped="0" timestamp="2025-08-12T13:16:16" time="0.367" tests="32">
-    <testcase classname="InputValidatorService constructor should initialize with input schemas" name="InputValidatorService constructor should initialize with input schemas" time="0.031">
-    </testcase>
-    <testcase classname="InputValidatorService validateAndSanitize should validate and sanitize valid search parameters" name="InputValidatorService validateAndSanitize should validate and sanitize valid search parameters" time="0.024">
-    </testcase>
-    <testcase classname="InputValidatorService validateAndSanitize should throw error for invalid parameters" name="InputValidatorService validateAndSanitize should throw error for invalid parameters" time="0.01">
-    </testcase>
-    <testcase classname="InputValidatorService validateAndSanitize should apply default values" name="InputValidatorService validateAndSanitize should apply default values" time="0.006">
-    </testcase>
-    <testcase classname="InputValidatorService sanitizeSearchQuery should sanitize search query properly" name="InputValidatorService sanitizeSearchQuery should sanitize search query properly" time="0.009">
-    </testcase>
-    <testcase classname="InputValidatorService sanitizeHtmlCode should remove script tags" name="InputValidatorService sanitizeHtmlCode should remove script tags" time="0.005">
-    </testcase>
-    <testcase classname="InputValidatorService sanitizeHtmlCode should remove javascript: protocols" name="InputValidatorService sanitizeHtmlCode should remove javascript: protocols" time="0.007">
-    </testcase>
-    <testcase classname="InputValidatorService sanitizeHtmlCode should remove event handlers" name="InputValidatorService sanitizeHtmlCode should remove event handlers" time="0.006">
-    </testcase>
-    <testcase classname="InputValidatorService sanitizeHtmlCode should normalize whitespace" name="InputValidatorService sanitizeHtmlCode should normalize whitespace" time="0.005">
-    </testcase>
-    <testcase classname="InputValidatorService normalizeColor should add # prefix if missing" name="InputValidatorService normalizeColor should add # prefix if missing" time="0.006">
-    </testcase>
-    <testcase classname="InputValidatorService normalizeColor should convert to uppercase" name="InputValidatorService normalizeColor should convert to uppercase" time="0.006">
-    </testcase>
-    <testcase classname="InputValidatorService normalizeColor should handle colors that already have # prefix" name="InputValidatorService normalizeColor should handle colors that already have # prefix" time="0.006">
-    </testcase>
-    <testcase classname="InputValidatorService normalizePascalCase should convert kebab-case to PascalCase" name="InputValidatorService normalizePascalCase should convert kebab-case to PascalCase" time="0.007">
-    </testcase>
-    <testcase classname="InputValidatorService normalizePascalCase should convert snake_case to PascalCase" name="InputValidatorService normalizePascalCase should convert snake_case to PascalCase" time="0.01">
-    </testcase>
-    <testcase classname="InputValidatorService normalizePascalCase should handle spaces" name="InputValidatorService normalizePascalCase should handle spaces" time="0.008">
-    </testcase>
-    <testcase classname="InputValidatorService normalizePascalCase should handle mixed separators" name="InputValidatorService normalizePascalCase should handle mixed separators" time="0.01">
-    </testcase>
-    <testcase classname="InputValidatorService additionalSanitization should sanitize search_dsfr_components parameters" name="InputValidatorService additionalSanitization should sanitize search_dsfr_components parameters" time="0.008">
-    </testcase>
-    <testcase classname="InputValidatorService additionalSanitization should sanitize validate_dsfr_html parameters" name="InputValidatorService additionalSanitization should sanitize validate_dsfr_html parameters" time="0.004">
-    </testcase>
-    <testcase classname="InputValidatorService additionalSanitization should sanitize generate_dsfr_component parameters" name="InputValidatorService additionalSanitization should sanitize generate_dsfr_component parameters" time="0.006">
-    </testcase>
-    <testcase classname="InputValidatorService additionalSanitization should sanitize create_dsfr_theme parameters" name="InputValidatorService additionalSanitization should sanitize create_dsfr_theme parameters" time="0.008">
-    </testcase>
-    <testcase classname="InputValidatorService additionalSanitization should sanitize convert_to_framework parameters" name="InputValidatorService additionalSanitization should sanitize convert_to_framework parameters" time="0.006">
-    </testcase>
-    <testcase classname="InputValidatorService validateCommonParams should validate normal parameters" name="InputValidatorService validateCommonParams should validate normal parameters" time="0.011">
-    </testcase>
-    <testcase classname="InputValidatorService validateCommonParams should reject non-object parameters" name="InputValidatorService validateCommonParams should reject non-object parameters" time="0.008">
-    </testcase>
-    <testcase classname="InputValidatorService validateCommonParams should reject oversized parameters" name="InputValidatorService validateCommonParams should reject oversized parameters" time="0.01">
-    </testcase>
-    <testcase classname="InputValidatorService createErrorResponse should create properly formatted error response" name="InputValidatorService createErrorResponse should create properly formatted error response" time="0.008">
-    </testcase>
-    <testcase classname="InputValidatorService validateRequiredParams should validate required parameters" name="InputValidatorService validateRequiredParams should validate required parameters" time="0.01">
-    </testcase>
-    <testcase classname="InputValidatorService validateRequiredParams should detect missing required parameters" name="InputValidatorService validateRequiredParams should detect missing required parameters" time="0.007">
-    </testcase>
-    <testcase classname="InputValidatorService validateRequiredParams should detect empty string as missing" name="InputValidatorService validateRequiredParams should detect empty string as missing" time="0.004">
-    </testcase>
-    <testcase classname="InputValidatorService validateStringLimits should validate string length limits" name="InputValidatorService validateStringLimits should validate string length limits" time="0.007">
-    </testcase>
-    <testcase classname="InputValidatorService validateStringLimits should detect strings that are too short" name="InputValidatorService validateStringLimits should detect strings that are too short" time="0.008">
-    </testcase>
-    <testcase classname="InputValidatorService validateStringLimits should detect strings that are too long" name="InputValidatorService validateStringLimits should detect strings that are too long" time="0.005">
-    </testcase>
-    <testcase classname="InputValidatorService getAvailableTools should return list of available tools with schemas" name="InputValidatorService getAvailableTools should return list of available tools with schemas" time="0.006">
-    </testcase>
-  </testsuite>
-  <testsuite name="Memory Optimization &amp; Resource Management" errors="0" failures="1" skipped="0" timestamp="2025-08-12T13:16:16" time="0.682" tests="15">
-    <testcase classname="Memory Optimization &amp; Resource Management DisposableBase Pattern should initialize properly" name="Memory Optimization &amp; Resource Management DisposableBase Pattern should initialize properly" time="0.001">
-    </testcase>
-    <testcase classname="Memory Optimization &amp; Resource Management DisposableBase Pattern should track and dispose of timers" name="Memory Optimization &amp; Resource Management DisposableBase Pattern should track and dispose of timers" time="0.133">
-    </testcase>
-    <testcase classname="Memory Optimization &amp; Resource Management DisposableBase Pattern should track and dispose of intervals" name="Memory Optimization &amp; Resource Management DisposableBase Pattern should track and dispose of intervals" time="0.137">
+<testsuites name="jest tests" tests="283" failures="0" errors="0" time="0.919">
+  <testsuite name="Memory Optimization &amp; Resource Management" errors="0" failures="0" skipped="15" timestamp="2025-08-12T16:39:00" time="0.082" tests="15">
+    <testcase classname="Memory Optimization &amp; Resource Management DisposableBase Pattern should initialize properly" name="Memory Optimization &amp; Resource Management DisposableBase Pattern should initialize properly" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Memory Optimization &amp; Resource Management DisposableBase Pattern should track and dispose of timers" name="Memory Optimization &amp; Resource Management DisposableBase Pattern should track and dispose of timers" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Memory Optimization &amp; Resource Management DisposableBase Pattern should track and dispose of intervals" name="Memory Optimization &amp; Resource Management DisposableBase Pattern should track and dispose of intervals" time="0">
+      <skipped/>
     </testcase>
     <testcase classname="Memory Optimization &amp; Resource Management DisposableBase Pattern should track and dispose of event listeners" name="Memory Optimization &amp; Resource Management DisposableBase Pattern should track and dispose of event listeners" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="Memory Optimization &amp; Resource Management DisposableBase Pattern should prevent operations after disposal" name="Memory Optimization &amp; Resource Management DisposableBase Pattern should prevent operations after disposal" time="0.001">
+    <testcase classname="Memory Optimization &amp; Resource Management DisposableBase Pattern should prevent operations after disposal" name="Memory Optimization &amp; Resource Management DisposableBase Pattern should prevent operations after disposal" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="Memory Optimization &amp; Resource Management LRUCache Optimization should enforce size limit with LRU eviction" name="Memory Optimization &amp; Resource Management LRUCache Optimization should enforce size limit with LRU eviction" time="0.004">
+    <testcase classname="Memory Optimization &amp; Resource Management LRUCache Optimization should enforce size limit with LRU eviction" name="Memory Optimization &amp; Resource Management LRUCache Optimization should enforce size limit with LRU eviction" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="Memory Optimization &amp; Resource Management LRUCache Optimization should handle TTL expiration" name="Memory Optimization &amp; Resource Management LRUCache Optimization should handle TTL expiration" time="0.153">
+    <testcase classname="Memory Optimization &amp; Resource Management LRUCache Optimization should handle TTL expiration" name="Memory Optimization &amp; Resource Management LRUCache Optimization should handle TTL expiration" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="Memory Optimization &amp; Resource Management LRUCache Optimization should track access patterns and update timestamps" name="Memory Optimization &amp; Resource Management LRUCache Optimization should track access patterns and update timestamps" time="0.013">
+    <testcase classname="Memory Optimization &amp; Resource Management LRUCache Optimization should track access patterns and update timestamps" name="Memory Optimization &amp; Resource Management LRUCache Optimization should track access patterns and update timestamps" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="Memory Optimization &amp; Resource Management LRUCache Optimization should provide accurate statistics" name="Memory Optimization &amp; Resource Management LRUCache Optimization should provide accurate statistics" time="0.001">
+    <testcase classname="Memory Optimization &amp; Resource Management LRUCache Optimization should provide accurate statistics" name="Memory Optimization &amp; Resource Management LRUCache Optimization should provide accurate statistics" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="Memory Optimization &amp; Resource Management LRUCache Optimization should cleanup expired entries" name="Memory Optimization &amp; Resource Management LRUCache Optimization should cleanup expired entries" time="0.101">
+    <testcase classname="Memory Optimization &amp; Resource Management LRUCache Optimization should cleanup expired entries" name="Memory Optimization &amp; Resource Management LRUCache Optimization should cleanup expired entries" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="Memory Optimization &amp; Resource Management LRUCache Optimization should compress large values automatically" name="Memory Optimization &amp; Resource Management LRUCache Optimization should compress large values automatically" time="0.001">
+    <testcase classname="Memory Optimization &amp; Resource Management LRUCache Optimization should compress large values automatically" name="Memory Optimization &amp; Resource Management LRUCache Optimization should compress large values automatically" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="Memory Optimization &amp; Resource Management LRUCache Optimization should dispose properly and release memory" name="Memory Optimization &amp; Resource Management LRUCache Optimization should dispose properly and release memory" time="0.001">
+    <testcase classname="Memory Optimization &amp; Resource Management LRUCache Optimization should dispose properly and release memory" name="Memory Optimization &amp; Resource Management LRUCache Optimization should dispose properly and release memory" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="Memory Optimization &amp; Resource Management Memory Growth Prevention should not leak memory with repeated operations" name="Memory Optimization &amp; Resource Management Memory Growth Prevention should not leak memory with repeated operations" time="0.108">
-      <failure>Error: expect(received).toBeLessThan(expected)
-
-Expected: &lt; 5
-Received:   6.129554748535156
-    at Object.&lt;anonymous&gt; (/Users/alex/Desktop/DSFR-MCP-main/test/unit/core/memory-optimization.test.js:262:28)</failure>
+    <testcase classname="Memory Optimization &amp; Resource Management Memory Growth Prevention should not leak memory with repeated operations" name="Memory Optimization &amp; Resource Management Memory Growth Prevention should not leak memory with repeated operations" time="0">
+      <skipped/>
     </testcase>
     <testcase classname="Memory Optimization &amp; Resource Management Using Block Pattern should auto-dispose resources" name="Memory Optimization &amp; Resource Management Using Block Pattern should auto-dispose resources" time="0">
+      <skipped/>
     </testcase>
     <testcase classname="Memory Optimization &amp; Resource Management Using Block Pattern should dispose even on error" name="Memory Optimization &amp; Resource Management Using Block Pattern should dispose even on error" time="0">
+      <skipped/>
     </testcase>
   </testsuite>
-  <testsuite name="ValidationService" errors="0" failures="0" skipped="0" timestamp="2025-08-12T13:16:16" time="0.709" tests="18">
-    <testcase classname="ValidationService constructor should initialize DSFR classes and semantic rules" name="ValidationService constructor should initialize DSFR classes and semantic rules" time="0.003">
+  <testsuite name="DocumentationServiceV2" errors="0" failures="0" skipped="25" timestamp="2025-08-12T16:39:00" time="0.02" tests="25">
+    <testcase classname="DocumentationServiceV2 Initialisation should initialize successfully" name="DocumentationServiceV2 Initialisation should initialize successfully" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="ValidationService validateHTML should validate simple valid HTML" name="ValidationService validateHTML should validate simple valid HTML" time="0.052">
+    <testcase classname="DocumentationServiceV2 Initialisation should not re-initialize if already initialized" name="DocumentationServiceV2 Initialisation should not re-initialize if already initialized" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="ValidationService validateHTML should detect DSFR class errors in strict mode" name="ValidationService validateHTML should detect DSFR class errors in strict mode" time="0.005">
+    <testcase classname="DocumentationServiceV2 Initialisation should handle initialization errors" name="DocumentationServiceV2 Initialisation should handle initialization errors" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="ValidationService validateHTML should validate form elements with proper attributes" name="ValidationService validateHTML should validate form elements with proper attributes" time="0.015">
+    <testcase classname="DocumentationServiceV2 searchComponents should return cached results when available" name="DocumentationServiceV2 searchComponents should return cached results when available" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="ValidationService validateHTML should detect missing required attributes on form elements" name="ValidationService validateHTML should detect missing required attributes on form elements" time="0.005">
+    <testcase classname="DocumentationServiceV2 searchComponents should search and cache results when not cached" name="DocumentationServiceV2 searchComponents should search and cache results when not cached" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="ValidationService validateHTML should validate image alt attributes" name="ValidationService validateHTML should validate image alt attributes" time="0.008">
+    <testcase classname="DocumentationServiceV2 searchComponents should handle search errors gracefully" name="DocumentationServiceV2 searchComponents should handle search errors gracefully" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="ValidationService validateHTML should detect missing alt attributes on images" name="ValidationService validateHTML should detect missing alt attributes on images" time="0.009">
+    <testcase classname="DocumentationServiceV2 searchComponents should format results correctly when no results found" name="DocumentationServiceV2 searchComponents should format results correctly when no results found" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="ValidationService validateHTML should handle malformed HTML gracefully" name="ValidationService validateHTML should handle malformed HTML gracefully" time="0.007">
+    <testcase classname="DocumentationServiceV2 getComponentDetails should return component details with examples and accessibility" name="DocumentationServiceV2 getComponentDetails should return component details with examples and accessibility" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="ValidationService validateHTML should skip accessibility checks when disabled" name="ValidationService validateHTML should skip accessibility checks when disabled" time="0.007">
+    <testcase classname="DocumentationServiceV2 getComponentDetails should fallback to search if component not found directly" name="DocumentationServiceV2 getComponentDetails should fallback to search if component not found directly" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="ValidationService validateHTML should skip semantic checks when disabled" name="ValidationService validateHTML should skip semantic checks when disabled" time="0.006">
+    <testcase classname="DocumentationServiceV2 getComponentDetails should handle component not found" name="DocumentationServiceV2 getComponentDetails should handle component not found" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="ValidationService validateDSFRClasses should recognize valid DSFR button classes" name="ValidationService validateDSFRClasses should recognize valid DSFR button classes" time="0.005">
+    <testcase classname="DocumentationServiceV2 listCategories should return formatted categories list" name="DocumentationServiceV2 listCategories should return formatted categories list" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="ValidationService validateDSFRClasses should recognize valid DSFR grid classes" name="ValidationService validateDSFRClasses should recognize valid DSFR grid classes" time="0.001">
+    <testcase classname="DocumentationServiceV2 searchPatterns should search patterns in layout category" name="DocumentationServiceV2 searchPatterns should search patterns in layout category" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="ValidationService calculateScore should calculate a perfect score for no errors" name="ValidationService calculateScore should calculate a perfect score for no errors" time="0">
+    <testcase classname="DocumentationServiceV2 searchPatterns should filter results by pattern type" name="DocumentationServiceV2 searchPatterns should filter results by pattern type" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="ValidationService calculateScore should reduce score for errors and warnings" name="ValidationService calculateScore should reduce score for errors and warnings" time="0.001">
+    <testcase classname="DocumentationServiceV2 getIcons should return filtered icon results" name="DocumentationServiceV2 getIcons should return filtered icon results" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="ValidationService initializeDSFRClasses should initialize all DSFR class categories" name="ValidationService initializeDSFRClasses should initialize all DSFR class categories" time="0">
+    <testcase classname="DocumentationServiceV2 getColors should return color palette with utilities" name="DocumentationServiceV2 getColors should return color palette with utilities" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="ValidationService initializeDSFRClasses should include comprehensive button classes" name="ValidationService initializeDSFRClasses should include comprehensive button classes" time="0.001">
+    <testcase classname="DocumentationServiceV2 getColors should return colors without utilities when disabled" name="DocumentationServiceV2 getColors should return colors without utilities when disabled" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="ValidationService initializeSemanticRules should initialize page structure rules" name="ValidationService initializeSemanticRules should initialize page structure rules" time="0">
+    <testcase classname="DocumentationServiceV2 Utility methods should get category name from config" name="DocumentationServiceV2 Utility methods should get category name from config" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="ValidationService initializeSemanticRules should initialize form validation rules" name="ValidationService initializeSemanticRules should initialize form validation rules" time="0">
+    <testcase classname="DocumentationServiceV2 Utility methods should return category key if not found in config" name="DocumentationServiceV2 Utility methods should return category key if not found in config" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="DocumentationServiceV2 Utility methods should extract accessibility information" name="DocumentationServiceV2 Utility methods should extract accessibility information" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="DocumentationServiceV2 Utility methods should handle content without accessibility info" name="DocumentationServiceV2 Utility methods should handle content without accessibility info" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="DocumentationServiceV2 Error handling and edge cases should auto-initialize when calling methods on uninitialized service" name="DocumentationServiceV2 Error handling and edge cases should auto-initialize when calling methods on uninitialized service" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="DocumentationServiceV2 Error handling and edge cases should handle cache errors gracefully" name="DocumentationServiceV2 Error handling and edge cases should handle cache errors gracefully" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="DocumentationServiceV2 Error handling and edge cases should dispose correctly" name="DocumentationServiceV2 Error handling and edge cases should dispose correctly" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="DocumentationServiceV2 Format methods edge cases should handle search results with missing score" name="DocumentationServiceV2 Format methods edge cases should handle search results with missing score" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="DocumentationServiceV2 Format methods edge cases should handle component without code examples" name="DocumentationServiceV2 Format methods edge cases should handle component without code examples" time="0">
+      <skipped/>
     </testcase>
   </testsuite>
-  <testsuite name="AccessibilityService" errors="0" failures="0" skipped="0" timestamp="2025-08-12T13:16:16" time="0.741" tests="19">
-    <testcase classname="AccessibilityService constructor should initialize RGAA rules" name="AccessibilityService constructor should initialize RGAA rules" time="0.003">
+  <testsuite name="Architecture V2 - Core Components" errors="0" failures="0" skipped="25" timestamp="2025-08-12T16:39:00" time="0.011" tests="25">
+    <testcase classname="Architecture V2 - Core Components Container DI should create and resolve singletons" name="Architecture V2 - Core Components Container DI should create and resolve singletons" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should validate accessible HTML successfully" name="AccessibilityService checkAccessibility should validate accessible HTML successfully" time="0.054">
+    <testcase classname="Architecture V2 - Core Components Container DI should create transient services" name="Architecture V2 - Core Components Container DI should create transient services" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should detect missing alt attributes on images" name="AccessibilityService checkAccessibility should detect missing alt attributes on images" time="0.005">
+    <testcase classname="Architecture V2 - Core Components Container DI should handle values" name="Architecture V2 - Core Components Container DI should handle values" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should validate decorative images with empty alt" name="AccessibilityService checkAccessibility should validate decorative images with empty alt" time="0.016">
+    <testcase classname="Architecture V2 - Core Components Container DI should handle dependencies" name="Architecture V2 - Core Components Container DI should handle dependencies" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should detect missing form labels" name="AccessibilityService checkAccessibility should detect missing form labels" time="0.007">
+    <testcase classname="Architecture V2 - Core Components Container DI should throw for unknown services" name="Architecture V2 - Core Components Container DI should throw for unknown services" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should validate proper form label association" name="AccessibilityService checkAccessibility should validate proper form label association" time="0.005">
+    <testcase classname="Architecture V2 - Core Components Container DI should list registered services" name="Architecture V2 - Core Components Container DI should list registered services" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should check for required field indicators" name="AccessibilityService checkAccessibility should check for required field indicators" time="0.004">
+    <testcase classname="Architecture V2 - Core Components ConfigService should load default configuration" name="Architecture V2 - Core Components ConfigService should load default configuration" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should detect missing required field indicators" name="AccessibilityService checkAccessibility should detect missing required field indicators" time="0.005">
+    <testcase classname="Architecture V2 - Core Components ConfigService should handle nested keys" name="Architecture V2 - Core Components ConfigService should handle nested keys" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should validate skip links presence" name="AccessibilityService checkAccessibility should validate skip links presence" time="0.004">
+    <testcase classname="Architecture V2 - Core Components ConfigService should return default values" name="Architecture V2 - Core Components ConfigService should return default values" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should detect missing skip links" name="AccessibilityService checkAccessibility should detect missing skip links" time="0.005">
+    <testcase classname="Architecture V2 - Core Components ConfigService should set and get values" name="Architecture V2 - Core Components ConfigService should set and get values" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should validate ARIA landmarks" name="AccessibilityService checkAccessibility should validate ARIA landmarks" time="0.004">
+    <testcase classname="Architecture V2 - Core Components ConfigService should check key existence" name="Architecture V2 - Core Components ConfigService should check key existence" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should work with different RGAA levels" name="AccessibilityService checkAccessibility should work with different RGAA levels" time="0.009">
+    <testcase classname="Architecture V2 - Core Components ConfigService should merge configurations" name="Architecture V2 - Core Components ConfigService should merge configurations" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should include suggestions when enabled" name="AccessibilityService checkAccessibility should include suggestions when enabled" time="0.02">
+    <testcase classname="Architecture V2 - Core Components LoggerService should create logger with config" name="Architecture V2 - Core Components LoggerService should create logger with config" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="AccessibilityService checkAccessibility should handle malformed HTML gracefully" name="AccessibilityService checkAccessibility should handle malformed HTML gracefully" time="0.005">
+    <testcase classname="Architecture V2 - Core Components LoggerService should log different levels" name="Architecture V2 - Core Components LoggerService should log different levels" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components LoggerService should format logs correctly" name="Architecture V2 - Core Components LoggerService should format logs correctly" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components LoggerService should handle log levels" name="Architecture V2 - Core Components LoggerService should handle log levels" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components CacheService should store and retrieve values" name="Architecture V2 - Core Components CacheService should store and retrieve values" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components CacheService should handle TTL" name="Architecture V2 - Core Components CacheService should handle TTL" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components CacheService should delete values" name="Architecture V2 - Core Components CacheService should delete values" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components CacheService should clear cache" name="Architecture V2 - Core Components CacheService should clear cache" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components CacheService should provide statistics" name="Architecture V2 - Core Components CacheService should provide statistics" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components CacheService should handle compression" name="Architecture V2 - Core Components CacheService should handle compression" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components CacheService should format bytes correctly" name="Architecture V2 - Core Components CacheService should format bytes correctly" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components Performance Tests should initialize services quickly" name="Architecture V2 - Core Components Performance Tests should initialize services quickly" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Architecture V2 - Core Components Performance Tests should handle multiple concurrent cache operations" name="Architecture V2 - Core Components Performance Tests should handle multiple concurrent cache operations" time="0">
+      <skipped/>
+    </testcase>
+  </testsuite>
+  <testsuite name="CacheService" errors="0" failures="0" skipped="24" timestamp="2025-08-12T16:39:00" time="0.012" tests="25">
+    <testcase classname="CacheService Constructor should initialize with correct default values" name="CacheService Constructor should initialize with correct default values" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="CacheService Constructor should initialize cacheStats correctly" name="CacheService Constructor should initialize cacheStats correctly" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="CacheService Constructor should use default values when config is missing" name="CacheService Constructor should use default values when config is missing" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="CacheService initialize() should initialize successfully" name="CacheService initialize() should initialize successfully" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="CacheService initialize() should not initialize twice" name="CacheService initialize() should not initialize twice" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="CacheService initialize() should handle initialization errors" name="CacheService initialize() should handle initialization errors" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="CacheService get() and set() should set and get a value" name="CacheService get() and set() should set and get a value" time="0.002">
+    </testcase>
+    <testcase classname="CacheService get() and set() should return null for non-existent key" name="CacheService get() and set() should return null for non-existent key" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="CacheService get() and set() should handle TTL expiration" name="CacheService get() and set() should handle TTL expiration" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="CacheService get() and set() should update existing value" name="CacheService get() and set() should update existing value" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="CacheService delete() should delete an existing key" name="CacheService delete() should delete an existing key" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="CacheService delete() should return false for non-existent key" name="CacheService delete() should return false for non-existent key" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="CacheService clear() should clear all cache entries" name="CacheService clear() should clear all cache entries" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="CacheService has() should return true for existing key" name="CacheService has() should return true for existing key" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="CacheService has() should return false for non-existent key" name="CacheService has() should return false for non-existent key" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="CacheService has() should return false for expired key" name="CacheService has() should return false for expired key" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="CacheService getStats() should return correct statistics" name="CacheService getStats() should return correct statistics" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="CacheService Memory management should track memory usage" name="CacheService Memory management should track memory usage" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="CacheService Memory management should format bytes correctly" name="CacheService Memory management should format bytes correctly" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="CacheService Compression should compress and decompress data when enabled" name="CacheService Compression should compress and decompress data when enabled" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="CacheService Compression should not compress when disabled" name="CacheService Compression should not compress when disabled" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="CacheService Cleanup should cleanup expired entries" name="CacheService Cleanup should cleanup expired entries" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="CacheService dispose() should cleanup resources on dispose" name="CacheService dispose() should cleanup resources on dispose" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="CacheService Error handling should handle invalid JSON gracefully" name="CacheService Error handling should handle invalid JSON gracefully" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="CacheService Error handling should handle set errors gracefully" name="CacheService Error handling should handle set errors gracefully" time="0">
+      <skipped/>
+    </testcase>
+  </testsuite>
+  <testsuite name="AccessibilityService" errors="0" failures="0" skipped="19" timestamp="2025-08-12T16:39:00" time="0.361" tests="19">
+    <testcase classname="AccessibilityService constructor should initialize RGAA rules" name="AccessibilityService constructor should initialize RGAA rules" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="AccessibilityService checkAccessibility should validate accessible HTML successfully" name="AccessibilityService checkAccessibility should validate accessible HTML successfully" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="AccessibilityService checkAccessibility should detect missing alt attributes on images" name="AccessibilityService checkAccessibility should detect missing alt attributes on images" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="AccessibilityService checkAccessibility should validate decorative images with empty alt" name="AccessibilityService checkAccessibility should validate decorative images with empty alt" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="AccessibilityService checkAccessibility should detect missing form labels" name="AccessibilityService checkAccessibility should detect missing form labels" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="AccessibilityService checkAccessibility should validate proper form label association" name="AccessibilityService checkAccessibility should validate proper form label association" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="AccessibilityService checkAccessibility should check for required field indicators" name="AccessibilityService checkAccessibility should check for required field indicators" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="AccessibilityService checkAccessibility should detect missing required field indicators" name="AccessibilityService checkAccessibility should detect missing required field indicators" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="AccessibilityService checkAccessibility should validate skip links presence" name="AccessibilityService checkAccessibility should validate skip links presence" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="AccessibilityService checkAccessibility should detect missing skip links" name="AccessibilityService checkAccessibility should detect missing skip links" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="AccessibilityService checkAccessibility should validate ARIA landmarks" name="AccessibilityService checkAccessibility should validate ARIA landmarks" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="AccessibilityService checkAccessibility should work with different RGAA levels" name="AccessibilityService checkAccessibility should work with different RGAA levels" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="AccessibilityService checkAccessibility should include suggestions when enabled" name="AccessibilityService checkAccessibility should include suggestions when enabled" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="AccessibilityService checkAccessibility should handle malformed HTML gracefully" name="AccessibilityService checkAccessibility should handle malformed HTML gracefully" time="0">
+      <skipped/>
     </testcase>
     <testcase classname="AccessibilityService initializeRGAARules should initialize image accessibility rules" name="AccessibilityService initializeRGAARules should initialize image accessibility rules" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="AccessibilityService initializeRGAARules should initialize form accessibility rules" name="AccessibilityService initializeRGAARules should initialize form accessibility rules" time="0.001">
+    <testcase classname="AccessibilityService initializeRGAARules should initialize form accessibility rules" name="AccessibilityService initializeRGAARules should initialize form accessibility rules" time="0">
+      <skipped/>
     </testcase>
     <testcase classname="AccessibilityService initializeRGAARules should initialize navigation accessibility rules" name="AccessibilityService initializeRGAARules should initialize navigation accessibility rules" time="0">
+      <skipped/>
     </testcase>
     <testcase classname="AccessibilityService RGAA rule validation functions should validate alt-required rule correctly" name="AccessibilityService RGAA rule validation functions should validate alt-required rule correctly" time="0">
+      <skipped/>
     </testcase>
     <testcase classname="AccessibilityService RGAA rule validation functions should validate decorative alt rule correctly" name="AccessibilityService RGAA rule validation functions should validate decorative alt rule correctly" time="0">
+      <skipped/>
+    </testcase>
+  </testsuite>
+  <testsuite name="ValidationService" errors="0" failures="0" skipped="18" timestamp="2025-08-12T16:39:01" time="0.074" tests="18">
+    <testcase classname="ValidationService constructor should initialize DSFR classes and semantic rules" name="ValidationService constructor should initialize DSFR classes and semantic rules" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="ValidationService validateHTML should validate simple valid HTML" name="ValidationService validateHTML should validate simple valid HTML" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="ValidationService validateHTML should detect DSFR class errors in strict mode" name="ValidationService validateHTML should detect DSFR class errors in strict mode" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="ValidationService validateHTML should validate form elements with proper attributes" name="ValidationService validateHTML should validate form elements with proper attributes" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="ValidationService validateHTML should detect missing required attributes on form elements" name="ValidationService validateHTML should detect missing required attributes on form elements" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="ValidationService validateHTML should validate image alt attributes" name="ValidationService validateHTML should validate image alt attributes" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="ValidationService validateHTML should detect missing alt attributes on images" name="ValidationService validateHTML should detect missing alt attributes on images" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="ValidationService validateHTML should handle malformed HTML gracefully" name="ValidationService validateHTML should handle malformed HTML gracefully" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="ValidationService validateHTML should skip accessibility checks when disabled" name="ValidationService validateHTML should skip accessibility checks when disabled" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="ValidationService validateHTML should skip semantic checks when disabled" name="ValidationService validateHTML should skip semantic checks when disabled" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="ValidationService validateDSFRClasses should recognize valid DSFR button classes" name="ValidationService validateDSFRClasses should recognize valid DSFR button classes" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="ValidationService validateDSFRClasses should recognize valid DSFR grid classes" name="ValidationService validateDSFRClasses should recognize valid DSFR grid classes" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="ValidationService calculateScore should calculate a perfect score for no errors" name="ValidationService calculateScore should calculate a perfect score for no errors" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="ValidationService calculateScore should reduce score for errors and warnings" name="ValidationService calculateScore should reduce score for errors and warnings" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="ValidationService initializeDSFRClasses should initialize all DSFR class categories" name="ValidationService initializeDSFRClasses should initialize all DSFR class categories" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="ValidationService initializeDSFRClasses should include comprehensive button classes" name="ValidationService initializeDSFRClasses should include comprehensive button classes" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="ValidationService initializeSemanticRules should initialize page structure rules" name="ValidationService initializeSemanticRules should initialize page structure rules" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="ValidationService initializeSemanticRules should initialize form validation rules" name="ValidationService initializeSemanticRules should initialize form validation rules" time="0">
+      <skipped/>
+    </testcase>
+  </testsuite>
+  <testsuite name="InputValidatorService" errors="0" failures="0" skipped="32" timestamp="2025-08-12T16:39:01" time="0.036" tests="32">
+    <testcase classname="InputValidatorService constructor should initialize with input schemas" name="InputValidatorService constructor should initialize with input schemas" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputValidatorService validateAndSanitize should validate and sanitize valid search parameters" name="InputValidatorService validateAndSanitize should validate and sanitize valid search parameters" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputValidatorService validateAndSanitize should throw error for invalid parameters" name="InputValidatorService validateAndSanitize should throw error for invalid parameters" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputValidatorService validateAndSanitize should apply default values" name="InputValidatorService validateAndSanitize should apply default values" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputValidatorService sanitizeSearchQuery should sanitize search query properly" name="InputValidatorService sanitizeSearchQuery should sanitize search query properly" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputValidatorService sanitizeHtmlCode should remove script tags" name="InputValidatorService sanitizeHtmlCode should remove script tags" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputValidatorService sanitizeHtmlCode should remove javascript: protocols" name="InputValidatorService sanitizeHtmlCode should remove javascript: protocols" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputValidatorService sanitizeHtmlCode should remove event handlers" name="InputValidatorService sanitizeHtmlCode should remove event handlers" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputValidatorService sanitizeHtmlCode should normalize whitespace" name="InputValidatorService sanitizeHtmlCode should normalize whitespace" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputValidatorService normalizeColor should add # prefix if missing" name="InputValidatorService normalizeColor should add # prefix if missing" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputValidatorService normalizeColor should convert to uppercase" name="InputValidatorService normalizeColor should convert to uppercase" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputValidatorService normalizeColor should handle colors that already have # prefix" name="InputValidatorService normalizeColor should handle colors that already have # prefix" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputValidatorService normalizePascalCase should convert kebab-case to PascalCase" name="InputValidatorService normalizePascalCase should convert kebab-case to PascalCase" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputValidatorService normalizePascalCase should convert snake_case to PascalCase" name="InputValidatorService normalizePascalCase should convert snake_case to PascalCase" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputValidatorService normalizePascalCase should handle spaces" name="InputValidatorService normalizePascalCase should handle spaces" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputValidatorService normalizePascalCase should handle mixed separators" name="InputValidatorService normalizePascalCase should handle mixed separators" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputValidatorService additionalSanitization should sanitize search_dsfr_components parameters" name="InputValidatorService additionalSanitization should sanitize search_dsfr_components parameters" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputValidatorService additionalSanitization should sanitize validate_dsfr_html parameters" name="InputValidatorService additionalSanitization should sanitize validate_dsfr_html parameters" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputValidatorService additionalSanitization should sanitize generate_dsfr_component parameters" name="InputValidatorService additionalSanitization should sanitize generate_dsfr_component parameters" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputValidatorService additionalSanitization should sanitize create_dsfr_theme parameters" name="InputValidatorService additionalSanitization should sanitize create_dsfr_theme parameters" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputValidatorService additionalSanitization should sanitize convert_to_framework parameters" name="InputValidatorService additionalSanitization should sanitize convert_to_framework parameters" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputValidatorService validateCommonParams should validate normal parameters" name="InputValidatorService validateCommonParams should validate normal parameters" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputValidatorService validateCommonParams should reject non-object parameters" name="InputValidatorService validateCommonParams should reject non-object parameters" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputValidatorService validateCommonParams should reject oversized parameters" name="InputValidatorService validateCommonParams should reject oversized parameters" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputValidatorService createErrorResponse should create properly formatted error response" name="InputValidatorService createErrorResponse should create properly formatted error response" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputValidatorService validateRequiredParams should validate required parameters" name="InputValidatorService validateRequiredParams should validate required parameters" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputValidatorService validateRequiredParams should detect missing required parameters" name="InputValidatorService validateRequiredParams should detect missing required parameters" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputValidatorService validateRequiredParams should detect empty string as missing" name="InputValidatorService validateRequiredParams should detect empty string as missing" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputValidatorService validateStringLimits should validate string length limits" name="InputValidatorService validateStringLimits should validate string length limits" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputValidatorService validateStringLimits should detect strings that are too short" name="InputValidatorService validateStringLimits should detect strings that are too short" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputValidatorService validateStringLimits should detect strings that are too long" name="InputValidatorService validateStringLimits should detect strings that are too long" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputValidatorService getAvailableTools should return list of available tools with schemas" name="InputValidatorService getAvailableTools should return list of available tools with schemas" time="0">
+      <skipped/>
+    </testcase>
+  </testsuite>
+  <testsuite name="InputSchemas" errors="0" failures="0" skipped="27" timestamp="2025-08-12T16:39:01" time="0.012" tests="27">
+    <testcase classname="InputSchemas constructor should initialize with all schemas" name="InputSchemas constructor should initialize with all schemas" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputSchemas validate search_dsfr_components should validate valid search parameters" name="InputSchemas validate search_dsfr_components should validate valid search parameters" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputSchemas validate search_dsfr_components should require query parameter" name="InputSchemas validate search_dsfr_components should require query parameter" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputSchemas validate search_dsfr_components should validate category enum" name="InputSchemas validate search_dsfr_components should validate category enum" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputSchemas validate search_dsfr_components should validate limit bounds" name="InputSchemas validate search_dsfr_components should validate limit bounds" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputSchemas validate search_dsfr_components should apply default limit" name="InputSchemas validate search_dsfr_components should apply default limit" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputSchemas validate validate_dsfr_html should validate valid HTML validation parameters" name="InputSchemas validate validate_dsfr_html should validate valid HTML validation parameters" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputSchemas validate validate_dsfr_html should require html_code parameter" name="InputSchemas validate validate_dsfr_html should require html_code parameter" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputSchemas validate validate_dsfr_html should validate HTML code length" name="InputSchemas validate validate_dsfr_html should validate HTML code length" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputSchemas validate validate_dsfr_html should apply default boolean values" name="InputSchemas validate validate_dsfr_html should apply default boolean values" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputSchemas validate check_accessibility should validate accessibility check parameters" name="InputSchemas validate check_accessibility should validate accessibility check parameters" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputSchemas validate check_accessibility should validate RGAA level enum" name="InputSchemas validate check_accessibility should validate RGAA level enum" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputSchemas validate generate_dsfr_component should validate component generation parameters" name="InputSchemas validate generate_dsfr_component should validate component generation parameters" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputSchemas validate generate_dsfr_component should validate component type pattern" name="InputSchemas validate generate_dsfr_component should validate component type pattern" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputSchemas validate generate_dsfr_component should validate framework enum" name="InputSchemas validate generate_dsfr_component should validate framework enum" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputSchemas validate create_dsfr_theme should validate theme creation parameters" name="InputSchemas validate create_dsfr_theme should validate theme creation parameters" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputSchemas validate create_dsfr_theme should validate color format" name="InputSchemas validate create_dsfr_theme should validate color format" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputSchemas validate create_dsfr_theme should validate CSS variable names" name="InputSchemas validate create_dsfr_theme should validate CSS variable names" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputSchemas validate convert_to_framework should validate framework conversion parameters" name="InputSchemas validate convert_to_framework should validate framework conversion parameters" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputSchemas validate convert_to_framework should validate PascalCase component name" name="InputSchemas validate convert_to_framework should validate PascalCase component name" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputSchemas sanitizeParams should trim string parameters" name="InputSchemas sanitizeParams should trim string parameters" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputSchemas sanitizeParams should apply default values" name="InputSchemas sanitizeParams should apply default values" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputSchemas sanitizeParams should not override provided values" name="InputSchemas sanitizeParams should not override provided values" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputSchemas getSchema should return schema for valid tool" name="InputSchemas getSchema should return schema for valid tool" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputSchemas getSchema should return null for invalid tool" name="InputSchemas getSchema should return null for invalid tool" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputSchemas getAvailableTools should return list of all available tools" name="InputSchemas getAvailableTools should return list of all available tools" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="InputSchemas unknown tool validation should handle validation for unknown tool" name="InputSchemas unknown tool validation should handle validation for unknown tool" time="0">
+      <skipped/>
+    </testcase>
+  </testsuite>
+  <testsuite name="Parser DSFR V2 - Performance et fonctionnalités" errors="0" failures="0" skipped="18" timestamp="2025-08-12T16:39:01" time="0.03" tests="18">
+    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should parse valid YAML content" name="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should parse valid YAML content" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should handle YAML parsing errors gracefully" name="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should handle YAML parsing errors gracefully" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should validate against DSFR component schema" name="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should validate against DSFR component schema" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should process multiple files in parallel" name="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should process multiple files in parallel" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should provide parsing statistics" name="Parser DSFR V2 - Performance et fonctionnalités YamlParserService should provide parsing statistics" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should add documents to search index" name="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should add documents to search index" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should perform fuzzy search" name="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should perform fuzzy search" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should filter by facets" name="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should filter by facets" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should provide pagination" name="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should provide pagination" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should sort results by different criteria" name="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should sort results by different criteria" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should calculate facets correctly" name="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should calculate facets correctly" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should provide search performance metrics" name="Parser DSFR V2 - Performance et fonctionnalités SearchIndexService should provide search performance metrics" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités Performance Tests should achieve 5x performance improvement over V1" name="Parser DSFR V2 - Performance et fonctionnalités Performance Tests should achieve 5x performance improvement over V1" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités Performance Tests should handle concurrent parsing efficiently" name="Parser DSFR V2 - Performance et fonctionnalités Performance Tests should handle concurrent parsing efficiently" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités Performance Tests should maintain performance with large datasets" name="Parser DSFR V2 - Performance et fonctionnalités Performance Tests should maintain performance with large datasets" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités Integration Tests should integrate all services correctly" name="Parser DSFR V2 - Performance et fonctionnalités Integration Tests should integrate all services correctly" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités Integration Tests should handle errors gracefully across services" name="Parser DSFR V2 - Performance et fonctionnalités Integration Tests should handle errors gracefully across services" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Parser DSFR V2 - Performance et fonctionnalités Integration Tests should provide comprehensive statistics" name="Parser DSFR V2 - Performance et fonctionnalités Integration Tests should provide comprehensive statistics" time="0">
+      <skipped/>
+    </testcase>
+  </testsuite>
+  <testsuite name="TemplateService" errors="0" failures="0" skipped="32" timestamp="2025-08-12T16:39:01" time="0.011" tests="32">
+    <testcase classname="TemplateService Constructor should initialize with default templates" name="TemplateService Constructor should initialize with default templates" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="TemplateService Constructor should have core template types" name="TemplateService Constructor should have core template types" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="TemplateService generateTemplate() should generate a basic page template" name="TemplateService generateTemplate() should generate a basic page template" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="TemplateService generateTemplate() should generate a contact form template" name="TemplateService generateTemplate() should generate a contact form template" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="TemplateService generateTemplate() should generate a login page template" name="TemplateService generateTemplate() should generate a login page template" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="TemplateService generateTemplate() should generate dashboard template" name="TemplateService generateTemplate() should generate dashboard template" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="TemplateService generateTemplate() should generate error page templates" name="TemplateService generateTemplate() should generate error page templates" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="TemplateService generateTemplate() should handle missing template type" name="TemplateService generateTemplate() should handle missing template type" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="TemplateService generateTemplate() should apply custom styles" name="TemplateService generateTemplate() should apply custom styles" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="TemplateService generateTemplate() should include custom scripts" name="TemplateService generateTemplate() should include custom scripts" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="TemplateService generateFromFile() should generate template from EJS file" name="TemplateService generateFromFile() should generate template from EJS file" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="TemplateService generateFromFile() should handle file read errors" name="TemplateService generateFromFile() should handle file read errors" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="TemplateService getAvailableTemplates() should return list of available templates" name="TemplateService getAvailableTemplates() should return list of available templates" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="TemplateService validateTemplateConfig() should validate correct configuration" name="TemplateService validateTemplateConfig() should validate correct configuration" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="TemplateService validateTemplateConfig() should reject invalid type" name="TemplateService validateTemplateConfig() should reject invalid type" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="TemplateService validateTemplateConfig() should reject missing required fields" name="TemplateService validateTemplateConfig() should reject missing required fields" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="TemplateService Template composition should compose header correctly" name="TemplateService Template composition should compose header correctly" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="TemplateService Template composition should compose footer correctly" name="TemplateService Template composition should compose footer correctly" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="TemplateService Template composition should compose navigation correctly" name="TemplateService Template composition should compose navigation correctly" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="TemplateService Form builders should build text input" name="TemplateService Form builders should build text input" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="TemplateService Form builders should build select field" name="TemplateService Form builders should build select field" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="TemplateService Form builders should build checkbox group" name="TemplateService Form builders should build checkbox group" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="TemplateService Form builders should build radio group" name="TemplateService Form builders should build radio group" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="TemplateService Accessibility should include ARIA labels" name="TemplateService Accessibility should include ARIA labels" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="TemplateService Accessibility should include skip links" name="TemplateService Accessibility should include skip links" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="TemplateService Accessibility should set proper lang attribute" name="TemplateService Accessibility should set proper lang attribute" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="TemplateService Responsive design should include responsive meta tags" name="TemplateService Responsive design should include responsive meta tags" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="TemplateService Responsive design should use responsive grid classes" name="TemplateService Responsive design should use responsive grid classes" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="TemplateService Performance should generate templates quickly" name="TemplateService Performance should generate templates quickly" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="TemplateService Error handling should handle null configuration" name="TemplateService Error handling should handle null configuration" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="TemplateService Error handling should handle undefined configuration" name="TemplateService Error handling should handle undefined configuration" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="TemplateService Error handling should handle malformed configuration" name="TemplateService Error handling should handle malformed configuration" time="0">
+      <skipped/>
+    </testcase>
+  </testsuite>
+  <testsuite name="OptimizedGeneratorService" errors="0" failures="0" skipped="34" timestamp="2025-08-12T16:39:01" time="0.014" tests="34">
+    <testcase classname="OptimizedGeneratorService Constructor should initialize with correct default values" name="OptimizedGeneratorService Constructor should initialize with correct default values" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="OptimizedGeneratorService Constructor should initialize framework templates" name="OptimizedGeneratorService Constructor should initialize framework templates" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="OptimizedGeneratorService generateComponent() should generate a button component in vanilla JS" name="OptimizedGeneratorService generateComponent() should generate a button component in vanilla JS" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="OptimizedGeneratorService generateComponent() should generate a button component in React" name="OptimizedGeneratorService generateComponent() should generate a button component in React" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="OptimizedGeneratorService generateComponent() should generate a button component in Vue" name="OptimizedGeneratorService generateComponent() should generate a button component in Vue" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="OptimizedGeneratorService generateComponent() should generate a button component in Angular" name="OptimizedGeneratorService generateComponent() should generate a button component in Angular" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="OptimizedGeneratorService generateComponent() should handle form component generation" name="OptimizedGeneratorService generateComponent() should handle form component generation" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="OptimizedGeneratorService generateComponent() should handle card component generation" name="OptimizedGeneratorService generateComponent() should handle card component generation" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="OptimizedGeneratorService generateComponent() should handle alert component generation" name="OptimizedGeneratorService generateComponent() should handle alert component generation" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="OptimizedGeneratorService generateComponent() should handle modal component generation" name="OptimizedGeneratorService generateComponent() should handle modal component generation" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="OptimizedGeneratorService generateComponent() should cache generated components" name="OptimizedGeneratorService generateComponent() should cache generated components" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="OptimizedGeneratorService generateComponent() should throw error for unsupported component type" name="OptimizedGeneratorService generateComponent() should throw error for unsupported component type" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="OptimizedGeneratorService generateComponent() should throw error for unsupported framework" name="OptimizedGeneratorService generateComponent() should throw error for unsupported framework" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="OptimizedGeneratorService generateBatch() should generate multiple components" name="OptimizedGeneratorService generateBatch() should generate multiple components" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="OptimizedGeneratorService generateBatch() should handle errors in batch generation" name="OptimizedGeneratorService generateBatch() should handle errors in batch generation" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="OptimizedGeneratorService convertToFramework() should convert HTML to React" name="OptimizedGeneratorService convertToFramework() should convert HTML to React" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="OptimizedGeneratorService convertToFramework() should convert HTML to Vue" name="OptimizedGeneratorService convertToFramework() should convert HTML to Vue" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="OptimizedGeneratorService convertToFramework() should convert HTML to Angular" name="OptimizedGeneratorService convertToFramework() should convert HTML to Angular" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="OptimizedGeneratorService convertToFramework() should handle complex HTML structures" name="OptimizedGeneratorService convertToFramework() should handle complex HTML structures" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="OptimizedGeneratorService validateComponent() should validate correct component configuration" name="OptimizedGeneratorService validateComponent() should validate correct component configuration" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="OptimizedGeneratorService validateComponent() should reject invalid component type" name="OptimizedGeneratorService validateComponent() should reject invalid component type" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="OptimizedGeneratorService validateComponent() should reject invalid framework" name="OptimizedGeneratorService validateComponent() should reject invalid framework" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="OptimizedGeneratorService validateComponent() should reject missing required props" name="OptimizedGeneratorService validateComponent() should reject missing required props" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="OptimizedGeneratorService getComponentSchema() should return schema for button component" name="OptimizedGeneratorService getComponentSchema() should return schema for button component" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="OptimizedGeneratorService getComponentSchema() should return schema for form component" name="OptimizedGeneratorService getComponentSchema() should return schema for form component" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="OptimizedGeneratorService getComponentSchema() should return null for unknown component" name="OptimizedGeneratorService getComponentSchema() should return null for unknown component" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="OptimizedGeneratorService getSupportedComponents() should return list of supported components" name="OptimizedGeneratorService getSupportedComponents() should return list of supported components" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="OptimizedGeneratorService getSupportedFrameworks() should return list of supported frameworks" name="OptimizedGeneratorService getSupportedFrameworks() should return list of supported frameworks" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="OptimizedGeneratorService Performance should generate components quickly" name="OptimizedGeneratorService Performance should generate components quickly" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="OptimizedGeneratorService Performance should benefit from caching" name="OptimizedGeneratorService Performance should benefit from caching" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="OptimizedGeneratorService clearCache() should clear the component cache" name="OptimizedGeneratorService clearCache() should clear the component cache" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="OptimizedGeneratorService Error handling should handle null configuration gracefully" name="OptimizedGeneratorService Error handling should handle null configuration gracefully" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="OptimizedGeneratorService Error handling should handle undefined props gracefully" name="OptimizedGeneratorService Error handling should handle undefined props gracefully" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="OptimizedGeneratorService Error handling should log errors appropriately" name="OptimizedGeneratorService Error handling should log errors appropriately" time="0">
+      <skipped/>
+    </testcase>
+  </testsuite>
+  <testsuite name="Performance Tests" errors="0" failures="0" skipped="13" timestamp="2025-08-12T16:39:01" time="0.076" tests="13">
+    <testcase classname="Performance Tests Memory Usage Tests should not exceed memory limits during initialization" name="Performance Tests Memory Usage Tests should not exceed memory limits during initialization" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Performance Tests Memory Usage Tests should properly cleanup after operations" name="Performance Tests Memory Usage Tests should properly cleanup after operations" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Performance Tests Response Time Tests should respond to search queries within acceptable time" name="Performance Tests Response Time Tests should respond to search queries within acceptable time" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Performance Tests Response Time Tests should validate HTML quickly" name="Performance Tests Response Time Tests should validate HTML quickly" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Performance Tests Response Time Tests should handle accessibility checks efficiently" name="Performance Tests Response Time Tests should handle accessibility checks efficiently" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Performance Tests Concurrent Operations Tests should handle multiple concurrent search requests" name="Performance Tests Concurrent Operations Tests should handle multiple concurrent search requests" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Performance Tests Concurrent Operations Tests should handle mixed operation types concurrently" name="Performance Tests Concurrent Operations Tests should handle mixed operation types concurrently" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Performance Tests Large Data Handling Tests should handle large HTML validation efficiently" name="Performance Tests Large Data Handling Tests should handle large HTML validation efficiently" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Performance Tests Large Data Handling Tests should handle many search results efficiently" name="Performance Tests Large Data Handling Tests should handle many search results efficiently" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Performance Tests Input Validation Performance should validate inputs quickly" name="Performance Tests Input Validation Performance should validate inputs quickly" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Performance Tests Input Validation Performance should sanitize large inputs efficiently" name="Performance Tests Input Validation Performance should sanitize large inputs efficiently" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Performance Tests Resource Cleanup Tests should not create memory leaks with repeated operations" name="Performance Tests Resource Cleanup Tests should not create memory leaks with repeated operations" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Performance Tests Stress Tests should handle rapid consecutive requests" name="Performance Tests Stress Tests should handle rapid consecutive requests" time="0">
+      <skipped/>
     </testcase>
   </testsuite>
 </testsuites>
