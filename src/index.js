@@ -26,7 +26,8 @@ let config,
   TemplateService,
   AccessibilityService,
   MetricsService,
-  DashboardService;
+  DashboardService,
+  CacheService;
 
 try {
   config = require('./config');
@@ -39,6 +40,7 @@ try {
   // Services dashboard et métriques
   const { MetricsService: MetricsServiceClass } = require('./services/metrics-service');
   const { DashboardService: DashboardServiceClass } = require('./services/dashboard-service');
+  CacheService = require('./services/cache-service');
   MetricsService = MetricsServiceClass;
   DashboardService = DashboardServiceClass;
 } catch (error) {
@@ -64,7 +66,7 @@ try {
 
 // Initialisation sécurisée des services
 let _docService, _validationService, _generatorService, _templateService, _accessibilityService;
-let _metricsService, _dashboardService;
+let _metricsService, _dashboardService, _cacheService;
 let servicesInitialized = false;
 
 async function initializeServices() {
@@ -78,10 +80,36 @@ async function initializeServices() {
     if (TemplateService) _templateService = new TemplateService();
     if (AccessibilityService) _accessibilityService = new AccessibilityService();
 
+    // Initialiser le service de cache
+    if (CacheService) {
+      // Créer un logger compatible pour le CacheService
+      const cacheLogger = {
+        info: logError,
+        warn: logError,
+        error: logError,
+        debug: logError
+      };
+      _cacheService = new CacheService(config, cacheLogger);
+      await _cacheService.initialize();
+      logError('[CACHE] Service de cache initialisé');
+    }
+
     // Initialiser les services de monitoring
     if (MetricsService) {
       _metricsService = new MetricsService(logError);
       logError('[DASHBOARD] Service de métriques initialisé');
+      
+      // Connecter les métriques de cache si le cache est disponible
+      if (_cacheService && _metricsService) {
+        // Mettre à jour les métriques de cache toutes les 10 secondes
+        setInterval(() => {
+          if (_cacheService && _cacheService.cacheStats) {
+            const stats = _cacheService.getStats();
+            _metricsService.updateCacheMetrics(stats);
+          }
+        }, 10000);
+        logError('[CACHE] Métriques de cache connectées au dashboard');
+      }
     }
     
     // Ne démarrer le dashboard que si on n'est pas en mode MCP stdio
