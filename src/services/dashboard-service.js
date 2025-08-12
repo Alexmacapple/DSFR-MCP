@@ -119,7 +119,7 @@ class DashboardService {
   }
 
   /**
-   * Génère le HTML du dashboard
+   * Génère le HTML du dashboard conforme DSFR
    */
   generateDashboardHTML() {
     return `<!DOCTYPE html>
@@ -127,204 +127,292 @@ class DashboardService {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard DSFR-MCP</title>
+    <title>Dashboard DSFR-MCP - Monitoring Serveur</title>
+    
+    <!-- CSS DSFR officiel -->
+    <link href="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.11.2/dist/dsfr.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.11.2/dist/utility/icons/icons.min.css" rel="stylesheet">
+    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* Styles spécifiques pour métriques */
+        .metric-card {
+            text-align: center;
         }
         
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
+        .metric-value-large {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1;
+            margin: 0.5rem 0;
         }
         
-        .header {
-            background: #000091;
-            color: white;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .header h1 {
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-        
-        .status-badge {
-            padding: 0.25rem 0.75rem;
-            border-radius: 12px;
+        .metric-label {
+            color: var(--text-mention-grey);
             font-size: 0.875rem;
-            font-weight: 500;
-        }
-        
-        .status-healthy { background: #27d545; }
-        .status-warning { background: #ffa500; }
-        .status-error { background: #ff3333; }
-        .status-idle { background: #666; }
-        
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-        
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        
-        .card {
-            background: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            border-left: 4px solid #000091;
-        }
-        
-        .card h2 {
-            font-size: 1.125rem;
-            color: #000091;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .metric {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.75rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .metric:last-child {
-            margin-bottom: 0;
-            border-bottom: none;
-        }
-        
-        .metric-value {
-            font-weight: 600;
-            color: #000091;
-        }
-        
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-        
-        .tool-card {
-            background: #f8f9fa;
-            padding: 1rem;
-            border-radius: 6px;
-            border: 1px solid #e9ecef;
-        }
-        
-        .tool-name {
-            font-weight: 600;
             margin-bottom: 0.5rem;
-            font-size: 0.875rem;
         }
         
-        .tool-stats {
+        .metric-sublabel {
+            color: var(--text-mention-grey);
             font-size: 0.75rem;
-            color: #666;
+        }
+        
+        .status-success { color: var(--background-flat-success); }
+        .status-warning { color: var(--background-flat-warning); }
+        .status-error { color: var(--background-flat-error); }
+        .status-idle { color: var(--text-mention-grey); }
+        
+        .tools-table {
+            font-size: 0.875rem;
         }
         
         .activity-log {
             max-height: 300px;
             overflow-y: auto;
-            background: #f8f9fa;
-            padding: 1rem;
-            border-radius: 6px;
             font-family: 'Courier New', monospace;
             font-size: 0.75rem;
+            background: var(--background-contrast-grey);
+            padding: 1rem;
         }
         
         .activity-item {
             margin-bottom: 0.25rem;
             padding: 0.25rem;
-            border-radius: 3px;
         }
         
-        .activity-success { background: rgba(39, 213, 69, 0.1); }
-        .activity-error { background: rgba(255, 51, 51, 0.1); }
+        .activity-success { 
+            background: var(--background-flat-success-light); 
+            border-left: 3px solid var(--background-flat-success);
+        }
         
-        .refresh-info {
-            text-align: center;
-            color: #666;
-            font-size: 0.875rem;
-            margin-top: 1rem;
+        .activity-error { 
+            background: var(--background-flat-error-light); 
+            border-left: 3px solid var(--background-flat-error);
         }
         
         @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .container {
-                padding: 0 0.5rem;
-            }
-            
-            .grid {
-                grid-template-columns: 1fr;
+            .fr-grid-row--gutters > [class*="fr-col-"] {
+                margin-bottom: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>🇫🇷 Dashboard DSFR-MCP</h1>
-        <div class="status-badge" id="globalStatus">Chargement...</div>
-    </div>
-    
-    <div class="container">
-        <div class="grid">
-            <!-- Vue d'ensemble -->
-            <div class="card">
-                <h2>📊 Vue d'ensemble</h2>
-                <div id="overview">Chargement des métriques...</div>
+    <!-- Header DSFR -->
+    <header class="fr-header">
+        <div class="fr-header__body">
+            <div class="fr-container">
+                <div class="fr-header__body-row">
+                    <div class="fr-header__brand fr-enlarge-link">
+                        <div class="fr-header__brand-top">
+                            <div class="fr-header__logo">
+                                <p class="fr-logo">
+                                    République<br>Française
+                                </p>
+                            </div>
+                        </div>
+                        <div class="fr-header__service">
+                            <a href="/dashboard" title="Accueil - Dashboard DSFR-MCP">
+                                <p class="fr-header__service-title">Dashboard DSFR-MCP</p>
+                            </a>
+                            <p class="fr-header__service-tagline">Monitoring Serveur Model Context Protocol</p>
+                        </div>
+                    </div>
+                    <div class="fr-header__tools">
+                        <div class="fr-header__tools-links">
+                            <div class="fr-badge-group">
+                                <p class="fr-badge fr-badge--sm" id="globalStatus">
+                                    <span class="fr-icon-time-line fr-icon--sm" aria-hidden="true"></span>
+                                    Chargement...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <!-- Cache -->
-            <div class="card">
-                <h2>💾 Cache Performance</h2>
-                <div id="cache">Chargement...</div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main role="main" id="content">
+        <div class="fr-container">
+            <!-- Titre de page -->
+            <div class="fr-grid-row">
+                <div class="fr-col-12">
+                    <h1 class="fr-h1 fr-mb-4w">
+                        <span class="fr-icon-dashboard-line fr-icon--lg fr-mr-1w" aria-hidden="true"></span>
+                        Tableau de bord du serveur
+                    </h1>
+                </div>
             </div>
-            
-            <!-- Système -->
-            <div class="card">
-                <h2>⚙️ Système</h2>
-                <div id="system">Chargement...</div>
+
+            <!-- Métriques principales -->
+            <div class="fr-grid-row fr-grid-row--gutters fr-mb-4w">
+                <!-- Vue d'ensemble -->
+                <div class="fr-col-12 fr-col-md-3">
+                    <div class="fr-card fr-card--no-border metric-card">
+                        <div class="fr-card__body">
+                            <div class="fr-card__content">
+                                <h3 class="fr-card__title fr-h6">
+                                    <span class="fr-icon-time-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>
+                                    Uptime
+                                </h3>
+                                <div id="overview-uptime" class="metric-value-large status-idle">--</div>
+                                <p class="metric-sublabel" id="overview-requests">-- requêtes totales</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Performance -->
+                <div class="fr-col-12 fr-col-md-3">
+                    <div class="fr-card fr-card--no-border metric-card">
+                        <div class="fr-card__body">
+                            <div class="fr-card__content">
+                                <h3 class="fr-card__title fr-h6">
+                                    <span class="fr-icon-flashlight-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>
+                                    Performance
+                                </h3>
+                                <div id="overview-avg-time" class="metric-value-large status-idle">-- ms</div>
+                                <p class="metric-sublabel" id="overview-req-min">-- req/min</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Succès -->
+                <div class="fr-col-12 fr-col-md-3">
+                    <div class="fr-card fr-card--no-border metric-card">
+                        <div class="fr-card__body">
+                            <div class="fr-card__content">
+                                <h3 class="fr-card__title fr-h6">
+                                    <span class="fr-icon-checkbox-circle-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>
+                                    Succès
+                                </h3>
+                                <div id="overview-success" class="metric-value-large status-idle">--%</div>
+                                <p class="metric-sublabel">Taux de succès</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cache -->
+                <div class="fr-col-12 fr-col-md-3">
+                    <div class="fr-card fr-card--no-border metric-card">
+                        <div class="fr-card__body">
+                            <div class="fr-card__content">
+                                <h3 class="fr-card__title fr-h6">
+                                    <span class="fr-icon-database-2-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>
+                                    Cache
+                                </h3>
+                                <div id="cache-hitrate" class="metric-value-large status-idle">--%</div>
+                                <p class="metric-sublabel" id="cache-memory">-- mémoire</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Outils MCP -->
+            <div class="fr-grid-row fr-mb-4w">
+                <div class="fr-col-12">
+                    <div class="fr-card">
+                        <div class="fr-card__body">
+                            <div class="fr-card__content">
+                                <h2 class="fr-card__title fr-h4">
+                                    <span class="fr-icon-tools-line fr-icon--lg fr-mr-1w" aria-hidden="true"></span>
+                                    Outils MCP (16/16)
+                                </h2>
+                                <div class="fr-table fr-table--bordered">
+                                    <table class="tools-table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Outil</th>
+                                                <th scope="col">Utilisations</th>
+                                                <th scope="col">Temps moyen</th>
+                                                <th scope="col">Taux erreur</th>
+                                                <th scope="col">Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tools">
+                                            <tr>
+                                                <td colspan="5" class="fr-text--center">
+                                                    <span class="fr-icon-loader-3-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>
+                                                    Chargement des outils...
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Système et Activité -->
+            <div class="fr-grid-row fr-grid-row--gutters">
+                <!-- Système -->
+                <div class="fr-col-12 fr-col-md-6">
+                    <div class="fr-card">
+                        <div class="fr-card__body">
+                            <div class="fr-card__content">
+                                <h2 class="fr-card__title fr-h5">
+                                    <span class="fr-icon-settings-3-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>
+                                    Système
+                                </h2>
+                                <div id="system">
+                                    <div class="fr-grid-row fr-grid-row--gutters">
+                                        <div class="fr-col-6">
+                                            <p class="fr-text--sm fr-mb-1v">Mémoire utilisée</p>
+                                            <p class="fr-text--bold" id="system-memory">Chargement...</p>
+                                        </div>
+                                        <div class="fr-col-6">
+                                            <p class="fr-text--sm fr-mb-1v">RSS</p>
+                                            <p class="fr-text--bold" id="system-rss">Chargement...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activité récente -->
+                <div class="fr-col-12 fr-col-md-6">
+                    <div class="fr-card">
+                        <div class="fr-card__body">
+                            <div class="fr-card__content">
+                                <h2 class="fr-card__title fr-h5">
+                                    <span class="fr-icon-file-text-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>
+                                    Activité récente
+                                </h2>
+                                <div class="activity-log" id="activity">
+                                    <p class="fr-text--sm">Chargement de l'activité...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info mise à jour -->
+            <div class="fr-grid-row fr-mt-4w">
+                <div class="fr-col-12">
+                    <div class="fr-notice fr-notice--info">
+                        <div class="fr-container">
+                            <div class="fr-notice__body">
+                                <p class="fr-notice__title">
+                                    <span class="fr-icon-refresh-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>
+                                    Page mise à jour automatiquement toutes les 10 secondes
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        
-        <!-- Outils MCP -->
-        <div class="card">
-            <h2>🛠️ Outils MCP (16/16)</h2>
-            <div class="tools-grid" id="tools">Chargement des outils...</div>
-        </div>
-        
-        <!-- Activité récente -->
-        <div class="card">
-            <h2>📋 Activité récente</h2>
-            <div class="activity-log" id="activity">Chargement de l'activité...</div>
-        </div>
-        
-        <div class="refresh-info">
-            Page mise à jour automatiquement toutes les 10 secondes
-        </div>
-    </div>
+    </main>
     
     <script>
         // Mise à jour des métriques
@@ -333,101 +421,86 @@ class DashboardService {
                 const response = await fetch('/api/metrics');
                 const metrics = await response.json();
                 
-                // Status global
+                // Status global  
                 const statusElement = document.getElementById('globalStatus');
-                statusElement.textContent = metrics.overview.status.toUpperCase();
-                statusElement.className = 'status-badge status-' + metrics.overview.status;
+                const statusClass = 'fr-badge--' + (metrics.overview.status === 'healthy' ? 'success' : 
+                                                   metrics.overview.status === 'warning' ? 'warning' : 
+                                                   metrics.overview.status === 'error' ? 'error' : 'info');
+                statusElement.className = 'fr-badge fr-badge--sm ' + statusClass;
+                statusElement.innerHTML = \`<span class="fr-icon-pulse-line fr-icon--sm" aria-hidden="true"></span> \${metrics.overview.status.toUpperCase()}\`;
                 
-                // Vue d'ensemble
-                document.getElementById('overview').innerHTML = \`
-                    <div class="metric">
-                        <span>Uptime</span>
-                        <span class="metric-value">\${metrics.overview.uptime}</span>
-                    </div>
-                    <div class="metric">
-                        <span>Requêtes totales</span>
-                        <span class="metric-value">\${metrics.overview.requestsTotal}</span>
-                    </div>
-                    <div class="metric">
-                        <span>Req/min</span>
-                        <span class="metric-value">\${metrics.overview.requestsPerMinute}</span>
-                    </div>
-                    <div class="metric">
-                        <span>Taux de succès</span>
-                        <span class="metric-value">\${metrics.overview.successRate}%</span>
-                    </div>
-                    <div class="metric">
-                        <span>Temps moyen</span>
-                        <span class="metric-value">\${metrics.overview.avgResponseTime}ms</span>
-                    </div>
-                \`;
+                // Métriques principales
+                document.getElementById('overview-uptime').textContent = metrics.overview.uptime;
+                document.getElementById('overview-uptime').className = 'metric-value-large status-' + metrics.overview.status;
+                document.getElementById('overview-requests').textContent = \`\${metrics.overview.requestsTotal} requêtes totales\`;
                 
-                // Cache
-                document.getElementById('cache').innerHTML = \`
-                    <div class="metric">
-                        <span>Hit Rate</span>
-                        <span class="metric-value">\${metrics.cache.hitRate}</span>
-                    </div>
-                    <div class="metric">
-                        <span>Hits / Misses</span>
-                        <span class="metric-value">\${metrics.cache.hits} / \${metrics.cache.misses}</span>
-                    </div>
-                    <div class="metric">
-                        <span>Mémoire utilisée</span>
-                        <span class="metric-value">\${metrics.cache.memoryUsage}</span>
-                    </div>
-                    <div class="metric">
-                        <span>Entrées</span>
-                        <span class="metric-value">\${metrics.cache.size}</span>
-                    </div>
-                \`;
+                document.getElementById('overview-avg-time').textContent = \`\${metrics.overview.avgResponseTime} ms\`;
+                document.getElementById('overview-avg-time').className = 'metric-value-large status-' + (metrics.overview.avgResponseTime < 500 ? 'success' : metrics.overview.avgResponseTime < 1000 ? 'warning' : 'error');
+                document.getElementById('overview-req-min').textContent = \`\${metrics.overview.requestsPerMinute} req/min\`;
+                
+                document.getElementById('overview-success').textContent = \`\${metrics.overview.successRate}%\`;
+                document.getElementById('overview-success').className = 'metric-value-large status-' + (parseFloat(metrics.overview.successRate) >= 95 ? 'success' : parseFloat(metrics.overview.successRate) >= 90 ? 'warning' : 'error');
+                
+                document.getElementById('cache-hitrate').textContent = metrics.cache.hitRate || '0%';
+                document.getElementById('cache-hitrate').className = 'metric-value-large status-' + (metrics.cache.hits > 0 ? 'success' : 'idle');
+                document.getElementById('cache-memory').textContent = metrics.cache.memoryUsage || '0 B';
                 
                 // Système
-                document.getElementById('system').innerHTML = \`
-                    <div class="metric">
-                        <span>Heap utilisé</span>
-                        <span class="metric-value">\${metrics.system.memoryUsage.used}</span>
-                    </div>
-                    <div class="metric">
-                        <span>Heap total</span>
-                        <span class="metric-value">\${metrics.system.memoryUsage.total}</span>
-                    </div>
-                    <div class="metric">
-                        <span>% Mémoire</span>
-                        <span class="metric-value">\${metrics.system.memoryUsage.percentage}%</span>
-                    </div>
-                    <div class="metric">
-                        <span>RSS</span>
-                        <span class="metric-value">\${metrics.system.rss}</span>
-                    </div>
-                \`;
+                document.getElementById('system-memory').textContent = \`\${metrics.system.memoryUsage.used} / \${metrics.system.memoryUsage.total} (\${metrics.system.memoryUsage.percentage}%)\`;
+                document.getElementById('system-rss').textContent = metrics.system.rss;
                 
-                // Outils
-                const toolsHtml = Object.entries(metrics.tools).map(([name, stats]) => \`
-                    <div class="tool-card">
-                        <div class="tool-name">\${name}</div>
-                        <div class="tool-stats">
-                            <div>Utilisations: \${stats.usage}</div>
-                            <div>Temps moyen: \${stats.avgResponseTime}ms</div>
-                            <div>Erreurs: \${stats.errorRate}%</div>
-                            <div>Status: <span class="status-\${stats.status}">\${stats.status}</span></div>
-                        </div>
-                    </div>
-                \`).join('');
-                document.getElementById('tools').innerHTML = toolsHtml || '<p>Aucun outil utilisé</p>';
+                // Outils MCP - Table format DSFR
+                const toolsHtml = Object.entries(metrics.tools).map(([name, stats]) => {
+                    const statusBadge = stats.status === 'healthy' ? 'fr-badge--success' :
+                                       stats.status === 'warning' ? 'fr-badge--warning' :
+                                       stats.status === 'error' ? 'fr-badge--error' : 'fr-badge--info';
+                    
+                    return \`
+                        <tr>
+                            <td class="fr-text--bold">\${name}</td>
+                            <td>\${stats.usage}</td>
+                            <td>\${stats.avgResponseTime}ms</td>
+                            <td>\${stats.errorRate}%</td>
+                            <td>
+                                <span class="fr-badge fr-badge--sm \${statusBadge}">
+                                    \${stats.status}
+                                </span>
+                            </td>
+                        </tr>
+                    \`;
+                }).join('');
+                
+                document.getElementById('tools').innerHTML = toolsHtml || \`
+                    <tr>
+                        <td colspan="5" class="fr-text--center">
+                            <span class="fr-icon-information-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>
+                            Aucun outil utilisé
+                        </td>
+                    </tr>
+                \`;
                 
                 // Activité récente
                 const activityHtml = metrics.recentActivity.map(item => \`
                     <div class="activity-item activity-\${item.success ? 'success' : 'error'}">
-                        [\${item.timestamp}] \${item.tool} - \${item.responseTime}ms \${item.success ? '✓' : '✗'}
+                        <span class="fr-text--xs fr-text--regular">[\${item.timestamp}]</span>
+                        <span class="fr-text--sm fr-text--bold">\${item.tool}</span>
+                        <span class="fr-text--xs">- \${item.responseTime}ms</span>
+                        <span class="fr-icon-\${item.success ? 'checkbox-circle-line fr-text--success' : 'close-circle-line fr-text--error'} fr-icon--sm" aria-hidden="true"></span>
                     </div>
                 \`).join('');
-                document.getElementById('activity').innerHTML = activityHtml || '<p>Aucune activité récente</p>';
+                
+                document.getElementById('activity').innerHTML = activityHtml || \`
+                    <p class="fr-text--sm">
+                        <span class="fr-icon-information-line fr-icon--sm fr-mr-1v" aria-hidden="true"></span>
+                        Aucune activité récente
+                    </p>
+                \`;
                 
             } catch (error) {
                 console.error('Erreur lors de la mise à jour:', error);
-                document.getElementById('globalStatus').textContent = 'ERREUR';
-                document.getElementById('globalStatus').className = 'status-badge status-error';
+                const statusElement = document.getElementById('globalStatus');
+                statusElement.innerHTML = '<span class="fr-icon-error-warning-line fr-icon--sm" aria-hidden="true"></span> ERREUR';
+                statusElement.className = 'fr-badge fr-badge--sm fr-badge--error';
             }
         }
         
@@ -437,6 +510,10 @@ class DashboardService {
         // Mise à jour automatique toutes les 10 secondes
         setInterval(updateMetrics, 10000);
     </script>
+    
+    <!-- JS DSFR officiel -->
+    <script src="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.11.2/dist/dsfr.module.min.js" type="module"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.11.2/dist/dsfr.nomodule.min.js"></script>
 </body>
 </html>`;
   }
