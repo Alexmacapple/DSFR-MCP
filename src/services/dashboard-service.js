@@ -38,7 +38,7 @@ class DashboardService {
   /**
    * Gestionnaire des requêtes HTTP
    */
-  handleRequest(req, res) {
+  async handleRequest(req, res) {
     const parsedUrl = url.parse(req.url, true);
     const pathname = parsedUrl.pathname;
 
