@@ -144,6 +144,23 @@ npm start
 npm run dev
 ```
 
+### ⚡ Cas d'usage express (30 secondes)
+
+**Formulaire contact rapide** :
+```
+Dans Claude Desktop : "Génère un formulaire de contact DSFR complet avec validation"
+```
+
+**Page institutionnelle** :
+```
+Dans Claude Desktop : "Crée une page d'accueil DSFR pour la mairie de [ville]"
+```
+
+**Dashboard admin** :
+```
+Dans Claude Desktop : "Génère un dashboard DSFR avec statistiques et tableaux de données"
+```
+
 ### 📖 Guides et ressources d'apprentissage
 
 #### 🎯 Tutoriels et guides
@@ -162,6 +179,82 @@ npm run dev
 - **[Portail citoyen et téléservices](examples/03-portail-citoyen/)** - Démarches en ligne et guichet numérique  
 - **[Documentation technique publique](examples/04-documentation-site/)** - Portail API gouvernementales
 
+## 📋 Exemples pratiques DSFR
+
+### 🚀 Cas d'usage concrets avec MCP
+
+#### 1. 📝 Formulaire de contact complet
+```
+Génère un formulaire de contact DSFR avec validation, accessibilité RGAA et gestion d'erreurs
+```
+
+**Composants générés** :
+- Champs texte avec validation
+- Zone de message 
+- Boutons d'action
+- Messages d'erreur accessibles
+- Labels obligatoires
+
+#### 2. 🏠 Page d'accueil institutionnelle
+```
+Crée une page d'accueil DSFR avec header, navigation, hero section et footer pour une mairie
+```
+
+**Éléments inclus** :
+- Header avec logo République Française
+- Navigation principale accessible
+- Section hero avec boutons d'action
+- Grille de services
+- Footer institutionnel complet
+
+#### 3. 📊 Dashboard administratif
+```
+Génère un dashboard DSFR pour back-office administratif avec tableaux et graphiques
+```
+
+**Fonctionnalités** :
+- Navigation latérale
+- Cartes de statistiques
+- Tableaux de données
+- Graphiques intégrés
+- Notifications système
+
+#### 4. 🔍 Interface de recherche avancée
+```
+Crée une interface de recherche DSFR avec filtres, facettes et résultats paginés
+```
+
+**Composants** :
+- Barre de recherche intelligente
+- Filtres par catégories
+- Affichage des résultats
+- Pagination accessible
+- Options de tri
+
+#### 5. 🖼️ Galerie d'images accessible
+```
+Génère une galerie d'images DSFR conforme RGAA avec lightbox et navigation clavier
+```
+
+**Caractéristiques** :
+- Grille responsive
+- Textes alternatifs
+- Navigation clavier
+- Lightbox accessible
+- Chargement progressif
+
+#### 6. 📱 Page de connexion sécurisée
+```
+Crée une page de connexion DSFR avec double authentification et récupération mot de passe
+```
+
+**Sécurité incluse** :
+- Champs sécurisés
+- Validation côté client
+- Messages d'erreur clairs
+- Liens de récupération
+- Design responsive
+
 ### Exemples de requêtes dans Claude
 
 #### Recherche de composants
@@ -177,6 +270,47 @@ Génère un composant bouton DSFR en React avec les variantes primary et seconda
 #### Validation
 ```
 Vérifie l'accessibilité RGAA de ce code HTML : [votre code]
+```
+
+### 🎯 Démonstrations interactives
+
+#### Workflow complet : Création d'un service public numérique
+
+**Étape 1** - Analyse des besoins :
+```
+Analyse les besoins DSFR pour un site de demande de carte d'identité en ligne
+```
+
+**Étape 2** - Génération de la structure :
+```
+Génère la page principale avec formulaire multi-étapes DSFR pour demande de carte d'identité
+```
+
+**Étape 3** - Validation et optimisation :
+```
+Valide l'accessibilité RGAA 4.1 de cette page et suggère des améliorations
+```
+
+**Étape 4** - Export multi-framework :
+```
+Convertis ce formulaire DSFR en React avec TypeScript pour intégration dans une SPA
+```
+
+#### Workflow d'amélioration continue
+
+**Audit existant** :
+```
+Analyse ce site web institutionnel et identifie les non-conformités DSFR
+```
+
+**Migration progressive** :
+```
+Propose un plan de migration de ce site vers DSFR avec priorisation des composants
+```
+
+**Validation continue** :
+```
+Compare cette implémentation DSFR avec la version officielle et suggère les mises à jour
 ```
 
 ## 🛠️ Outils disponibles (16/16)
