@@ -5,7 +5,7 @@
 [![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=flat&logo=docker&logoColor=white)](https://docker.com)
 [![Node](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Tests](https://img.shields.io/badge/tests-43%2F43%20passed-brightgreen.svg)](#tests)
+[![Tests](https://img.shields.io/badge/tests-running-yellow.svg)](#tests)
 [![Performance](https://img.shields.io/badge/parser-4.2x%20faster-brightgreen.svg)](#phase-22-parser-v2)
 
 Serveur MCP (Model Context Protocol) complet pour le Système de Design de l'État Français (DSFR). Ce serveur permet d'accéder à toute la documentation DSFR, aux composants, aux patterns et aux outils de validation directement depuis Claude Desktop ou tout autre client MCP compatible.
@@ -76,16 +76,13 @@ npm install
 npm test
 ```
 
-### Script d'installation automatique
+### Installation automatique Docker
 
-Pour une installation encore plus simple :
+Pour une installation encore plus simple avec Docker :
 
 ```bash
-# Donner les droits d'exécution
-chmod +x install.sh
-
-# Lancer l'installation
-./install.sh
+# Installation automatique complète
+./docker/scripts/configure-claude.sh
 ```
 
 ## ⚙️ Configuration
@@ -132,7 +129,7 @@ INDEX_UPDATE_INTERVAL=3600000
 
 ### 🚀 Démarrage rapide
 
-**➡️ [Guide Quickstart DSFR-MCP](QUICKSTART.md)** - De zéro à votre première page DSFR en 30 minutes !
+**Installation Docker recommandée** - Configuration automatique en moins de 5 minutes !
 
 ### Démarrage du serveur
 
@@ -164,11 +161,9 @@ Dans Claude Desktop : "Génère un dashboard DSFR avec statistiques et tableaux 
 ### 📖 Guides et ressources d'apprentissage
 
 #### 🎯 Tutoriels et guides
-- **[Quickstart - 30 minutes](QUICKSTART.md)** - Tutorial complet du setup à la première page
 - **[Guide Docker](GUIDE_INSTALLATION_DOCKER.md)** - Installation Docker pas-à-pas
-- **[Guide des 15 Outils MCP](GUIDE_OUTILS_MCP.md)** - Documentation complète de tous les outils avec exemples pratiques
-- **[Guide de Performance](GUIDE_PERFORMANCE.md)** - 🆕 Optimisations Phase 4A, cache intelligent, best practices
-- **[Exemples Avancés](EXEMPLES_AVANCES.md)** - 🆕 45+ cas concrets, workflows optimisés, intégrations
+- **[Guide des 16 Outils MCP](GUIDE_OUTILS_MCP.md)** - Documentation complète de tous les outils avec exemples pratiques
+- **[Exemples Avancés](EXEMPLES_AVANCES.md)** - 45+ cas concrets, workflows optimisés, intégrations
 
 #### 📁 Exemples de projets institutionnels
 
@@ -369,48 +364,41 @@ Compare cette implémentation DSFR avec la version officielle et suggère les mi
 ```
 DSFR-MCP/
 ├── src/
-│   ├── index.js              # 🆕 Point d'entrée unique avec logique production complète
-│   ├── core/                 # 🆕 Architecture V2
+│   ├── index.js              # Point d'entrée unique avec logique production
+│   ├── core/                 # Architecture V2
 │   │   ├── container.js      # Container DI avec lifecycles
-│   │   └── interfaces.js     # Contrats et interfaces services
+│   │   ├── disposable.js     # Gestion mémoire et ressources
+│   │   ├── interfaces.js     # Contrats et interfaces services
+│   │   └── lru-cache.js      # Cache LRU intelligent avec compression
 │   ├── services/             # Services optimisés
-│   │   ├── config-service.js         # 🆕 Configuration centralisée
-│   │   ├── logger-service.js         # 🆕 Logging MCP-compatible
-│   │   ├── cache-service.js          # 🆕 Cache intelligent LRU+compression
-│   │   ├── yaml-parser-service.js    # 🆕 Parser YAML robuste avec js-yaml
-│   │   ├── search-index-service.js   # 🆕 Index recherche avec facettes
-│   │   ├── dsfr-parser-v2.js         # 🆕 Parser complet optimisé
-│   │   ├── documentation-service-v2.js # 🆕 Service docs optimisé
-│   │   ├── documentation.js          # Service original (V1)
-│   │   ├── validation.js             # Service de validation
-│   │   ├── generator.js              # Génération de code
-│   │   ├── template.js               # Gestion des templates
-│   │   ├── accessibility.js          # Vérification RGAA
-│   │   └── dsfr-source-parser.js     # Parser du code source
-│   ├── repositories/         # 🆕 Pattern Repository
+│   │   ├── config-service.js         # Configuration centralisée
+│   │   ├── logger-service.js         # Logging MCP-compatible
+│   │   ├── cache-service.js          # Cache intelligent LRU+compression
+│   │   ├── yaml-parser-service.js    # Parser YAML robuste avec js-yaml
+│   │   ├── search-index-service.js   # Index recherche avec facettes
+│   │   ├── dsfr-parser-v2.js         # Parser complet optimisé
+│   │   ├── documentation-service-v2.js # Service docs optimisé
+│   │   ├── html-analyzer.js          # Analyseur HTML avancé
+│   │   ├── icon-database.js          # Base d'icônes DSFR avec prévisualisation
+│   │   ├── generator-optimized.js    # Générateur optimisé
+│   │   └── [autres services...]      # Services V1 et utilitaires
+│   ├── repositories/         # Pattern Repository
 │   │   └── documentation-repository.js # Repository avec lazy loading
-│   └── templates/            # Templates prédéfinis
-├── docker/                   # 🆕 Infrastructure Docker complète
+│   └── templates/            # Templates EJS prédéfinis
+├── docker/                   # Infrastructure Docker complète
 │   ├── scripts/              # Scripts d'installation automatique
 │   │   ├── configure-claude.sh   # Configuration macOS/Linux
 │   │   └── configure-claude.ps1  # Configuration Windows
-│   ├── config/               # Configurations Docker
-│   └── prometheus/           # Configuration monitoring
-├── Dockerfile                # 🆕 Image multi-stage optimisée
-├── docker-compose.yml        # 🆕 Services Docker avec profiles
-├── GUIDE_INSTALLATION_DOCKER.md # 🆕 Guide complet Docker
+│   └── [configs...]          # Configurations Docker et monitoring
 ├── fiches-markdown-v2/       # 213 fiches de documentation nettoyées
 ├── data/                     # Données extraites et index
-├── test/                     # Tests unitaires et intégration (43/43 passed)
+├── examples/                 # 4 projets institutionnels complets
+├── test/                     # Tests unitaires et intégration
 │   ├── unit/                 # Tests unitaires des services
-│   └── integration/          # Tests d'intégration MCP tools + Architecture V2 + Parser V2
-├── benchmark-parser-v2.js    # 🆕 Benchmark performance détaillé
-├── quick-benchmark.js        # 🆕 Benchmark rapide validation
+│   ├── integration/          # Tests d'intégration MCP tools
+│   └── performance/          # Tests de charge et benchmarks
 ├── scripts/                  # Scripts de nettoyage et validation
-│   ├── verify-data-integrity.js     # Validation intégrité données
-│   ├── standardize-filenames.js     # Standardisation noms fichiers
-│   └── validate-yaml-metadata.js    # Validation métadonnées YAML
-└── docs/                     # Documentation additionnelle
+└── docs/                     # Documentation technique
 ```
 
 ### 🎯 Fonctionnalités V2
@@ -459,11 +447,10 @@ npm run test:unit            # Tests unitaires uniquement
 npm run test:integration     # Tests d'intégration MCP tools + Parser V2
 npm run benchmark             # 🆕 Benchmark complet des performances
 npm run quick-benchmark       # 🆕 Benchmark rapide de validation
-npm run test:e2e             # Tests end-to-end
+npm run test:performance     # Tests de performance
 npm run lint                 # Vérifie le code
 npm run lint:fix             # Corrige automatiquement
-npm run build                # Build de production
-npm run docs                 # Génère la documentation
+npm run build:index         # Build de l'index de recherche
 
 # Scripts de nettoyage des données
 npm run verify-data          # Vérifie l'intégrité des 213 fiches
@@ -538,11 +525,9 @@ Les contributions sont les bienvenues ! Veuillez suivre ces étapes :
 
 ### Documentation
 
-- **[Quickstart DSFR-MCP](QUICKSTART.md)** - Guide de démarrage 30 minutes
 - **[Guide d'installation Docker](GUIDE_INSTALLATION_DOCKER.md)** - Installation complète Docker
-- **[Guide des 15 Outils MCP](GUIDE_OUTILS_MCP.md)** - Documentation complète de tous les outils avec exemples pratiques
-- **[Guide de Performance](GUIDE_PERFORMANCE.md)** - 🆕 Optimisations Phase 4A, cache intelligent, best practices
-- **[Exemples Avancés](EXEMPLES_AVANCES.md)** - 🆕 45+ cas concrets, workflows optimisés, intégrations
+- **[Guide des 16 Outils MCP](GUIDE_OUTILS_MCP.md)** - Documentation complète de tous les outils avec exemples pratiques
+- **[Exemples Avancés](EXEMPLES_AVANCES.md)** - 45+ cas concrets, workflows optimisés, intégrations
 - **[Roadmap et évolutions](ROADMAP.md)** - Feuille de route du projet
 - **[Exemples de projets institutionnels](examples/)** - 4 projets conformes à l'usage exclusif DSFR
 
@@ -565,7 +550,7 @@ Consultez le [CHANGELOG.md](CHANGELOG.md) pour voir toutes les modifications, am
 
 ### Versions importantes
 - **[v1.0.0](https://github.com/Alexmacapple/DSFR-MCP/releases/tag/v1.0.0)** - Version stable de référence
-- **v1.4.1** - Version courante avec Docker production
+- **v1.5.0** - Version courante avec optimisations ESLint et exemples pratiques
 
 ## 📜 Licence
 
