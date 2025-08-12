@@ -26,7 +26,7 @@ class CacheService extends ICacheService {
       maxMemory: this.maxMemorySize,
       defaultTTL: this.defaultTTL,
       autoCompress: config.cache?.compression !== false,
-      enableStats: true
+      enableStats: true,
     });
     this.persistentCachePath =
       config.cache?.persistentPath || path.join(config.paths.data, 'cache');
@@ -35,6 +35,16 @@ class CacheService extends ICacheService {
     this.initialized = false;
     this.cleanupTimer = null;
     this.compressionEnabled = config.cache?.compression !== false;
+
+    // Initialiser les statistiques du cache
+    this.cacheStats = {
+      hits: 0,
+      misses: 0,
+      sets: 0,
+      deletes: 0,
+      evictions: 0,
+      memoryUsage: 0,
+    };
   }
 
   async initialize() {
