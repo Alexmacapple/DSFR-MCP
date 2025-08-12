@@ -212,7 +212,10 @@ class MetricsService extends EventEmitter {
       const existingActivities = existingData.recentActivity || [];
       const newActivities = this.metrics.requests.lastRequests.slice(-20).map(req => ({
         tool: req.tool,
-        timestamp: new Date(req.timestamp).toLocaleTimeString(),
+        timestamp: new Date(req.timestamp).toLocaleTimeString('fr-FR', { 
+          timeZone: 'Europe/Paris',
+          hour12: false 
+        }),
         responseTime: req.responseTime,
         success: req.success
       }));
@@ -386,7 +389,10 @@ class MetricsService extends EventEmitter {
       .slice(-20)
       .map(req => ({
         ...req,
-        timestamp: new Date(req.timestamp).toLocaleTimeString()
+        timestamp: new Date(req.timestamp).toLocaleTimeString('fr-FR', { 
+          timeZone: 'Europe/Paris',
+          hour12: false 
+        })
       }));
   }
 
