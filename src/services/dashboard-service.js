@@ -39,8 +39,18 @@ class DashboardService {
    * Gestionnaire des requêtes HTTP
    */
   async handleRequest(req, res) {
+    // Validation de l'URL
+    if (!req.url) {
+      this.logger?.error('Requête sans URL');
+      res.writeHead(400, { 'Content-Type': 'text/plain' });
+      res.end('Bad Request: URL manquante');
+      return;
+    }
+
     const parsedUrl = url.parse(req.url, true);
-    const pathname = parsedUrl.pathname;
+    const pathname = parsedUrl.pathname || '';
+
+    this.logger?.info(`${req.method} ${pathname}`);
 
     // CORS headers
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -281,13 +291,13 @@ class DashboardService {
             <div class="fr-collapse" id="breadcrumb-dashboard">
                 <ol class="fr-breadcrumb__list">
                     <li>
-                        <a class="fr-breadcrumb__link" href="/dashboard">Accueil</a>
+                        <span class="fr-breadcrumb__link" aria-current="page">Outils</span>
                     </li>
                     <li>
-                        <a class="fr-breadcrumb__link" href="/dashboard">Dashboard</a>
+                        <a class="fr-breadcrumb__link" href="/playground">Playground</a>
                     </li>
                     <li>
-                        <a class="fr-breadcrumb__link" aria-current="page">Monitoring</a>
+                        <span class="fr-breadcrumb__link">Dashboard</span>
                     </li>
                 </ol>
             </div>
@@ -656,7 +666,20 @@ class DashboardService {
    * Gère les appels API REST vers les outils MCP
    */
   async handleToolAPI(req, res, pathname) {
-    const toolName = pathname.split('/api/tools/')[1];
+    // Validation du pathname et extraction du toolName
+    if (!pathname || typeof pathname !== 'string') {
+      this.serveError(res, 400, 'Pathname invalide');
+      return;
+    }
+    
+    const pathParts = pathname.split('/api/tools/');
+    if (pathParts.length < 2 || !pathParts[1]) {
+      this.serveError(res, 400, 'Nom d\'outil manquant dans l\'URL');
+      return;
+    }
+    
+    const toolName = pathParts[1];
+    this.logger?.info(`API Tool appelé: ${toolName}`);
     
     // CORS pour API publique
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -676,10 +699,23 @@ class DashboardService {
     
     try {
       // Lire le body de la requête
+      this.logger?.info(`Lecture du body pour l'outil: ${toolName}`);
       const body = await this.readRequestBody(req);
-      const params = JSON.parse(body);
+      this.logger?.info(`Body reçu (${body.length} chars): ${body.substring(0, 200)}...`);
+      
+      let params = {};
+      if (body) {
+        try {
+          params = JSON.parse(body);
+          this.logger?.info(`Paramètres parsés:`, params);
+        } catch (parseError) {
+          this.logger?.error(`Erreur parsing JSON: ${parseError.message}`);
+          throw new Error(`Format JSON invalide: ${parseError.message}`);
+        }
+      }
       
       // Simuler l'appel d'outil MCP (à connecter au vrai serveur MCP)
+      this.logger?.info(`Appel simulateToolCall pour: ${toolName}`);
       const result = await this.simulateToolCall(toolName, params);
       
       res.writeHead(200, { 'Content-Type': 'application/json' });
@@ -820,6 +856,11 @@ class DashboardService {
    * Assombrit une couleur (simulation)
    */
   darkenColor(color, percent) {
+    // Validation de la couleur
+    if (!color || typeof color !== 'string') {
+      return '#0078f3'; // Couleur par défaut DSFR
+    }
+    
     // Simulation simple - en prod, utiliser une vraie lib de couleurs
     if (color.startsWith('#')) {
       const num = parseInt(color.replace('#', ''), 16);
