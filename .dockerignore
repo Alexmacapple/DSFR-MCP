@@ -13,6 +13,8 @@ yarn-error.log*
 .gitignore
 *.md
 !README.md
+!GUIDE_INTERACTIF.md
+!API_REST.md
 .env.local
 .env.development
 .env.test
@@ -72,5 +74,7 @@ test-*.js
 # Conserver les données essentielles
 !data/
 !src/
+!public/
+!cli.js
 !package*.json
 !.env.example
