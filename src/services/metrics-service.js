@@ -124,6 +124,30 @@ class MetricsService extends EventEmitter {
             this.metrics.tools.usage.set(toolName, Math.max(currentUsage, stats.usage || 0));
           });
         }
+        
+        // Charger l'activité récente partagée et la fusionner
+        if (sharedMetrics.recentActivity && Array.isArray(sharedMetrics.recentActivity)) {
+          // Ajouter l'activité partagée aux activités locales si elle n'existe pas déjà
+          sharedMetrics.recentActivity.forEach(activity => {
+            const exists = this.metrics.requests.lastRequests.some(req => 
+              req.tool === activity.tool && 
+              req.timestamp === new Date(activity.timestamp).getTime()
+            );
+            if (!exists) {
+              this.metrics.requests.lastRequests.push({
+                tool: activity.tool,
+                timestamp: new Date(activity.timestamp).getTime(),
+                responseTime: activity.responseTime,
+                success: activity.success
+              });
+            }
+          });
+          
+          // Garder seulement les 100 dernières activités
+          if (this.metrics.requests.lastRequests.length > 100) {
+            this.metrics.requests.lastRequests = this.metrics.requests.lastRequests.slice(-100);
+          }
+        }
       }
     } catch (error) {
       // Ignorer les erreurs de chargement silencieusement
@@ -131,7 +155,7 @@ class MetricsService extends EventEmitter {
   }
 
   /**
-   * Sauvegarde les métriques dans le fichier partagé
+   * Sauvegarde les métriques dans le fichier partagé en fusionnant avec l'existant
    */
   saveSharedMetrics() {
     try {
@@ -141,36 +165,85 @@ class MetricsService extends EventEmitter {
         fs.mkdirSync(dir, { recursive: true });
       }
       
-      // Préparer les données à sauvegarder
-      const toolsData = {};
+      // Charger les données existantes
+      let existingData = {
+        requests: { total: 0, successful: 0, failed: 0, avgResponseTime: 0 },
+        tools: {},
+        recentActivity: []
+      };
+      
+      if (fs.existsSync(this.sharedMetricsPath)) {
+        try {
+          existingData = JSON.parse(fs.readFileSync(this.sharedMetricsPath, 'utf8'));
+        } catch (error) {
+          // Fichier corrompu, utiliser les données par défaut
+        }
+      }
+      
+      // Fusionner les métriques de requête (prendre le maximum)
+      const totalRequests = Math.max(this.metrics.requests.total, existingData.requests?.total || 0);
+      const successfulRequests = Math.max(this.metrics.requests.successful, existingData.requests?.successful || 0);
+      const failedRequests = Math.max(this.metrics.requests.failed, existingData.requests?.failed || 0);
+      
+      // Fusionner les outils (additionner les usages)
+      const mergedTools = { ...existingData.tools };
       this.metrics.tools.usage.forEach((usage, toolName) => {
         const times = this.metrics.tools.responseTime.get(toolName) || [];
         const errors = this.metrics.tools.errors.get(toolName) || 0;
         const avgTime = times.length > 0 ? times.reduce((a, b) => a + b, 0) / times.length : 0;
         
-        toolsData[toolName] = {
-          usage,
+        const existingTool = mergedTools[toolName] || { usage: 0, errors: 0 };
+        mergedTools[toolName] = {
+          usage: existingTool.usage + usage,
           avgResponseTime: Math.round(avgTime),
-          errors,
-          errorRate: usage > 0 ? Math.round((errors / usage) * 100) : 0,
-          status: errors > usage * 0.1 ? 'error' : usage > 0 ? 'healthy' : 'idle'
+          errors: existingTool.errors + errors,
+          errorRate: 0, // Calculé après
+          status: 'healthy' // Calculé après
         };
+        
+        // Calculer le taux d'erreur final
+        const finalUsage = mergedTools[toolName].usage;
+        const finalErrors = mergedTools[toolName].errors;
+        mergedTools[toolName].errorRate = finalUsage > 0 ? Math.round((finalErrors / finalUsage) * 100) : 0;
+        mergedTools[toolName].status = finalErrors > finalUsage * 0.1 ? 'error' : finalUsage > 0 ? 'healthy' : 'idle';
       });
+      
+      // Fusionner l'activité récente (ajouter les nouvelles, garder les uniques)
+      const existingActivities = existingData.recentActivity || [];
+      const newActivities = this.metrics.requests.lastRequests.slice(-20).map(req => ({
+        tool: req.tool,
+        timestamp: new Date(req.timestamp).toLocaleTimeString(),
+        responseTime: req.responseTime,
+        success: req.success
+      }));
+      
+      // Créer un Set pour identifier les activités uniques
+      const activityMap = new Map();
+      
+      // Ajouter d'abord les activités existantes
+      existingActivities.forEach(activity => {
+        const key = `${activity.tool}-${activity.timestamp}`;
+        activityMap.set(key, activity);
+      });
+      
+      // Ajouter les nouvelles activités
+      newActivities.forEach(activity => {
+        const key = `${activity.tool}-${activity.timestamp}`;
+        activityMap.set(key, activity);
+      });
+      
+      // Convertir en array et garder les 50 dernières
+      const mergedActivity = Array.from(activityMap.values()).slice(-50);
       
       const sharedData = {
         requests: {
-          total: this.metrics.requests.total,
-          successful: this.metrics.requests.successful,
-          failed: this.metrics.requests.failed,
-          avgResponseTime: Math.round(this.metrics.requests.avgResponseTime)
+          total: totalRequests,
+          successful: successfulRequests,
+          failed: failedRequests,
+          avgResponseTime: Math.round(this.metrics.requests.avgResponseTime || 0)
         },
-        tools: toolsData,
-        recentActivity: this.metrics.requests.lastRequests.slice(-20).map(req => ({
-          tool: req.tool,
-          timestamp: new Date(req.timestamp).toLocaleTimeString(),
-          responseTime: req.responseTime,
-          success: req.success
-        })),
+        tools: mergedTools,
+        recentActivity: mergedActivity,
         lastUpdate: Date.now()
       };
       
