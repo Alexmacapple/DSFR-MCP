@@ -23,6 +23,7 @@ Serveur MCP (Model Context Protocol) complet pour le Système de Design de l'Ét
 - **📦 Architecture V2 optimisée** : Injection de dépendances, cache intelligent LRU, services découplés (99% plus rapide au démarrage)
 - **🧹 Données nettoyées** : Déduplication automatique et validation d'intégrité des 213 fiches markdown
 - **🎯 16/16 outils MCP** : Tous les outils MCP fonctionnels avec tests d'intégration complets
+- **📊 Dashboard temps réel** : Monitoring complet avec métriques, health checks et observabilité
 
 ## 📋 Table des matières
 
@@ -157,6 +158,23 @@ Dans Claude Desktop : "Crée une page d'accueil DSFR pour la mairie de [ville]"
 ```
 Dans Claude Desktop : "Génère un dashboard DSFR avec statistiques et tableaux de données"
 ```
+
+### 📊 Dashboard de monitoring
+
+**Accès direct au dashboard** :
+```
+http://localhost:3001/dashboard
+```
+
+**Fonctionnalités** :
+- 📈 **Métriques temps réel** : Requêtes/min, temps de réponse, taux de succès
+- 🛠️ **Status des 16 outils MCP** : Santé individuelle et performances
+- 💾 **Métriques cache** : Hit rate, usage mémoire, compression
+- ⚙️ **Monitoring système** : CPU, RAM, uptime
+- 📋 **Logs d'activité** : Dernières requêtes et erreurs
+- 🔄 **Mise à jour automatique** toutes les 10 secondes
+
+Le dashboard est automatiquement démarré avec le serveur MCP et accessible via le port 3001.
 
 ### 📖 Guides et ressources d'apprentissage
 

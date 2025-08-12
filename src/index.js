@@ -24,7 +24,9 @@ let config,
   ValidationService,
   OptimizedGeneratorService,
   TemplateService,
-  AccessibilityService;
+  AccessibilityService,
+  MetricsService,
+  DashboardService;
 
 try {
   config = require('./config');
@@ -33,6 +35,12 @@ try {
   OptimizedGeneratorService = require('./services/generator-optimized');
   TemplateService = require('./services/template');
   AccessibilityService = require('./services/accessibility');
+  
+  // Services dashboard et métriques
+  const { MetricsService: MetricsServiceClass } = require('./services/metrics-service');
+  const { DashboardService: DashboardServiceClass } = require('./services/dashboard-service');
+  MetricsService = MetricsServiceClass;
+  DashboardService = DashboardServiceClass;
 } catch (error) {
   logError('[DOCKER] Erreur lors du chargement des dépendances:', error.message);
   // Fallback vers configuration minimale
@@ -56,6 +64,7 @@ try {
 
 // Initialisation sécurisée des services
 let _docService, _validationService, _generatorService, _templateService, _accessibilityService;
+let _metricsService, _dashboardService;
 let servicesInitialized = false;
 
 async function initializeServices() {
@@ -68,6 +77,23 @@ async function initializeServices() {
     if (OptimizedGeneratorService) _generatorService = new OptimizedGeneratorService();
     if (TemplateService) _templateService = new TemplateService();
     if (AccessibilityService) _accessibilityService = new AccessibilityService();
+
+    // Initialiser les services de monitoring
+    if (MetricsService) {
+      _metricsService = new MetricsService(logError);
+      logError('[DASHBOARD] Service de métriques initialisé');
+    }
+    
+    if (DashboardService && _metricsService) {
+      _dashboardService = new DashboardService(_metricsService, { info: console.error, error: console.error });
+      try {
+        await _dashboardService.start();
+        console.error('[DASHBOARD] Dashboard disponible sur http://localhost:3001/dashboard');
+      } catch (error) {
+        console.error('[DASHBOARD] Erreur démarrage dashboard:', error.message);
+        console.error('[DASHBOARD] Stack:', error.stack);
+      }
+    }
 
     servicesInitialized = true;
     logError('[DOCKER] Services initialisés avec succès');
@@ -678,6 +704,28 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
   };
 });
 
+// Helper pour wrapper les appels d'outils avec métriques
+async function executeToolWithMetrics(toolName, toolFunction) {
+  const startTime = Date.now();
+  let success = true;
+  
+  try {
+    const result = await toolFunction();
+    if (_metricsService) {
+      const responseTime = Date.now() - startTime;
+      _metricsService.recordRequest(toolName, responseTime, true);
+    }
+    return result;
+  } catch (error) {
+    success = false;
+    if (_metricsService) {
+      const responseTime = Date.now() - startTime;
+      _metricsService.recordRequest(toolName, responseTime, false);
+    }
+    throw error;
+  }
+}
+
 // Gestionnaire principal pour tous les outils - Version production
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
   const { name, arguments: args } = request.params;
@@ -687,6 +735,8 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
     if (!servicesInitialized) {
       await initializeServices();
     }
+
+    return await executeToolWithMetrics(name, async () => {
 
     switch (name) {
       // Outils de recherche et documentation
@@ -4866,6 +4916,8 @@ ${error.message}
       default:
         throw new Error(`Outil inconnu: ${name}`);
     }
+    });
+    
   } catch (error) {
     logError(`[DOCKER] Erreur outil ${name}:`, error.message);
     return {

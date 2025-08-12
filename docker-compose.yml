@@ -28,7 +28,11 @@ services:
       # Montage optionnel pour les configs locales
       - ./docker/config:/app/config:ro
     
-    # Réseau par défaut (pas d'exposition de ports en mode stdio)
+    # Exposition du port dashboard pour monitoring
+    ports:
+      - "3001:3001"
+    
+    # Réseau par défaut
     networks:
       - dsfr-network
     
