@@ -179,9 +179,11 @@ class CacheService extends ICacheService {
       const keysToDelete = [];
       const regex = new RegExp(pattern.replace(/\*/g, '.*'));
 
-      for (const key of this.memoryCache.keys()) {
-        if (regex.test(key)) {
-          keysToDelete.push(key);
+      if (this.memoryCache.cache && this.memoryCache.cache instanceof Map) {
+        for (const key of this.memoryCache.cache.keys()) {
+          if (regex.test(key)) {
+            keysToDelete.push(key);
+          }
         }
       }
 
@@ -223,9 +225,13 @@ class CacheService extends ICacheService {
     });
 
     // Stratégie LRU : supprimer les entrées les moins récemment utilisées
-    const entries = Array.from(this.memoryCache.entries())
-      .map(([key, value]) => ({ key, ...value }))
-      .sort((a, b) => a.lastAccessed - b.lastAccessed);
+    const entries = [];
+    if (this.memoryCache.cache && this.memoryCache.cache instanceof Map) {
+      for (const [key, value] of this.memoryCache.cache) {
+        entries.push({ key, ...value });
+      }
+    }
+    entries.sort((a, b) => a.lastAccessed - b.lastAccessed);
 
     let freedSpace = 0;
     const keysToDelete = [];
@@ -386,10 +392,12 @@ class CacheService extends ICacheService {
   async cleanup() {
     let expired = 0;
 
-    for (const [key, entry] of this.memoryCache.entries()) {
-      if (this.isExpired(entry)) {
-        this.memoryCache.delete(key);
-        expired++;
+    if (this.memoryCache.cache && this.memoryCache.cache instanceof Map) {
+      for (const [key, entry] of this.memoryCache.cache) {
+        if (this.isExpired(entry)) {
+          this.memoryCache.delete(key);
+          expired++;
+        }
       }
     }
 
